@@ -55,10 +55,11 @@ Seis atributos (FOR, DES, VIG, POT, **CON = Controle**, PER), até +60 investido
 Ao preparar uma conjuração, escolher 1 modelagem (salva por técnica, trocada fora da execução). Valores com CON +0 → CON +40 → CON +60:
 | Modelagem | CON +0 | CON +40 | CON +60 | Restrição |
 |---|---|---|---|---|
-| Expandir | raio ×1,10 | ×1,30 | ×1,34 | não aumenta alcance de cura/transferência |
-| Comprimir | dano ×1,05 | ×1,15 | ×1,17 | só em ações com área; raio ×0,70 |
-| Conduzir | andar a 35% | 55% | 59% | não corre, não esquiva, não bloqueia no preparo |
+| Expandir | raio ×1,10 | ×1,30 | ×1,34 | **dano ×0,80, energia ×1,15**; não aumenta alcance de cura/transferência |
+| Comprimir | dano ×1,05 | ×1,15 | ×1,17 | só em ações com área; raio ×0,70; **energia ×1,15** |
+| Conduzir | andar a 35% | 55% | 59% | **preparo ×1,20**; não corre, não esquiva, não bloqueia no preparo |
 Fórmulas: Expandir = 1,10 + 0,40·r(CON); Comprimir = 1,05 + 0,20·r(CON); Conduzir = 35% + 40%·r(CON).
+**Ordem de cálculo dos custos:** sobretaxas de energia (Modelagem, Sobrecarga, nós) **somam-se sobre o custo-base**; depois aplica-se a eficiência; nunca abaixo do piso do núcleo.
 **Preparo de conjuração** (status): H_c = 1 + 0,25·r(CON), só no preparo das conjurações (DES acelera só a recuperação delas — os dois nunca aceleram o mesmo trecho).
 
 ### 2.6 PER — Leitura e Abertura
@@ -75,12 +76,12 @@ Fórmulas: Expandir = 1,10 + 0,40·r(CON); Comprimir = 1,05 + 0,20·r(CON); Cond
 3 por atributo, nos marcos **+15 / +35 / +55** (exige o atributo **efetivo**, depois da sincronia). Custam **2 PH** e ocupam **1 das 6 passivas**. No máx. **1 especialização por atributo** preparada.
 | Atributo | +15 | +35 | +55 |
 |---|---|---|---|
-| FOR | **Golpe assentado** — Firmar o golpe custa +0,15 s em vez de +0,25 s; a conversão máxima cai para 15% | **Martelo de guarda** — Golpe de Ímpeto contra alvo bloqueando causa +50% de impacto; contra alvo sem guarda, −10% de dano | **Estilhaçar** — quebrar a postura de um inimigo devolve 15 de Ímpeto (1 vez por alvo a cada 10 s); suas continuações perdem 1 golpe (mesmo total) |
+| FOR | **Golpe assentado** — Firmar o golpe custa +0,15 s em vez de +0,25 s; a conversão máxima cai para 15% | **Martelo de guarda** — Golpe de Ímpeto contra alvo bloqueando causa +50% de impacto; contra alvo sem guarda, −10% de dano | **Estilhaçar** — quebrar a postura de um inimigo devolve 25 de Ímpeto (recarga interna global de 10 s); em troca, o dano total das suas continuações −10% |
 | DES | **Pés leves** — o deslocamento das continuações pode ser **para trás**; o dano total delas cai 10% quando você recua | **Corrente contínua** — esquiva perfeita durante as continuações não as cancela (1 vez por sequência); a sequência custa 5R | **Vendaval de lâminas** — continuações com Ímpeto ≥ 80 atravessam até 2 inimigos comuns no caminho (dano dividido) |
 | VIG | **Muro de carne** — Firmar dura 1,6 s; a recarga sobe para 15 s | **Dívida parcelada** — a dívida cai em 5 parcelas a cada 0,6 s (mais tempo para agir); dívida máx. −20% | **Segundo fôlego** — Ceder também recupera 10R; Firmar custa 20R |
-| POT | **Reator estável** — cargas expiram após 12 s em vez de 8 s; ganho mínimo entre cargas sobe para 3 s | **Descarga total** — consumir 3 cargas de uma vez dá +1 carga "fantasma" de bônus (×4 o bônus por carga), mas a energia não regenera por 4 s | **Coração de fornalha** — com 3 cargas acumuladas, sua regeneração de energia +20%; com 0 cargas, −10% |
+| POT | **Reator estável** — cargas expiram após 12 s em vez de 8 s; ganho mínimo entre cargas sobe para 3 s | **Descarga total** — consumir 3 cargas de uma vez dá uma **4ª parcela** de bônus (sobretaxa também de 4 parcelas: +80% do custo-base e +0,40 s), e a energia não regenera por 4 s | **Coração de fornalha** — com 3 cargas acumuladas, sua regeneração de energia +20%; com 0 cargas, −10% |
 | CON | **Mão firme** — estabilidade de conjuração +50% (stagger comum não atrasa seu preparo); Conduzir −10 pontos de velocidade | **Geometria fina** — Expandir e Comprimir podem ser combinados na mesma ação, com os dois efeitos pela metade | **Tecelão** — a 2ª conjuração diferente em até 3 s tem preparo −25% (1 vez a cada 8 s); custo +10% |
-| PER | **Olho de caçador** — Leitura recarrega em 6 s; a Abertura dura 1,5 s | **Leitura dupla** — pode marcar 2 ataques ao mesmo tempo; cada Abertura vale 70% | **Presságio** — a Abertura pode ser guardada até 5 s, mas o seu uso escolhido vale 80% |
+| PER | **Olho de caçador** — Leitura recarrega em 6 s; a Abertura dura 1,5 s | **Leitura dupla** — pode marcar 2 ataques ao mesmo tempo; cada Abertura vale 70% | **Abertura conservada** — a Abertura pode ser guardada até 5 s, mas o seu uso escolhido vale 80% |
 
 ### 2.8 Ligações entre atributos (15 — 1 por par)
 Custam **2 PH**, ocupam **1 das 6 passivas**, exigem **+15 efetivos nos dois** atributos, **só 1 preparada**. Desligam se a sincronia derrubar um requisito. Não geram recursos por efeitos derivados.
@@ -98,7 +99,7 @@ Custam **2 PH**, ocupam **1 das 6 passivas**, exigem **+15 efetivos nos dois** a
 | VIG–POT | **Núcleo protegido** | Firmar mantém as cargas de Sobrecarga por +3 s; +10 de energia no Firmar |
 | VIG–CON | **Conjuração assentada** | troca Conduzir por conjuração **imóvel** que não sofre stagger comum; custo +20% |
 | VIG–PER | **Guarda informada** | bloquear o ataque marcado por Leitura reduz a dívida atual em até 10; a Abertura é consumida na hora (Retomar) |
-| POT–CON | **Lente instável** | com 2–3 cargas, pode combinar Sobrecarga e Expandir com dano ×0,90 em vez de ×0,80; custo +10% |
+| POT–CON | **Lente instável** | com 2–3 cargas, pode combinar Sobrecarga e Expandir com dano ×0,90 em vez de ×0,80; a sobretaxa de Expandir passa de 15% para **35%** |
 | POT–PER | **Disparo calculado** | Punir numa magia sobrecarregada soma +10 pontos de penetração, mas consome 1 carga extra |
 | CON–PER | **Janela desenhada** | interromper o ataque marcado permite reposicionar sua próxima área em até 2 m durante o preparo |
 
@@ -130,10 +131,10 @@ Custam **2 PH**, ocupam **1 das 6 passivas**, exigem **+15 efetivos nos dois** a
 | Penetração | PER (Punir), técnica, equipamento | teto 35% da armadura; nunca ignora mitigação de mecânica de chefe |
 | Preparo de conjuração | CON (H_c), condutor | só no preparo de conjurações |
 | Recuperação de postura | VIG, equipamento, árvore | 10 × (1 + 0,40·r(VIG)) por segundo, depois de 2 s sem impacto |
-| Estabilidade de conjuração | CON, forro | reduz atraso por stagger comum; não anula interrupção marcada |
-| Tenacidade | VIG, forro, Sobrevivência | reduz duração de controle até 30%; não vale para mecânica obrigatória |
+| Estabilidade de conjuração | CON, forro | atraso por stagger comum na conjuração = 0,20 s × (1 − estabilidade); estabilidade = 0,50·r(CON) + forro, teto 60%; não anula interrupção marcada |
+| Tenacidade | VIG, forro, Sobrevivência | atributo dá 12·r(VIG) p.p.; forro e Sobrevivência completam até o teto de 30%; reduz duração de controle; não vale para mecânica obrigatória |
 | Eficiência energética | condutor, árvore | redução total de custo ≤ 25%; nenhuma técnica paga menos de 5 E |
-| Vazão de cura | POT, Socorro | mais vida movida por ação (gasta a mesma proporção da reserva) |
+| Vazão de cura | POT, Socorro | quantidade-base × [1 + 0,20·r(POT)] + nós; debita a reserva na mesma proporção antes da conservação |
 | Conservação de reserva | Socorro, equipamento | até +10% de vida por unidade de reserva |
 | Proteção recebida | armadura, Sobrevivência | redução em condições explícitas; multiplicativa |
 | Ameaça gerada | Proteção, equipamento | ×0,60 a ×1,60; não muda contribuição nem recompensa |
@@ -175,7 +176,7 @@ A prévia de fabricação mostra dano médio e variação com a build atual (o g
 | Nós-chave | **2** | máx. 1 por árvore |
 | Transformações | **3** | máx. 1 por técnica |
 | Arte Única | 1 | dentro das 8 técnicas |
-- Kit fundamental (sempre): leve, pesado, esquiva, bloqueio, parry, corrida, interação, Golpe de Ímpeto, Firmar.
+- Kit fundamental (sempre): leve, pesado, esquiva, bloqueio (se a arma permitir), parry, corrida, interação, Golpe de Ímpeto, Firmar.
 - As 8 técnicas são compartilhadas pelos conjuntos A e B (técnica de arma só com a arma dela).
 - **Revelação progressiva:** 4 espaços de técnica no início · 6 no nível 10 · 8 no nível 20 · reação depois do tutorial de reação · transformação e chave só depois de usar a técnica original.
 - Controle: 2 páginas de 4 técnicas (botão de ombro) + 1 botão de reação.
@@ -192,6 +193,15 @@ A prévia de fabricação mostra dano médio e variação com a build atual (o g
 - Técnicas e nós comprados continuam disponíveis; **requisitos** (especialização, ligação) usam os atributos **sincronizados**. Se a sincronia derrubar um marco, a especialização ou ligação fica **preparada mas inativa** (o espaço de passiva continua ocupado; trocar só nos lugares de troca da preparação) e volta sozinha quando o atributo efetivo voltar.
 - Arena e Provação: **63 PH** (nível 60) e acesso a **todos os nós públicos** na preparação de Arena.
 - PvP não dá domínio, Leitor, afinidade nem Artes (núcleo C.2).
+
+## 7.0 Orçamentos únicos
+- **Sobrecarga:** cargas armazenadas máx. **3**; efeitos de "4ª carga" (Descarga total, Fúria dos céus) **não acumulam** entre si — no máximo 4 parcelas de bônus por ação, pagando 4 parcelas de sobretaxa. Calor do núcleo (Fogo 21) é a única exceção de 2 cargas numa ação.
+- **Abertura e exaustão de chefe** pertencem à ficha do chefe; nenhum nó, especialização ou Arte muda a duração delas nem a imunidade posterior.
+- **Periódicos** (Queimando, veneno, dano contínuo): "X%" = X% do dano direto **efetivamente causado** pela ação que aplicou, em tiques de 1 s, 1º tique em 1 s; do mesmo jogador não acumula (renova).
+- **Curas periódicas iguais** não acumulam no mesmo alvo; áreas de cura (Fonte, Flecha de socorro) atingem no máx. **4 aliados**.
+- **Métricas do Leitor usadas pelas Artes:** Magia = ações mágicas originais válidas ÷ ações originais válidas (o vetor de 3 componentes do núcleo continua para assinaturas). Suporte = oportunidades de assistência aproveitadas ÷ oportunidades elegíveis; elegível = aliado com déficit de vida ≥ 5% do máximo, estado removível ou ataque telegrafado interceptável; 1 acerto por episódio; mín. 12 oportunidades em 3 encontros, sem atualizar quando não houver oportunidade. Nenhum nó pode desligar ou editar métricas do Leitor.
+- **Consentimento:** qualquer efeito que mova um aliado (Inversão, Mão do vento, Laço de ferro, Horizonte Fixo) obedece à mesma preferência "aceitar deslocamento de aliados" (padrão: só do grupo).
+- **Bloqueio no kit:** o kit fundamental tem bloqueio **quando a arma permite** (katana, duas katanas, duas espadas, dois machados e arco não bloqueiam; Firmar exige bloqueio).
 
 ## 7.1 Ações derivadas (vale para nós, especializações, ligações e Artes)
 Ação **derivada** = eco, imagem, repetição (Reprise, Memória), devolução (Revide, reflexos de arma, Âncora), propagação (Queimando que passa, condução), explosão de rastro.
@@ -220,7 +230,23 @@ Ação **derivada** = eco, imagem, repetição (Reprise, Memória), devolução 
 6. Toda passiva que dá algo **tira** algo (custo, tempo, alcance, outro caso); passivas "puras" só no tronco e só para regras de uso, não números.
 7. **Metas de teste:** nenhuma preparação lidera ao mesmo tempo dano, segurança e objetivos; ≥ 3 preparações competitivas por função; especialista pode ganhar > 15% no encontro favorável se perde em outro; generalista ≤ 15% abaixo da melhor média; nó presente em quase todas as preparações = pedágio a corrigir.
 
+8. **Equivalência de dano entre preparações: não validada.** A comparação de ataques básicos das armas não valida as preparações com nós. Medir em 30, 90 e 300 s (com geração de recurso, deslocamento e recuperação) e corrigir regras **antes** de mexer na vida dos chefes. Prioridades de teste:
+
+| Preparação | Risco principal |
+|---|---|
+| Espada curta 07/12/14 | amplificação pessoal + Exposto coletivo muito disponível |
+| Duas espadas 08/14 | acúmulo de Ritmo e duplicação de K |
+| Arco 12/29/30 | explosão de perto e vazão coletiva de cura |
+| Água 12 + transferências | reposição de reserva |
+| Terra: Firmar + barreiras + Inabalável na arma secundária | economias defensivas sobrepostas |
+| POT +35 + POT–CON + Arte de repetição | explosão que paga custos diferentes do que recebe |
+| DES + Continuação + Passo Fantasma + Eco | mobilidade com dano sem compromisso |
+| VIG Firmar + Âncora + Muralha + Juramento | tanque que devolve impacto e protege o grupo |
+| PER + Abertura conservada + Presságio + Bainha de resposta | janela de parry generosa demais |
+| Dois machados: Berserker + Fúria cega + Sangue quente | pico de dano com sobrevivência |
+| Uso de ramo por arma | ramo com < 15% de escolha em preparações competitivas → reescrever a chave ou a transformação |
+
 ## 10. Formato das fichas (01–05)
 `K` = coeficiente de dano · `I` = impacto total da ação · tempo = preparo + execução + recuperação (fases 35/20/45% salvo indicação) · `R` resistência · `E` energia · `rec.` recarga · `s` = escala da camada (núcleo A.7) · `dom.` = domínio da arma/elemento exigido · requisito por número = nó anterior que precisa estar comprado.
-Tipos: **Técnica** (2 PH) · **Reação** (2 PH, vai no espaço de reação) · **Passiva** (1 PH) · **Transformação** (2 PH) · **Nó-chave** (3 PH; exige dom. 60, 8 PH no ramo, 2 técnicas e 2 passivas do ramo).
+Tipos: **Técnica** (2 PH) · **Reação** (2 PH, vai no espaço de reação) · **Passiva** (1 PH) · **Transformação** (2 PH) · **Nó-chave** (3 PH; exige dom. 60 e o ramo inteiro antes dela: 8 PH com 2 técnicas + 2 passivas — no ramo C dos elementos, 7 PH com 1 técnica + 3 passivas; disciplinas: nível 40, 6 PH, 1 técnica + 2 passivas).
 Estrutura de toda árvore de arma: **tronco** (nós 01–06: 3 técnicas + 3 passivas, 9 PH) e **3 ramos** de 8 nós (3 técnicas + 3 passivas + 1 transformação + 1 nó-chave = 14 PH).

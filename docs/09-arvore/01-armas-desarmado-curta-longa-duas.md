@@ -10,11 +10,11 @@ Ramos: **A. Fluxo e direções** (combo em direções diferentes) · **B. Agarr�
 | Nº | Nó | Tipo | Requisito | Efeito |
 |---|---|---|---|---|
 | 01 | Investida de ombro | Técnica | dom. 1 | K0,60 I30 · 0,70 s · 15R · rec. 7 s; avança 3 m e empurra comuns 1 m. [Ruptura] |
-| 02 | Rasteira | Técnica | dom. 10 | K0,40 I25 · 0,60 s · 12R · rec. 9 s; derruba comum 1,2 s; contra elite só −20% de postura. [Ruptura] |
+| 02 | Rasteira | Técnica | dom. 10 | K0,40 I25 · 0,60 s · 12R · rec. 9 s; derruba comum 1,2 s; contra elite e chefe só o impacto I25 (sem derrubar fora de janela compatível). [Ruptura] |
 | 03 | Palma elemental | Técnica | dom. 10 | K1,00 I18 · 0,80 s · 18E · rec. 5 s; imbuir (FOR 0,5/DES 0,1/POT 0,4); empurra 2 m. [Execução] |
 | 04 | Postura aberta | Passiva | 01 · dom. 1 | mãos livres: conjurações 15% mais rápidas no preparo (regra da arma); em troca o bloqueio desarmado custa +10% de resistência |
 | 05 | Golpe de base | Passiva | 02 · dom. 10 | o 1º leve depois de uma esquiva tem +6 de impacto; os outros leves da sequência −5% de dano |
-| 06 | Ritmo de respiração | Passiva | 03 · dom. 20 | 2 s sem receber golpe: Fluxo não cai por pausa (em vez de zerar após 3 s); recebendo golpe, perde 2 níveis de Fluxo em vez de 1 |
+| 06 | Ritmo de respiração | Passiva | 03 · dom. 20 | o Fluxo não zera por pausa durante 4 s (em vez de 3 s); em troca, cada nível de Fluxo dá +5% de impacto em vez de +6% (receber golpe continua zerando o Fluxo) |
 
 ### Ramo A — Fluxo e direções
 | Nº | Nó | Tipo | Requisito | Efeito |
@@ -48,7 +48,7 @@ Ramos: **A. Fluxo e direções** (combo em direções diferentes) · **B. Agarr�
 | 25 | Palma que sela | Técnica | 24 · dom. 60 | K0,80 I35 · 0,8 s · 18E · rec. 16 s; sela morto-vivo e silencia elemental 2 s (silêncio conta na categoria de controle no PvP). [Contenção] |
 | 26 | Mãos condutoras | Passiva | 03 · dom. 20 | Palma elemental aplica o elemento também no 1º leve seguinte; a Palma custa +4E |
 | 27 | Pele de pedra | Passiva | 23 · dom. 30 | Contra-golpe reduz o dano recebido para 40% (era 50%); a recarga sobe para 10 s |
-| 28 | Respiração interna | Passiva | 24 · dom. 40 | durante Corpo de ferro, Firmar (VIG) não custa resistência; ao fim, a dívida de postura +20% |
+| 28 | Respiração interna | Passiva | 24 · dom. 40 | durante Corpo de ferro, Firmar (VIG) custa só 5R; ao fim, a dívida de postura +20% |
 | 29 | Palma em cadeia | Transformação | 03 · dom. 40 | Palma elemental salta para 1 alvo extra a 3 m com 60% do dano; não empurra |
 | 30 | Punho do espelho | Nó-chave | dom. 60; 8 PH no ramo; 2 técnicas + 2 passivas | Contra-golpe vira parry (janela **técnica** de parry do núcleo, teto 240 ms; com PER ≥ +15 usa a recarga da sua Leitura; sem PER, recarga interna +50%): sucesso devolve o golpe com +10 de impacto e 0% de dano recebido; falha = você leva 100% e 0,35 s de recuperação |
 
@@ -75,9 +75,9 @@ Ramos: **A. Flanco móvel** · **B. Debilitação** (veneno, lentidão, abrir de
 | 09 | Lâminas gêmeas | Técnica | 08 · dom. 60 | K0,50×2 I15 · 0,70 s · 12R · rec. 8 s; o 2º corte só sai se o 1º foi no flanco. [Execução] |
 | 10 | Rodear | Passiva | 07 · dom. 20 | correr em arco em volta de um alvo a até 4 m não gasta resistência por 1 s; o 1º golpe depois disso não pode ser crítico |
 | 11 | Sombra persistente | Passiva | 01 · dom. 30 | Passo de sombra deixa você 0,5 s fora da mira de comuns (não de elites/chefes); recarga 7 → 9 s |
-| 12 | Costas expostas | Passiva | 08 · dom. 40 | acertar 3 golpes de flanco seguidos deixa o alvo Exposto 2 s (+20% de dano recebido); a cada golpe de frente o contador volta a 0 |
+| 12 | Costas expostas | Passiva | 08 · dom. 40 | acertar 3 golpes de flanco seguidos deixa o alvo Exposto 2 s (+20% de dano recebido), recarga interna de 10 s por alvo; em troca, os golpes que contam custam +2R e um golpe de frente zera o contador |
 | 13 | Passo duplo | Transformação | 01 · dom. 40 | Passo de sombra guarda 2 usos (recarga 10 s cada), mas cada passo alcança só 2 m |
-| 14 | Assassino de sombra | Nó-chave | dom. 60; 8 PH no ramo; 2 técnicas + 2 passivas | golpes de flanco contra alvo que está **atacando outro jogador** têm crítico garantido (×1,30 fixo; não soma dano crítico de equipamento); golpes de frente −10% de dano |
+| 14 | Assassino de sombra | Nó-chave | dom. 60; 8 PH no ramo; 2 técnicas + 2 passivas | golpes de flanco contra alvo que está **atacando outro jogador** ganham +15 p.p. de chance crítica (respeita o teto de 40%; não multiplica de novo o bônus de Flanco); golpes de frente −10% de dano |
 
 ### Ramo B — Debilitação
 | Nº | Nó | Tipo | Requisito | Efeito |
@@ -99,7 +99,7 @@ Ramos: **A. Flanco móvel** · **B. Debilitação** (veneno, lentidão, abrir de
 | 25 | Fuga das sombras | Técnica | 24 · dom. 60 | 0 dano · 0,4 s · 10R · rec. 16 s; salta 5 m para trás e zera sua ameaça com o alvo por 3 s. [Sustentação] |
 | 26 | Aparo limpo | Passiva | 23 · dom. 20 | Corte de aparar bem-sucedido dá +10 Ímpeto (parry normal dá 20; total 30, dentro do teto 45/s); falhar custa +10R |
 | 27 | Esquiva rasante | Passiva | 01 · dom. 30 | esquiva curta de 2 m com i-frame 0,26 s, −20% de custo; perde 0,04 s de invulnerabilidade |
-| 28 | Pano de fumaça | Passiva | 25 · dom. 60 | Fuga das sombras deixa fumaça 3 m por 3 s (projéteis −50% de acerto dentro dela, também os seus) |
+| 28 | Pano de fumaça | Passiva | 25 · dom. 60 | Fuga das sombras deixa fumaça 3 m por 3 s: projéteis que entram nela saem com dispersão angular de ±6° (simétrica, sem sorteio de acerto); em troca, vale também para os seus |
 | 29 | Aparo em cadeia | Transformação | 23 · dom. 40 | Corte de aparar guarda 2 usos (recarga 12 s cada); o corte do sucesso cai para K0,35 |
 | 30 | Dançarino de lâmina | Nó-chave | dom. 60; 8 PH no ramo; 2 técnicas + 2 passivas | depois de um Corte de aparar bem-sucedido, o próximo Passo de sombra em 2 s não tem recarga; cada Passo assim custa +10R |
 
@@ -133,14 +133,14 @@ Ramos: **A. Flanco móvel** · **B. Debilitação** (veneno, lentidão, abrir de
 ### Ramo B — Passagem
 | Nº | Nó | Tipo | Requisito | Efeito |
 |---|---|---|---|---|
-| 15 | Guarda de passagem | Técnica | 01 · dom. 20 | K0,35 I15 · 0,90 s · 15R · rec. 8 s; bloqueio frontal nos 0,35 s da execução + passo lateral 1,5 m. [Contenção] |
+| 15 | Guarda de passagem | Técnica | 01 · dom. 20 | K0,35 I15 · preparo 0,20 s + execução com bloqueio frontal 0,35 s + recuperação 0,35 s (total 0,90 s) · 15R · rec. 8 s; passo lateral 1,5 m. [Contenção] |
 | 16 | Troca de guarda | Técnica | 15 · dom. 40 | K0,70 I20 · 0,50 s · 10R · rec. 8 s; termina na guarda oposta (a troca só acontece se a execução terminar). [Contenção] |
-| 17 | Contra perfeito | Reação | 15 · dom. 40 | 15R · rec. 10 s; postura defensiva de 0,25 s com janela de parry válida; sucesso → corte K1,20 I25 em 0,60 s. [Contenção] |
+| 17 | Contra perfeito | Reação | 15 · dom. 40 | 15R · rec. 10 s; postura defensiva de 0,25 s com janela de parry válida; sucesso → corte K1,20 I25 em 0,60 s (o impacto do corte **substitui** o do parry); falha → 0,35 s de recuperação, custo gasto. [Contenção] |
 | 18 | Base móvel | Passiva | 15 · dom. 20 | Guarda de passagem +0,5 m de passo; bloqueio custa +15% de resistência |
 | 19 | Resposta curta | Passiva | 17 · dom. 40 | o corte do Contra perfeito leva 0,45 s em vez de 0,60 s; K1,20 → 1,00 |
 | 20 | Fôlego de passagem | Passiva | 16 · dom. 40 | acertar Troca de guarda até 2 s depois de um bloqueio eficaz restaura 6R; recarga interna 10 s |
 | 21 | Passagem recuada | Transformação | 15 · dom. 40 | Guarda de passagem recua até 2 m em vez do passo lateral; perde o corte e o impacto; custo 15 → 10R |
-| 22 | Duelista de transição | Nó-chave | dom. 60; 8 PH no ramo; 2 técnicas + 2 passivas | após um parry bem-sucedido, a Troca de guarda pode **substituir** o corte do Contra perfeito (K1,00 I20, custo 8R, sem recarga própria nesse uso) — uma ação no lugar da outra, nunca as duas |
+| 22 | Duelista de transição | Nó-chave | dom. 60; 8 PH no ramo; 2 técnicas + 2 passivas | após um parry bem-sucedido, a Troca de guarda pode **substituir** o corte do Contra perfeito (K1,00 I20, custo 8R, sem recarga própria nesse uso; dura o mesmo que o corte substituído, inclusive com Resposta curta) — uma ação no lugar da outra, nunca as duas |
 
 ### Ramo C — Vigília
 | Nº | Nó | Tipo | Requisito | Efeito |
@@ -176,10 +176,10 @@ Ramos: **A. Ritmo preciso** · **B. Área em movimento** · **C. Defesa contra p
 | 08 | Lâminas em X | Técnica | 07 · dom. 40 | K1,40 I35 · 1,0 s · 20R · rec. 10 s; consome o Ritmo: +10% de dano por nível consumido. [Execução] |
 | 09 | Chuva de cortes | Técnica | 08 · dom. 60 | K0,25×12 I30 total · 2,4 s · 35R · rec. 20 s; exige Ritmo ≥ 3. [Execução] |
 | 10 | Compasso | Passiva | 07 · dom. 20 | corte cruzado também aplica +10 de impacto se o alvo estava atacando; o corte cruzado custa 3R |
-| 11 | Contratempo da lâmina | Passiva | 08 · dom. 40 | Lâminas em X pode consumir só metade do Ritmo (metade do bônus); a recarga cai para 7 s se consumir tudo |
+| 11 | Contratempo da lâmina | Passiva | 08 · dom. 40 | Lâminas em X ganha 2 modos: **parcial** (consome metade do Ritmo, metade do bônus, recarga 12 s) ou **integral** (tudo, recarga normal de 10 s) |
 | 12 | Batida perfeita | Passiva | 07 · dom. 30 | esquiva perfeita soma 1 nível de Ritmo; esquiva comum durante o Ritmo tira 1 nível |
 | 13 | Infinito | Transformação | 07 · dom. 40 | Ritmo sustentado vira "corte cruzado a cada 3 alternados por 6 s" (a antiga avançada Ritmo infinito); perde a proteção contra golpes |
-| 14 | Maestro de aço | Nó-chave | dom. 60; 8 PH no ramo; 2 técnicas + 2 passivas | Ritmo máximo 8 níveis; Lâminas em X com 8 níveis vira 2 cortes (+10% por nível em cada, impacto total 45); com menos de 4 níveis, Lâminas em X −20% |
+| 14 | Maestro de aço | Nó-chave | dom. 60; 8 PH no ramo; 2 técnicas + 2 passivas | no 4º nível de Ritmo você escolhe liberar o corte cruzado **ou** continuar acumulando até 8; Lâminas em X com 8 níveis = 2 cortes de K1,26 (K2,52 total), I45 total, 1,20 s, 28R, consome os 8 níveis e não gera Ritmo; com menos de 4 níveis, Lâminas em X −20% |
 
 ### Ramo B — Área em movimento
 | Nº | Nó | Tipo | Requisito | Efeito |

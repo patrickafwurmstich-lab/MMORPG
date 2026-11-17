@@ -29,29 +29,29 @@ Artes são **escondidas**: não aparecem na árvore, não custam PH e são desco
 
 ### 1. Eco
 - **Ativação:** nos 2 s depois de uma esquiva perfeita · **custo** 15E · **recarga** 8 s · não acrescenta tempo (altera a próxima técnica ofensiva).
-- **Efeito:** a técnica causa 70% do dano direto; uma imagem parada repete os 30% restantes 0,6 s depois. Impacto e elemento só na técnica original.
+- **Efeito:** a técnica causa 70% do dano direto; uma imagem parada repete os 30% restantes 0,6 s depois, e você pode apontar o eco para **outro alvo a até 2 m** do ponto original (sem efeitos auxiliares). Impacto e elemento só na técnica original.
 - **Preço:** o eco pode errar se o alvo sair do lugar. **Chefe/PvP:** igual; não copia agarrão nem deslocamento.
-- **Alternativas:** Eco duplo (2 ecos de 15% em 0,4 e 0,8 s) · Eco atrasado (30% em 1,2 s, +5 de impacto no eco) · Eco isca (a imagem atrai comuns 1 s) · Eco defensivo (repete um parry em vez de ataque, 50% da janela).
+- **Alternativas:** Eco duplo (2 ecos de 15% em 0,4 e 0,8 s) · Eco atrasado (30% em 1,2 s, +5 de impacto no eco) · Eco isca (a imagem atrai comuns 1 s) · Eco defensivo (depois de um parry, uma **2ª entrada manual** em até 0,6 s abre outra janela de 70 ms; sem recompensa de parry nem contra-ataque).
 - **Rotas:** Esquiva + Agressão · DES +20 / PER +10 · feras, aviários. Desafios: 10 esquivas perfeitas seguidas sem levar golpe · derrotar uma elite usando só técnicas logo após esquiva · vencer um mini-chefe sem bloquear.
 
 ### 2. Reprise
-- **Ativação:** manual, até 3 s depois de usar uma técnica · **custo** o dobro do custo dela · **recarga** 20 s · 0,3 s.
-- **Efeito:** repete a última técnica usada com 50% do dano e 50% do impacto (sem as transformações), ignorando a recarga dela.
-- **Preço:** custo dobrado; a técnica original ganha +4 s de recarga. **Chefe/PvP:** igual; controles repetidos contam como nova aplicação na categoria.
-- **Alternativas:** Reprise fiel (70% de dano, custo ×2,5) · Reprise curta (só técnicas de recarga ≤ 8 s, custo ×1,5) · Reprise de apoio (só técnicas [Sustentação], 60%) · Reprise elemental (repete só o elemento, sem dano).
+- **Ativação:** manual, até 3 s depois de usar uma técnica · **custo** 1,5× o custo-base dela · **recarga** 20 s.
+- **Efeito:** repete a última técnica **ofensiva direta de arma** usada, com a animação completa (preparo e carga incluídos), K e impacto totais ×0,50, ignorando a recarga dela. Sem elemento, controle, geração de recursos nem efeitos auxiliares; as condições de uso são conferidas de novo. Não copia Artes, reações, canalizações nem técnicas de suporte.
+- **Preço:** custo 1,5×; a técnica original ganha +4 s de recarga. **Chefe/PvP:** igual; controles repetidos contam como nova aplicação na categoria.
+- **Alternativas:** Reprise fiel (70% de dano, custo ×2,5) · Reprise curta (só técnicas de recarga ≤ 8 s, custo ×1,5) · Reprise lenta (repete 2 s depois, K ×0,60, custo 1,5×) · Reprise elemental (repete só o elemento, sem dano).
 - **Rotas:** Compromisso + Agressão · FOR +20 / CON +10 · constructos, humanoides. Desafios: usar 6 técnicas diferentes num só encontro · derrotar 3 elites sem que nenhuma técnica sua fique em recarga mais de 2 s ociosa · vencer um encontro de Cerco sem perder o Núcleo.
 
 ### 3. Rastro duplo
 - **Ativação:** passiva enquanto preparada; dispara ao correr 2 s seguidos · **recarga interna** 10 s.
 - **Efeito:** ao parar de correr, uma imagem continua 3 m na direção da corrida e explode (K0,60, I10) — atrai o 1º ataque de comuns a 3 m.
 - **Preço:** ocupa uma técnica sem ser ativa; correr para disparar gasta resistência. **Chefe/PvP:** chefe ignora a isca; PvP a imagem não tem nome nem barra (dá para perceber).
-- **Alternativas:** Rastro longo (6 m) · Rastro de fumaça (sem dano, nuvem 2 s) · Rastro elemental (aplica o elemento) · Rastro de guarda (a imagem bloqueia 1 projétil).
+- **Alternativas:** Rastro longo (6 m) · Rastro de fumaça (sem dano, nuvem 2 s) · Rastro elemental (a explosão vira K0,30 do seu elemento, sem aplicar o efeito do elemento) · Rastro de guarda (a imagem bloqueia 1 projétil).
 - **Rotas:** Mobilidade + Esquiva · DES +20 / VIG +10 · insetos, sombras. Desafios: atravessar o labirinto técnico sem ser atingido por armadilha · escapar de 3 perseguições de elite sem combate · completar a Expedição logística de um andar.
 
 ### 4. Memória da lâmina
 - **Ativação:** manual · **custo** 20R · **recarga** 30 s · 0,5 s.
-- **Efeito:** "grava" a técnica de arma que você usar em seguida; por 15 s você pode usá-la de novo **uma vez** sem custo (a recarga dela continua valendo para o uso normal).
-- **Preço:** gravar não acelera nada se você não tiver outra técnica para usar entre os dois usos; perder os 15 s desperdiça. **Chefe/PvP:** igual.
+- **Efeito:** "grava" a próxima técnica **ofensiva direta de arma** que você usar; por 15 s você pode usá-la de novo **uma vez** ignorando a recarga dela, pagando 100% do custo-base e dos recursos especiais (Ritmo, Frenesi, cargas). O 2º uso repete animação e condições e é **recalculado** (não reaproveita crítico, Abertura nem Sobrecarga já consumidos).
+- **Preço:** 20R para gravar + o custo cheio do 2º uso; perder os 15 s desperdiça. **Chefe/PvP:** igual.
 - **Alternativas:** Memória curta (7 s, recarga 20 s) · Memória dupla (grava 2 técnicas, cada uma a 60%) · Memória de reação (grava a técnica de reação) · Memória paciente (30 s, custo 30R).
 - **Rotas:** Precisão + Compromisso · PER +20 / FOR +10 · dracônicos, colossos. Desafios: quebrar 4 partes de um colosso no mesmo combate · derrotar um chefe de Partes · acertar 20 pontos fracos seguidos.
 
@@ -91,13 +91,13 @@ Artes são **escondidas**: não aparecem na árvore, não custam PH e são desco
 - **Ativação:** manual, antes do golpe inimigo · **custo** 30R · **recarga** 60 s (máx. 1 por tentativa de chefe; bloqueado nos 10 s depois de Sangue por fôlego) · 0,3 s · janela 2 s.
 - **Efeito:** um golpe que te derrubaria deixa você com 1 de vida por 1 s; o dano excedente volta no fim desse segundo. **Preço:** sem cura nesse segundo; a dívida só é reduzida por mitigação que já estava ativa no golpe original.
 - **Chefe/PvP:** não funciona contra morte de ambiente, saída de arena ou falha letal de objetivo.
-- **Alternativas:** permite concluir uma interação já iniciada (sem atacar) · dívida reaplicada em 2 parcelas · janela 1 s e recarga 40 s · converte a dívida em postura (você fica atordoado em vez de cair, se a postura aguentar).
+- **Alternativas:** permite concluir uma interação já iniciada (sem atacar) · dívida reaplicada em 2 parcelas · janela 1 s e recarga 40 s · a dívida volta em 4 parcelas de 0,25 s (mais tempo para uma mitigação ativa entrar).
 - **Rotas:** Compromisso + Defesa ativa · VIG +20 / FOR +10 · mortos-vivos, colossos. Desafios: concluir 3 intervenções de âncora sob ataque · vencer um chefe sem ser reanimado · completar um Resgate.
 
 ### 10. Contratempo
 - **Ativação:** depois de errar uma técnica direta · **custo** 20R · **recarga** 18 s.
 - **Efeito:** troca até 0,35 s da recuperação restante por um passo de 1,5 m (0,35 s). **Preço:** a próxima técnica custa +10R por até 4 s; sem invulnerabilidade; não cancela a execução nem reinicia a técnica.
-- **Alternativas:** recuo de 2 m · passo para frente (fecha distância) · troca 0,5 s mas o passo é de 1 m · o passo dá +5 Ímpeto se esquivar de um golpe.
+- **Alternativas:** recuo de 2 m · passo para frente (fecha distância) · troca 0,5 s mas o passo é de 1 m · o passo vira giro no lugar (vira para o alvo, 0,35 s).
 - **Rotas:** Esquiva + Mobilidade · DES +20 / VIG +10 · feras, sombras. Desafios: vencer 5 encontros seguidos sem ser atingido depois de errar um golpe · derrotar uma sombra elite · sobreviver 60 s a um enxame sem atacar.
 
 ### 11. Presságio
@@ -109,7 +109,7 @@ Artes são **escondidas**: não aparecem na árvore, não custam PH e são desco
 
 ### 12. Revide
 - **Ativação:** reação (vai no espaço de reação **e** ocupa uma técnica) · **custo** 15R · **recarga** 14 s.
-- **Efeito:** ao ser atingido por um golpe que você **bloqueou**, devolve imediatamente um ataque K0,80 com o impacto que o golpe tinha (máx. 40).
+- **Efeito:** depois de **bloquear** um golpe, aperte a reação em até 0,6 s: você faz um ataque de 0,5 s, K0,80, com o impacto que o golpe tinha (máx. 40). Nunca é automático.
 - **Preço:** o bloqueio custa +20% de resistência enquanto o Revide está pronto. **Chefe/PvP:** igual; no PvP o impacto devolvido é ×0,5.
 - **Alternativas:** devolve só impacto (sem dano, +10) · devolve em área de 2 m (K0,40) · devolve no próximo leve em vez de na hora (+20% de dano) · funciona também com Firmar (VIG) ativo.
 - **Rotas:** Defesa ativa + Compromisso · VIG +20 / FOR +10 · constructos, feras. Desafios: bloquear 30 golpes num encontro sem quebrar a guarda · derrotar uma elite só com contra-ataques · vencer um chefe de Cerco.
@@ -148,10 +148,10 @@ Artes são **escondidas**: não aparecem na árvore, não custam PH e são desco
 
 ### 17. Juramento de Retorno
 - **Ativação:** aliado a até 6 m · **custo** 25E · **recarga** 30 s · 0,8 s.
-- **Efeito:** transfere até 120·s da **sua** reserva para a dele; vínculo de 8 s: o que ele não gastar volta sozinho.
+- **Efeito:** transfere até 120·s da **sua** reserva para a dele; vínculo de 8 s: o saldo **não consumido** daquele empréstimo volta sozinho, debitado integralmente dele (nunca mais do que isso).
 - **Preço:** o que ele usar não volta; ele precisa ter espaço na reserva. Não cura direto; 1 vínculo por vez.
 - **Chefe/PvP:** só aliados válidos; o fim da tentativa encerra o vínculo antes de devolver.
-- **Alternativas:** 80·s a 10 m · 2 aliados com 60·s cada · o vínculo dura 15 s · a parte devolvida volta com +10% (nunca acima do que saiu de você).
+- **Alternativas:** 80·s a 10 m · 2 aliados com 60·s cada · o vínculo dura 15 s · devolução antecipável manualmente depois de 3 s (vínculo máx. 5 s).
 - **Rotas:** Suporte + Defesa ativa · VIG +20 / POT +10 · elementais, mortos-vivos. Desafios: manter todo o grupo vivo num chefe sem reanimações · mover 2.000·s de reserva numa tentativa · completar um Resgate sem nenhum aliado cair.
 
 ### 18. Laço de ferro
@@ -202,5 +202,5 @@ Artes são **escondidas**: não aparecem na árvore, não custam PH e são desco
 - **Ativação:** manual · **custo** 25E · **recarga** 30 s · 0,5 s · dura 5 s.
 - **Efeito:** você vira o ponto de saída das conjurações de 1 aliado a 10 m: as magias dele partem de você (alcance a partir da sua posição).
 - **Preço:** enquanto dura, você anda a 70% e não conjura; o aliado precisa aceitar. **Chefe/PvP:** igual; não atravessa paredes.
-- **Alternativas:** 2 aliados por 3 s · você também aplica o seu elemento nas magias dele (sem dano extra) · o aliado é o ponto de saída das **suas** magias · dura 8 s, você não pode atacar.
-- **Rotas:** Suporte + Magia · CON +20 / VIG +10 · aquáticos, elementais. Desafios: o grupo acertar 20 conjurações vindas de você · completar uma Travessia com um aliado conjurando por você · vencer um chefe Duplo com magia nos dois ao mesmo tempo.
+- **Alternativas:** 2 aliados por 3 s · as magias dele usam o **seu** elemento em vez do dele (1 aplicação por ação; −10% de dano) · o aliado é o ponto de saída das **suas** magias · dura 8 s, você não pode atacar.
+- **Rotas:** Suporte + Magia · CON +20 / VIG +10 · aquáticos, elementais. Desafios: acertar 20 conjurações em alvos marcados por um aliado ficando a até 2 m dele · completar uma Travessia sem que o conjurador do grupo caia · vencer um chefe Duplo com magia nos dois ao mesmo tempo.

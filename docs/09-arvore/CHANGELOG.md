@@ -1,0 +1,13 @@
+# Árvore — mudanças da revisão 1 (ChatGPT + Grok)
+**Bloqueadores corrigidos**
+- Chaves do ramo C dos 6 elementos: 7 PH, 1 técnica + 3 passivas; check agora testa se cada chave é alcançável (PH, técnicas e passivas antes dela).
+- Água 12 Senhor das marés: transferências 1:1; +10% de vida por reserva consumida em cura (teto de conservação). Arte 17: devolve só o saldo não consumido; alternativa "+10%" trocada por devolução antecipável (vínculo 5 s).
+- Reprise e Memória da lâmina: só técnica ofensiva direta de arma, animação completa, K/I ×0,50 (Reprise, custo ×1,5), Memória paga custo cheio e recalcula; Reprise de apoio removida.
+- Alternativas de Artes: Eco defensivo (2ª entrada manual, 70 ms), Rastro elemental (sem efeito do elemento), Último Fôlego→postura removida, Contratempo sem Ímpeto, Condutor vivo substitui o elemento.
+- Abertura/exaustão de chefe pertencem à ficha do chefe (Zero absoluto, Geomante, Arquiteto do inverno reescritos).
+- Rede de relâmpagos sem recursão (1 vínculo, 4 s, 6 m, 25% uma vez).
+- Assassino de sombra: +15 p.p. de crítico até 40%. Maestro de aço: escolha no nível 4; 8 níveis = 2×K1,26, I45, 1,2 s, 28R.
+- Métricas Magia e Suporte definidas; nenhum nó edita o Leitor (Atenção dividida: preço = −5% de movimento).
+- Dívida de postura sob golpe (soma; quebra apaga o resto; sem quebra dupla). Ações derivadas (§7.1): não contam para Leitor/domínio/afinidade/descoberta nem geram recurso. Reações fora do espaço de reação usam input de técnica. Sincronia: especialização/ligação fica preparada mas inativa.
+**Importantes**: custos da Modelagem e ordem de cálculo; trocas reais (Estilhaçar, Costas expostas, Contratempo da lâmina, Batida de guerra, Alvo sem guarda); Maremoto 0,11+0,12r; orçamento único de cargas; tempos de Guarda de passagem/Contra perfeito/Duelista; Revide manual em 0,6 s; Firmar só em arma com bloqueio (Respiração de aço, Respiração interna); Inabalável só nos 3 s da Provocação; Flecha de socorro e Fonte máx. 4 aliados; PvP de Curto-circuito, Toque glacial, Desvencilhar, Pano de fumaça; consentimento único; Anjo do campo sem mexer em tetos; Sobrevivente nato só tônicos; Rolo compressor e Iaijutsu absoluto com regra verificável; Fluxo, Distância segura, Rasteira; fórmulas de Vazão, Tenacidade e Estabilidade; periódicos; Sol interior não soma com Punir; Sangue quente fora da Fúria cega; Fúria cega +15% contra chefe; exclusão Último Fôlego × Sangue por fôlego; equivalência de dano marcada "não validada" com tabela de testes.
+**Opcionais**: Olho clínico, Mapa mental, Eco com 2º alvo, nomes (katana: Preparar resposta; PER +55: Abertura conservada).

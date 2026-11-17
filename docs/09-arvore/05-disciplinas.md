@@ -15,7 +15,7 @@ Ramos: **A. Linha de frente** · **B. Escolta**.
 | 03 | Presença | Passiva | 01 · nível 5 | sua ameaça gerada ×1,15; em troca, você recebe +5% de dano de comuns |
 | 04 | Ombro a ombro | Passiva | 01 · nível 5 | aliado a 2 m de você recebe −5% de dano frontal (não soma com Muralha/Postura da montanha: vale a maior); você perde 5% de velocidade de corrida |
 | 05 | Pés plantados | Passiva | 02 · nível 5 | deslocamento forçado sofrido −20% enquanto bloqueia; sua esquiva começa 0,05 s mais tarde enquanto bloqueia |
-| 06 | Atenção dividida | Passiva | 02 · nível 5 | a interface mostra quem cada comum próximo está mirando; em troca, seu Leitor de Estilo não registra "Agressão" enquanto você protege (Interceptar/Cobertura ativos) |
+| 06 | Atenção dividida | Passiva | 02 · nível 5 | a interface mostra quem cada comum próximo está mirando; em troca, enquanto Interceptar/Cobertura estiver ativo você anda −5% |
 
 ### Ramo A — Linha de frente
 | Nº | Nó | Tipo | Requisito | Efeito |
@@ -47,7 +47,7 @@ Ramos: **A. Cura** · **B. Resgate e limpeza**.
 | 01 | Estancar | Técnica | nível 5 | 0 dano · 25E · rec. 10 s; move 160·s da reserva do aliado (6 m) para a vida em 2 s; andar cancela. [Sustentação] |
 | 02 | Expurgo | Técnica | nível 5 | 0 dano · 0,9 s · 25E · rec. 18 s; remove 1 estado removível de aliado a 6 m (não remove Ferido). [Sustentação] |
 | 03 | Mãos firmes | Passiva | 01 · nível 5 | Estancar não é cancelado por dano (só por andar); custo 25 → 28E |
-| 04 | Olho clínico | Passiva | 01 · nível 5 | a interface mostra a reserva de cura dos aliados; em troca, seu próprio ícone de reserva some (você vê a sua só no menu) |
+| 04 | Olho clínico | Passiva | 01 · nível 5 | (a reserva do grupo já aparece por padrão) aliados com reserva abaixo de 15% ficam destacados; suas curas neles têm +10% de vazão e custam +3E |
 | 05 | Mochila de campo | Passiva | 02 · nível 5 | +1 espaço no cinto só para Bandagem/Tônico limpo; peso +1 |
 | 06 | Socorrista | Passiva | 02 · nível 5 | reanimar leva 3,5 s (era 4 s); durante a reanimação você recebe +10% de dano |
 
@@ -69,7 +69,7 @@ Ramos: **A. Cura** · **B. Resgate e limpeza**.
 | 15 | Antídoto | Passiva | 02 · nível 40 | Expurgo em aliado envenenado também o deixa imune a veneno por 4 s; custo +5E |
 | 16 | Reanimador | Passiva | 13 · nível 40 | aliado que você reanima volta com Ímpeto 20; você fica 3 s sem poder conjurar |
 | 17 | Arrastar longe | Transformação | 13 · nível 40 | Arrastar puxa 7 m, mas leva 1,0 s |
-| 18 | Anjo do campo | Nó-chave | nível 40; 6 PH no ramo; 1 técnica + 2 passivas | 1 vez por tentativa, reanimar um aliado não conta no teto de reanimações do grupo (no Assalto o nó fica **inativo**); depois disso, Socorrista (06) deixa de funcionar na tentativa |
+| 18 | Anjo do campo | Nó-chave | nível 40; 6 PH no ramo; 1 técnica + 2 passivas | não altera tetos de reanimação: a 1ª reanimação manual da tentativa leva 2,5 s (nunca abaixo de 2 s com outros bônus) e custa +10E; depois disso, Socorrista (06) deixa de funcionar na tentativa |
 
 ---
 
@@ -98,12 +98,12 @@ Ramos: **A. Resistência física** · **B. Fuga**.
 ### Ramo B — Fuga
 | Nº | Nó | Tipo | Requisito | Efeito |
 |---|---|---|---|---|
-| 13 | Desvencilhar | Técnica | 01 · nível 40 | 0 dano · 0,4 s · 25R · rec. 40 s; sai de Preso ou agarrão de comum/elite (não chefe; PvP: conta como fim de controle, mas gasta a 1ª imunidade). [Sustentação] |
+| 13 | Desvencilhar | Técnica | 01 · nível 40 | 0 dano · 0,4 s · 25R · rec. 40 s; sai de Preso ou agarrão de comum/elite (não chefe); encerra o controle removível e dá 2 s de imunidade, sem reiniciar o histórico de 8 s da categoria (PvP igual). [Sustentação] |
 | 14 | Pés ligeiros | Passiva | 13 · nível 40 | fora de combate, +5% de movimento; em combate, sem efeito, e sua carga confortável −1 |
 | 15 | Rota de fuga | Passiva | 01 · nível 40 | Retirada curta recua 3 m; recarga 10 → 13 s |
 | 16 | Sangue-frio | Passiva | 13 · nível 40 | depois de Desvencilhar, 2 s de tenacidade +30% (teto); o Desvencilhar custa 30R |
 | 17 | Retirada lateral | Transformação | 01 · nível 40 | Retirada curta vai para o lado (2 m) em vez de para trás |
-| 18 | Sobrevivente nato | Nó-chave | nível 40; 6 PH no ramo; 1 técnica + 2 passivas | ao ficar caído, você pode se arrastar a 2 m/s (era 1 m/s) e usar 1 consumível do cinto; o tempo caído cai de 25 para 20 s |
+| 18 | Sobrevivente nato | Nó-chave | nível 40; 6 PH no ramo; 1 técnica + 2 passivas | ao ficar caído, você pode se arrastar a 2 m/s (era 1 m/s) e usar **só** Tônico limpo ou Tônico de resistência (nenhum item restaura vida ou encerra o Caído); o tempo caído cai de 25 para 20 s; a derrota coletiva continua imediata quando todos caem |
 
 ---
 
@@ -114,7 +114,7 @@ Ramos: **A. Explorador** · **B. Carregador**.
 |---|---|---|---|---|
 | 01 | Reconhecer passagem | Técnica | nível 5 | 0 dano · canaliza 2 s · 0R · rec. 30 s; mostra mecanismos visíveis e perigos de ambiente a 12 m por 10 s (não revela segredos nem soluções). [Sustentação] |
 | 02 | Linha de segurança | Técnica | nível 5 | 0 dano · instala em 3 s · 10R · rec. 45 s; corda de até 6 m entre 2 pontos válidos por 30 s (proibida em superfície móvel e em arenas que não a suportam). [Sustentação] |
-| 03 | Mapa mental | Passiva | 01 · nível 5 | o labirinto que você já explorou fica marcado mesmo depois da mudança semanal (só os trechos que não mudaram); seus Mapas vendáveis valem −20% |
+| 03 | Mapa mental | Passiva | 01 · nível 5 | o labirinto que você já explorou fica marcado mesmo depois da mudança semanal (só os trechos que não mudaram); em troca, seus Mapas vendáveis registram 20% menos área (aparece na prévia do item) |
 | 04 | Pés de cabra | Passiva | 02 · nível 5 | escalar e saltar plataformas custa −20% de resistência; em combate, sem efeito, e peso +1 (equipamento de escalada) |
 | 05 | Tocha firme | Passiva | 01 · nível 5 | tochas duram 2× (escuridão); em troca, carregar tocha ocupa a mão auxiliar (sem conjunto B) |
 | 06 | Fogueira | Passiva | 02 · nível 5 | pode montar ponto de descanso fora da cidade (1 por 30 min, 8 s parado, fora de hostilidade); em troca, a fogueira atrai comuns a 15 m |

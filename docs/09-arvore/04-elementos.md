@@ -43,7 +43,7 @@ Ramos: **A. Pressão e abrasão** · **B. Zonas de perigo** · **C. Explosão co
 |---|---|---|---|---|
 | 19 | Supernova | Técnica | 02 · dom. 40 | K2,40 I30 · 2,2 s · 45E · rec. 25 s; área 4 m centrada em você; você não pode se mover no preparo. [Execução] |
 | 20 | Pavio curto | Passiva | 19 · dom. 40 | consumir 3 cargas de Sobrecarga na Supernova reduz o preparo em 0,4 s (em vez de somar 0,3 s); a Supernova custa 50E |
-| 21 | Calor do núcleo | Passiva | 19 · dom. 40 | Projétil e Área de fogo dão 1 carga de Sobrecarga extra se acertarem 3+ alvos (respeita o máx. 3 e os 2 s); com 1 alvo, nada |
+| 21 | Calor do núcleo | Passiva | 19 · dom. 40 | Projétil e Área de fogo dão 1 carga de Sobrecarga extra se acertarem 3+ alvos (exceção explícita: 2 cargas numa ação; máx. 3; recarga interna 8 s; a 2ª carga não dispara efeitos de ganho); com 1 alvo, nada |
 | 22 | Combustão | Passiva | 01 · dom. 30 | acertar Projétil de fogo em alvo Queimando consome o Queimando e causa o dano restante na hora; em troca, o alvo deixa de queimar e a Combustão não reaplica Queimando por 6 s |
 | 23 | Supernova dirigida | Transformação | 19 · dom. 60 | a Supernova sai em cone de 90° a 6 m na sua frente, K2,40 → 2,10 |
 | 24 | Sol interior | Nó-chave | dom. 60; 7 PH no ramo; 1 técnica + 3 passivas | com 3 cargas de Sobrecarga, sua próxima técnica de Fogo ignora 15% da armadura (**não soma** com Punir nem com outra penetração temporária: vale a maior; teto 35%); depois, a energia não regenera por 3 s |
@@ -66,7 +66,7 @@ Ramos: **A. Alteração de cadência** · **B. Terreno** · **C. Fratura em jane
 ### Ramo A — Alteração de cadência
 | Nº | Nó | Tipo | Requisito | Efeito |
 |---|---|---|---|---|
-| 07 | Toque glacial | Técnica | 01 · dom. 20 | K0,80 I10 · 0,6 s · 15E · rec. 6 s; corpo a corpo (2 m): o próximo ataque do alvo tem preparo +0,2 s. [Contenção] |
+| 07 | Toque glacial | Técnica | 01 · dom. 20 | K0,80 I10 · 0,6 s · 15E · rec. 6 s; corpo a corpo (2 m): o próximo ataque do alvo tem preparo +0,2 s (de várias fontes vale o maior; máx. +0,20 s por ação). [Contenção] |
 | 08 | Congelar o tempo | Técnica | 07 · dom. 40 | 0 dano · 1,0 s · 30E · rec. 25 s; inimigos a 4 m: recuperação +25% por 4 s (não soma com o efeito do Gelo: vale a maior; chefe só em ataques compatíveis). [Contenção] |
 | 09 | Ritmo quebrado | Passiva | 07 · dom. 20 | alvo sob efeito do seu Gelo leva +5% de dano das suas armas; em troca, seu efeito de Gelo passa a ter rec. interna de 3 s por alvo |
 | 10 | Mão gelada | Passiva | 08 · dom. 40 | depois de Congelar o tempo, sua esquiva perfeita contra um alvo afetado dá +10 Ímpeto extra (teto 45/s); o Congelar custa 35E |
@@ -81,7 +81,7 @@ Ramos: **A. Alteração de cadência** · **B. Terreno** · **C. Fratura em jane
 | 15 | Gelo espesso | Passiva | 13 · dom. 20 | o Muro de gelo tem vida 45% da sua; em troca, dura só 4 s |
 | 16 | Patinador | Passiva | 14 · dom. 40 | sobre gelo seu, sua esquiva vai 1 m mais longe; sua corrida custa +10% de resistência fora do gelo |
 | 17 | Muro em L | Transformação | 13 · dom. 40 | o Muro de gelo vira 2 paredes de 2 m em L |
-| 18 | Arquiteto do inverno | Nó-chave | dom. 60; 8 PH no ramo; 2 técnicas + 2 passivas | o Muro de gelo serve de obstáculo de colisão para investidas de chefe marcadas (como o pilar de Terra); quebrado pela colisão, deixa o chefe exausto só 3 s (Terra: 6 s) |
+| 18 | Arquiteto do inverno | Nó-chave | dom. 60; 8 PH no ramo; 2 técnicas + 2 passivas | o Muro de gelo serve de obstáculo de colisão para investidas de chefe marcadas (como o pilar de Terra), produzindo a exaustão **normal** da ficha do chefe; o Muro quebra na colisão e a recarga dele sobe 6 s |
 
 ### Ramo C — Fratura em janelas compatíveis
 | Nº | Nó | Tipo | Requisito | Efeito |
@@ -112,7 +112,7 @@ Ramos: **A. Interrupção** · **B. Saltos entre alvos** · **C. Descarga concen
 | Nº | Nó | Tipo | Requisito | Efeito |
 |---|---|---|---|---|
 | 07 | Choque | Técnica | 01 · dom. 20 | K0,60 I25 · 0,5 s · 15E · rec. 8 s; 10 m; interrompe preparo marcado. [Ruptura] |
-| 08 | Sobrecarga elétrica | Técnica | 07 · dom. 40 | 0 dano · 0,8 s · 25E · rec. 20 s; o alvo fica 4 s com "curto-circuito": a próxima conjuração dele falha (chefe: só as marcadas). [Ruptura] |
+| 08 | Sobrecarga elétrica | Técnica | 07 · dom. 40 | 0 dano · 0,8 s · 25E · rec. 20 s; o alvo fica 4 s com "curto-circuito": a próxima conjuração dele é **interrompida** (conta como interrupção na categoria de controle, respeita imunidade; chefe: só as marcadas). [Ruptura] |
 | 09 | Reflexo elétrico | Passiva | 07 · dom. 20 | interromper com Choque devolve 8E; errar a interrupção (alvo não estava preparando) custa +8E |
 | 10 | Silêncio estático | Passiva | 08 · dom. 40 | quem tem a conjuração anulada fica Silenciado 1 s (categoria de controle no PvP); a Sobrecarga elétrica custa 30E |
 | 11 | Choque em arco | Transformação | 07 · dom. 40 | o Choque acerta até 2 alvos a 3 m um do outro, I25 → 18 cada |
@@ -126,7 +126,7 @@ Ramos: **A. Interrupção** · **B. Saltos entre alvos** · **C. Descarga concen
 | 15 | Condutor humano | Passiva | 13 · dom. 20 | saltos podem passar por aliados (sem dano a eles) para alcançar inimigos mais longe; cada salto via aliado −25% |
 | 16 | Ricochete | Passiva | 13 · dom. 30 | o Raio em cadeia pode voltar ao 1º alvo no último salto; custa +5E |
 | 17 | Bola estacionária | Transformação | 14 · dom. 40 | a Bola elétrica fica parada 6 s no ponto escolhido |
-| 18 | Rede de relâmpagos | Nó-chave | dom. 60; 8 PH no ramo; 2 técnicas + 2 passivas | inimigos atingidos por 2 saltos seus em 4 s ficam ligados: dano de raio em um passa 25% para o outro; seus saltos não dão carga de Sobrecarga |
+| 18 | Rede de relâmpagos | Nó-chave | dom. 60; 8 PH no ramo; 2 técnicas + 2 passivas | 2 inimigos atingidos por saltos seus em 4 s ficam ligados por 4 s (até 6 m, com linha de visão; cada alvo em no máx. 1 vínculo seu): cada ação original de raio passa 25% uma vez ao parceiro; o dano transmitido não transmite, não aplica elemento, impacto nem interrupção e não gera recursos; não atravessa separação de alas; seus saltos não dão carga de Sobrecarga |
 
 ### Ramo C — Descarga concentrada
 | Nº | Nó | Tipo | Requisito | Efeito |
@@ -134,9 +134,9 @@ Ramos: **A. Interrupção** · **B. Saltos entre alvos** · **C. Descarga concen
 | 19 | Martelo do trovão | Técnica | 02 · dom. 40 | K2,20 I35 · 1,8 s · 40E · rec. 22 s; raio do céu num círculo de 2 m (precisa de céu aberto ou teto alto). [Ruptura] |
 | 20 | Trovão guardado | Passiva | 19 · dom. 40 | o Martelo pode ser segurado até 1 s depois de pronto, mirando de novo; segurar custa 5E por 0,5 s |
 | 21 | Céu carregado | Passiva | 19 · dom. 40 | durante bioma de tempestade, o Martelo custa 25E; fora dele, 45E |
-| 22 | Alvo sem guarda | Passiva | 01 · dom. 30 | o bônus +25% de impacto do Raio vale também contra alvo atordoado; contra alvo em guarda, seus golpes de raio −5% |
+| 22 | Alvo sem guarda | Passiva | 01 · dom. 30 | +10 de impacto contra alvo cuja conjuração você interrompeu nos últimos 2 s; contra alvo em guarda, seus golpes de raio −5% |
 | 23 | Martelo em linha | Transformação | 19 · dom. 60 | o Martelo vira 3 raios em linha (2 m cada, 1 s entre eles), K1,00 cada |
-| 24 | Fúria dos céus | Nó-chave | dom. 60; 7 PH no ramo; 1 técnica + 3 passivas | o Martelo do trovão ganha 1 carga extra de Sobrecarga se consumir 3 (efeito de 4 cargas, teto do núcleo respeitado: ×1,56 com POT +40); depois, Martelo rec. 22 → 30 s |
+| 24 | Fúria dos céus | Nó-chave | dom. 60; 7 PH no ramo; 1 técnica + 3 passivas | o Martelo do trovão consumindo 3 cargas ganha a 4ª parcela de bônus (não acumula com Descarga total; paga sobretaxa de 4 parcelas; ×1,56 com POT +40); depois, Martelo rec. 22 → 30 s |
 
 ---
 
@@ -171,7 +171,7 @@ Ramos: **A. Postura** · **B. Obstáculos válidos** · **C. Impacto comprometid
 | 15 | Pilar teimoso | Passiva | 03 · dom. 20 | o Pilar tem vida 45% da sua e não cai na 1ª colisão de investida (cai na 2ª); recarga 18 → 22 s |
 | 16 | Parede viva | Passiva | 13 · dom. 30 | inimigos que batem na Parede levam K0,30 e −10 de postura; a Parede dura 6 s |
 | 17 | Pilar duplo | Transformação | 03 · dom. 40 | 2 pilares menores (vida 20% cada); só o primeiro conta como obstáculo de colisão |
-| 18 | Geomante | Nó-chave | dom. 60; 8 PH no ramo; 2 técnicas + 2 passivas | colisão de chefe no seu Pilar deixa o chefe exausto 8 s (eram 6 s), 1 vez por tentativa por chefe; Pilar custa 40E |
+| 18 | Geomante | Nó-chave | dom. 60; 8 PH no ramo; 2 técnicas + 2 passivas | a 1ª colisão válida de chefe no seu Pilar por tentativa reduz em 6 s a recarga restante do Pilar (a exaustão é a da ficha do chefe); Pilar custa 40E |
 
 ### Ramo C — Impacto comprometido
 | Nº | Nó | Tipo | Requisito | Efeito |
@@ -205,7 +205,7 @@ Regra da árvore: Vento **não** pode ter ao mesmo tempo o melhor deslocamento, 
 | 07 | Salto do vento | Técnica | 03 · dom. 20 | 0 dano · 0,4 s · 15E · rec. 12 s; salto de 6 m na direção escolhida (sem invulnerabilidade). [Contenção] |
 | 08 | Corrente de ar | Técnica | 07 · dom. 40 | 0 dano · 0,8 s · 25E · rec. 20 s; linha de 10 m por 5 s: aliados nela andam +25%; inimigos −15%. [Sustentação] |
 | 09 | Aterrissagem | Passiva | 07 · dom. 20 | ao cair do Salto do vento, empurra comuns a 2 m em 1 m; o Salto não dá o +10 Ímpeto |
-| 10 | Mão do vento | Passiva | 08 · dom. 40 | pode empurrar um aliado com a Rajada (1 m, sem dano) para tirá-lo de uma área; a Rajada custa 25E |
+| 10 | Mão do vento | Passiva | 08 · dom. 40 | pode empurrar um aliado **que aceita deslocamento** com a Rajada (1 m, sem dano) para tirá-lo de uma área; a Rajada custa 25E |
 | 11 | Salto duplo | Transformação | 07 · dom. 40 | o Salto do vento guarda 2 usos de 4 m cada |
 | 12 | Andarilho dos ventos | Nó-chave | dom. 60; 8 PH no ramo; 2 técnicas + 2 passivas | depois de um Salto do vento, sua próxima esquiva em 2 s não custa resistência; suas técnicas de dano de Vento −10% |
 
@@ -249,11 +249,11 @@ Regra da árvore: Água precisa ter dano viável — o ramo C tem dano comparáv
 | Nº | Nó | Tipo | Requisito | Efeito |
 |---|---|---|---|---|
 | 07 | Vasos comunicantes | Técnica | 03 · dom. 20 | 0 dano · 1,0 s · 30E · rec. 20 s; nivela a reserva de até 4 aliados a 10 m (todos ficam com a média). [Sustentação] |
-| 08 | Fonte | Técnica | 07 · dom. 40 | 0 dano · 1,2 s · 35E · rec. 30 s; área 4 m por 6 s: aliados dentro movem 30·s por segundo da própria reserva para a vida. [Sustentação] |
+| 08 | Fonte | Técnica | 07 · dom. 40 | 0 dano · 1,2 s · 35E · rec. 30 s; área 4 m por 6 s: até 4 aliados dentro movem 30·s por segundo da própria reserva para a vida. [Sustentação] |
 | 09 | Gota a gota | Passiva | 07 · dom. 20 | a Bolha move até 260·s; custo 25 → 30E |
 | 10 | Correnteza | Passiva | 08 · dom. 40 | aliados dentro da Fonte também recuperam postura como se não fossem atingidos; a Fonte dura 4 s |
 | 11 | Bolha em cadeia | Transformação | 03 · dom. 40 | a Bolha move 120·s de cada um de 3 aliados para o mais ferido |
-| 12 | Senhor das marés | Nó-chave | dom. 60; 8 PH no ramo; 2 técnicas + 2 passivas | suas transferências de reserva custam −25% de energia e alcançam +4 m; a transferência continua 1:1 (nada é criado nem descontado); você não ganha Sobrecarga com técnicas de Água de suporte |
+| 12 | Senhor das marés | Nó-chave | dom. 60; 8 PH no ramo; 2 técnicas + 2 passivas | transferências continuam 1:1 (debitam e creditam o mesmo); cada unidade de reserva **consumida em cura** por técnica sua devolve +10% de vida (sujeito ao teto global de conservação; não vale em transferências, empréstimos ou devoluções); você não ganha Sobrecarga com técnicas de Água de suporte |
 
 ### Ramo B — Socorro
 | Nº | Nó | Tipo | Requisito | Efeito |
@@ -273,4 +273,4 @@ Regra da árvore: Água precisa ter dano viável — o ramo C tem dano comparáv
 | 21 | Água limpa | Passiva | 01 · dom. 30 | seus projéteis de água removem Queimando de aliados que atravessarem; custam +3E |
 | 22 | Correnteza forte | Passiva | 19 · dom. 40 | a Lâmina d'água empurra comuns 2 m na direção do disparo; o dano dela −5% |
 | 23 | Jato | Transformação | 19 · dom. 60 | a Lâmina d'água vira jato contínuo de 1,5 s (K0,90 por 0,5 s, 3 vezes); você anda a 30% |
-| 24 | Maremoto | Nó-chave | dom. 60; 7 PH no ramo; 1 técnica + 3 passivas | a Lâmina d'água ganha Sobrecarga com +0,15 por carga (em vez de 0,08 + 0,12·r(POT) com POT baixo); com POT ≥ +40, vale a fórmula normal; a Lâmina custa 35E |
+| 24 | Maremoto | Nó-chave | dom. 60; 7 PH no ramo; 1 técnica + 3 passivas | a Lâmina d'água ganha Sobrecarga com 0,11 + 0,12·r(POT) por carga (+0,03 sobre a fórmula normal, em qualquer investimento); a Lâmina custa 35E |

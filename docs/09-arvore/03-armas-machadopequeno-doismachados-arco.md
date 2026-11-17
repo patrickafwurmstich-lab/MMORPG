@@ -73,8 +73,8 @@ Ramos: **A. Frenesi sustentado** · **B. Execução** · **C. Troca de Frenesi p
 |---|---|---|---|---|
 | 07 | Corte em X | Técnica | 01 · dom. 20 | K1,00 I25 · 0,8 s · 15R · rec. 7 s; +2 níveis de Frenesi. [Execução] |
 | 08 | Sem parar | Técnica | 07 · dom. 40 | 0 dano · 4 s · 0R · rec. 20 s; Frenesi não zera ao levar golpe. [Execução] |
-| 09 | Fúria cega | Técnica | 08 · dom. 60 | 0 dano · 6 s · 0R · rec. 30 s; Frenesi começa no máximo, defesa −30% (recebe +30% de dano). [Execução] |
-| 10 | Batida de guerra | Passiva | 07 · dom. 20 | cada nível de Frenesi +3% de velocidade (máx. +18%, teto 1,45); acima de 3 níveis, cada acerto custa 1R |
+| 09 | Fúria cega | Técnica | 08 · dom. 60 | 0 dano · 6 s · 0R · rec. 30 s; Frenesi começa no máximo, defesa −30% (recebe +30% de dano; contra chefe com Frenesi ≥ 6, +15% a mais). [Execução] |
+| 10 | Batida de guerra | Passiva | 07 · dom. 20 | cada nível de Frenesi +3,5% de velocidade (teto 1,45); com Frenesi ≥ 4, cada acerto custa +1R |
 | 11 | Respiro selvagem | Passiva | 08 · dom. 40 | ao terminar o Sem parar com Frenesi máximo, recupera 15R; com menos, nada e −10R |
 | 12 | Tontura de batalha | Passiva | 07 · dom. 30 | Frenesi máximo deixa seus golpes +5 de impacto; o tempo de recuperação do pesado +0,1 s |
 | 13 | Fúria contida | Transformação | 09 · dom. 60 | Fúria cega dura 3 s com defesa −10% |
@@ -117,7 +117,7 @@ Ramos: **A. Tensão e precisão** · **B. Controle de campo** · **C. Flechas el
 | 03 | Passo do caçador | Técnica | dom. 10 | 0 dano · 0,4 s · 10R · rec. 12 s; rolamento que já começa com tensão 50%. [Contenção] |
 | 04 | Respiração presa | Passiva | 01 · dom. 1 | a tensão treme só depois de 2,5 s (era 2 s); a tensão máxima demora 1,1 s (era 1 s) |
 | 05 | Aljava organizada | Passiva | 02 · dom. 10 | trocar o tipo de flecha leva 0,3 s (sem parar de andar); em troca, cada tipo carrega no máx. 60 flechas |
-| 06 | Distância segura | Passiva | 03 · dom. 20 | a mais de 15 m, +5% de dano; a menos de 6 m, o tiro sai com 60% em vez de 50% do alcance mínimo, mas a tensão máxima cai para K1,40 |
+| 06 | Distância segura | Passiva | 03 · dom. 20 | a mais de 15 m, +5% de dano; abaixo do alcance mínimo de 3 m o tiro sai com 60% (em vez de 50%); em troca, a tensão máxima cai para K1,40 |
 
 ### Ramo A — Tensão e precisão
 | Nº | Nó | Tipo | Requisito | Efeito |
@@ -152,5 +152,5 @@ Ramos: **A. Tensão e precisão** · **B. Controle de campo** · **C. Flechas el
 | 26 | Ponta encantada | Passiva | 23 · dom. 20 | Flecha elemental aplica o efeito secundário do elemento por 50% mais tempo; custo +4E |
 | 27 | Mão de curandeiro | Passiva | 24 · dom. 40 | Flecha de cura alcança 30 m e não exige parar; a vida movida cai para 100·s |
 | 28 | Chuva elemental | Passiva | 25 · dom. 60 | a Chuva de flechas aplica o seu elemento (1 vez por alvo); custa 10E além da resistência |
-| 29 | Flecha de socorro | Transformação | 24 · dom. 40 | Flecha de cura cria uma área de 3 m por 4 s: cada aliado dentro move 40·s por segundo da própria reserva para a vida |
+| 29 | Flecha de socorro | Transformação | 24 · dom. 40 | Flecha de cura cria uma área de 3 m por 4 s: até 4 aliados dentro movem 25·s por segundo da própria reserva para a vida (100·s cada); custo 35E; rec. 18 s; não recebe cargas do Arqueiro do vale |
 | 30 | Arqueiro do vale | Nó-chave | dom. 60; 8 PH no ramo; 2 técnicas + 2 passivas | Flecha de cura e Flecha elemental dividem a recarga em 2 cargas (8 s cada); o dano das suas técnicas de dano −10% |

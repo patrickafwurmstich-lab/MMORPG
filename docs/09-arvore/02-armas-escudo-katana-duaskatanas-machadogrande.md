@@ -26,7 +26,7 @@ Ramos: **A. Contenção individual** (segurar 1 alvo) · **B. Proteção de grup
 | 11 | Reflexo de muralha | Passiva | 08 · dom. 40 | Escudo refletor também devolve projéteis de elite com 50% do dano; recarga 12 → 15 s |
 | 12 | Duelo de guarda | Passiva | 07 · dom. 30 | contra o alvo que você provocou, seu bloqueio custa −15%; contra outros alvos, +10% |
 | 13 | Provocação em área | Transformação | 07 · dom. 40 | Provocação atinge até 4 comuns a 6 m (110% por 2 s em vez de 3 s); não funciona em elite/chefe |
-| 14 | Inabalável | Nó-chave | dom. 60; 8 PH no ramo; 2 técnicas + 2 passivas | enquanto um alvo provocado por você estiver vivo, seu bloqueio não quebra por resistência zero (passa a gastar postura: 1 de postura por 2 de resistência que faltar); sua velocidade de ataque −10% |
+| 14 | Inabalável | Nó-chave | dom. 60; 8 PH no ramo; 2 técnicas + 2 passivas | durante os 3 s da Provocação e com o alvo a até 8 m, seu bloqueio não quebra por resistência zero: a resistência que faltar é paga em postura (1:1; postura zerada quebra normalmente); recarga interna 12 s; sua velocidade de ataque −10% |
 
 ### Ramo B — Proteção de grupo
 | Nº | Nó | Tipo | Requisito | Efeito |
@@ -50,7 +50,7 @@ Ramos: **A. Contenção individual** (segurar 1 alvo) · **B. Proteção de grup
 | 27 | Peso em movimento | Passiva | 24 · dom. 40 | cada comum arrastado pelo Avanço dá +5 de impacto no final (máx. +20); o Avanço custa +5R |
 | 28 | Retorno firme | Passiva | 25 · dom. 60 | pegar o escudo de volta no ar (apertar bloqueio na hora) zera 4 s da recarga; perder o tempo deixa você 0,5 s sem bloqueio a mais |
 | 29 | Escudo quebra-muro | Transformação | 25 · dom. 60 | Escudo arremessado acerta 1 alvo só, I35 → 55 e quebra guarda frontal por 2 s |
-| 30 | Rolo compressor | Nó-chave | dom. 60; 8 PH no ramo; 2 técnicas + 2 passivas | durante Firmeza você pode usar Investida e Avanço sem perder a Firmeza (o −50% de movimento vale também nos avanços: 2 m e 3 m) |
+| 30 | Rolo compressor | Nó-chave | dom. 60; 8 PH no ramo; 2 técnicas + 2 passivas | durante Firmeza, Investida conserva os 4 m e Avanço os 6 m (o movimento comum continua −50%); os dois custam +5R |
 
 ---
 
@@ -77,18 +77,18 @@ Ramos: **A. Saque preparado** · **B. Saque de resposta** · **C. Projeção ele
 | 11 | Silêncio antes do golpe | Passiva | 08 · dom. 40 | enquanto carrega, comuns perdem 30% da sua ameaça; elites não; a carga é cancelada se você levar dano |
 | 12 | Fio afiado | Passiva | 07 · dom. 30 | saque com carga máxima tem +10 pp de crítico; saques sem carga −10 pp |
 | 13 | Vazio estreito | Transformação | 08 · dom. 40 | Saque do vazio vira estocada de 3 m, 1 alvo, K2,40 → 2,80, carga 2 → 1,5 s |
-| 14 | Iaijutsu absoluto | Nó-chave | dom. 60; 8 PH no ramo; 2 técnicas + 2 passivas | o saque carregado guarda a carga ao trocar de alvo e ao andar (a carga só some se você atacar outra coisa, esquivar ou levar dano); você não pode correr carregando |
+| 14 | Iaijutsu absoluto | Nó-chave | dom. 60; 8 PH no ramo; 2 técnicas + 2 passivas | você pode manter a carga do saque durante **um passo de esquiva** de até 1,5 m sem invulnerabilidade (15R, recarga interna 8 s); a esquiva normal continua descartando a carga; você não pode correr carregando |
 
 ### Ramo B — Saque de resposta
 | Nº | Nó | Tipo | Requisito | Efeito |
 |---|---|---|---|---|
-| 15 | Leitura | Técnica | 02 · dom. 20 | 0 dano · 1,0 s · 10R · rec. 12 s; por 1 s, o próximo parry tem janela +60 ms (teto 240). [Contenção] |
+| 15 | Preparar resposta | Técnica | 02 · dom. 20 | 0 dano · 1,0 s · 10R · rec. 12 s; por 1 s, o próximo parry tem janela +60 ms (teto 240). [Contenção] |
 | 16 | Bainha espelhada | Técnica | 15 · dom. 40 | 0 dano · 0,6 s · 10R · rec. 16 s; o próximo saque de resposta reflete projétil. [Contenção] |
 | 17 | Bainha de ferro | Técnica | 16 · dom. 60 | 0 dano · 4 s · 0R · rec. 25 s; carregando o saque, recebe 30% menos dano. [Sustentação] |
 | 18 | Janela calma | Passiva | 15 · dom. 20 | o saque de resposta tem +20 ms extra de janela (teto 240) se você não atacou nos últimos 2 s; se atacou, −20 ms |
 | 19 | Contra-saque | Passiva | 16 · dom. 40 | saque de resposta bem-sucedido dá +10 de impacto; falhar custa 10R |
-| 20 | Respiração de aço | Passiva | 17 · dom. 60 | durante a Bainha de ferro, Firmar (VIG) adia +10% do impacto; a Bainha de ferro custa 3R/s |
-| 21 | Leitura longa | Transformação | 15 · dom. 40 | Leitura dura 2 s com janela +40 ms (em vez de 1 s com +60) |
+| 20 | Respiração de aço | Passiva | 17 · dom. 60 | durante a Bainha de ferro você recebe −10% de impacto (sem usar Firmar, que a katana não tem); a Bainha de ferro custa 3R/s |
+| 21 | Resposta longa | Transformação | 15 · dom. 40 | Preparar resposta dura 2 s com janela +40 ms (em vez de 1 s com +60) |
 | 22 | Mente de água | Nó-chave | dom. 60; 8 PH no ramo; 2 técnicas + 2 passivas | 2 saques de resposta seguidos (em até 3 s) deixam o alvo Exposto 3 s; se o 2º falhar, você fica 0,6 s sem poder defender |
 
 ### Ramo C — Projeção elemental
