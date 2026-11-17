@@ -61,5 +61,6 @@ Leitura de tabelas do ChatGPT: find "tabela com colunas ..." → read_page no re
 - [x] `sim/check_arvore.py` → TUDO OK
 - [x] Grok aprovou o v8 (loop 2 fechado com os dois) → `loop/revisao4-grok-aprovado.md`
 - [x] Revisão 1: ChatGPT e Grok NÃO APROVADO → `loop/loop3-revisao1-*.md`; tudo corrigido → `docs/09-arvore/CHANGELOG.md`
-- [ ] Revisão 2 enviada aos dois (`loop/loop3-revisao2-mensagem.txt`) → corrigir até aprovarem
+- [x] Revisão 2: Grok APROVADO; ChatGPT pediu ajustes locais → aplicados (commit baf173f)
+- [x] Revisão 3: ChatGPT APROVADO → **loop 3 fechado, as duas IAs aprovaram a árvore**
 - [ ] Perguntas finais ao Lucas (último do loop)
