@@ -45,7 +45,7 @@ Combate de ação parecido com Toram, mas profundo. Cada jogador pode ser protag
 - [x] v7 = `docs/07-nucleo-v7.md` + `docs/07-jogo-v7.md` + `docs/07-contratos-v7.md` + `sim/check_v7.py` (TUDO OK)
 - [x] Revisão loop 2 rodada 3 (v7): ChatGPT NÃO (B7.1 sincronia aumentava atributo, B7.2 duas curvas de teto, B7.3 Arena sem chão; "não pediria mais sistemas"); Grok NÃO (duração dos chefes, ala em falência; "com esses ajustes passa a ser aprovável") → `loop/loop2-revisao3-*.md`
 - [x] v8 = `docs/08-*-v8.md` + `sim/check_v8.py` (TUDO OK)
-- [ ] Revisão loop 2 rodada 4 (v8) → `loop/loop2-revisao4-*.md`  ← PRÓXIMO
+- [ ] Revisão loop 2 rodada 4 (v8) → `loop/loop2-revisao4-*.md`  ← PRÓXIMO (mensagem em `loop/loop2-revisao4-mensagem.txt`; enviada ao ChatGPT; **Grok bateu o limite do plano grátis** — reenviar a mesma mensagem quando liberar; nunca clicar em Aprimorar)
 - Nota: ler respostas longas do ChatGPT: get_page_text corta; usar scroll + screenshot a partir do heading da última resposta
 - [ ] Repetir até as 3 aprovarem
 - [ ] Depois: aprofundar sistema por sistema (lista de armas e técnicas, 12 famílias, catálogo de Artes, chefes dos andares 1–3, receitas)
