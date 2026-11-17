@@ -48,9 +48,9 @@ def confere(arvores, nos, ph, estrutura, rotulo):
         por_n = {x["n"]: x for x in lista}
         for x in lista:
             if x["tipo"] == "Nó-chave":
-                ok(f"{x['n']:02d} chave exige dom. 60 + 8 PH no ramo", "dom. 60" in x["req"] and "8 PH" in x["req"])
+                ok(f"{x['n']:02d} chave com requisito de chave", ("dom. 60" in x["req"] and "8 PH" in x["req"]) or ("nível 40" in x["req"] and "6 PH" in x["req"]))
                 continue
-            refs = [int(r) for r in re.findall(r"\b(\d{2})\b(?! s)", x["req"].split("dom.")[0])]
+            refs = [int(r) for r in re.findall(r"\b(\d{2})\b(?! s)", x["req"].split("dom.")[0].split("nível")[0])]
             for r in refs:
                 ok(f"{x['n']:02d} requisito {r:02d} existe e vem antes", r in por_n and r < x["n"])
                 if r in por_n and dom(por_n[r]["req"]) is not None and dom(x["req"]) is not None:

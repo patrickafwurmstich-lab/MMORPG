@@ -54,3 +54,10 @@ Combate de ação parecido com Toram, mas profundo. Cada jogador pode ser protag
 ## Próximo passo
 Mandar o v8 (3 links + check_v8) a ChatGPT (aba 'Auditoria de Sistemas MMORPG') e Grok (aba 'Análise rigorosa do MMORPG v5'); pedir que critiquem também a revisão da outra IA; repetir até as duas aprovarem.
 Leitura de tabelas do ChatGPT: find "tabela com colunas ..." → read_page no ref (get_page_text omite tabelas).
+
+## Loop 3 — árvore completa (pedido do Lucas: "o bolo, não a receita")
+- [x] Plano do ChatGPT → `loop/loop3-planejamento-chatgpt.md`
+- [x] Escrito: sistema, 11 armas (330), 6 elementos (144), 4 disciplinas (72), 18 especializações, 15 ligações, 24 Artes
+- [x] `sim/check_arvore.py` → TUDO OK
+- [ ] Revisão do ChatGPT (BLOQUEADOR/IMPORTANTE/OPCIONAL) → corrigir até aprovar; Grok se o limite liberar
+- [ ] Perguntas finais ao Lucas (último do loop)
