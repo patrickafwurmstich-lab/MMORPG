@@ -3,6 +3,7 @@
 Gerado por `node sim/simulador.js` com os dados de `prototipo/v2/dados.js` (os mesmos 546 nós do loop 3) e os números de referência dos contratos v8 (seção AI). 88 builds no perfil de referência (nível 15) e 242 no nível 100 (11 armas × 8 perfis × 1 a 3 elementos).
 
 ## O que o simulador mede e o que ele NÃO mede
+- **Tempo** = média só das lutas vencidas; a chance de morrer aparece em coluna própria.
 - **Mede:** dano/s no boneco, impacto/s (quebra de postura), tempo para matar uma fera (650·s), um constructo (1.100·s), um grupo de 4 feras e a parte de um jogador no Chefe de Andar (120.000·s ÷ 6 = 20.000·s, postura 1.000 ÷ 6, ataque de 300·s a cada 2,6 s). Média de várias lutas com um jogador "médio" (30% de esquivas perfeitas/parry, 15% de golpes levados) e um "bom" (55% / 5%).
 - **Usa:** r(x), C(x), dano com pesos por ação, armadura 200·s/(200·s+A), H de DES, H_c de CON, Ímpeto e continuações, Sobrecarga (3 cargas), Comprimir em área, Abertura/Punir, Fogo −30·s, Raio +25% de impacto, reação elemental, Frenesi, Ritmo, Marca, Flanco (40% do tempo); K, impacto, tempo, custo e recarga de cada técnica e as transformações que mudam esses números. O jogador escolhe sempre a ação de maior dano/s disponível.
 - **Não usa:** efeitos em texto livre (passivas, nós-chave e técnicas com condição como "só contra alvo atordoado" ficam de fora), Artes, equipamento, posicionamento e mecânicas de chefe. Mostra o equilíbrio dos **números-base**; não substitui jogar.
@@ -12,53 +13,53 @@ Gerado por `node sim/simulador.js` com os dados de `prototipo/v2/dados.js` (os m
 |---|---|---|---|---|
 | Dano/s efetivo (× 0,55 de tempo atacando) | ≈ 70 | 87,2 | 72,5–104,9 | **fora** |
 | Fera (650) | 8–12 s | 4,5 s | 2,9–5,6 s | **fora** |
-| Constructo (1.100) | 14–18 s | 7,5 s | 6,0–9,7 s | **fora** |
-| Parte de 1 jogador no Chefe de Andar (20.000) | ≈ 287 s de dano (5 min) | 117,6 s | 97,2–141,1 s | **fora** |
+| Constructo (1.100) | 14–18 s | 7,5 s | 5,9–9,2 s | **fora** |
+| Parte de 1 jogador no Chefe de Andar (20.000) | ≈ 287 s de dano (5 min) | 127,5 s | 104,8–160,3 s | **fora** |
 
 Leitura: o documento calcula o tempo de combate supondo **55% do tempo atacando**; o simulador já desconta o tempo gasto se defendendo, curando e reposicionando depois de golpes. Diferença grande aqui indica que as técnicas da árvore somam mais (ou menos) dano do que o modelo de papel previa.
 
 ## 2. Metas de diversidade (nível 100)
 | Meta | Resultado | Situação |
 |---|---|---|
-| ≥ 8 builds a ≤ 15% da melhor no chefe | 31 builds (melhor 75 s) | **cumpre** |
-| Melhor build de cada arma a ±15% da média | 11/11 | **cumpre** |
-| Generalista ≤ 15% atrás da melhor | 7% atrás | **cumpre** |
-| Todo perfil de atributo com alguma build a ≤ 15% | 5/8 | **não cumpre**: Força +22%, Leitor (PER) +28%, Mago +33% |
+| ≥ 8 builds a ≤ 15% da melhor no chefe | 24 builds (melhor 76 s) | **cumpre** |
+| Melhor build de cada arma a ±15% da média | 10/11 | **não cumpre**: Desarmado +15% de tempo |
+| Generalista ≤ 15% atrás da melhor | 3% atrás | **cumpre** |
+| Todo perfil de atributo com alguma build a ≤ 15% | 5/8 | **não cumpre**: Força +20%, Leitor (PER) +29%, Mago +38% |
 
 ### Melhor build de cada arma (nível 100)
 | Arma | Perfil | Elementos | Chefe (médio) | vs média | Chefe (bom) | Dano/s boneco | Impacto/s | Fera | 4 feras |
 |---|---|---|---|---|---|---|---|---|---|
-| Katana | Força+Destreza | Fogo | 75 s (morre 10%) | -14% | 77 s | 249 | 22,2 | 2,8 s | 2,6 s |
-| Dois Machados | Força+Destreza | Fogo | 79 s | -10% | 78 s | 231 | 25,7 | 2,6 s | 4,2 s |
-| Espada Curta | Força+Destreza | Raio | 83 s | -6% | 79 s | 231 | 22,1 | 2,2 s | 11,0 s |
-| Duas Katanas | Força+Destreza | Raio | 85 s (morre 20%) | -3% | 86 s | 213 | 20,9 | 2,5 s | 3,7 s |
-| Duas Espadas | Força+Destreza | Raio | 88 s | -0% | 86 s | 210 | 22,7 | 3,4 s | 4,3 s |
-| Machado Pequeno | Força+Destreza | Raio | 88 s (morre 20%) | +0% | 87 s | 217 | 28,2 | 2,0 s | 3,6 s |
-| Espada E Escudo | Lâmina mágica | Fogo | 91 s | +3% | 89 s | 210 | 22,5 | 3,0 s | 9,0 s |
-| Arco | Força+Destreza | Fogo | 91 s (morre 30%) | +3% | 91 s | 217 | 11,5 | 2,1 s | 2,1 s |
-| Espada Longa | Lâmina mágica | Fogo | 92 s | +5% | 89 s | 209 | 21,4 | 3,6 s | 4,7 s |
-| Machado Grande | Generalista | Fogo + Raio | 96 s | +9% | 92 s | 199 | 24,2 | 3,0 s | 3,0 s |
-| Desarmado | Lâmina mágica | Fogo | 100 s (morre 10%) | +13% | 97 s | 201 | 22,5 | 3,2 s | 4,7 s |
+| Katana | Força+Destreza | Fogo | 76 s (morre 20%) | -15% | 76 s | 249 | 22,2 | 2,7 s | 2,6 s |
+| Espada Curta | Lâmina mágica | Fogo | 80 s | -11% | 77 s | 241 | 20,1 | 2,3 s | 8,2 s |
+| Dois Machados | Lâmina mágica | Fogo | 80 s (morre 10%) | -10% | 79 s | 232 | 22,9 | 2,5 s | 4,2 s |
+| Machado Pequeno | Força+Destreza | Raio | 88 s | -2% | 87 s | 217 | 28,2 | 2,0 s | 3,6 s |
+| Duas Katanas | Lâmina mágica | Fogo | 90 s | +0% | 87 s | 213 | 19,9 | 3,8 s | 3,9 s |
+| Duas Espadas | Força+Destreza | Raio | 91 s | +2% | 86 s | 210 | 22,7 | 3,4 s | 4,2 s |
+| Espada E Escudo | Generalista | Fogo | 91 s | +2% | 90 s | 209 | 21,7 | 3,3 s | 5,3 s |
+| Arco | Lâmina mágica | Fogo | 92 s (morre 30%) | +3% | 90 s | 218 | 11,6 | 2,9 s | 4,2 s |
+| Machado Grande | Generalista | Fogo | 96 s (morre 10%) | +7% | 94 s | 195 | 21,4 | 2,9 s | 3,5 s |
+| Espada Longa | Lâmina mágica | Fogo | 96 s | +8% | 89 s | 209 | 21,4 | 3,5 s | 4,8 s |
+| Desarmado | Generalista | Fogo | 103 s | +15% | 94 s | 198 | 22,0 | 3,1 s | 4,4 s |
 
 ### Perfis de atributo (nível 100)
-| Perfil | Atributos | Melhor no chefe | vs melhor perfil | Média dano/s | Morre no chefe (média) |
-|---|---|---|---|---|---|
-| Força | FOR 60 · DES 12 · VIG 60 · POT 1 | 92 s | +22% | 183 | 4% |
-| Destreza | FOR 30 · DES 60 · VIG 50 · POT 1 | 83 s | +10% | 196 | 6% |
-| Força+Destreza | FOR 60 · DES 60 · VIG 12 · POT 1 | 75 s | +0% | 214 | 9% |
-| Tanque | FOR 45 · DES 37 · VIG 60 | 85 s | +13% | 196 | 1% |
-| Leitor (PER) | FOR 1 · DES 50 · VIG 30 · PER 60 | 96 s | +28% | 168 | 8% |
-| Mago | DES 1 · VIG 12 · POT 60 · CON 60 | 100 s | +33% | 163 | 30% |
-| Lâmina mágica | FOR 45 · DES 30 · VIG 37 · POT 45 | 76 s | +1% | 208 | 5% |
-| Generalista | FOR 30 · DES 30 · VIG 30 · POT 30 · CON 30 · PER 30 | 81 s | +7% | 206 | 5% |
+| Perfil | Atributos | Melhor no chefe | vs melhor perfil | Média dano/s | Morre no chefe (média) | Tempo sem energia (< 15) | Básico por falta de recurso |
+|---|---|---|---|---|---|---|---|
+| Força | FOR 60 · DES 12 · VIG 60 · POT 1 | 92 s | +20% | 183 | 7% | 0% | 0% |
+| Destreza | FOR 30 · DES 60 · VIG 50 · POT 1 | 84 s | +10% | 196 | 6% | 0% | 1% |
+| Força+Destreza | FOR 60 · DES 60 · VIG 12 · POT 1 | 76 s | +0% | 214 | 7% | 0% | 1% |
+| Tanque | FOR 45 · DES 37 · VIG 60 | 86 s | +12% | 196 | 1% | 0% | 1% |
+| Leitor (PER) | FOR 1 · DES 50 · VIG 30 · PER 60 | 98 s | +29% | 168 | 11% | 0% | 2% |
+| Mago | DES 1 · VIG 12 · POT 60 · CON 60 | 106 s | +38% | 159 | 32% | 43% | 47% |
+| Lâmina mágica | FOR 45 · DES 30 · VIG 37 · POT 45 | 80 s | +4% | 207 | 5% | 20% | 28% |
+| Generalista | FOR 30 · DES 30 · VIG 30 · POT 30 · CON 30 · PER 30 | 79 s | +3% | 204 | 5% | 39% | 44% |
 
 ### Elementos no perfil Mago (nível 100)
 | Elementos | Chefe | Dano/s boneco | 4 feras |
 |---|---|---|---|
-| Fogo | 113 s | 172 | 5,5 s |
-| Raio | 128 s | 144 | 4,5 s |
-| Fogo + Raio | 113 s | 170 | 3,5 s |
-| Fogo + Gelo + Raio | 114 s | 165 | 3,7 s |
+| Fogo | 117 s | 172 | 5,5 s |
+| Raio | 140 s | 144 | 4,6 s |
+| Fogo + Raio | 125 s | 159 | 3,4 s |
+| Fogo + Gelo + Raio | 125 s | 163 | 4,0 s |
 
 ## 3. Técnicas: vale a pena usar no lugar do ataque básico?
 Medida (perfil neutro, 30 em tudo): **ganho** = quanto dano/s a mais você tem usando a técnica sempre que a recarga deixa, em vez de só bater com o ataque leve da arma. Negativo = dá menos dano do que o básico no mesmo tempo (só vale pelo impacto, controle ou utilidade).
@@ -85,6 +86,7 @@ Medida (perfil neutro, 30 em tudo): **ganho** = quanto dano/s a mais você tem u
 ### Técnicas de dano que dão MENOS dano que o ataque básico (42 de 116)
 | Técnica | Árvore | K | Impacto | Tempo | Recarga | Ganho | O texto dá outro valor? |
 |---|---|---|---|---|---|---|---|
+| Guarda de passagem | Espada Longa | 0,35 | 15 | 0,90 s | 8,0 s | -6% | passo lateral 1,5 m. |
 | Bola elétrica | Raio | 0,30 | 0 | 1,20 s | 16,0 s | -5% | esfera lenta que anda 8 m em 4 s e eletrifica quem estiver a 2 m. |
 | Chão em brasa | Fogo | 0,25 | 0 | 1,00 s | 14,0 s | -5% | área de 3 m por 6 s; no 1º tique válido em cada alvo aplica Queimando … |
 | Tornado | Vento | 0,40 | 0 | 1,60 s | 24,0 s | -5% | tornado de 2 m anda 6 m em 4 s puxando comuns para ele. |
@@ -106,7 +108,6 @@ Medida (perfil neutro, 30 em tudo): **ganho** = quanto dano/s a mais você tem u
 | Escudo arremessado | Espada E Escudo | 0,60 | 35 | 0,90 s | 14,0 s | -1% | ricocheteia em até 3 alvos e volta em 1,5 s (sem bloqueio até voltar). |
 | Golpe de cabo | Machado Grande | 0,40 | 30 | 0,60 s | 8,0 s | -1% | rápido, interrompe preparo marcado. |
 | Espinhos | Terra | 0,80 | 30 | 1,00 s | 14,0 s | -1% | espinhos saem do chão numa linha de 6 m; derrubam comuns. |
-| Guarda de passagem | Espada Longa | 0,35 | 15 | 0,20 s | 8,0 s | -1% | passo lateral 1,5 m. |
 | Machado bumerangue | Machado Pequeno | 0,80 | 20 | 1,00 s | 12,0 s | -1% | vai e volta acertando 2 vezes (exceção na ficha). |
 | Investida de ombro | Desarmado | 0,60 | 30 | 0,70 s | 7,0 s | -1% | avança 3 m e empurra comuns 1 m. |
 | Cruz ascendente | Duas Espadas | 0,90 | 30 | 0,90 s | 8,0 s | -1% | joga comum para o alto 1 s. |
@@ -129,4 +130,4 @@ Medida (perfil neutro, 30 em tudo): **ganho** = quanto dano/s a mais você tem u
 | Terremoto arcano | Terra | 2,00 | 50 | 2,00 s | 24,0 s | -0% | área 4 m; derruba comuns; você fica imóvel 0,5 s depois. |
 
 ### Técnicas de dano que nenhuma build do nível 100 escolheu (23, só das árvores testadas, sem as condicionais)
-Arremesso de grupo (Desarmado) · Quebra-ossos (Desarmado) · Arremesso do gigante (Desarmado) · Palma que sela (Desarmado) · Interceptação (Espada Longa) · Corte em meia-lua (Espada Longa) · Chuva de cortes (Duas Espadas) · Avanço do baluarte (Espada E Escudo) · Escudo arremessado (Espada E Escudo) · Reflexo duplo (Duas Katanas) · Dança das garças (Duas Katanas) · Golpe de cabo (Machado Grande) · Rachar armadura (Machado Grande) · Pegada de gigante (Machado Grande) · Quebra-escudo (Machado Pequeno) · Corte em X (Dois Machados) · Tiro de atordoar (Arco) · Armadilha (Arco) · Rede (Arco) · Tiro de pinos (Arco) · Chão em brasa (Fogo) · Toque glacial (Gelo) · Bola elétrica (Raio)
+Arremesso de grupo (Desarmado) · Quebra-ossos (Desarmado) · Arremesso do gigante (Desarmado) · Palma que sela (Desarmado) · Guarda de passagem (Espada Longa) · Corte em meia-lua (Espada Longa) · Chuva de cortes (Duas Espadas) · Avanço do baluarte (Espada E Escudo) · Escudo arremessado (Espada E Escudo) · Reflexo duplo (Duas Katanas) · Dança das garças (Duas Katanas) · Golpe de cabo (Machado Grande) · Rachar armadura (Machado Grande) · Pegada de gigante (Machado Grande) · Quebra-escudo (Machado Pequeno) · Corte em X (Dois Machados) · Tiro de atordoar (Arco) · Armadilha (Arco) · Rede (Arco) · Tiro de pinos (Arco) · Chão em brasa (Fogo) · Toque glacial (Gelo) · Bola elétrica (Raio)

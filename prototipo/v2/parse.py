@@ -11,7 +11,8 @@ def tec(ef):
     if m: t['K']=num(m.group(1))*(int(m.group(2)) if m.group(2) else 1); t['hits']=int(m.group(2) or 1)
     elif re.match(r'\s*0 dano',ef): t['K']=0
     m=re.search(r'\bI(\d+)',ef); t['I']=int(m.group(1)) if m else 0
-    m=re.search(r'(?:carga )?(\d+,\d+|\d+) s\b',ef.split('rec.')[0]); t['tempo']=num(m.group(1)) if m else 0.8
+    mt=re.search(r'total (\d+(?:,\d+)?) s',ef.split('rec.')[0])
+    m=mt or re.search(r'(?:carga )?(\d+,\d+|\d+) s\b',ef.split('rec.')[0]); t['tempo']=num(m.group(1)) if m else 0.8
     t['carga']=bool(re.search(r'carga \d',ef.split('·')[1] if '·' in ef else ''))
     m=re.search(r'(\d+)\s?([RE])\b',ef); 
     if m: t['custo']=int(m.group(1)); t['rec']=m.group(2)
@@ -114,6 +115,37 @@ for ln in mx.splitlines():
         for c in cel:
             nm=re.match(r'\*\*(.+?)\*\*: (.+)',c); fs.append({'nome':nm.group(1),'ef':nm.group(2).replace('**','')})
         rea[slug(m.group(1))+'+'+slug(m.group(2))]=fs
+def fx_reacoes(rea):
+    def n(x):return float(x.replace(',','.'))
+    for par,fs in rea.items():
+        for f in fs:
+            e=f['ef'].lower();r={}
+            m=re.search(r'k(\d+,\d+)(?: × (\d+))?',e)
+            if m:r['K']=n(m.group(1))*(int(m.group(2)) if m.group(2) else 1)
+            m=re.search(r'\bi(\d+)',e)
+            if m:r['I']=int(m.group(1))
+            m=re.search(r'(?:área|nuvem|poça|explosão k[\d,]+ em) (?:de )?(\d+(?:,\d+)?) m',e) or re.search(r'em (\d+(?:,\d+)?) m',e)
+            if m:r['r']=n(m.group(1))
+            m=re.search(r'−(\d+) de postura',e)
+            if m:r['pos']=int(m.group(1))
+            if 'lento' in e and 'remove o lento' not in e:r['lento']=1
+            m=re.search(r'empurra[^;]*?(\d+(?:,\d+)?) m',e)
+            if m:r['emp']=n(m.group(1))
+            m=re.search(r'puxa[^;]*?(\d+(?:,\d+)?) m',e)
+            if m:r['puxa']=n(m.group(1))
+            if 'interrompe' in e:r['interr']=1
+            if re.search(r'derrubad|levantado|preso',e):r['derruba']=1.2
+            m=re.search(r'você recebe −(\d+)% de dano',e)
+            if m:r['selfRed']=int(m.group(1))
+            m=re.search(r'recupera (\d+) de postura',e)
+            if m:r['selfPos']=int(m.group(1))
+            if re.search(r'aliados|aliado',e) and 'K' not in r:r['apoio']=1
+            if re.search(r'você sai da mira|perdem você',e):r['oculto']=1
+            if re.search(r'controle|preso|interromp|lento|empurra|puxa|derrub|levantad|atraso',e) and 'remove o lento' not in e:r['ctrl']=1
+            if 'você e aliados' in f['ef'] and '+10% de movimento' in f['ef']:r['selfMov']=10
+            if 'sua recuperação' in f['ef']:r['selfVel']=10
+            f['fx']=r
+fx_reacoes(rea)
 dados={'armas':A,'elems':E,'discs':Di,'esp':esp,'lig':lig,'artes':art,'reacoes':rea}
 open('/home/claude/jogo2/dados.js','w').write('const DADOS='+json.dumps(dados,ensure_ascii=False)+';')
 ntec=sum(1 for a in A+E+Di for n in a['nos'] if 't' in n)

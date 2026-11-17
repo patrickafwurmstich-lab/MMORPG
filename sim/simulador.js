@@ -99,9 +99,12 @@ function simular(b,cen,dur,hab){
   else if(cen==='fera')alvos=[{vida:650*s,pos:60,posMax:60,A:50*s,regen:7}];
   else if(cen==='constructo')alvos=[{vida:1100*s,pos:170,posMax:170,A:50*s,regen:20}];
   else alvos=[0,1,2,3].map(()=>({vida:650*s,pos:60,posMax:60,A:50*s,regen:7}));
-  let t=0,res=resMax,ene=eneMax,imp=0,vida=vidaMax,cargas=0,cargaT=0,ganhoCarga=-9,dano=0,impTot=0,quebras=0,morto=false,curas=0;
+  let semEne=0,basicoForcado=0,acoes=0,reacoesUsadas=0;let t=0,res=resMax,ene=eneMax,imp=0,vida=vidaMax,cargas=0,cargaT=0,ganhoCarga=-9,dano=0,impTot=0,quebras=0,morto=false,curas=0;
   const cd={};let armRed=0,armRedT=0,aberturaPend=false,proxLeitura=0,ultEl=null,reacCD=0,frenesi=0,ritmo=0;
-  const elems=b.elems,temReacao=elems.length>=2;const qEl={};{const ph={};let tot=0;for(const e of elems){ph[e]=phDe([...b.comprados].filter(k=>k.startsWith(e+':')));tot+=ph[e];}for(const e of elems)qEl[e]=elems.length===1?1:0.6+0.4*ph[e]/Math.max(1,tot);}
+  const elems=b.elems,temReacao=elems.length>=2&&elems.every(e=>[1,2,3,4,5,6].every(n=>b.comprados.has(e+':'+n)));let contEl=null,contT=-9,reacCtrlCD=0;
+  const ORD=['fogo','gelo','raio','terra','vento','agua'];const phEl=e=>phDe([...b.comprados].filter(k=>k.startsWith(e+':')));
+  function formaReacao(x,y){const [A,B]=ORD.indexOf(x)<ORD.indexOf(y)?[x,y]:[y,x];const L=D.reacoes[A+'+'+B];if(!L)return null;const p=phEl(A)/Math.max(1,phEl(A)+phEl(B));const disp=[1];if(p>=0.7)disp.push(0);if(p<=0.3)disp.push(2);
+    let m=null,mv=-1;for(const i of disp){const fx=L[i].fx||{};const v=(fx.K||0)*(fx.r&&cen==='grupo'?4:1)+(fx.I||0)*0.01+(fx.pos||0)*0.01;if(v>mv){mv=v;m=fx;}}return m;}const qEl={};{const ph={};let tot=0;for(const e of elems){ph[e]=phDe([...b.comprados].filter(k=>k.startsWith(e+':')));tot+=ph[e];}for(const e of elems)qEl[e]=elems.length===1?1:0.6+0.4*ph[e]/Math.max(1,tot);}
   const tecs=b.tec.map(no=>({no,t:tecFinal(no,b),fm:forma(no),peso:peso(no),magico:no.t.rec==='E'||ARV[no.arv].cat==='elem',el:ARV[no.arv].cat==='elem'?no.arv:null,cond:condicional(no)}));
   let proxAtq=cen==='boneco'?Infinity:2.0;const intervAtq=cen==='chefe'?2.6:(cen==='constructo'?3:1.6);const danoAtq=(cen==='chefe'?300:cen==='constructo'?160:80)*s;const IAtq=cen==='chefe'?40:25;
   let pos=posMax,atordP=0;
@@ -113,9 +116,9 @@ function simular(b,cen,dur,hab){
       if(!(al.atord>0)){al.pos-=Ii;al.semImp=0;if(al.pos<=0){al.pos=0;al.atord=al.chefe?4:1.6;quebras++;imp=Math.min(100,imp+15);}}}}
   let ocupado=0;const pend=[];
   while(t<dur&&!morto){
-    const dt=0.05;t+=dt;
+    const dt=0.05;t+=dt;if(ene<15)semEne+=dt;
     // regen / timers
-    res=Math.min(resMax,res+28*dt*0.7);ene=Math.min(eneMax,ene+regE*dt);for(const k in cd)cd[k]-=dt;reacCD-=dt;
+    res=Math.min(resMax,res+28*dt*0.7);ene=Math.min(eneMax,ene+regE*dt);for(const k in cd)cd[k]-=dt;reacCD-=dt;reacCtrlCD-=dt;
     if(armRedT>0){armRedT-=dt;if(armRedT<=0)armRed=0;}if(cargas>0){cargaT-=dt;if(cargaT<=0)cargas=0;}
     for(const al of alvos){if(al.atord>0){al.atord-=dt;if(al.atord<=0)al.pos=al.posMax*0.6;}else{al.semImp=(al.semImp||0)+dt;if(al.semImp>2.5)al.pos=Math.min(al.posMax,al.pos+al.regen*dt);}}
     if(cen!=='boneco'&&!vivos().length)break;
@@ -145,6 +148,7 @@ function simular(b,cen,dur,hab){
       const TT=tempoAcao(T,a,x.magico);
       if(x.t.rec==='E')op('tec',K,x.t.I,TT,x.peso,x.fm.multi,0,custo,{x,usaC});else op('tec',K,x.t.I,TT,x.peso,x.fm.multi,custo+(cen==='boneco'?0:20)>res?999:custo,0,{x,usaC});}
     if(!best){ocupado=0.2;continue;}
+    acoes++;if((best.nome==='leve'||best.nome==='pesado')&&tecs.some(x=>x.t.K>0&&!x.cond&&(cd[x.no.key]||0)<=0&&(x.t.rec==='E'?x.t.custo>ene:x.t.custo>res)))basicoForcado++;
     res-=best.custoR===999?0:best.custoR;ene-=best.custoE;ocupado=best.T;
     if(best.nome==='impeto')imp=0;
     if(best.nome==='cruzado')ritmo=0;else if(best.nome==='leve'&&A.ritmo)ritmo++;
@@ -153,13 +157,15 @@ function simular(b,cen,dur,hab){
     pend.push({em:t+best.T*0.55,K:best.K,I:best.I,p:best.pesoN,m:best.multi,o:{mag,raio:best.x&&best.x.el==='raio'}});
     if(best.x){cd[best.x.no.key]=best.x.t.cd;if(best.usaC)cargas=0;
       const el=best.x.el;if(el){if(el==='fogo'){armRed=30*s*qEl.fogo;armRedT=6;}
-        if(temReacao&&ultEl&&ultEl!==el&&reacCD<=0){pend.push({em:t+best.T*0.6,K:0.8,I:10,p:'conj',m:cen==='grupo',o:{derivada:true,mag:true}});reacCD=6;}ultEl=el;}
+        if(temReacao&&contEl&&contEl!==el&&t-contT<=4){const fx=formaReacao(contEl,el);if(fx){const ctrl=!!fx.ctrl;if(ctrl?reacCtrlCD<=0:reacCD<=0){if(ctrl)reacCtrlCD=10;else reacCD=6;
+            if(fx.K||fx.I||fx.pos)pend.push({em:t+best.T*0.6,K:fx.K||0,I:(fx.I||0)+(fx.pos||0),p:'conj',m:cen==='grupo'&&!!fx.r,o:{derivada:true,mag:true}});reacoesUsadas++;}}contEl=null;}
+        else{contEl=el;contT=t;}ultEl=el;}
       if(mag&&best.x.t.custo>=15&&t-ganhoCarga>=2&&cargas<3){cargas++;ganhoCarga=t;cargaT=8;}}
   }
   const tempo=Math.min(t,dur);
   return {dps:dano/tempo/s,ips:impTot/tempo,tempo,morto,vida:Math.max(0,vida/vidaMax),quebras,curas,
-    venceu:cen==='boneco'?null:!vivos().length,aplicado:dano};}
-function media(fn,n){const rs=[];for(let i=0;i<n;i++)rs.push(fn());const o={};for(const k of Object.keys(rs[0])){const v=rs.map(x=>x[k]);o[k]=typeof v[0]==='number'?v.reduce((s,x)=>s+x,0)/n:v.filter(Boolean).length/n;}return o;}
+    venceu:cen==='boneco'?null:!vivos().length,aplicado:dano,semEne:semEne/Math.max(t,1),forcado:basicoForcado/Math.max(1,acoes)};}
+function media(fn,n){const rs=[];for(let i=0;i<n;i++)rs.push(fn());const o={};const vit=rs.filter(x=>x.venceu);o.tempoVit=vit.length?vit.reduce((q,x)=>q+x.tempo,0)/vit.length:Infinity;for(const k of Object.keys(rs[0])){if(k==='tempoVit')continue;const v=rs.map(x=>x[k]);o[k]=typeof v[0]==='number'?v.reduce((s,x)=>s+x,0)/n:v.filter(Boolean).length/n;}return o;}
 
 // ---------------- execução ----------------
 const f=(v,d=0)=>Number(v).toLocaleString('pt-BR',{minimumFractionDigits:d,maximumFractionDigits:d});
@@ -178,7 +184,7 @@ function rodar(cfg){nivelRef=cfg;const linhas=[];const combos=[];
     const fe=media(()=>simular(bB,'fera',120,HAB['médio']),10);
     const co=media(()=>simular(bB,'constructo',120,HAB['médio']),10);
     const gr=media(()=>simular(bG,'grupo',180,HAB['médio']),8);
-    linhas.push({...c,tec:bB.tec.map(x=>x.nome),a:bB.a,dps:bon.dps,ips:bon.ips,chefeT:ch.tempo,chefeV:ch.venceu,chefeM:ch.morto,chefeTb:chB.tempo,feraT:fe.tempo,constT:co.tempo,grupoT:gr.tempo,grupoV:gr.venceu});}
+    linhas.push({...c,semEne:ch.semEne,forcado:ch.forcado,tec:bB.tec.map(x=>x.nome),a:bB.a,dps:bon.dps,ips:bon.ips,chefeT:ch.tempoVit,chefeV:ch.venceu,chefeM:ch.morto,chefeTb:chB.tempoVit,feraT:fe.tempoVit,constT:co.tempoVit,grupoT:gr.tempoVit,grupoV:gr.venceu});}
   return linhas;}
 const REF=rodar({nivel:15,ph:18,s:1,ref:true});
 const N100=rodar({nivel:100,ph:103,s:Math.pow(1.09,9),ref:false});
@@ -198,7 +204,8 @@ const piores=tecs.filter(x=>x.ganho<0&&!x.cond).sort((a,b)=>a.ganho-b.ganho);
 const melhores=[...tecs].filter(x=>!x.cond).sort((a,b)=>b.ganho-a.ganho);
 
 let md=`# Simulador de equilíbrio — resultado\n\nGerado por \`node sim/simulador.js\` com os dados de \`prototipo/v2/dados.js\` (os mesmos 546 nós do loop 3) e os números de referência dos contratos v8 (seção AI). ${REF.length} builds no perfil de referência (nível 15) e ${N100.length} no nível 100 (11 armas × 8 perfis × 1 a 3 elementos).\n\n`;
-md+=`## O que o simulador mede e o que ele NÃO mede\n- **Mede:** dano/s no boneco, impacto/s (quebra de postura), tempo para matar uma fera (650·s), um constructo (1.100·s), um grupo de 4 feras e a parte de um jogador no Chefe de Andar (120.000·s ÷ 6 = 20.000·s, postura 1.000 ÷ 6, ataque de 300·s a cada 2,6 s). Média de várias lutas com um jogador "médio" (30% de esquivas perfeitas/parry, 15% de golpes levados) e um "bom" (55% / 5%).\n- **Usa:** r(x), C(x), dano com pesos por ação, armadura 200·s/(200·s+A), H de DES, H_c de CON, Ímpeto e continuações, Sobrecarga (3 cargas), Comprimir em área, Abertura/Punir, Fogo −30·s, Raio +25% de impacto, reação elemental, Frenesi, Ritmo, Marca, Flanco (40% do tempo); K, impacto, tempo, custo e recarga de cada técnica e as transformações que mudam esses números. O jogador escolhe sempre a ação de maior dano/s disponível.\n- **Não usa:** efeitos em texto livre (passivas, nós-chave e técnicas com condição como "só contra alvo atordoado" ficam de fora), Artes, equipamento, posicionamento e mecânicas de chefe. Mostra o equilíbrio dos **números-base**; não substitui jogar.\n\n`;
+md+=`## O que o simulador mede e o que ele NÃO mede\n- **Tempo** = média só das lutas vencidas; a chance de morrer aparece em coluna própria.
+- **Mede:** dano/s no boneco, impacto/s (quebra de postura), tempo para matar uma fera (650·s), um constructo (1.100·s), um grupo de 4 feras e a parte de um jogador no Chefe de Andar (120.000·s ÷ 6 = 20.000·s, postura 1.000 ÷ 6, ataque de 300·s a cada 2,6 s). Média de várias lutas com um jogador "médio" (30% de esquivas perfeitas/parry, 15% de golpes levados) e um "bom" (55% / 5%).\n- **Usa:** r(x), C(x), dano com pesos por ação, armadura 200·s/(200·s+A), H de DES, H_c de CON, Ímpeto e continuações, Sobrecarga (3 cargas), Comprimir em área, Abertura/Punir, Fogo −30·s, Raio +25% de impacto, reação elemental, Frenesi, Ritmo, Marca, Flanco (40% do tempo); K, impacto, tempo, custo e recarga de cada técnica e as transformações que mudam esses números. O jogador escolhe sempre a ação de maior dano/s disponível.\n- **Não usa:** efeitos em texto livre (passivas, nós-chave e técnicas com condição como "só contra alvo atordoado" ficam de fora), Artes, equipamento, posicionamento e mecânicas de chefe. Mostra o equilíbrio dos **números-base**; não substitui jogar.\n\n`;
 // A — calibração
 const refDps=REF.map(l=>l.dps*0.55);
 md+=`## 1. Calibração com o documento (perfil de referência da camada 1: nível 15, principal +20, secundário +15, VIG +10, 18 PH)\n| Medida | Documento | Simulador (mediana das ${REF.length} builds) | Faixa (mín–máx) | Situação |\n|---|---|---|---|---|\n`;
@@ -224,9 +231,9 @@ md+=`| Generalista ≤ 15% atrás da melhor | ${f((melhorPorPerfil['Generalista'
 md+=`| Todo perfil de atributo com alguma build a ≤ 15% | ${8-perfisFora.length}/8 | ${perfisFora.length?'**não cumpre**: '+perfisFora.map(([k,v])=>k+' +'+f((v/melhorP-1)*100)+'%').join(', '):'**cumpre**'} |\n\n`;
 md+=`### Melhor build de cada arma (nível 100)\n| Arma | Perfil | Elementos | Chefe (médio) | vs média | Chefe (bom) | Dano/s boneco | Impacto/s | Fera | 4 feras |\n|---|---|---|---|---|---|---|---|---|---|\n`;
 Object.values(porArma).sort((x,y)=>x.chefeT-y.chefeT).forEach(l=>{md+=`| ${nome(l.arma)} | ${l.perfil} | ${l.elems.map(nome).join(' + ')} | ${f(l.chefeT)} s${l.chefeM>0?' (morre '+f(l.chefeM*100)+'%)':''} | ${(l.chefeT>=mArma?'+':'')+f((l.chefeT/mArma-1)*100)}% | ${f(l.chefeTb)} s | ${f(l.dps)} | ${f(l.ips,1)} | ${f(l.feraT,1)} s | ${f(l.grupoT,1)} s |\n`;});
-md+=`\n### Perfis de atributo (nível 100)\n| Perfil | Atributos | Melhor no chefe | vs melhor perfil | Média dano/s | Morre no chefe (média) |\n|---|---|---|---|---|---|\n`;
+md+=`\n### Perfis de atributo (nível 100)\n| Perfil | Atributos | Melhor no chefe | vs melhor perfil | Média dano/s | Morre no chefe (média) | Tempo sem energia (< 15) | Básico por falta de recurso |\n|---|---|---|---|---|---|---|---|\n`;
 for(const pf in porPerfil){const L=porPerfil[pf];const a=L[0].a;const av=k=>L.reduce((q,l)=>q+l[k],0)/L.length;
-  md+=`| ${pf} | ${ATR.filter(x=>a[x]).map(x=>x+' '+a[x]).join(' · ')} | ${f(melhorPorPerfil[pf])} s | +${f((melhorPorPerfil[pf]/melhorP-1)*100)}% | ${f(av('dps'))} | ${f(av('chefeM')*100)}% |\n`;}
+  md+=`| ${pf} | ${ATR.filter(x=>a[x]).map(x=>x+' '+a[x]).join(' · ')} | ${f(melhorPorPerfil[pf])} s | +${f((melhorPorPerfil[pf]/melhorP-1)*100)}% | ${f(av('dps'))} | ${f(av('chefeM')*100)}% | ${f(av('semEne')*100)}% | ${f(av('forcado')*100)}% |\n`;}
 md+=`\n### Elementos no perfil Mago (nível 100)\n| Elementos | Chefe | Dano/s boneco | 4 feras |\n|---|---|---|---|\n`;
 const gE={};for(const l of N100.filter(l=>l.perfil==='Mago'))(gE[l.elems.map(nome).join(' + ')]=gE[l.elems.map(nome).join(' + ')]||[]).push(l);
 for(const k in gE){const L=gE[k];const av=q=>L.reduce((z,l)=>z+l[q],0)/L.length;md+=`| ${k} | ${f(av('chefeT'))} s | ${f(av('dps'))} | ${f(av('grupoT'),1)} s |\n`;}

@@ -1,331 +1,331 @@
 nivel;arma;perfil;elementos;dps;ips;chefeT;chefeVenceu;chefeMorreu;chefeTbom;feraT;constructoT;grupo4T;tecnicas
-15;desarmado;Força;fogo;147,8;20,98;139,1;0,60;0,40;132,9;4,8;8,8;12,1;Projétil de fogo, Lança ígnea, Área de fogo, Palma elemental, Supernova, Investida de ombro
-15;desarmado;Destreza;fogo;158,1;22,02;114,7;0,40;0,60;125,2;4,4;7,4;12,2;Projétil de fogo, Lança ígnea, Área de fogo, Palma elemental, Investida de ombro, Supernova
-15;desarmado;Força+Destreza;fogo;161,8;22,03;107,5;0,30;0,70;123,4;4,4;7,4;12,8;Projétil de fogo, Lança ígnea, Área de fogo, Palma elemental, Investida de ombro, Supernova
-15;desarmado;Tanque;fogo;142,4;20,33;141,1;0,40;0,60;142,9;4,6;8,5;13,1;Projétil de fogo, Lança ígnea, Área de fogo, Palma elemental, Supernova, Investida de ombro
-15;desarmado;Leitor (PER);fogo;131,8;21,25;130,9;0,30;0,70;148,0;4,5;9,0;14,6;Projétil de fogo, Lança ígnea, Área de fogo, Palma elemental, Supernova, Investida de ombro
-15;desarmado;Mago;fogo;134,7;19,67;133,4;0,30;0,70;150,3;3,1;7,1;10,1;Projétil de fogo, Lança ígnea, Área de fogo, Supernova, Palma elemental, Investida de ombro
-15;desarmado;Lâmina mágica;fogo;152,9;20,16;129,6;0,50;0,50;130,3;4,6;7,6;13,4;Projétil de fogo, Lança ígnea, Área de fogo, Palma elemental, Supernova, Investida de ombro
-15;desarmado;Generalista;fogo;147,4;19,69;129,2;0,60;0,40;134,2;4,6;7,7;10,0;Projétil de fogo, Lança ígnea, Área de fogo, Palma elemental, Supernova, Investida de ombro
-15;espada_curta;Força;fogo;175,1;20,08;116,8;0,80;0,20;115,9;3,9;6,9;13,8;Projétil de fogo, Lança ígnea, Área de fogo, Passo de sombra, Corte baixo, Lâmina venenosa
-15;espada_curta;Destreza;fogo;184,7;20,93;101,1;0,80;0,20;106,2;3,7;6,7;12,6;Projétil de fogo, Lança ígnea, Passo de sombra, Área de fogo, Corte baixo, Lâmina venenosa
-15;espada_curta;Força+Destreza;fogo;174,2;22,21;111,6;0,60;0,40;106,6;4,0;7,2;13,3;Projétil de fogo, Lança ígnea, Passo de sombra, Área de fogo, Corte baixo, Lâmina venenosa
-15;espada_curta;Tanque;fogo;169,3;20,07;118,0;0,70;0,30;116,4;5,0;7,1;13,8;Projétil de fogo, Lança ígnea, Área de fogo, Passo de sombra, Corte baixo, Lâmina venenosa
-15;espada_curta;Leitor (PER);fogo;157,7;20,21;126,6;0,50;0,50;123,1;4,8;7,8;13,4;Projétil de fogo, Lança ígnea, Área de fogo, Passo de sombra, Corte baixo, Lâmina venenosa
-15;espada_curta;Mago;fogo;155,7;18,19;129,4;0,70;0,30;125,0;3,1;7,2;8,6;Projétil de fogo, Lança ígnea, Área de fogo, Supernova, Passo de sombra, Corte baixo
-15;espada_curta;Lâmina mágica;fogo;179,7;19,17;111,2;0,80;0,20;111,5;3,9;7,0;11,0;Projétil de fogo, Lança ígnea, Área de fogo, Passo de sombra, Supernova, Corte baixo
-15;espada_curta;Generalista;fogo;170,7;18,49;119,5;0,90;0,10;114,8;5,0;7,0;12,0;Projétil de fogo, Lança ígnea, Área de fogo, Passo de sombra, Supernova, Corte baixo
-15;espada_longa;Força;fogo;154,9;19,94;126,8;0,90;0,10;122,3;4,4;8,0;12,0;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina imbuída, Corte de avanço, Corte de flanco
-15;espada_longa;Destreza;fogo;169,1;21,37;113,8;0,60;0,40;111,7;4,1;7,6;10,9;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina imbuída, Corte de avanço, Corte de flanco
-15;espada_longa;Força+Destreza;fogo;167,3;20,80;112,1;0,70;0,30;113,5;4,2;7,6;11,3;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina imbuída, Corte de avanço, Corte de flanco
-15;espada_longa;Tanque;fogo;149,8;19,92;135,1;0,70;0,30;128,5;4,3;7,9;11,9;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina imbuída, Corte de avanço, Corte de flanco
-15;espada_longa;Leitor (PER);fogo;140,9;19,10;131,8;0,40;0,60;137,1;5,0;9,0;10,6;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina imbuída, Corte de avanço, Corte de flanco
-15;espada_longa;Mago;fogo;144,7;18,37;124,3;0,50;0,50;141,2;3,1;7,3;5,4;Projétil de fogo, Lança ígnea, Área de fogo, Supernova, Lâmina imbuída, Corte de avanço
-15;espada_longa;Lâmina mágica;fogo;161,7;18,87;110,6;0,50;0,50;123,7;4,2;7,5;5,0;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina imbuída, Supernova, Corte de avanço
-15;espada_longa;Generalista;fogo;159,7;19,06;116,5;0,70;0,30;122,0;4,1;7,4;4,8;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina imbuída, Supernova, Corte de avanço
-15;duas_espadas;Força;fogo;150,7;18,38;120,5;0,60;0,40;127,8;5,2;8,9;5,2;Projétil de fogo, Lança ígnea, Área de fogo, Gume duplo elemental, Cruz ascendente, Supernova
-15;duas_espadas;Destreza;fogo;160,2;19,07;119,1;0,80;0,20;119,6;4,9;7,9;4,6;Projétil de fogo, Lança ígnea, Gume duplo elemental, Área de fogo, Cruz ascendente, Dança de lâminas
-15;duas_espadas;Força+Destreza;fogo;164,4;19,22;120,4;0,70;0,30;116,5;5,0;7,3;4,7;Projétil de fogo, Lança ígnea, Gume duplo elemental, Área de fogo, Cruz ascendente, Dança de lâminas
-15;duas_espadas;Tanque;fogo;150,2;17,94;130,2;0,90;0,10;128,8;5,4;8,8;5,3;Projétil de fogo, Lança ígnea, Área de fogo, Gume duplo elemental, Cruz ascendente, Supernova
-15;duas_espadas;Leitor (PER);fogo;143,5;17,62;137,5;0,70;0,30;133,8;5,6;8,8;4,8;Projétil de fogo, Lança ígnea, Área de fogo, Gume duplo elemental, Cruz ascendente, Supernova
-15;duas_espadas;Mago;fogo;139,4;17,04;133,3;0,70;0,30;137,6;3,1;7,1;5,8;Projétil de fogo, Lança ígnea, Área de fogo, Supernova, Gume duplo elemental, Cruz ascendente
-15;duas_espadas;Lâmina mágica;fogo;157,8;17,58;115,4;0,40;0,60;122,6;5,2;7,3;5,4;Projétil de fogo, Lança ígnea, Área de fogo, Gume duplo elemental, Supernova, Cruz ascendente
-15;duas_espadas;Generalista;fogo;158,2;18,08;120,9;0,60;0,40;121,7;5,0;8,0;4,7;Projétil de fogo, Lança ígnea, Área de fogo, Gume duplo elemental, Supernova, Cruz ascendente
-15;espada_e_escudo;Força;fogo;150,3;19,34;121,0;0,60;0,40;128,5;5,4;7,6;15,0;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina sagrada, Supernova, Investida de escudo
-15;espada_e_escudo;Destreza;fogo;160,5;20,13;121,1;0,90;0,10;118,1;5,2;7,4;14,0;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina sagrada, Supernova, Investida de escudo
-15;espada_e_escudo;Força+Destreza;fogo;164,3;20,14;106,1;0,60;0,40;116,3;4,0;7,4;13,5;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina sagrada, Supernova, Investida de escudo
-15;espada_e_escudo;Tanque;fogo;148,4;18,55;129,8;0,60;0,40;130,2;5,5;9,1;14,8;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina sagrada, Supernova, Investida de escudo
-15;espada_e_escudo;Leitor (PER);fogo;137,0;19,03;125,2;0,60;0,40;139,3;5,2;8,3;14,6;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina sagrada, Supernova, Investida de escudo
-15;espada_e_escudo;Mago;fogo;140,2;17,61;130,1;0,50;0,50;141,7;3,1;7,1;9,0;Projétil de fogo, Lança ígnea, Área de fogo, Supernova, Lâmina sagrada, Brasa persistente
-15;espada_e_escudo;Lâmina mágica;fogo;158,6;18,41;114,8;0,60;0,40;124,7;4,0;7,4;13,2;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina sagrada, Supernova, Investida de escudo
-15;espada_e_escudo;Generalista;fogo;156,9;18,60;111,0;0,50;0,50;123,4;5,2;7,2;11,9;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina sagrada, Supernova, Investida de escudo
-15;katana;Força;fogo;163,6;20,08;113,2;0,70;0,30;118,0;4,7;7,4;6,0;Iai rápido, Mil folhas, Projétil de fogo, Passo do relâmpago, Lança ígnea, Área de fogo
-15;katana;Destreza;fogo;181,3;21,30;104,2;0,80;0,20;104,2;3,3;6,8;5,4;Iai rápido, Mil folhas, Projétil de fogo, Passo do relâmpago, Lança ígnea, Área de fogo
-15;katana;Força+Destreza;fogo;182,9;20,89;107,2;1,00;0,00;103,1;3,3;7,1;5,4;Iai rápido, Mil folhas, Projétil de fogo, Passo do relâmpago, Lança ígnea, Área de fogo
-15;katana;Tanque;fogo;175,5;19,08;110,4;0,80;0,20;110,7;4,5;7,6;11,6;Iai rápido, Mil folhas, Projétil de fogo, Lança ígnea, Passo do relâmpago, Área de fogo
-15;katana;Leitor (PER);fogo;168,7;19,82;101,3;0,60;0,40;111,7;4,1;7,5;11,2;Iai rápido, Mil folhas, Projétil de fogo, Passo do relâmpago, Lança ígnea, Área de fogo
-15;katana;Mago;fogo;166,0;17,13;103,2;0,60;0,40;118,2;3,6;6,7;5,7;Projétil de fogo, Lança ígnea, Área de fogo, Iai rápido, Mil folhas, Passo do relâmpago
-15;katana;Lâmina mágica;fogo;187,8;18,36;97,2;0,80;0,20;103,7;4,7;6,8;6,0;Projétil de fogo, Iai rápido, Mil folhas, Lança ígnea, Passo do relâmpago, Área de fogo
-15;katana;Generalista;fogo;190,7;19,24;102,9;0,80;0,20;100,7;4,2;6,6;5,3;Projétil de fogo, Iai rápido, Mil folhas, Lança ígnea, Passo do relâmpago, Área de fogo
-15;duas_katanas;Força;fogo;146,2;18,78;128,6;0,50;0,50;131,9;4,1;8,0;9,9;Projétil de fogo, Fio elemental, Corte em cruz, Tesoura, Tempestade de pétalas, Área de fogo
-15;duas_katanas;Destreza;fogo;157,8;18,01;117,0;0,90;0,10;118,4;4,2;7,6;9,2;Projétil de fogo, Tesoura, Fio elemental, Corte em cruz, Tempestade de pétalas, Área de fogo
-15;duas_katanas;Força+Destreza;fogo;162,8;19,75;119,7;1,00;0,00;114,7;4,1;7,8;9,9;Projétil de fogo, Tesoura, Fio elemental, Corte em cruz, Tempestade de pétalas, Área de fogo
-15;duas_katanas;Tanque;fogo;151,8;18,92;120,9;0,60;0,40;126,2;4,6;8,3;9,6;Projétil de fogo, Fio elemental, Corte em cruz, Lança ígnea, Tesoura, Área de fogo
-15;duas_katanas;Leitor (PER);fogo;156,8;17,75;107,5;0,50;0,50;122,3;4,2;8,2;9,3;Projétil de fogo, Tesoura, Lança ígnea, Fio elemental, Corte em cruz, Área de fogo
-15;duas_katanas;Mago;fogo;148,2;17,94;127,7;0,80;0,20;128,9;3,7;6,7;5,3;Projétil de fogo, Lança ígnea, Área de fogo, Fio elemental, Corte em cruz, Tesoura
-15;duas_katanas;Lâmina mágica;fogo;164,1;18,69;112,2;0,80;0,20;115,5;4,5;6,9;9,3;Projétil de fogo, Lança ígnea, Fio elemental, Corte em cruz, Tesoura, Área de fogo
-15;duas_katanas;Generalista;fogo;165,8;19,06;108,5;0,80;0,20;114,7;4,4;6,8;9,8;Projétil de fogo, Lança ígnea, Fio elemental, Corte em cruz, Tesoura, Área de fogo
-15;machado_grande;Força;fogo;142,6;20,93;123,1;0,70;0,30;131,1;5,4;8,3;7,0;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina flamejante, Supernova, Giro pesado
-15;machado_grande;Destreza;fogo;150,7;23,02;111,3;0,80;0,20;120,2;5,1;8,0;4,7;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina flamejante, Giro pesado, Terremoto
-15;machado_grande;Força+Destreza;fogo;154,3;23,05;115,4;0,90;0,10;117,7;5,1;8,0;4,8;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina flamejante, Giro pesado, Terremoto
-15;machado_grande;Tanque;fogo;138,3;20,91;140,4;0,80;0,20;134,9;5,4;8,4;7,0;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina flamejante, Supernova, Giro pesado
-15;machado_grande;Leitor (PER);fogo;133,8;21,70;138,5;0,60;0,40;140,8;5,0;9,7;6,7;Projétil de fogo, Lança ígnea, Área de fogo, Supernova, Lâmina flamejante, Giro pesado
-15;machado_grande;Mago;fogo;134,8;19,81;136,8;0,50;0,50;141,0;3,1;7,4;5,5;Projétil de fogo, Lança ígnea, Área de fogo, Supernova, Lâmina flamejante, Giro pesado
-15;machado_grande;Lâmina mágica;fogo;155,4;20,60;123,6;0,70;0,30;125,5;4,6;7,1;7,2;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina flamejante, Supernova, Giro pesado
-15;machado_grande;Generalista;fogo;151,6;20,88;125,9;0,70;0,30;127,4;5,1;7,3;7,2;Projétil de fogo, Lança ígnea, Área de fogo, Supernova, Lâmina flamejante, Giro pesado
-15;machado_pequeno;Força;fogo;154,0;24,23;117,6;0,40;0,60;126,2;5,1;8,0;11,4;Projétil de fogo, Lança ígnea, Arremesso duplo, Área de fogo, Machado imbuído, Lançamento curvo
-15;machado_pequeno;Destreza;fogo;164,2;25,44;113,9;0,50;0,50;112,9;4,7;7,9;10,7;Projétil de fogo, Arremesso duplo, Lança ígnea, Lançamento curvo, Área de fogo, Machado imbuído
-15;machado_pequeno;Força+Destreza;fogo;167,6;25,45;113,9;0,70;0,30;111,1;4,9;7,9;10,8;Projétil de fogo, Arremesso duplo, Lança ígnea, Lançamento curvo, Área de fogo, Machado imbuído
-15;machado_pequeno;Tanque;fogo;149,2;24,22;128,5;0,60;0,40;127,9;5,0;8,1;11,4;Projétil de fogo, Lança ígnea, Arremesso duplo, Área de fogo, Machado imbuído, Lançamento curvo
-15;machado_pequeno;Leitor (PER);fogo;141,9;23,35;130,2;0,50;0,50;132,6;5,5;8,9;10,4;Projétil de fogo, Lança ígnea, Arremesso duplo, Área de fogo, Lançamento curvo, Machado imbuído
-15;machado_pequeno;Mago;fogo;142,6;21,75;126,6;0,80;0,20;134,0;3,1;7,1;10,1;Projétil de fogo, Lança ígnea, Área de fogo, Supernova, Arremesso duplo, Machado imbuído
-15;machado_pequeno;Lâmina mágica;fogo;160,2;22,73;116,8;0,70;0,30;118,5;4,9;8,0;7,5;Projétil de fogo, Lança ígnea, Área de fogo, Arremesso duplo, Machado imbuído, Lançamento curvo
-15;machado_pequeno;Generalista;fogo;160,0;22,91;121,4;0,70;0,30;117,2;5,0;7,9;7,0;Projétil de fogo, Lança ígnea, Área de fogo, Arremesso duplo, Lançamento curvo, Machado imbuído
-15;dois_machados;Força;fogo;158,6;23,36;118,0;0,80;0,20;118,9;4,0;7,4;10,4;Projétil de fogo, Fúria elemental, Mordida dupla, Execução dupla, Salto selvagem, Área de fogo
-15;dois_machados;Destreza;fogo;175,0;25,05;103,4;0,70;0,30;104,9;2,9;6,8;6,5;Projétil de fogo, Mordida dupla, Execução dupla, Salto selvagem, Tormenta, Área de fogo
-15;dois_machados;Força+Destreza;fogo;179,1;25,06;104,0;0,90;0,10;104,4;2,9;6,8;8,0;Projétil de fogo, Mordida dupla, Execução dupla, Salto selvagem, Tormenta, Área de fogo
-15;dois_machados;Tanque;fogo;163,9;22,08;113,6;0,80;0,20;116,4;5,2;7,9;10,5;Projétil de fogo, Fúria elemental, Lança ígnea, Mordida dupla, Salto selvagem, Área de fogo
-15;dois_machados;Leitor (PER);fogo;146,3;20,05;125,4;0,70;0,30;128,8;4,4;8,0;9,4;Projétil de fogo, Mordida dupla, Execução dupla, Salto selvagem, Tormenta, Área de fogo
-15;dois_machados;Mago;fogo;155,0;20,90;118,8;0,80;0,20;122,5;3,7;6,0;10,1;Projétil de fogo, Lança ígnea, Área de fogo, Fúria elemental, Mordida dupla, Salto selvagem
-15;dois_machados;Lâmina mágica;fogo;176,8;21,87;103,2;0,70;0,30;109,4;3,7;7,0;10,4;Projétil de fogo, Fúria elemental, Lança ígnea, Mordida dupla, Salto selvagem, Área de fogo
-15;dois_machados;Generalista;fogo;171,0;21,26;114,0;1,00;0,00;109,3;3,6;7,0;10,2;Projétil de fogo, Lança ígnea, Fúria elemental, Mordida dupla, Salto selvagem, Área de fogo
-15;arco;Força;fogo;165,7;11,20;107,6;0,50;0,50;124,0;4,7;8,0;5,3;Projétil de fogo, Lança ígnea, Área de fogo, Tiro em leque, Flecha do falcão, Tiro perfurante
-15;arco;Destreza;fogo;183,8;11,72;109,2;0,60;0,40;108,7;4,2;6,6;4,9;Projétil de fogo, Tiro em leque, Flecha do falcão, Tiro perfurante, Lança ígnea, Área de fogo
-15;arco;Força+Destreza;fogo;178,7;11,47;98,3;0,60;0,40;111,0;4,5;6,7;5,0;Projétil de fogo, Lança ígnea, Tiro em leque, Flecha do falcão, Tiro perfurante, Área de fogo
-15;arco;Tanque;fogo;161,2;11,20;111,5;0,60;0,40;129,2;4,8;7,9;5,1;Projétil de fogo, Lança ígnea, Área de fogo, Tiro em leque, Flecha do falcão, Tiro perfurante
-15;arco;Leitor (PER);fogo;164,6;12,84;114,9;0,70;0,30;122,1;4,1;7,5;4,9;Projétil de fogo, Tiro em leque, Flecha do falcão, Tiro perfurante, Lança ígnea, Área de fogo
-15;arco;Mago;fogo;144,0;9,96;116,7;0,10;0,90;142,6;3,1;7,2;5,1;Projétil de fogo, Lança ígnea, Área de fogo, Supernova, Tiro perfurante, Flecha do falcão
-15;arco;Lâmina mágica;fogo;171,1;11,07;106,2;0,60;0,40;118,4;4,3;6,9;5,2;Projétil de fogo, Lança ígnea, Área de fogo, Tiro em leque, Flecha do falcão, Tiro perfurante
-15;arco;Generalista;fogo;175,4;11,29;114,4;0,60;0,40;115,3;4,2;6,5;5,1;Projétil de fogo, Lança ígnea, Área de fogo, Tiro em leque, Flecha do falcão, Tiro perfurante
-100;desarmado;Força;fogo;170,3;24,26;116,0;1,00;0,00;109,6;3,6;7,8;6,4;Projétil de fogo, Lança ígnea, Palma elemental, Área de fogo, Investida de ombro, Mil palmas, Tornado de punhos, Supernova
-100;desarmado;Força;raio;170,3;24,26;120,5;0,80;0,20;112,9;3,6;7,8;5,6;Projétil de raio, Palma elemental, Área de raio, Investida de ombro, Mil palmas, Tornado de punhos, Martelo do trovão, Choque
-100;desarmado;Destreza;fogo;178,1;25,69;113,8;1,00;0,00;102,6;3,3;7,2;4,6;Projétil de fogo, Lança ígnea, Palma elemental, Área de fogo, Investida de ombro, Mil palmas, Tornado de punhos, Supernova
-100;desarmado;Destreza;raio;178,1;25,69;122,7;0,70;0,30;108,1;3,3;7,2;5,4;Projétil de raio, Palma elemental, Área de raio, Investida de ombro, Mil palmas, Tornado de punhos, Martelo do trovão, Choque
-100;desarmado;Força+Destreza;fogo;193,2;25,73;117,1;0,90;0,10;100,8;3,3;6,4;4,6;Projétil de fogo, Lança ígnea, Palma elemental, Área de fogo, Mil palmas, Tornado de punhos, Investida de ombro, Rasteira
-100;desarmado;Força+Destreza;raio;193,2;25,73;111,7;0,80;0,20;97,4;3,4;6,3;5,4;Projétil de raio, Palma elemental, Área de raio, Mil palmas, Tornado de punhos, Investida de ombro, Martelo do trovão, Choque
-100;desarmado;Tanque;fogo;182,8;25,71;113,6;1,00;0,00;104,3;3,3;6,5;6,2;Projétil de fogo, Lança ígnea, Palma elemental, Área de fogo, Investida de ombro, Mil palmas, Tornado de punhos, Supernova
-100;desarmado;Tanque;raio;182,8;25,71;115,2;1,00;0,00;107,1;3,4;6,4;5,4;Projétil de raio, Palma elemental, Área de raio, Investida de ombro, Mil palmas, Tornado de punhos, Martelo do trovão, Choque
-100;desarmado;Leitor (PER);fogo;162,5;19,97;123,4;1,00;0,00;117,5;4,0;7,5;6,0;Projétil de fogo, Lança ígnea, Área de fogo, Palma elemental, Mil palmas, Tornado de punhos, Investida de ombro, Supernova
-100;desarmado;Leitor (PER);raio;142,7;20,35;127,5;0,50;0,50;133,5;4,7;8,6;6,6;Projétil de raio, Área de raio, Palma elemental, Martelo do trovão, Choque, Mil palmas, Tornado de punhos, Investida de ombro
-100;desarmado;Mago;fogo;163,7;19,79;121,3;0,40;0,60;120,2;3,1;5,8;5,2;Projétil de fogo, Lança ígnea, Área de fogo, Supernova, Palma elemental, Investida de ombro, Mil palmas, Tornado de punhos
-100;desarmado;Mago;raio;128,4;21,33;121,8;0,20;0,80;151,4;3,5;6,2;4,4;Projétil de raio, Área de raio, Martelo do trovão, Choque, Palma elemental, Corrente, Raio em cadeia, Investida de ombro
-100;desarmado;Mago;fogo+raio;161,8;21,84;125,2;0,70;0,30;116,7;1,9;4,5;3,1;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Martelo do trovão, Choque, Supernova
-100;desarmado;Mago;fogo+gelo+raio;158,4;18,39;125,2;0,70;0,30;122,9;2,9;4,9;3,7;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Área de fogo, Área de gelo, Estilhaço, Área de raio
-100;desarmado;Lâmina mágica;fogo;200,6;22,49;99,8;0,90;0,10;97,3;3,2;6,3;4,7;Projétil de fogo, Lança ígnea, Área de fogo, Palma elemental, Supernova, Mil palmas, Tornado de punhos, Investida de ombro
-100;desarmado;Lâmina mágica;raio;175,2;23,51;119,7;1,00;0,00;107,9;3,4;7,3;4,2;Projétil de raio, Área de raio, Palma elemental, Martelo do trovão, Choque, Mil palmas, Tornado de punhos, Investida de ombro
-100;desarmado;Lâmina mágica;fogo+raio;187,7;21,94;108,1;1,00;0,00;99,7;4,3;6,4;4,6;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Palma elemental, Martelo do trovão, Choque
-100;desarmado;Lâmina mágica;fogo+gelo+raio;190,7;21,34;115,4;1,00;0,00;101,2;2,8;5,6;3,6;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Estilhaço, Área de fogo, Área de gelo, Área de raio
-100;desarmado;Generalista;fogo;198,4;21,96;101,0;1,00;0,00;94,3;3,1;5,1;4,5;Projétil de fogo, Lança ígnea, Área de fogo, Palma elemental, Supernova, Investida de ombro, Mil palmas, Tornado de punhos
-100;desarmado;Generalista;raio;162,1;23,40;122,9;0,90;0,10;114,5;4,1;7,2;4,2;Projétil de raio, Área de raio, Palma elemental, Martelo do trovão, Choque, Corrente, Raio em cadeia, Investida de ombro
-100;desarmado;Generalista;fogo+raio;197,3;23,24;104,0;1,00;0,00;96,4;3,0;5,2;4,4;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Palma elemental, Martelo do trovão, Choque
-100;desarmado;Generalista;fogo+gelo+raio;188,9;20,26;110,7;1,00;0,00;101,9;2,4;5,3;3,5;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Área de fogo, Área de gelo, Estilhaço, Área de raio
-100;espada_curta;Força;fogo;206,2;21,04;94,8;1,00;0,00;91,2;2,5;6,2;11,8;Projétil de fogo, Lança ígnea, Passo de sombra, Golpe de misericórdia, Lâmina venenosa, Corte baixo, Corte dos tendões, Área de fogo
-100;espada_curta;Força;raio;206,8;21,00;96,8;1,00;0,00;92,8;3,6;6,0;12,0;Projétil de raio, Passo de sombra, Golpe de misericórdia, Lâmina venenosa, Corte baixo, Corte dos tendões, Área de raio, Lâminas gêmeas
-100;espada_curta;Destreza;fogo;210,7;22,23;95,1;1,00;0,00;86,1;2,4;5,8;11,5;Projétil de fogo, Passo de sombra, Golpe de misericórdia, Corte baixo, Lâmina venenosa, Corte dos tendões, Lança ígnea, Área de fogo
-100;espada_curta;Destreza;raio;212,8;22,11;100,8;0,90;0,10;86,0;3,4;5,3;11,5;Projétil de raio, Passo de sombra, Golpe de misericórdia, Corte baixo, Lâmina venenosa, Corte dos tendões, Área de raio, Lâminas gêmeas
-100;espada_curta;Força+Destreza;fogo;229,8;22,26;83,1;1,00;0,00;79,8;2,4;4,6;11,3;Projétil de fogo, Passo de sombra, Golpe de misericórdia, Corte baixo, Lâmina venenosa, Corte dos tendões, Lança ígnea, Área de fogo
-100;espada_curta;Força+Destreza;raio;231,4;22,14;83,0;1,00;0,00;79,2;2,2;5,3;11,0;Projétil de raio, Passo de sombra, Golpe de misericórdia, Corte baixo, Lâmina venenosa, Corte dos tendões, Área de raio, Lâminas gêmeas
-100;espada_curta;Tanque;fogo;217,8;22,25;93,8;1,00;0,00;88,3;2,4;5,8;11,7;Projétil de fogo, Passo de sombra, Golpe de misericórdia, Corte baixo, Lâmina venenosa, Corte dos tendões, Lança ígnea, Área de fogo
-100;espada_curta;Tanque;raio;219,0;22,13;89,1;1,00;0,00;83,4;3,4;5,3;10,7;Projétil de raio, Passo de sombra, Golpe de misericórdia, Corte baixo, Lâmina venenosa, Corte dos tendões, Área de raio, Lâminas gêmeas
-100;espada_curta;Leitor (PER);fogo;182,9;20,64;108,0;0,90;0,10;102,5;4,0;7,0;12,0;Projétil de fogo, Lança ígnea, Passo de sombra, Golpe de misericórdia, Corte baixo, Lâmina venenosa, Corte dos tendões, Área de fogo
-100;espada_curta;Leitor (PER);raio;165,2;21,64;123,2;0,80;0,20;115,9;4,6;7,2;11,8;Projétil de raio, Passo de sombra, Golpe de misericórdia, Corte baixo, Lâmina venenosa, Corte dos tendões, Área de raio, Martelo do trovão
-100;espada_curta;Mago;fogo;172,2;16,24;113,9;0,70;0,30;113,8;2,4;4,4;8,3;Projétil de fogo, Lança ígnea, Área de fogo, Supernova, Passo de sombra, Golpe de misericórdia, Lâmina venenosa, Corte baixo
-100;espada_curta;Mago;raio;155,2;19,29;131,7;0,80;0,20;127,6;3,8;5,6;4,4;Projétil de raio, Área de raio, Martelo do trovão, Choque, Corrente, Raio em cadeia, Passo de sombra, Golpe de misericórdia
-100;espada_curta;Mago;fogo+raio;180,5;21,06;103,0;0,60;0,40;105,8;1,9;4,6;3,1;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Martelo do trovão, Choque, Supernova
-100;espada_curta;Mago;fogo+gelo+raio;177,1;17,80;115,6;1,00;0,00;111,3;3,0;4,8;3,7;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Área de fogo, Área de gelo, Estilhaço, Área de raio
-100;espada_curta;Lâmina mágica;fogo;241,5;20,07;84,9;1,00;0,00;79,7;2,3;5,4;8,1;Projétil de fogo, Lança ígnea, Área de fogo, Passo de sombra, Golpe de misericórdia, Lâmina venenosa, Corte baixo, Corte dos tendões
-100;espada_curta;Lâmina mágica;raio;216,3;22,25;94,1;1,00;0,00;87,0;2,4;6,0;9,0;Projétil de raio, Área de raio, Passo de sombra, Golpe de misericórdia, Lâmina venenosa, Corte baixo, Corte dos tendões, Martelo do trovão
-100;espada_curta;Lâmina mágica;fogo+raio;235,8;20,07;86,1;1,00;0,00;81,7;2,3;5,4;3,1;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Passo de sombra, Golpe de misericórdia, Lâmina venenosa
-100;espada_curta;Lâmina mágica;fogo+gelo+raio;229,3;21,47;85,7;1,00;0,00;82,1;3,5;5,3;3,6;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Estilhaço, Área de fogo, Área de gelo, Área de raio
-100;espada_curta;Generalista;fogo;233,1;18,61;87,0;1,00;0,00;80,6;2,2;5,3;8,3;Projétil de fogo, Lança ígnea, Área de fogo, Passo de sombra, Golpe de misericórdia, Lâmina venenosa, Corte baixo, Corte dos tendões
-100;espada_curta;Generalista;raio;202,9;21,32;101,7;1,00;0,00;95,0;3,6;6,3;4,8;Projétil de raio, Área de raio, Martelo do trovão, Choque, Passo de sombra, Golpe de misericórdia, Lâmina venenosa, Corte baixo
-100;espada_curta;Generalista;fogo+raio;232,2;23,60;84,3;1,00;0,00;83,3;3,0;5,1;3,0;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Martelo do trovão, Choque, Passo de sombra
-100;espada_curta;Generalista;fogo+gelo+raio;222,5;20,26;88,4;0,90;0,10;85,2;2,4;5,5;3,5;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Área de fogo, Área de gelo, Estilhaço, Área de raio
-100;espada_longa;Força;fogo;172,3;22,75;111,5;0,90;0,10;108,3;3,9;7,9;11,3;Projétil de fogo, Lança ígnea, Lâmina imbuída, Área de fogo, Corte de avanço, Corte de flanco, Corte que fende, Troca de guarda
-100;espada_longa;Força;raio;172,3;22,75;112,2;1,00;0,00;109,1;3,9;7,8;5,8;Projétil de raio, Lâmina imbuída, Área de raio, Corte de avanço, Corte de flanco, Corte que fende, Troca de guarda, Guarda de passagem
-100;espada_longa;Destreza;fogo;186,9;24,74;104,4;1,00;0,00;99,8;3,9;7,5;4,6;Projétil de fogo, Lança ígnea, Lâmina imbuída, Corte de avanço, Corte de flanco, Corte que fende, Troca de guarda, Guarda de passagem
-100;espada_longa;Destreza;raio;186,9;24,74;106,3;1,00;0,00;101,4;3,9;7,5;5,5;Projétil de raio, Lâmina imbuída, Corte de avanço, Corte de flanco, Corte que fende, Troca de guarda, Guarda de passagem, Área de raio
-100;espada_longa;Força+Destreza;fogo;203,1;24,78;96,7;1,00;0,00;93,4;3,9;6,4;4,6;Projétil de fogo, Lâmina imbuída, Lança ígnea, Corte de avanço, Corte de flanco, Corte que fende, Troca de guarda, Guarda de passagem
-100;espada_longa;Força+Destreza;raio;203,1;24,78;92,5;0,70;0,30;94,0;4,0;6,5;5,5;Projétil de raio, Lâmina imbuída, Corte de avanço, Corte de flanco, Corte que fende, Troca de guarda, Guarda de passagem, Área de raio
-100;espada_longa;Tanque;fogo;185,1;23,89;111,6;1,00;0,00;101,9;4,0;6,5;11,0;Projétil de fogo, Lâmina imbuída, Lança ígnea, Corte de avanço, Corte de flanco, Corte que fende, Troca de guarda, Guarda de passagem
-100;espada_longa;Tanque;raio;185,1;23,89;104,3;1,00;0,00;100,7;3,9;6,5;5,6;Projétil de raio, Lâmina imbuída, Corte de avanço, Corte de flanco, Corte que fende, Troca de guarda, Guarda de passagem, Área de raio
-100;espada_longa;Leitor (PER);fogo;166,7;22,82;119,6;1,00;0,00;110,8;4,3;7,6;9,8;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina imbuída, Corte de avanço, Corte de flanco, Corte que fende, Troca de guarda
-100;espada_longa;Leitor (PER);raio;149,0;24,21;130,6;0,90;0,10;129,8;4,7;8,4;6,7;Projétil de raio, Área de raio, Lâmina imbuída, Corte de avanço, Corte de flanco, Corte que fende, Troca de guarda, Guarda de passagem
-100;espada_longa;Mago;fogo;169,0;17,38;111,5;0,50;0,50;117,6;3,1;5,7;5,3;Projétil de fogo, Lança ígnea, Área de fogo, Supernova, Lâmina imbuída, Corte de avanço, Corte de flanco, Corte que fende
-100;espada_longa;Mago;raio;136,9;20,27;138,5;0,60;0,40;141,8;3,6;6,3;4,4;Projétil de raio, Área de raio, Martelo do trovão, Choque, Corrente, Raio em cadeia, Lâmina imbuída, Corte de avanço
-100;espada_longa;Mago;fogo+raio;166,5;20,77;119,1;1,00;0,00;113,4;1,9;4,5;3,1;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Martelo do trovão, Choque, Supernova
-100;espada_longa;Mago;fogo+gelo+raio;165,2;17,71;112,6;0,50;0,50;120,6;2,9;4,9;3,7;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Área de fogo, Área de gelo, Estilhaço, Área de raio
-100;espada_longa;Lâmina mágica;fogo;208,6;21,38;92,4;1,00;0,00;89,1;3,6;5,9;4,7;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina imbuída, Corte de avanço, Corte de flanco, Corte que fende, Troca de guarda
-100;espada_longa;Lâmina mágica;raio;182,7;22,85;108,5;1,00;0,00;103,0;4,7;7,3;4,4;Projétil de raio, Área de raio, Lâmina imbuída, Martelo do trovão, Choque, Corte de avanço, Corte de flanco, Corte que fende
-100;espada_longa;Lâmina mágica;fogo+raio;204,3;21,18;97,2;1,00;0,00;92,7;4,0;6,2;4,7;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Lâmina imbuída, Martelo do trovão, Choque
-100;espada_longa;Lâmina mágica;fogo+gelo+raio;203,3;21,09;100,8;1,00;0,00;92,6;3,0;6,2;3,4;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Estilhaço, Área de fogo, Área de gelo, Área de raio
-100;espada_longa;Generalista;fogo;207,4;19,45;98,4;1,00;0,00;92,1;4,0;5,9;4,6;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina imbuída, Supernova, Corte de avanço, Corte de flanco, Corte que fende
-100;espada_longa;Generalista;raio;177,1;21,67;110,7;0,90;0,10;107,0;3,8;6,9;4,2;Projétil de raio, Área de raio, Martelo do trovão, Choque, Lâmina imbuída, Corte de avanço, Corte de flanco, Corte que fende
-100;espada_longa;Generalista;fogo+raio;209,0;22,79;93,5;1,00;0,00;91,0;3,0;5,2;4,5;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Martelo do trovão, Choque, Lâmina imbuída
-100;espada_longa;Generalista;fogo+gelo+raio;199,6;19,86;100,1;0,90;0,10;95,6;2,4;5,4;3,5;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Área de fogo, Área de gelo, Estilhaço, Área de raio
-100;duas_espadas;Força;fogo;175,4;19,63;112,4;1,00;0,00;109,8;4,0;7,6;4,8;Projétil de fogo, Lança ígnea, Gume duplo elemental, Área de fogo, Cruz ascendente, Dança de lâminas, Tempestade, Ciclone
-100;duas_espadas;Força;raio;177,2;19,58;112,1;1,00;0,00;105,9;3,7;7,3;4,6;Projétil de raio, Gume duplo elemental, Área de raio, Cruz ascendente, Dança de lâminas, Tempestade, Ciclone, Passo cruzado
-100;duas_espadas;Destreza;fogo;175,5;17,28;109,7;0,80;0,20;105,5;4,0;7,0;4,4;Projétil de fogo, Gume duplo elemental, Lança ígnea, Cruz ascendente, Área de fogo, Dança de lâminas, Tempestade, Ciclone
-100;duas_espadas;Destreza;raio;182,9;17,62;102,5;0,80;0,20;101,3;3,2;6,4;4,2;Projétil de raio, Gume duplo elemental, Cruz ascendente, Área de raio, Dança de lâminas, Tempestade, Ciclone, Passo cruzado
-100;duas_espadas;Força+Destreza;fogo;208,5;21,54;90,9;0,90;0,10;87,6;3,5;5,5;4,5;Projétil de fogo, Gume duplo elemental, Lança ígnea, Cruz ascendente, Ciclone, Tempestade, Passo cruzado, Dança de lâminas
-100;duas_espadas;Força+Destreza;raio;209,9;22,69;87,8;1,00;0,00;86,2;3,4;5,5;4,3;Projétil de raio, Gume duplo elemental, Cruz ascendente, Ciclone, Tempestade, Passo cruzado, Dança de lâminas, Lâminas em X
-100;duas_espadas;Tanque;fogo;185,1;20,59;103,8;1,00;0,00;100,4;3,9;6,2;4,6;Projétil de fogo, Gume duplo elemental, Lança ígnea, Cruz ascendente, Área de fogo, Dança de lâminas, Tempestade, Ciclone
-100;duas_espadas;Tanque;raio;188,2;20,55;100,7;1,00;0,00;97,7;3,5;7,0;4,4;Projétil de raio, Gume duplo elemental, Cruz ascendente, Área de raio, Dança de lâminas, Tempestade, Ciclone, Passo cruzado
-100;duas_espadas;Leitor (PER);fogo;161,6;17,54;124,2;1,00;0,00;117,2;4,1;7,8;4,5;Projétil de fogo, Lança ígnea, Gume duplo elemental, Área de fogo, Cruz ascendente, Ciclone, Tempestade, Passo cruzado
-100;duas_espadas;Leitor (PER);raio;161,6;17,54;122,7;0,90;0,10;117,0;4,1;7,7;4,2;Projétil de raio, Gume duplo elemental, Área de raio, Cruz ascendente, Ciclone, Tempestade, Passo cruzado, Dança de lâminas
-100;duas_espadas;Mago;fogo;166,2;15,94;114,5;0,70;0,30;115,9;3,1;5,8;5,6;Projétil de fogo, Lança ígnea, Área de fogo, Supernova, Gume duplo elemental, Cruz ascendente, Ciclone, Tempestade
-100;duas_espadas;Mago;raio;137,3;19,36;122,5;0,50;0,50;143,0;3,4;6,3;4,9;Projétil de raio, Área de raio, Martelo do trovão, Choque, Corrente, Raio em cadeia, Gume duplo elemental, Cruz ascendente
-100;duas_espadas;Mago;fogo+raio;170,0;19,84;106,9;0,60;0,40;113,9;1,9;4,5;3,1;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Martelo do trovão, Choque, Supernova
-100;duas_espadas;Mago;fogo+gelo+raio;162,7;16,58;114,6;0,60;0,40;119,9;2,9;4,8;3,7;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Área de fogo, Área de gelo, Estilhaço, Área de raio
-100;duas_espadas;Lâmina mágica;fogo;212,7;18,64;94,7;1,00;0,00;89,7;3,5;5,9;4,6;Projétil de fogo, Lança ígnea, Área de fogo, Gume duplo elemental, Cruz ascendente, Supernova, Ciclone, Tempestade
-100;duas_espadas;Lâmina mágica;raio;183,3;20,59;107,6;1,00;0,00;103,5;3,9;7,4;4,4;Projétil de raio, Área de raio, Gume duplo elemental, Martelo do trovão, Choque, Cruz ascendente, Ciclone, Tempestade
-100;duas_espadas;Lâmina mágica;fogo+raio;201,7;19,82;97,9;1,00;0,00;93,7;3,8;6,9;4,4;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Gume duplo elemental, Martelo do trovão, Choque
-100;duas_espadas;Lâmina mágica;fogo+gelo+raio;201,3;19,77;97,6;1,00;0,00;93,5;2,9;5,9;3,7;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Estilhaço, Área de fogo, Área de gelo, Área de raio
-100;duas_espadas;Generalista;fogo;209,3;17,99;96,0;0,80;0,20;90,3;3,5;5,1;4,5;Projétil de fogo, Lança ígnea, Área de fogo, Gume duplo elemental, Supernova, Cruz ascendente, Ciclone, Tempestade
-100;duas_espadas;Generalista;raio;179,9;19,54;107,7;0,90;0,10;103,3;2,8;7,3;2,8;Projétil de raio, Área de raio, Gume duplo elemental, Martelo do trovão, Choque, Cruz ascendente, Corrente, Ciclone
-100;duas_espadas;Generalista;fogo+raio;205,9;21,11;91,6;0,90;0,10;89,9;3,0;5,1;2,8;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Gume duplo elemental, Martelo do trovão, Choque
-100;duas_espadas;Generalista;fogo+gelo+raio;196,8;18,56;98,5;1,00;0,00;94,9;2,4;5,5;3,8;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Área de fogo, Área de gelo, Estilhaço, Área de raio
-100;espada_e_escudo;Força;fogo;173,4;23,40;110,0;1,00;0,00;107,5;3,4;7,4;9,7;Projétil de fogo, Contra-escudo, Lança ígnea, Área de fogo, Lâmina sagrada, Supernova, Golpe de escudo, Investida de escudo
-100;espada_e_escudo;Força;raio;173,4;23,40;112,3;0,90;0,10;108,5;3,4;7,4;10,2;Projétil de raio, Contra-escudo, Área de raio, Lâmina sagrada, Martelo do trovão, Choque, Corrente, Golpe de escudo
-100;espada_e_escudo;Destreza;fogo;187,8;25,92;101,4;1,00;0,00;99,8;3,1;6,9;9,4;Projétil de fogo, Contra-escudo, Lança ígnea, Área de fogo, Lâmina sagrada, Supernova, Golpe de escudo, Investida de escudo
-100;espada_e_escudo;Destreza;raio;187,8;25,92;101,6;1,00;0,00;99,8;3,1;6,9;10,0;Projétil de raio, Contra-escudo, Área de raio, Lâmina sagrada, Martelo do trovão, Choque, Golpe de escudo, Corrente
-100;espada_e_escudo;Força+Destreza;fogo;205,0;26,00;95,3;0,90;0,10;91,1;3,1;5,5;9,7;Contra-escudo, Projétil de fogo, Lança ígnea, Área de fogo, Lâmina sagrada, Supernova, Golpe de escudo, Investida de escudo
-100;espada_e_escudo;Força+Destreza;raio;205,0;26,00;96,0;1,00;0,00;92,4;3,1;5,6;9,9;Contra-escudo, Projétil de raio, Área de raio, Lâmina sagrada, Martelo do trovão, Choque, Golpe de escudo, Investida de escudo
-100;espada_e_escudo;Tanque;fogo;183,8;24,63;105,2;1,00;0,00;101,3;3,3;7,3;9,3;Projétil de fogo, Contra-escudo, Lança ígnea, Área de fogo, Lâmina sagrada, Supernova, Golpe de escudo, Investida de escudo
-100;espada_e_escudo;Tanque;raio;183,8;24,63;106,2;1,00;0,00;101,7;3,3;7,2;10,2;Projétil de raio, Contra-escudo, Área de raio, Lâmina sagrada, Martelo do trovão, Choque, Golpe de escudo, Corrente
-100;espada_e_escudo;Leitor (PER);fogo;161,0;23,16;114,3;0,80;0,20;115,1;4,0;7,4;11,2;Projétil de fogo, Contra-escudo, Lança ígnea, Área de fogo, Lâmina sagrada, Supernova, Golpe de escudo, Investida de escudo
-100;espada_e_escudo;Leitor (PER);raio;140,0;24,79;141,9;1,00;0,00;134,4;4,7;8,3;12,4;Projétil de raio, Contra-escudo, Área de raio, Martelo do trovão, Choque, Lâmina sagrada, Corrente, Raio em cadeia
-100;espada_e_escudo;Mago;fogo;169,6;19,41;108,4;0,70;0,30;114,5;3,5;5,2;8,2;Projétil de fogo, Lança ígnea, Área de fogo, Supernova, Lâmina sagrada, Contra-escudo, Brasa persistente, Golpe de escudo
-100;espada_e_escudo;Mago;raio;141,9;22,49;123,9;0,60;0,40;139,5;2,9;6,6;4,3;Projétil de raio, Área de raio, Martelo do trovão, Choque, Corrente, Raio em cadeia, Lâmina sagrada, Contra-escudo
-100;espada_e_escudo;Mago;fogo+raio;166,5;20,23;116,4;0,90;0,10;114,1;1,9;4,6;3,1;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Martelo do trovão, Choque, Supernova
-100;espada_e_escudo;Mago;fogo+gelo+raio;160,8;17,19;113,4;0,60;0,40;121,5;2,9;4,9;3,7;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Área de fogo, Área de gelo, Estilhaço, Área de raio
-100;espada_e_escudo;Lâmina mágica;fogo;209,7;22,54;90,7;1,00;0,00;89,5;3,0;6,5;9,0;Projétil de fogo, Lança ígnea, Área de fogo, Contra-escudo, Lâmina sagrada, Supernova, Golpe de escudo, Investida de escudo
-100;espada_e_escudo;Lâmina mágica;raio;182,3;24,63;106,0;1,00;0,00;102,9;3,3;7,3;10,0;Projétil de raio, Área de raio, Contra-escudo, Lâmina sagrada, Martelo do trovão, Choque, Corrente, Raio em cadeia
-100;espada_e_escudo;Lâmina mágica;fogo+raio;205,2;23,05;93,0;1,00;0,00;90,2;3,0;6,6;3,1;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Contra-escudo, Lâmina sagrada, Martelo do trovão
-100;espada_e_escudo;Lâmina mágica;fogo+gelo+raio;198,8;20,50;97,8;0,90;0,10;94,3;3,0;6,1;3,6;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Estilhaço, Área de fogo, Área de gelo, Área de raio
-100;espada_e_escudo;Generalista;fogo;208,7;21,70;92,0;1,00;0,00;89,6;3,3;6,1;5,2;Projétil de fogo, Lança ígnea, Área de fogo, Contra-escudo, Lâmina sagrada, Supernova, Golpe de escudo, Investida de escudo
-100;espada_e_escudo;Generalista;raio;179,5;23,96;104,7;0,80;0,20;102,7;2,7;7,3;5,4;Projétil de raio, Área de raio, Contra-escudo, Martelo do trovão, Choque, Lâmina sagrada, Corrente, Raio em cadeia
-100;espada_e_escudo;Generalista;fogo+raio;208,5;24,79;90,8;1,00;0,00;88,6;2,3;4,8;3,0;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Contra-escudo, Martelo do trovão, Choque
-100;espada_e_escudo;Generalista;fogo+gelo+raio;194,6;19,13;100,4;0,90;0,10;95,5;2,4;5,2;3,5;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Área de fogo, Área de gelo, Estilhaço, Área de raio
-100;katana;Força;fogo;207,5;21,00;92,2;1,00;0,00;91,0;3,1;6,4;4,9;Iai rápido, Mil folhas, Passo do relâmpago, Projétil de fogo, Lua crescente, Saque do vazio, Corte da lua cheia, Passo do vento
-100;katana;Força;raio;207,5;21,00;94,2;1,00;0,00;91,1;3,1;6,6;4,7;Iai rápido, Mil folhas, Passo do relâmpago, Projétil de raio, Lua crescente, Saque do vazio, Corte da lua cheia, Passo do vento
-100;katana;Destreza;fogo;231,1;22,16;83,0;1,00;0,00;82,1;2,8;5,5;4,6;Iai rápido, Mil folhas, Passo do relâmpago, Projétil de fogo, Passo do vento, Lâmina projetada, Lua crescente, Saque do vazio
-100;katana;Destreza;raio;231,1;22,16;85,1;1,00;0,00;82,0;2,7;5,4;4,4;Iai rápido, Mil folhas, Passo do relâmpago, Projétil de raio, Passo do vento, Lâmina projetada, Lua crescente, Saque do vazio
-100;katana;Força+Destreza;fogo;248,8;22,20;75,4;0,90;0,10;76,7;2,8;4,0;2,6;Iai rápido, Mil folhas, Passo do relâmpago, Projétil de fogo, Passo do vento, Lâmina projetada, Lua crescente, Saque do vazio
-100;katana;Força+Destreza;raio;248,8;22,20;80,3;1,00;0,00;75,6;2,8;4,1;2,6;Iai rápido, Mil folhas, Passo do relâmpago, Projétil de raio, Passo do vento, Lâmina projetada, Lua crescente, Saque do vazio
-100;katana;Tanque;fogo;226,8;21,21;85,9;1,00;0,00;84,0;2,9;5,7;4,7;Iai rápido, Mil folhas, Passo do relâmpago, Projétil de fogo, Passo do vento, Lâmina projetada, Lua crescente, Saque do vazio
-100;katana;Tanque;raio;226,8;21,21;85,5;1,00;0,00;83,2;2,9;5,7;4,5;Iai rápido, Mil folhas, Passo do relâmpago, Projétil de raio, Passo do vento, Lâmina projetada, Lua crescente, Saque do vazio
-100;katana;Leitor (PER);fogo;202,6;21,21;97,2;1,00;0,00;94,5;3,6;6,3;4,7;Iai rápido, Mil folhas, Projétil de fogo, Passo do relâmpago, Lança ígnea, Lua crescente, Saque do vazio, Corte da lua cheia
-100;katana;Leitor (PER);raio;181,2;21,98;104,5;0,90;0,10;101,7;4,1;5,5;4,5;Iai rápido, Mil folhas, Projétil de raio, Passo do relâmpago, Lua crescente, Saque do vazio, Corte da lua cheia, Passo do vento
-100;katana;Mago;fogo;190,1;16,77;105,1;0,70;0,30;103,1;3,1;6,0;5,7;Projétil de fogo, Lança ígnea, Área de fogo, Iai rápido, Mil folhas, Supernova, Passo do relâmpago, Passo do vento
-100;katana;Mago;raio;161,5;19,79;118,0;0,80;0,20;121,6;3,6;7,1;4,3;Projétil de raio, Área de raio, Martelo do trovão, Iai rápido, Mil folhas, Choque, Corrente, Passo do relâmpago
-100;katana;Mago;fogo+raio;186,8;17,52;105,3;0,80;0,20;105,1;1,9;4,5;3,1;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Martelo do trovão, Iai rápido, Mil folhas
-100;katana;Mago;fogo+gelo+raio;175,2;17,72;109,1;0,80;0,20;110,3;2,8;4,9;3,7;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Área de fogo, Área de gelo, Estilhaço, Área de raio
-100;katana;Lâmina mágica;fogo;246,5;20,58;76,3;0,80;0,20;76,8;3,1;5,0;4,8;Iai rápido, Mil folhas, Projétil de fogo, Passo do relâmpago, Lança ígnea, Área de fogo, Lua crescente, Saque do vazio
-100;katana;Lâmina mágica;raio;219,6;22,27;88,5;1,00;0,00;84,9;3,2;5,4;4,5;Iai rápido, Mil folhas, Projétil de raio, Passo do relâmpago, Área de raio, Lua crescente, Saque do vazio, Corte da lua cheia
-100;katana;Lâmina mágica;fogo+raio;240,9;20,58;80,4;1,00;0,00;78,2;3,1;5,0;4,5;Iai rápido, Mil folhas, Projétil de fogo, Projétil de raio, Passo do relâmpago, Lança ígnea, Área de fogo, Área de raio
-100;katana;Lâmina mágica;fogo+gelo+raio;240,9;20,51;80,5;1,00;0,00;77,9;3,1;5,0;3,6;Iai rápido, Mil folhas, Projétil de fogo, Projétil de gelo, Projétil de raio, Passo do relâmpago, Lança ígnea, Estilhaço
-100;katana;Generalista;fogo;244,2;19,47;80,9;1,00;0,00;77,0;3,0;5,5;4,7;Projétil de fogo, Iai rápido, Mil folhas, Lança ígnea, Passo do relâmpago, Área de fogo, Passo do vento, Lâmina projetada
-100;katana;Generalista;raio;210,1;22,03;91,9;1,00;0,00;88,6;2,8;6,0;4,5;Projétil de raio, Iai rápido, Mil folhas, Passo do relâmpago, Área de raio, Martelo do trovão, Passo do vento, Lâmina projetada
-100;katana;Generalista;fogo+raio;241,1;19,85;82,8;1,00;0,00;79,8;3,0;5,0;4,5;Projétil de fogo, Projétil de raio, Iai rápido, Mil folhas, Lança ígnea, Passo do relâmpago, Área de fogo, Área de raio
-100;katana;Generalista;fogo+gelo+raio;239,0;19,85;83,3;1,00;0,00;80,6;3,1;5,0;3,5;Projétil de fogo, Projétil de gelo, Projétil de raio, Iai rápido, Mil folhas, Lança ígnea, Passo do relâmpago, Área de fogo
-100;duas_katanas;Força;fogo;180,1;19,77;102,8;0,80;0,20;103,7;2,7;7,1;4,3;Tesoura, Projétil de fogo, Fio elemental, Corte em cruz, Tempestade de pétalas, Fio do silêncio, Rodopio, Corte que segue
-100;duas_katanas;Força;raio;180,1;19,77;106,2;1,00;0,00;103,6;2,7;7,0;4,0;Tesoura, Projétil de raio, Fio elemental, Corte em cruz, Tempestade de pétalas, Fio do silêncio, Rodopio, Corte que segue
-100;duas_katanas;Destreza;fogo;198,9;19,75;97,0;1,00;0,00;92,9;2,5;5,3;4,0;Tesoura, Corte em cruz, Fio elemental, Tempestade de pétalas, Projétil de fogo, Fio do silêncio, Rodopio, Corte que segue
-100;duas_katanas;Destreza;raio;198,9;19,75;92,5;0,80;0,20;93,7;2,5;5,4;3,8;Tesoura, Corte em cruz, Fio elemental, Tempestade de pétalas, Projétil de raio, Fio do silêncio, Rodopio, Corte que segue
-100;duas_katanas;Força+Destreza;fogo;212,5;20,93;90,1;0,90;0,10;86,5;2,5;5,4;4,0;Tesoura, Corte em cruz, Fio elemental, Tempestade de pétalas, Projétil de fogo, Fio do silêncio, Rodopio, Corte que segue
-100;duas_katanas;Força+Destreza;raio;212,5;20,93;85,4;0,80;0,20;86,0;2,5;5,3;3,7;Tesoura, Corte em cruz, Fio elemental, Tempestade de pétalas, Projétil de raio, Fio do silêncio, Rodopio, Corte que segue
-100;duas_katanas;Tanque;fogo;195,5;20,50;96,7;1,00;0,00;96,0;2,5;5,8;4,0;Tesoura, Corte em cruz, Fio elemental, Tempestade de pétalas, Projétil de fogo, Fio do silêncio, Rodopio, Corte que segue
-100;duas_katanas;Tanque;raio;195,5;20,50;98,0;1,00;0,00;94,3;2,5;5,7;3,8;Tesoura, Corte em cruz, Fio elemental, Tempestade de pétalas, Projétil de raio, Fio do silêncio, Rodopio, Corte que segue
-100;duas_katanas;Leitor (PER);fogo;172,5;19,69;115,9;1,00;0,00;109,0;3,8;6,9;3,9;Projétil de fogo, Tesoura, Corte em cruz, Fio elemental, Tempestade de pétalas, Lança ígnea, Fio do silêncio, Rodopio
-100;duas_katanas;Leitor (PER);raio;172,4;19,49;113,2;1,00;0,00;108,6;3,9;6,9;5,7;Projétil de raio, Tesoura, Corte em cruz, Fio elemental, Tempestade de pétalas, Fio do silêncio, Rodopio, Corte que segue
-100;duas_katanas;Mago;fogo;174,1;16,82;113,1;0,90;0,10;111,9;3,1;5,9;5,3;Projétil de fogo, Lança ígnea, Área de fogo, Fio elemental, Supernova, Corte em cruz, Tesoura, Tempestade de pétalas
-100;duas_katanas;Mago;raio;142,2;20,07;128,1;0,90;0,10;131,8;3,6;7,1;4,8;Projétil de raio, Área de raio, Martelo do trovão, Fio elemental, Choque, Corte em cruz, Corrente, Tesoura
-100;duas_katanas;Mago;fogo+raio;170,3;19,36;107,3;0,70;0,30;113,7;1,9;4,5;3,1;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Martelo do trovão, Fio elemental, Choque
-100;duas_katanas;Mago;fogo+gelo+raio;161,8;16,10;99,9;0,40;0,60;119,6;3,0;4,9;3,7;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Área de fogo, Área de gelo, Estilhaço, Área de raio
-100;duas_katanas;Lâmina mágica;fogo;213,1;19,89;91,9;1,00;0,00;87,0;3,8;5,9;4,1;Projétil de fogo, Fio elemental, Corte em cruz, Tesoura, Tempestade de pétalas, Lança ígnea, Área de fogo, Fio do silêncio
-100;duas_katanas;Lâmina mágica;raio;196,1;20,76;93,6;0,80;0,20;93,7;3,7;6,0;3,8;Projétil de raio, Fio elemental, Corte em cruz, Tesoura, Tempestade de pétalas, Área de raio, Fio do silêncio, Rodopio
-100;duas_katanas;Lâmina mágica;fogo+raio;209,6;19,75;88,7;0,90;0,10;87,9;3,8;6,0;3,9;Projétil de fogo, Projétil de raio, Fio elemental, Corte em cruz, Tesoura, Tempestade de pétalas, Lança ígnea, Área de fogo
-100;duas_katanas;Lâmina mágica;fogo+gelo+raio;208,3;19,75;90,8;0,90;0,10;88,4;3,8;6,1;4,5;Projétil de fogo, Projétil de gelo, Projétil de raio, Fio elemental, Corte em cruz, Tesoura, Tempestade de pétalas, Lança ígnea
-100;duas_katanas;Generalista;fogo;218,0;19,43;88,9;0,90;0,10;86,8;3,3;4,5;4,0;Projétil de fogo, Lança ígnea, Fio elemental, Corte em cruz, Tesoura, Tempestade de pétalas, Área de fogo, Fio do silêncio
-100;duas_katanas;Generalista;raio;187,6;20,10;100,7;1,00;0,00;97,6;3,8;5,3;4,1;Projétil de raio, Fio elemental, Corte em cruz, Tesoura, Tempestade de pétalas, Área de raio, Fio do silêncio, Martelo do trovão
-100;duas_katanas;Generalista;fogo+raio;214,5;19,28;89,7;1,00;0,00;87,5;3,3;5,8;4,1;Projétil de fogo, Projétil de raio, Lança ígnea, Fio elemental, Corte em cruz, Tesoura, Tempestade de pétalas, Área de fogo
-100;duas_katanas;Generalista;fogo+gelo+raio;212,5;19,35;86,3;0,90;0,10;88,5;3,3;5,8;2,9;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Fio elemental, Corte em cruz, Tesoura, Tempestade de pétalas
-100;machado_grande;Força;fogo;158,7;24,95;116,3;1,00;0,00;111,8;4,6;8,1;4,9;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina flamejante, Giro pesado, Terremoto, Avalanche, Cataclismo
-100;machado_grande;Força;raio;158,7;24,95;117,1;1,00;0,00;112,4;4,6;8,3;4,9;Projétil de raio, Área de raio, Lâmina flamejante, Giro pesado, Terremoto, Avalanche, Cataclismo, Martelo do trovão
-100;machado_grande;Destreza;fogo;173,8;26,94;106,1;1,00;0,00;103,8;4,7;6,8;4,5;Projétil de fogo, Lança ígnea, Área de fogo, Giro pesado, Terremoto, Avalanche, Cataclismo, Lâmina flamejante
-100;machado_grande;Destreza;raio;173,8;26,94;108,8;1,00;0,00;104,3;4,7;6,9;4,5;Projétil de raio, Área de raio, Giro pesado, Terremoto, Avalanche, Cataclismo, Lâmina flamejante, Martelo do trovão
-100;machado_grande;Força+Destreza;fogo;189,3;27,06;101,5;0,90;0,10;95,8;3,2;6,8;4,5;Projétil de fogo, Lança ígnea, Área de fogo, Giro pesado, Terremoto, Avalanche, Cataclismo, Lâmina flamejante
-100;machado_grande;Força+Destreza;raio;189,3;27,06;100,0;1,00;0,00;96,2;3,2;6,8;4,5;Projétil de raio, Área de raio, Giro pesado, Terremoto, Avalanche, Cataclismo, Lâmina flamejante, Martelo do trovão
-100;machado_grande;Tanque;fogo;166,0;26,57;109,2;1,00;0,00;104,4;4,8;7,0;4,6;Projétil de fogo, Lança ígnea, Área de fogo, Giro pesado, Terremoto, Avalanche, Cataclismo, Lâmina flamejante
-100;machado_grande;Tanque;raio;166,0;26,57;108,5;1,00;0,00;105,0;4,8;7,1;4,6;Projétil de raio, Área de raio, Giro pesado, Terremoto, Avalanche, Cataclismo, Lâmina flamejante, Martelo do trovão
-100;machado_grande;Leitor (PER);fogo;156,0;24,49;117,8;0,80;0,20;117,2;3,9;8,3;4,5;Projétil de fogo, Lança ígnea, Área de fogo, Giro pesado, Terremoto, Avalanche, Cataclismo, Supernova
-100;machado_grande;Leitor (PER);raio;135,8;26,65;139,3;0,90;0,10;133,0;4,7;8,5;4,9;Projétil de raio, Área de raio, Martelo do trovão, Choque, Giro pesado, Terremoto, Avalanche, Cataclismo
-100;machado_grande;Mago;fogo;162,7;18,98;120,2;0,80;0,20;121,2;3,1;5,6;5,9;Projétil de fogo, Lança ígnea, Área de fogo, Supernova, Lâmina flamejante, Giro pesado, Terremoto, Avalanche
-100;machado_grande;Mago;raio;134,4;21,45;140,3;0,50;0,50;143,7;3,6;6,3;4,3;Projétil de raio, Área de raio, Martelo do trovão, Choque, Corrente, Raio em cadeia, Lâmina flamejante, Giro pesado
-100;machado_grande;Mago;fogo+raio;161,1;21,41;118,2;0,90;0,10;118,8;1,9;4,6;3,1;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Martelo do trovão, Choque, Supernova
-100;machado_grande;Mago;fogo+gelo+raio;158,9;19,22;120,0;0,70;0,30;120,2;2,9;4,9;3,7;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Área de fogo, Área de gelo, Estilhaço, Área de raio
-100;machado_grande;Lâmina mágica;fogo;197,3;22,56;98,7;1,00;0,00;94,7;4,6;7,0;3,5;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina flamejante, Supernova, Giro pesado, Terremoto, Avalanche
-100;machado_grande;Lâmina mágica;raio;169,4;22,55;112,6;0,90;0,10;108,4;3,8;8,4;4,9;Projétil de raio, Área de raio, Martelo do trovão, Choque, Lâmina flamejante, Giro pesado, Terremoto, Avalanche
-100;machado_grande;Lâmina mágica;fogo+raio;192,2;22,38;101,6;1,00;0,00;96,7;4,0;6,3;5,3;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Martelo do trovão, Choque, Lâmina flamejante
-100;machado_grande;Lâmina mágica;fogo+gelo+raio;190,6;22,75;100,0;1,00;0,00;97,7;3,0;6,0;3,6;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Estilhaço, Área de fogo, Área de gelo, Área de raio
-100;machado_grande;Generalista;fogo;194,5;21,41;96,1;1,00;0,00;94,0;2,9;5,4;3,5;Projétil de fogo, Lança ígnea, Área de fogo, Supernova, Lâmina flamejante, Giro pesado, Terremoto, Avalanche
-100;machado_grande;Generalista;raio;164,5;23,68;114,7;1,00;0,00;110,5;4,5;7,5;5,3;Projétil de raio, Área de raio, Martelo do trovão, Choque, Lâmina flamejante, Corrente, Raio em cadeia, Giro pesado
-100;machado_grande;Generalista;fogo+raio;198,8;24,24;96,1;1,00;0,00;92,1;3,0;5,2;3,0;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Martelo do trovão, Choque, Supernova
-100;machado_grande;Generalista;fogo+gelo+raio;189,4;21,60;98,9;0,90;0,10;95,4;2,4;5,3;3,5;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Área de fogo, Área de gelo, Estilhaço, Área de raio
-100;machado_pequeno;Força;fogo;182,0;25,53;108,3;1,00;0,00;101,6;3,4;6,9;4,1;Projétil de fogo, Arremesso duplo, Lança ígnea, Lançamento curvo, Tempestade de machados, Machado bumerangue, Machado imbuído, Área de fogo
-100;machado_pequeno;Força;raio;186,9;26,53;106,4;1,00;0,00;100,9;3,4;6,7;3,8;Projétil de raio, Arremesso duplo, Lançamento curvo, Tempestade de machados, Machado bumerangue, Machado imbuído, Área de raio, Golpe da marca
-100;machado_pequeno;Destreza;fogo;191,8;27,07;101,4;1,00;0,00;96,6;3,1;6,4;3,8;Arremesso duplo, Projétil de fogo, Lançamento curvo, Tempestade de machados, Machado bumerangue, Lança ígnea, Machado imbuído, Área de fogo
-100;machado_pequeno;Destreza;raio;201,4;28,07;100,5;1,00;0,00;92,5;3,2;5,0;3,7;Arremesso duplo, Projétil de raio, Lançamento curvo, Tempestade de machados, Machado bumerangue, Machado imbuído, Área de raio, Golpe da marca
-100;machado_pequeno;Força+Destreza;fogo;217,0;28,16;94,3;1,00;0,00;87,0;2,0;5,0;3,8;Arremesso duplo, Projétil de fogo, Lançamento curvo, Tempestade de machados, Machado bumerangue, Machado imbuído, Lança ígnea, Golpe da marca
-100;machado_pequeno;Força+Destreza;raio;217,0;28,16;88,5;0,80;0,20;86,6;2,0;4,9;3,6;Arremesso duplo, Projétil de raio, Lançamento curvo, Tempestade de machados, Machado bumerangue, Machado imbuído, Golpe da marca, Gancho
-100;machado_pequeno;Tanque;fogo;194,6;27,18;102,8;1,00;0,00;95,0;3,4;6,5;3,9;Arremesso duplo, Projétil de fogo, Lançamento curvo, Tempestade de machados, Machado bumerangue, Lança ígnea, Machado imbuído, Área de fogo
-100;machado_pequeno;Tanque;raio;202,8;28,18;95,7;1,00;0,00;91,7;3,1;5,1;3,6;Arremesso duplo, Projétil de raio, Lançamento curvo, Tempestade de machados, Machado bumerangue, Machado imbuído, Área de raio, Golpe da marca
-100;machado_pequeno;Leitor (PER);fogo;172,3;24,52;113,0;1,00;0,00;106,1;4,0;7,1;3,8;Projétil de fogo, Arremesso duplo, Lança ígnea, Lançamento curvo, Tempestade de machados, Machado bumerangue, Área de fogo, Machado imbuído
-100;machado_pequeno;Leitor (PER);raio;150,8;26,14;127,0;1,00;0,00;119,7;4,2;7,3;5,3;Projétil de raio, Arremesso duplo, Lançamento curvo, Tempestade de machados, Machado bumerangue, Área de raio, Machado imbuído, Martelo do trovão
-100;machado_pequeno;Mago;fogo;165,6;19,31;117,5;1,00;0,00;112,5;3,1;5,6;2,9;Projétil de fogo, Lança ígnea, Área de fogo, Supernova, Arremesso duplo, Machado imbuído, Lançamento curvo, Tempestade de machados
-100;machado_pequeno;Mago;raio;138,2;23,10;137,8;0,80;0,20;141,1;3,5;6,3;4,8;Projétil de raio, Área de raio, Martelo do trovão, Choque, Corrente, Raio em cadeia, Arremesso duplo, Machado imbuído
-100;machado_pequeno;Mago;fogo+raio;165,7;23,93;112,5;0,80;0,20;109,8;1,9;4,6;5,5;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Martelo do trovão, Choque, Supernova
-100;machado_pequeno;Mago;fogo+gelo+raio;165,2;22,16;116,8;0,90;0,10;115,8;2,9;4,8;3,7;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Área de fogo, Área de gelo, Estilhaço, Área de raio
-100;machado_pequeno;Lâmina mágica;fogo;218,5;23,12;89,7;1,00;0,00;85,4;3,1;5,1;3,8;Projétil de fogo, Lança ígnea, Arremesso duplo, Área de fogo, Lançamento curvo, Tempestade de machados, Machado bumerangue, Machado imbuído
-100;machado_pequeno;Lâmina mágica;raio;190,6;26,85;102,0;1,00;0,00;98,5;3,3;6,6;3,6;Projétil de raio, Arremesso duplo, Área de raio, Lançamento curvo, Tempestade de machados, Machado bumerangue, Machado imbuído, Martelo do trovão
-100;machado_pequeno;Lâmina mágica;fogo+raio;213,5;23,12;93,0;1,00;0,00;86,6;3,1;5,1;3,6;Projétil de fogo, Projétil de raio, Lança ígnea, Arremesso duplo, Área de fogo, Área de raio, Lançamento curvo, Tempestade de machados
-100;machado_pequeno;Lâmina mágica;fogo+gelo+raio;202,0;25,34;96,7;1,00;0,00;89,6;2,4;5,7;4,4;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Arremesso duplo, Estilhaço, Área de fogo, Área de gelo
-100;machado_pequeno;Generalista;fogo;219,1;21,15;90,0;1,00;0,00;86,3;3,1;5,0;3,8;Projétil de fogo, Lança ígnea, Área de fogo, Arremesso duplo, Lançamento curvo, Tempestade de machados, Machado bumerangue, Machado imbuído
-100;machado_pequeno;Generalista;raio;184,3;23,41;102,6;1,00;0,00;100,7;2,5;6,0;2,5;Projétil de raio, Área de raio, Arremesso duplo, Martelo do trovão, Choque, Lançamento curvo, Tempestade de machados, Machado bumerangue
-100;machado_pequeno;Generalista;fogo+raio;208,3;26,57;90,2;1,00;0,00;89,1;3,0;5,2;2,5;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Arremesso duplo, Martelo do trovão, Choque
-100;machado_pequeno;Generalista;fogo+gelo+raio;198,9;25,06;92,4;1,00;0,00;90,9;2,4;5,5;3,5;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Área de fogo, Área de gelo, Estilhaço, Área de raio
-100;dois_machados;Força;fogo;204,5;23,02;94,7;1,00;0,00;90,8;2,8;4,7;4,4;Mordida dupla, Execução dupla, Salto selvagem, Tormenta, Fúria elemental, Projétil de fogo, Redemoinho, Lança ígnea
-100;dois_machados;Força;raio;204,5;23,02;94,2;1,00;0,00;91,0;2,8;4,8;4,1;Mordida dupla, Execução dupla, Salto selvagem, Tormenta, Fúria elemental, Projétil de raio, Redemoinho, Moedor
-100;dois_machados;Destreza;fogo;215,2;21,42;84,8;0,80;0,20;86,2;2,6;4,4;4,2;Mordida dupla, Execução dupla, Salto selvagem, Tormenta, Projétil de fogo, Fúria elemental, Redemoinho, Moedor
-100;dois_machados;Destreza;raio;215,2;21,42;85,4;0,90;0,10;86,7;2,6;4,5;3,8;Mordida dupla, Execução dupla, Salto selvagem, Tormenta, Projétil de raio, Fúria elemental, Redemoinho, Moedor
-100;dois_machados;Força+Destreza;fogo;231,3;25,72;79,5;1,00;0,00;78,3;2,6;4,5;4,2;Mordida dupla, Execução dupla, Salto selvagem, Tormenta, Fúria elemental, Projétil de fogo, Redemoinho, Moedor
-100;dois_machados;Força+Destreza;raio;231,3;25,72;81,1;1,00;0,00;78,6;2,6;4,5;4,0;Mordida dupla, Execução dupla, Salto selvagem, Tormenta, Fúria elemental, Projétil de raio, Redemoinho, Moedor
-100;dois_machados;Tanque;fogo;218,4;25,70;85,8;1,00;0,00;83,8;2,6;4,6;4,1;Mordida dupla, Execução dupla, Salto selvagem, Tormenta, Fúria elemental, Projétil de fogo, Redemoinho, Moedor
-100;dois_machados;Tanque;raio;218,4;25,70;87,3;1,00;0,00;83,3;2,6;4,5;4,0;Mordida dupla, Execução dupla, Salto selvagem, Tormenta, Fúria elemental, Projétil de raio, Redemoinho, Moedor
-100;dois_machados;Leitor (PER);fogo;187,6;21,20;104,2;1,00;0,00;101,2;2,6;5,9;4,1;Projétil de fogo, Mordida dupla, Execução dupla, Salto selvagem, Tormenta, Lança ígnea, Fúria elemental, Redemoinho
-100;dois_machados;Leitor (PER);raio;187,6;21,20;104,8;1,00;0,00;100,6;2,6;5,7;5,4;Projétil de raio, Mordida dupla, Execução dupla, Salto selvagem, Tormenta, Fúria elemental, Redemoinho, Moedor
-100;dois_machados;Mago;fogo;181,0;20,03;108,7;0,90;0,10;106,6;3,1;6,0;5,5;Projétil de fogo, Lança ígnea, Área de fogo, Fúria elemental, Supernova, Mordida dupla, Execução dupla, Salto selvagem
-100;dois_machados;Mago;raio;154,0;22,79;118,3;0,50;0,50;124,7;3,6;6,6;4,8;Projétil de raio, Área de raio, Fúria elemental, Martelo do trovão, Choque, Corrente, Mordida dupla, Execução dupla
-100;dois_machados;Mago;fogo+raio;176,6;22,94;108,5;0,80;0,20;107,9;1,9;4,5;3,1;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Fúria elemental, Martelo do trovão, Choque
-100;dois_machados;Mago;fogo+gelo+raio;170,5;19,86;115,6;0,90;0,10;112,0;2,9;4,9;3,7;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Área de fogo, Área de gelo, Estilhaço, Área de raio
-100;dois_machados;Lâmina mágica;fogo;231,6;22,87;79,9;1,00;0,00;78,5;2,5;5,4;4,2;Projétil de fogo, Fúria elemental, Mordida dupla, Execução dupla, Salto selvagem, Tormenta, Lança ígnea, Área de fogo
-100;dois_machados;Lâmina mágica;raio;217,2;22,90;82,5;0,80;0,20;85,9;2,7;5,6;4,1;Projétil de raio, Fúria elemental, Mordida dupla, Execução dupla, Salto selvagem, Tormenta, Área de raio, Redemoinho
-100;dois_machados;Lâmina mágica;fogo+raio;227,4;22,87;83,5;1,00;0,00;80,7;2,5;5,4;4,0;Projétil de fogo, Projétil de raio, Fúria elemental, Mordida dupla, Execução dupla, Salto selvagem, Tormenta, Lança ígnea
-100;dois_machados;Lâmina mágica;fogo+gelo+raio;208,6;24,00;90,0;1,00;0,00;87,1;2,5;5,5;4,6;Projétil de fogo, Projétil de gelo, Projétil de raio, Fúria elemental, Mordida dupla, Execução dupla, Salto selvagem, Tormenta
-100;dois_machados;Generalista;fogo;230,4;21,75;83,7;1,00;0,00;79,6;3,5;4,9;4,2;Projétil de fogo, Lança ígnea, Fúria elemental, Mordida dupla, Execução dupla, Salto selvagem, Tormenta, Área de fogo
-100;dois_machados;Generalista;raio;201,7;21,84;93,1;0,80;0,20;90,7;2,4;5,9;4,3;Projétil de raio, Fúria elemental, Mordida dupla, Execução dupla, Salto selvagem, Tormenta, Área de raio, Martelo do trovão
-100;dois_machados;Generalista;fogo+raio;224,9;21,82;83,6;1,00;0,00;81,5;3,5;4,9;4,4;Projétil de fogo, Projétil de raio, Lança ígnea, Fúria elemental, Mordida dupla, Execução dupla, Salto selvagem, Tormenta
-100;dois_machados;Generalista;fogo+gelo+raio;219,6;22,45;85,4;1,00;0,00;83,6;3,5;5,4;3,6;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Fúria elemental, Mordida dupla, Execução dupla, Salto selvagem
-100;arco;Força;fogo;182,2;11,02;111,9;0,90;0,10;108,9;3,6;6,1;4,4;Projétil de fogo, Lança ígnea, Tiro em leque, Flecha do falcão, Tiro perfurante, Área de fogo, Flecha estelar, Supernova
-100;arco;Força;raio;182,2;11,02;114,1;0,90;0,10;109,6;3,6;6,1;4,2;Projétil de raio, Tiro em leque, Flecha do falcão, Tiro perfurante, Área de raio, Flecha estelar, Martelo do trovão, Choque
-100;arco;Destreza;fogo;204,1;11,51;100,4;1,00;0,00;97,7;2,1;6,0;2,1;Projétil de fogo, Tiro em leque, Flecha do falcão, Tiro perfurante, Lança ígnea, Flecha estelar, Área de fogo, Chuva de flechas
-100;arco;Destreza;raio;197,2;11,96;101,4;1,00;0,00;99,0;3,4;5,5;2,1;Projétil de raio, Tiro em leque, Flecha do falcão, Tiro perfurante, Flecha estelar, Área de raio, Martelo do trovão, Choque
-100;arco;Força+Destreza;fogo;217,1;11,51;90,8;0,70;0,30;91,5;2,1;4,7;2,1;Projétil de fogo, Tiro em leque, Flecha do falcão, Tiro perfurante, Lança ígnea, Flecha estelar, Área de fogo, Chuva de flechas
-100;arco;Força+Destreza;raio;212,5;11,96;91,8;0,80;0,20;92,5;3,3;5,5;2,1;Projétil de raio, Tiro em leque, Flecha do falcão, Tiro perfurante, Flecha estelar, Área de raio, Martelo do trovão, Choque
-100;arco;Tanque;fogo;196,2;10,99;106,2;0,90;0,10;100,2;3,6;6,3;4,2;Projétil de fogo, Tiro em leque, Flecha do falcão, Tiro perfurante, Lança ígnea, Área de fogo, Flecha estelar, Chuva de flechas
-100;arco;Tanque;raio;194,7;11,56;103,5;0,90;0,10;102,0;3,4;6,0;3,9;Projétil de raio, Tiro em leque, Flecha do falcão, Tiro perfurante, Área de raio, Flecha estelar, Martelo do trovão, Choque
-100;arco;Leitor (PER);fogo;205,5;12,88;96,4;0,80;0,20;94,9;2,1;4,5;2,1;Tiro em leque, Flecha do falcão, Tiro perfurante, Projétil de fogo, Lança ígnea, Flecha estelar, Área de fogo, Chuva de flechas
-100;arco;Leitor (PER);raio;189,3;12,58;109,7;1,00;0,00;105,7;2,1;4,6;2,1;Tiro em leque, Flecha do falcão, Tiro perfurante, Projétil de raio, Flecha estelar, Área de raio, Chuva de flechas, Flecha elemental
-100;arco;Mago;fogo;176,9;11,64;105,0;0,60;0,40;112,2;3,0;4,8;2,6;Projétil de fogo, Lança ígnea, Área de fogo, Supernova, Tiro em leque, Flecha do falcão, Flecha estelar, Tiro perfurante
-100;arco;Mago;raio;151,4;14,43;127,2;0,60;0,40;132,9;4,1;6,4;4,4;Projétil de raio, Área de raio, Martelo do trovão, Choque, Corrente, Raio em cadeia, Tiro em leque, Flecha do falcão
-100;arco;Mago;fogo+raio;168,9;13,35;119,4;1,00;0,00;117,4;1,9;4,5;4,7;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Martelo do trovão, Choque, Supernova
-100;arco;Mago;fogo+gelo+raio;164,2;10,23;106,3;0,40;0,60;124,6;2,9;4,9;3,7;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Área de fogo, Área de gelo, Estilhaço, Área de raio
-100;arco;Lâmina mágica;fogo;217,7;11,59;91,0;0,80;0,20;89,6;3,0;5,3;4,2;Projétil de fogo, Lança ígnea, Área de fogo, Tiro em leque, Flecha do falcão, Tiro perfurante, Flecha estelar, Supernova
-100;arco;Lâmina mágica;raio;192,7;11,56;103,2;0,80;0,20;104,4;3,4;6,0;4,1;Projétil de raio, Área de raio, Tiro em leque, Flecha do falcão, Tiro perfurante, Flecha estelar, Martelo do trovão, Choque
-100;arco;Lâmina mágica;fogo+raio;214,3;11,73;95,2;0,80;0,20;92,9;3,0;5,3;4,0;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Tiro em leque, Flecha do falcão, Tiro perfurante
-100;arco;Lâmina mágica;fogo+gelo+raio;201,8;11,16;98,4;0,70;0,30;98,2;3,0;6,2;2,9;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Estilhaço, Área de fogo, Área de gelo, Área de raio
-100;arco;Generalista;fogo;224,0;11,71;91,9;1,00;0,00;89,3;2,9;5,1;2,1;Projétil de fogo, Lança ígnea, Área de fogo, Tiro em leque, Flecha do falcão, Tiro perfurante, Flecha estelar, Supernova
-100;arco;Generalista;raio;192,5;13,78;98,3;0,80;0,20;100,6;2,3;5,5;2,1;Projétil de raio, Área de raio, Tiro em leque, Flecha do falcão, Tiro perfurante, Flecha estelar, Martelo do trovão, Choque
-100;arco;Generalista;fogo+raio;219,4;12,00;91,2;0,80;0,20;90,2;2,8;5,0;2,1;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Tiro em leque, Flecha do falcão, Tiro perfurante
-100;arco;Generalista;fogo+gelo+raio;198,4;10,88;102,8;0,90;0,10;98,4;2,4;5,3;2,8;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Área de fogo, Área de gelo, Estilhaço, Área de raio
+15;desarmado;Força;fogo;147,8;20,98;138,6;0,40;0,60;137,9;4,9;9,0;12,2;Projétil de fogo, Lança ígnea, Área de fogo, Palma elemental, Supernova, Investida de ombro
+15;desarmado;Destreza;fogo;158,1;22,02;133,0;0,80;0,20;131,1;4,5;7,4;11,8;Projétil de fogo, Lança ígnea, Área de fogo, Palma elemental, Investida de ombro, Supernova
+15;desarmado;Força+Destreza;fogo;161,8;22,03;127,7;0,80;0,20;120,9;4,5;7,4;12,1;Projétil de fogo, Lança ígnea, Área de fogo, Palma elemental, Investida de ombro, Supernova
+15;desarmado;Tanque;fogo;142,4;20,33;148,9;0,60;0,40;137,8;4,5;8,4;12,9;Projétil de fogo, Lança ígnea, Área de fogo, Palma elemental, Supernova, Investida de ombro
+15;desarmado;Leitor (PER);fogo;131,8;21,25;148,6;0,30;0,70;148,6;4,6;9,0;14,4;Projétil de fogo, Lança ígnea, Área de fogo, Palma elemental, Supernova, Investida de ombro
+15;desarmado;Mago;fogo;134,7;19,67;160,3;0,30;0,70;150,4;3,1;7,0;9,9;Projétil de fogo, Lança ígnea, Área de fogo, Supernova, Palma elemental, Investida de ombro
+15;desarmado;Lâmina mágica;fogo;152,9;20,16;143,8;0,20;0,80;132,1;4,6;7,6;13,3;Projétil de fogo, Lança ígnea, Área de fogo, Palma elemental, Supernova, Investida de ombro
+15;desarmado;Generalista;fogo;147,4;19,69;145,9;0,30;0,70;138,6;4,5;7,6;9,6;Projétil de fogo, Lança ígnea, Área de fogo, Palma elemental, Supernova, Investida de ombro
+15;espada_curta;Força;fogo;175,1;20,08;122,5;0,80;0,20;114,8;3,8;7,0;13,9;Projétil de fogo, Lança ígnea, Área de fogo, Passo de sombra, Corte baixo, Lâmina venenosa
+15;espada_curta;Destreza;fogo;184,7;20,93;107,2;0,90;0,10;102,8;3,7;6,7;12,5;Projétil de fogo, Lança ígnea, Passo de sombra, Área de fogo, Corte baixo, Lâmina venenosa
+15;espada_curta;Força+Destreza;fogo;174,2;22,21;114,3;0,90;0,10;110,8;3,9;7,3;13,2;Projétil de fogo, Lança ígnea, Passo de sombra, Área de fogo, Corte baixo, Lâmina venenosa
+15;espada_curta;Tanque;fogo;169,3;20,07;123,7;0,60;0,40;117,1;5,0;7,1;13,7;Projétil de fogo, Lança ígnea, Área de fogo, Passo de sombra, Corte baixo, Lâmina venenosa
+15;espada_curta;Leitor (PER);fogo;157,7;20,21;128,2;0,50;0,50;122,9;4,8;7,8;13,1;Projétil de fogo, Lança ígnea, Área de fogo, Passo de sombra, Corte baixo, Lâmina venenosa
+15;espada_curta;Mago;fogo;155,7;18,19;132,2;0,70;0,30;128,2;3,1;7,1;8,5;Projétil de fogo, Lança ígnea, Área de fogo, Supernova, Passo de sombra, Corte baixo
+15;espada_curta;Lâmina mágica;fogo;179,7;19,17;127,2;0,50;0,50;112,0;3,8;6,9;11,1;Projétil de fogo, Lança ígnea, Área de fogo, Passo de sombra, Supernova, Corte baixo
+15;espada_curta;Generalista;fogo;170,7;18,49;118,4;0,70;0,30;114,8;5,0;7,0;12,1;Projétil de fogo, Lança ígnea, Área de fogo, Passo de sombra, Supernova, Corte baixo
+15;espada_longa;Força;fogo;154,9;19,94;127,1;0,70;0,30;125,1;4,4;7,9;11,9;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina imbuída, Corte de avanço, Corte de flanco
+15;espada_longa;Destreza;fogo;169,1;21,37;118,6;1,00;0,00;112,0;4,2;7,4;11,4;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina imbuída, Corte de avanço, Corte de flanco
+15;espada_longa;Força+Destreza;fogo;167,3;20,80;120,0;0,80;0,20;114,5;4,2;7,7;11,3;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina imbuída, Corte de avanço, Corte de flanco
+15;espada_longa;Tanque;fogo;149,8;19,92;136,6;0,60;0,40;129,9;4,4;8,0;12,0;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina imbuída, Corte de avanço, Corte de flanco
+15;espada_longa;Leitor (PER);fogo;140,9;19,10;143,4;0,40;0,60;137,8;4,8;9,2;11,0;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina imbuída, Corte de avanço, Corte de flanco
+15;espada_longa;Mago;fogo;144,7;18,37;140,0;0,60;0,40;136,0;3,1;7,2;5,4;Projétil de fogo, Lança ígnea, Área de fogo, Supernova, Lâmina imbuída, Corte de avanço
+15;espada_longa;Lâmina mágica;fogo;161,7;18,87;137,0;0,80;0,20;121,7;4,2;7,5;5,0;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina imbuída, Supernova, Corte de avanço
+15;espada_longa;Generalista;fogo;159,7;19,06;130,0;0,40;0,60;121,5;4,0;7,4;4,9;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina imbuída, Supernova, Corte de avanço
+15;duas_espadas;Força;fogo;150,7;18,38;131,0;0,60;0,40;127,3;5,2;8,8;5,2;Projétil de fogo, Lança ígnea, Área de fogo, Gume duplo elemental, Cruz ascendente, Supernova
+15;duas_espadas;Destreza;fogo;160,2;19,07;123,2;0,80;0,20;119,1;5,0;8,0;4,6;Projétil de fogo, Lança ígnea, Gume duplo elemental, Área de fogo, Cruz ascendente, Dança de lâminas
+15;duas_espadas;Força+Destreza;fogo;164,4;19,22;120,8;0,70;0,30;116,6;5,1;7,3;4,8;Projétil de fogo, Lança ígnea, Gume duplo elemental, Área de fogo, Cruz ascendente, Dança de lâminas
+15;duas_espadas;Tanque;fogo;150,2;17,94;133,3;0,40;0,60;130,2;5,3;8,5;5,3;Projétil de fogo, Lança ígnea, Área de fogo, Gume duplo elemental, Cruz ascendente, Supernova
+15;duas_espadas;Leitor (PER);fogo;143,5;17,62;137,0;0,60;0,40;132,0;5,6;8,8;4,7;Projétil de fogo, Lança ígnea, Área de fogo, Gume duplo elemental, Cruz ascendente, Supernova
+15;duas_espadas;Mago;fogo;139,4;17,04;137,8;0,80;0,20;137,9;3,1;7,1;5,7;Projétil de fogo, Lança ígnea, Área de fogo, Supernova, Gume duplo elemental, Cruz ascendente
+15;duas_espadas;Lâmina mágica;fogo;157,8;17,58;127,5;0,90;0,10;123,5;5,2;7,3;5,3;Projétil de fogo, Lança ígnea, Área de fogo, Gume duplo elemental, Supernova, Cruz ascendente
+15;duas_espadas;Generalista;fogo;158,2;18,08;126,5;0,70;0,30;122,6;4,9;8,0;4,8;Projétil de fogo, Lança ígnea, Área de fogo, Gume duplo elemental, Supernova, Cruz ascendente
+15;espada_e_escudo;Força;fogo;150,3;19,34;132,6;0,80;0,20;128,4;5,5;7,7;14,9;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina sagrada, Supernova, Investida de escudo
+15;espada_e_escudo;Destreza;fogo;160,5;20,13;123,1;0,80;0,20;118,5;5,4;7,3;13,1;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina sagrada, Supernova, Investida de escudo
+15;espada_e_escudo;Força+Destreza;fogo;164,3;20,14;121,3;1,00;0,00;116,1;4,0;7,5;13,2;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina sagrada, Supernova, Investida de escudo
+15;espada_e_escudo;Tanque;fogo;148,4;18,55;137,1;0,70;0,30;130,5;5,5;8,9;14,8;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina sagrada, Supernova, Investida de escudo
+15;espada_e_escudo;Leitor (PER);fogo;137,0;19,03;147,3;0,60;0,40;139,0;5,1;8,3;14,6;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina sagrada, Supernova, Investida de escudo
+15;espada_e_escudo;Mago;fogo;140,2;17,61;146,4;0,60;0,40;140,9;3,1;7,1;9,1;Projétil de fogo, Lança ígnea, Área de fogo, Supernova, Lâmina sagrada, Brasa persistente
+15;espada_e_escudo;Lâmina mágica;fogo;158,6;18,41;129,9;0,60;0,40;124,5;4,1;7,4;13,0;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina sagrada, Supernova, Investida de escudo
+15;espada_e_escudo;Generalista;fogo;156,9;18,60;128,4;0,50;0,50;123,0;5,1;7,3;12,6;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina sagrada, Supernova, Investida de escudo
+15;katana;Força;fogo;163,6;20,08;120,7;0,70;0,30;118,1;4,7;7,2;5,9;Iai rápido, Mil folhas, Projétil de fogo, Passo do relâmpago, Lança ígnea, Área de fogo
+15;katana;Destreza;fogo;181,3;21,30;109,1;0,70;0,30;103,7;3,2;6,9;5,4;Iai rápido, Mil folhas, Projétil de fogo, Passo do relâmpago, Lança ígnea, Área de fogo
+15;katana;Força+Destreza;fogo;182,9;20,89;108,1;0,90;0,10;103,4;3,4;6,9;5,4;Iai rápido, Mil folhas, Projétil de fogo, Passo do relâmpago, Lança ígnea, Área de fogo
+15;katana;Tanque;fogo;175,5;19,08;115,9;1,00;0,00;110,8;4,8;7,7;11,6;Iai rápido, Mil folhas, Projétil de fogo, Lança ígnea, Passo do relâmpago, Área de fogo
+15;katana;Leitor (PER);fogo;168,7;19,82;116,9;1,00;0,00;112,2;4,1;7,5;11,0;Iai rápido, Mil folhas, Projétil de fogo, Passo do relâmpago, Lança ígnea, Área de fogo
+15;katana;Mago;fogo;166,0;17,13;121,8;0,70;0,30;117,4;3,6;6,8;5,8;Projétil de fogo, Lança ígnea, Área de fogo, Iai rápido, Mil folhas, Passo do relâmpago
+15;katana;Lâmina mágica;fogo;187,8;18,36;107,9;0,80;0,20;103,4;4,6;6,7;6,0;Projétil de fogo, Iai rápido, Mil folhas, Lança ígnea, Passo do relâmpago, Área de fogo
+15;katana;Generalista;fogo;190,7;19,24;104,8;0,90;0,10;101,2;4,1;6,6;5,4;Projétil de fogo, Iai rápido, Mil folhas, Lança ígnea, Passo do relâmpago, Área de fogo
+15;duas_katanas;Força;fogo;146,2;18,78;135,1;0,40;0,60;131,9;4,0;8,0;9,4;Projétil de fogo, Fio elemental, Corte em cruz, Tesoura, Tempestade de pétalas, Área de fogo
+15;duas_katanas;Destreza;fogo;157,8;18,01;121,1;0,60;0,40;118,0;4,2;7,5;9,0;Projétil de fogo, Tesoura, Fio elemental, Corte em cruz, Tempestade de pétalas, Área de fogo
+15;duas_katanas;Força+Destreza;fogo;162,8;19,75;118,7;0,70;0,30;114,9;4,0;7,8;9,2;Projétil de fogo, Tesoura, Fio elemental, Corte em cruz, Tempestade de pétalas, Área de fogo
+15;duas_katanas;Tanque;fogo;151,8;18,92;129,7;0,50;0,50;125,8;4,6;8,4;9,2;Projétil de fogo, Fio elemental, Corte em cruz, Lança ígnea, Tesoura, Área de fogo
+15;duas_katanas;Leitor (PER);fogo;156,8;17,75;126,9;0,70;0,30;123,5;4,2;8,3;9,2;Projétil de fogo, Tesoura, Lança ígnea, Fio elemental, Corte em cruz, Área de fogo
+15;duas_katanas;Mago;fogo;148,2;17,94;132,8;0,70;0,30;128,7;3,7;6,6;5,1;Projétil de fogo, Lança ígnea, Área de fogo, Fio elemental, Corte em cruz, Tesoura
+15;duas_katanas;Lâmina mágica;fogo;164,1;18,69;119,4;0,70;0,30;116,0;4,5;6,9;9,3;Projétil de fogo, Lança ígnea, Fio elemental, Corte em cruz, Tesoura, Área de fogo
+15;duas_katanas;Generalista;fogo;165,8;19,06;119,0;0,90;0,10;114,8;4,3;6,9;10,3;Projétil de fogo, Lança ígnea, Fio elemental, Corte em cruz, Tesoura, Área de fogo
+15;machado_grande;Força;fogo;142,6;20,93;137,5;0,50;0,50;131,6;5,5;8,5;7,0;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina flamejante, Supernova, Giro pesado
+15;machado_grande;Destreza;fogo;150,7;23,02;124,7;0,70;0,30;118,7;5,0;7,9;4,7;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina flamejante, Giro pesado, Terremoto
+15;machado_grande;Força+Destreza;fogo;154,3;23,05;125,2;0,60;0,40;117,3;5,3;8,0;4,8;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina flamejante, Giro pesado, Terremoto
+15;machado_grande;Tanque;fogo;138,3;20,91;142,0;0,60;0,40;135,5;5,5;8,4;7,1;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina flamejante, Supernova, Giro pesado
+15;machado_grande;Leitor (PER);fogo;133,8;21,70;145,5;0,60;0,40;140,8;5,2;9,1;6,8;Projétil de fogo, Lança ígnea, Área de fogo, Supernova, Lâmina flamejante, Giro pesado
+15;machado_grande;Mago;fogo;134,8;19,81;145,7;0,90;0,10;141,2;3,1;7,5;5,5;Projétil de fogo, Lança ígnea, Área de fogo, Supernova, Lâmina flamejante, Giro pesado
+15;machado_grande;Lâmina mágica;fogo;155,4;20,60;131,4;0,80;0,20;127,0;4,6;7,1;7,1;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina flamejante, Supernova, Giro pesado
+15;machado_grande;Generalista;fogo;151,6;20,88;132,5;0,80;0,20;127,3;5,1;7,3;7,0;Projétil de fogo, Lança ígnea, Área de fogo, Supernova, Lâmina flamejante, Giro pesado
+15;machado_pequeno;Força;fogo;154,0;24,23;130,0;0,60;0,40;123,0;5,1;8,1;11,5;Projétil de fogo, Lança ígnea, Arremesso duplo, Área de fogo, Machado imbuído, Lançamento curvo
+15;machado_pequeno;Destreza;fogo;164,2;25,44;118,6;1,00;0,00;112,1;4,8;7,9;10,9;Projétil de fogo, Arremesso duplo, Lança ígnea, Lançamento curvo, Área de fogo, Machado imbuído
+15;machado_pequeno;Força+Destreza;fogo;167,6;25,45;117,0;0,80;0,20;111,4;4,9;8,0;11,2;Projétil de fogo, Arremesso duplo, Lança ígnea, Lançamento curvo, Área de fogo, Machado imbuído
+15;machado_pequeno;Tanque;fogo;149,2;24,22;131,9;0,80;0,20;127,0;5,0;8,2;11,5;Projétil de fogo, Lança ígnea, Arremesso duplo, Área de fogo, Machado imbuído, Lançamento curvo
+15;machado_pequeno;Leitor (PER);fogo;141,9;23,35;138,8;0,80;0,20;134,1;5,5;8,8;10,8;Projétil de fogo, Lança ígnea, Arremesso duplo, Área de fogo, Lançamento curvo, Machado imbuído
+15;machado_pequeno;Mago;fogo;142,6;21,75;142,5;0,60;0,40;136,1;3,1;7,0;10,0;Projétil de fogo, Lança ígnea, Área de fogo, Supernova, Arremesso duplo, Machado imbuído
+15;machado_pequeno;Lâmina mágica;fogo;160,2;22,73;126,4;0,70;0,30;117,7;4,8;8,1;7,1;Projétil de fogo, Lança ígnea, Área de fogo, Arremesso duplo, Machado imbuído, Lançamento curvo
+15;machado_pequeno;Generalista;fogo;160,0;22,91;125,0;0,90;0,10;117,9;4,9;7,9;7,9;Projétil de fogo, Lança ígnea, Área de fogo, Arremesso duplo, Lançamento curvo, Machado imbuído
+15;dois_machados;Força;fogo;158,6;23,36;121,5;0,90;0,10;119,1;4,0;7,5;10,3;Projétil de fogo, Fúria elemental, Mordida dupla, Execução dupla, Salto selvagem, Área de fogo
+15;dois_machados;Destreza;fogo;175,0;25,05;110,1;0,70;0,30;104,8;2,9;6,9;9,4;Projétil de fogo, Mordida dupla, Execução dupla, Salto selvagem, Tormenta, Área de fogo
+15;dois_machados;Força+Destreza;fogo;179,1;25,06;106,8;0,70;0,30;103,4;2,9;6,9;7,4;Projétil de fogo, Mordida dupla, Execução dupla, Salto selvagem, Tormenta, Área de fogo
+15;dois_machados;Tanque;fogo;163,9;22,08;118,3;0,60;0,40;116,6;5,0;8,0;10,3;Projétil de fogo, Fúria elemental, Lança ígnea, Mordida dupla, Salto selvagem, Área de fogo
+15;dois_machados;Leitor (PER);fogo;146,3;20,05;131,8;0,60;0,40;128,9;4,4;8,0;9,4;Projétil de fogo, Mordida dupla, Execução dupla, Salto selvagem, Tormenta, Área de fogo
+15;dois_machados;Mago;fogo;155,0;20,90;127,5;0,70;0,30;122,8;3,7;5,9;10,0;Projétil de fogo, Lança ígnea, Área de fogo, Fúria elemental, Mordida dupla, Salto selvagem
+15;dois_machados;Lâmina mágica;fogo;176,8;21,87;111,2;0,80;0,20;107,6;3,7;7,0;10,2;Projétil de fogo, Fúria elemental, Lança ígnea, Mordida dupla, Salto selvagem, Área de fogo
+15;dois_machados;Generalista;fogo;171,0;21,26;112,8;0,80;0,20;109,1;3,6;7,0;10,1;Projétil de fogo, Lança ígnea, Fúria elemental, Mordida dupla, Salto selvagem, Área de fogo
+15;arco;Força;fogo;165,7;11,20;127,9;0,60;0,40;124,3;4,5;8,1;5,2;Projétil de fogo, Lança ígnea, Área de fogo, Tiro em leque, Flecha do falcão, Tiro perfurante
+15;arco;Destreza;fogo;183,8;11,72;113,3;0,80;0,20;109,1;4,2;6,6;4,9;Projétil de fogo, Tiro em leque, Flecha do falcão, Tiro perfurante, Lança ígnea, Área de fogo
+15;arco;Força+Destreza;fogo;178,7;11,47;114,9;0,70;0,30;110,4;4,6;6,7;5,1;Projétil de fogo, Lança ígnea, Tiro em leque, Flecha do falcão, Tiro perfurante, Área de fogo
+15;arco;Tanque;fogo;161,2;11,20;133,2;0,50;0,50;127,3;4,8;8,1;5,1;Projétil de fogo, Lança ígnea, Área de fogo, Tiro em leque, Flecha do falcão, Tiro perfurante
+15;arco;Leitor (PER);fogo;164,6;12,84;124,5;0,60;0,40;121,9;4,1;7,4;5,0;Projétil de fogo, Tiro em leque, Flecha do falcão, Tiro perfurante, Lança ígnea, Área de fogo
+15;arco;Mago;fogo;144,0;9,96;145,4;0,20;0,80;143,1;3,1;7,3;5,0;Projétil de fogo, Lança ígnea, Área de fogo, Supernova, Tiro perfurante, Flecha do falcão
+15;arco;Lâmina mágica;fogo;171,1;11,07;124,9;0,70;0,30;119,4;4,3;6,8;5,2;Projétil de fogo, Lança ígnea, Área de fogo, Tiro em leque, Flecha do falcão, Tiro perfurante
+15;arco;Generalista;fogo;175,4;11,29;117,8;0,80;0,20;114,9;4,2;6,6;5,0;Projétil de fogo, Lança ígnea, Área de fogo, Tiro em leque, Flecha do falcão, Tiro perfurante
+100;desarmado;Força;fogo;170,3;24,26;131,3;0,80;0,20;116,1;3,6;7,8;6,5;Projétil de fogo, Lança ígnea, Palma elemental, Área de fogo, Investida de ombro, Mil palmas, Tornado de punhos, Supernova
+100;desarmado;Força;raio;170,3;24,26;124,7;0,90;0,10;114,6;3,6;7,7;5,6;Projétil de raio, Palma elemental, Área de raio, Investida de ombro, Mil palmas, Tornado de punhos, Martelo do trovão, Choque
+100;desarmado;Destreza;fogo;178,1;25,69;111,9;0,80;0,20;105,4;3,3;7,3;4,6;Projétil de fogo, Lança ígnea, Palma elemental, Área de fogo, Investida de ombro, Mil palmas, Tornado de punhos, Supernova
+100;desarmado;Destreza;raio;178,1;25,69;116,1;0,80;0,20;107,1;3,3;7,2;5,4;Projétil de raio, Palma elemental, Área de raio, Investida de ombro, Mil palmas, Tornado de punhos, Martelo do trovão, Choque
+100;desarmado;Força+Destreza;fogo;193,2;25,73;107,3;0,90;0,10;96,6;3,3;6,4;4,6;Projétil de fogo, Lança ígnea, Palma elemental, Área de fogo, Mil palmas, Tornado de punhos, Investida de ombro, Rasteira
+100;desarmado;Força+Destreza;raio;193,2;25,73;110,2;1,00;0,00;105,7;3,3;6,4;5,5;Projétil de raio, Palma elemental, Área de raio, Mil palmas, Tornado de punhos, Investida de ombro, Martelo do trovão, Choque
+100;desarmado;Tanque;fogo;182,8;25,71;115,3;0,90;0,10;106,7;3,4;6,4;6,2;Projétil de fogo, Lança ígnea, Palma elemental, Área de fogo, Investida de ombro, Mil palmas, Tornado de punhos, Supernova
+100;desarmado;Tanque;raio;182,8;25,71;122,5;1,00;0,00;103,4;3,4;6,3;5,5;Projétil de raio, Palma elemental, Área de raio, Investida de ombro, Mil palmas, Tornado de punhos, Martelo do trovão, Choque
+100;desarmado;Leitor (PER);fogo;162,5;19,97;126,2;0,70;0,30;120,5;3,9;7,6;5,9;Projétil de fogo, Lança ígnea, Área de fogo, Palma elemental, Mil palmas, Tornado de punhos, Investida de ombro, Supernova
+100;desarmado;Leitor (PER);raio;142,7;20,35;138,6;0,50;0,50;136,2;4,7;8,4;6,7;Projétil de raio, Área de raio, Palma elemental, Martelo do trovão, Choque, Mil palmas, Tornado de punhos, Investida de ombro
+100;desarmado;Mago;fogo;163,7;19,79;126,5;0,70;0,30;122,7;3,1;5,7;5,2;Projétil de fogo, Lança ígnea, Área de fogo, Supernova, Palma elemental, Investida de ombro, Mil palmas, Tornado de punhos
+100;desarmado;Mago;raio;128,4;21,33;157,6;0,50;0,50;152,8;3,5;6,3;4,4;Projétil de raio, Área de raio, Martelo do trovão, Choque, Palma elemental, Corrente, Raio em cadeia, Investida de ombro
+100;desarmado;Mago;fogo+raio;147,8;21,29;133,1;0,60;0,40;132,9;3,2;5,6;3,1;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Martelo do trovão, Choque, Supernova
+100;desarmado;Mago;fogo+gelo+raio;158,3;18,28;132,3;0,90;0,10;125,8;2,8;6,1;4,1;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Área de fogo, Área de gelo, Estilhaço, Área de raio
+100;desarmado;Lâmina mágica;fogo;200,6;22,49;105,8;1,00;0,00;98,7;3,1;6,2;4,6;Projétil de fogo, Lança ígnea, Área de fogo, Palma elemental, Supernova, Mil palmas, Tornado de punhos, Investida de ombro
+100;desarmado;Lâmina mágica;raio;175,2;23,51;113,6;1,00;0,00;109,6;3,5;7,5;4,3;Projétil de raio, Área de raio, Palma elemental, Martelo do trovão, Choque, Mil palmas, Tornado de punhos, Investida de ombro
+100;desarmado;Lâmina mágica;fogo+raio;185,3;21,83;118,4;1,00;0,00;105,4;4,4;6,4;4,5;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Palma elemental, Martelo do trovão, Choque
+100;desarmado;Lâmina mágica;fogo+gelo+raio;187,5;21,11;109,4;0,90;0,10;102,7;3,7;6,8;4,0;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Estilhaço, Área de fogo, Área de gelo, Área de raio
+100;desarmado;Generalista;fogo;198,4;21,96;103,0;1,00;0,00;93,7;3,1;5,1;4,4;Projétil de fogo, Lança ígnea, Área de fogo, Palma elemental, Supernova, Investida de ombro, Mil palmas, Tornado de punhos
+100;desarmado;Generalista;raio;162,1;23,40;124,6;0,90;0,10;115,3;4,1;7,2;4,2;Projétil de raio, Área de raio, Palma elemental, Martelo do trovão, Choque, Corrente, Raio em cadeia, Investida de ombro
+100;desarmado;Generalista;fogo+raio;185,4;23,13;106,1;0,80;0,20;104,5;3,0;6,2;4,4;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Palma elemental, Martelo do trovão, Choque
+100;desarmado;Generalista;fogo+gelo+raio;187,6;20,26;113,2;0,80;0,20;101,4;3,8;5,5;3,8;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Área de fogo, Área de gelo, Estilhaço, Área de raio
+100;espada_curta;Força;fogo;206,2;21,04;99,7;0,90;0,10;91,4;2,5;6,2;11,8;Projétil de fogo, Lança ígnea, Passo de sombra, Golpe de misericórdia, Lâmina venenosa, Corte baixo, Corte dos tendões, Área de fogo
+100;espada_curta;Força;raio;206,8;21,00;97,5;1,00;0,00;91,2;3,7;5,8;11,4;Projétil de raio, Passo de sombra, Golpe de misericórdia, Lâmina venenosa, Corte baixo, Corte dos tendões, Área de raio, Lâminas gêmeas
+100;espada_curta;Destreza;fogo;210,7;22,23;92,7;1,00;0,00;87,7;2,4;5,8;11,3;Projétil de fogo, Passo de sombra, Golpe de misericórdia, Corte baixo, Lâmina venenosa, Corte dos tendões, Lança ígnea, Área de fogo
+100;espada_curta;Destreza;raio;212,8;22,11;90,3;1,00;0,00;85,4;3,4;5,3;11,7;Projétil de raio, Passo de sombra, Golpe de misericórdia, Corte baixo, Lâmina venenosa, Corte dos tendões, Área de raio, Lâminas gêmeas
+100;espada_curta;Força+Destreza;fogo;229,8;22,26;88,0;1,00;0,00;79,5;2,4;4,6;11,5;Projétil de fogo, Passo de sombra, Golpe de misericórdia, Corte baixo, Lâmina venenosa, Corte dos tendões, Lança ígnea, Área de fogo
+100;espada_curta;Força+Destreza;raio;231,4;22,14;86,5;0,90;0,10;87,3;2,2;5,3;11,8;Projétil de raio, Passo de sombra, Golpe de misericórdia, Corte baixo, Lâmina venenosa, Corte dos tendões, Área de raio, Lâminas gêmeas
+100;espada_curta;Tanque;fogo;217,8;22,25;89,9;1,00;0,00;84,0;2,4;5,9;11,8;Projétil de fogo, Passo de sombra, Golpe de misericórdia, Corte baixo, Lâmina venenosa, Corte dos tendões, Lança ígnea, Área de fogo
+100;espada_curta;Tanque;raio;219,0;22,13;91,7;1,00;0,00;83,7;3,4;5,3;11,1;Projétil de raio, Passo de sombra, Golpe de misericórdia, Corte baixo, Lâmina venenosa, Corte dos tendões, Área de raio, Lâminas gêmeas
+100;espada_curta;Leitor (PER);fogo;182,9;20,64;115,3;1,00;0,00;102,7;4,1;6,8;11,6;Projétil de fogo, Lança ígnea, Passo de sombra, Golpe de misericórdia, Corte baixo, Lâmina venenosa, Corte dos tendões, Área de fogo
+100;espada_curta;Leitor (PER);raio;165,2;21,64;131,5;0,70;0,30;114,6;4,5;7,4;11,5;Projétil de raio, Passo de sombra, Golpe de misericórdia, Corte baixo, Lâmina venenosa, Corte dos tendões, Área de raio, Martelo do trovão
+100;espada_curta;Mago;fogo;172,2;16,24;117,8;0,70;0,30;114,8;2,4;4,3;8,2;Projétil de fogo, Lança ígnea, Área de fogo, Supernova, Passo de sombra, Golpe de misericórdia, Lâmina venenosa, Corte baixo
+100;espada_curta;Mago;raio;155,2;19,29;131,7;0,80;0,20;127,1;3,7;5,6;4,4;Projétil de raio, Área de raio, Martelo do trovão, Choque, Corrente, Raio em cadeia, Passo de sombra, Golpe de misericórdia
+100;espada_curta;Mago;fogo+raio;168,3;20,83;119,8;0,80;0,20;114,2;3,2;5,7;3,1;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Martelo do trovão, Choque, Supernova
+100;espada_curta;Mago;fogo+gelo+raio;173,5;17,69;119,0;0,90;0,10;115,4;3,0;6,1;4,0;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Área de fogo, Área de gelo, Estilhaço, Área de raio
+100;espada_curta;Lâmina mágica;fogo;241,5;20,07;79,6;1,00;0,00;77,5;2,3;5,3;8,2;Projétil de fogo, Lança ígnea, Área de fogo, Passo de sombra, Golpe de misericórdia, Lâmina venenosa, Corte baixo, Corte dos tendões
+100;espada_curta;Lâmina mágica;raio;216,3;22,25;94,5;0,90;0,10;89,1;2,4;5,7;9,4;Projétil de raio, Área de raio, Passo de sombra, Golpe de misericórdia, Lâmina venenosa, Corte baixo, Corte dos tendões, Martelo do trovão
+100;espada_curta;Lâmina mágica;fogo+raio;235,8;20,07;90,7;1,00;0,00;80,7;2,3;5,4;5,1;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Passo de sombra, Golpe de misericórdia, Lâmina venenosa
+100;espada_curta;Lâmina mágica;fogo+gelo+raio;226,5;21,25;90,3;1,00;0,00;85,4;3,5;5,3;4,0;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Estilhaço, Área de fogo, Área de gelo, Área de raio
+100;espada_curta;Generalista;fogo;233,1;18,61;87,4;1,00;0,00;82,1;2,2;5,4;8,2;Projétil de fogo, Lança ígnea, Área de fogo, Passo de sombra, Golpe de misericórdia, Lâmina venenosa, Corte baixo, Corte dos tendões
+100;espada_curta;Generalista;raio;202,9;21,32;101,3;1,00;0,00;93,7;3,6;6,4;4,7;Projétil de raio, Área de raio, Martelo do trovão, Choque, Passo de sombra, Golpe de misericórdia, Lâmina venenosa, Corte baixo
+100;espada_curta;Generalista;fogo+raio;220,9;23,62;90,9;1,00;0,00;89,3;3,0;6,2;5,0;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Martelo do trovão, Choque, Passo de sombra
+100;espada_curta;Generalista;fogo+gelo+raio;221,2;20,26;93,3;0,90;0,10;88,2;3,7;5,5;3,8;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Área de fogo, Área de gelo, Estilhaço, Área de raio
+100;espada_longa;Força;fogo;172,3;22,75;113,6;0,80;0,20;108,7;4,0;8,0;11,6;Projétil de fogo, Lança ígnea, Lâmina imbuída, Área de fogo, Corte de avanço, Corte de flanco, Corte que fende, Troca de guarda
+100;espada_longa;Força;raio;172,3;22,75;110,9;0,90;0,10;108,4;4,0;8,0;5,8;Projétil de raio, Lâmina imbuída, Área de raio, Corte de avanço, Corte de flanco, Corte que fende, Troca de guarda, Martelo do trovão
+100;espada_longa;Destreza;fogo;186,9;24,74;108,4;1,00;0,00;100,6;3,9;7,6;4,6;Projétil de fogo, Lança ígnea, Lâmina imbuída, Corte de avanço, Corte de flanco, Corte que fende, Troca de guarda, Área de fogo
+100;espada_longa;Destreza;raio;186,9;24,74;107,4;1,00;0,00;100,4;3,9;7,6;5,5;Projétil de raio, Lâmina imbuída, Corte de avanço, Corte de flanco, Corte que fende, Troca de guarda, Área de raio, Martelo do trovão
+100;espada_longa;Força+Destreza;fogo;203,1;24,78;100,6;1,00;0,00;91,1;3,9;6,5;4,7;Projétil de fogo, Lâmina imbuída, Lança ígnea, Corte de avanço, Corte de flanco, Corte que fende, Troca de guarda, Área de fogo
+100;espada_longa;Força+Destreza;raio;203,1;24,78;98,1;0,90;0,10;90,8;4,0;6,4;5,5;Projétil de raio, Lâmina imbuída, Corte de avanço, Corte de flanco, Corte que fende, Troca de guarda, Área de raio, Interceptação
+100;espada_longa;Tanque;fogo;185,1;23,89;110,0;1,00;0,00;100,1;4,0;6,6;10,9;Projétil de fogo, Lâmina imbuída, Lança ígnea, Corte de avanço, Corte de flanco, Corte que fende, Troca de guarda, Área de fogo
+100;espada_longa;Tanque;raio;185,1;23,89;105,7;1,00;0,00;100,0;3,9;6,6;5,5;Projétil de raio, Lâmina imbuída, Corte de avanço, Corte de flanco, Corte que fende, Troca de guarda, Área de raio, Martelo do trovão
+100;espada_longa;Leitor (PER);fogo;166,7;22,82;125,0;1,00;0,00;111,6;4,3;7,5;9,7;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina imbuída, Corte de avanço, Corte de flanco, Corte que fende, Troca de guarda
+100;espada_longa;Leitor (PER);raio;149,0;24,21;133,0;0,90;0,10;126,5;4,7;8,3;6,8;Projétil de raio, Área de raio, Lâmina imbuída, Corte de avanço, Corte de flanco, Corte que fende, Troca de guarda, Martelo do trovão
+100;espada_longa;Mago;fogo;169,0;17,38;121,7;0,70;0,30;116,2;3,1;5,8;5,3;Projétil de fogo, Lança ígnea, Área de fogo, Supernova, Lâmina imbuída, Corte de avanço, Corte de flanco, Corte que fende
+100;espada_longa;Mago;raio;136,9;20,27;147,5;0,60;0,40;142,1;3,6;6,2;4,3;Projétil de raio, Área de raio, Martelo do trovão, Choque, Corrente, Raio em cadeia, Lâmina imbuída, Corte de avanço
+100;espada_longa;Mago;fogo+raio;152,7;20,66;127,2;0,70;0,30;122,8;3,2;5,7;3,1;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Martelo do trovão, Choque, Supernova
+100;espada_longa;Mago;fogo+gelo+raio;162,6;17,60;129,5;0,60;0,40;123,4;2,8;6,0;4,0;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Área de fogo, Área de gelo, Estilhaço, Área de raio
+100;espada_longa;Lâmina mágica;fogo;208,6;21,38;96,3;1,00;0,00;89,3;3,5;6,0;4,8;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina imbuída, Corte de avanço, Corte de flanco, Corte que fende, Troca de guarda
+100;espada_longa;Lâmina mágica;raio;182,7;22,85;110,8;0,90;0,10;103,0;4,6;7,3;4,3;Projétil de raio, Área de raio, Lâmina imbuída, Martelo do trovão, Choque, Corte de avanço, Corte de flanco, Corte que fende
+100;espada_longa;Lâmina mágica;fogo+raio;203,2;21,18;97,2;0,90;0,10;93,5;4,0;6,3;4,7;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Lâmina imbuída, Martelo do trovão, Choque
+100;espada_longa;Lâmina mágica;fogo+gelo+raio;200,5;20,87;97,5;1,00;0,00;93,7;4,1;6,4;5,3;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Estilhaço, Área de fogo, Área de gelo, Área de raio
+100;espada_longa;Generalista;fogo;207,4;19,45;98,4;1,00;0,00;91,9;4,1;6,1;4,6;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina imbuída, Supernova, Corte de avanço, Corte de flanco, Corte que fende
+100;espada_longa;Generalista;raio;177,1;21,67;108,5;0,70;0,30;105,3;3,8;6,9;4,3;Projétil de raio, Área de raio, Martelo do trovão, Choque, Lâmina imbuída, Corte de avanço, Corte de flanco, Corte que fende
+100;espada_longa;Generalista;fogo+raio;197,0;22,68;99,4;0,90;0,10;95,7;3,0;6,2;4,6;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Martelo do trovão, Choque, Lâmina imbuída
+100;espada_longa;Generalista;fogo+gelo+raio;198,3;19,86;100,4;0,80;0,20;95,4;3,8;5,5;3,8;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Área de fogo, Área de gelo, Estilhaço, Área de raio
+100;duas_espadas;Força;fogo;175,4;19,63;113,7;0,80;0,20;109,1;4,1;7,7;4,8;Projétil de fogo, Lança ígnea, Gume duplo elemental, Área de fogo, Cruz ascendente, Dança de lâminas, Tempestade, Ciclone
+100;duas_espadas;Força;raio;177,2;19,58;109,9;1,00;0,00;106,4;3,7;7,3;4,5;Projétil de raio, Gume duplo elemental, Área de raio, Cruz ascendente, Dança de lâminas, Tempestade, Ciclone, Passo cruzado
+100;duas_espadas;Destreza;fogo;175,5;17,28;112,6;0,70;0,30;104,8;3,9;7,0;4,5;Projétil de fogo, Gume duplo elemental, Lança ígnea, Cruz ascendente, Área de fogo, Dança de lâminas, Tempestade, Ciclone
+100;duas_espadas;Destreza;raio;182,9;17,62;103,0;0,90;0,10;101,9;3,3;6,4;4,3;Projétil de raio, Gume duplo elemental, Cruz ascendente, Área de raio, Dança de lâminas, Tempestade, Ciclone, Passo cruzado
+100;duas_espadas;Força+Destreza;fogo;208,5;21,54;91,1;1,00;0,00;87,6;3,4;5,5;4,5;Projétil de fogo, Gume duplo elemental, Lança ígnea, Cruz ascendente, Ciclone, Tempestade, Passo cruzado, Dança de lâminas
+100;duas_espadas;Força+Destreza;raio;209,9;22,69;90,9;1,00;0,00;85,8;3,4;5,4;4,2;Projétil de raio, Gume duplo elemental, Cruz ascendente, Ciclone, Tempestade, Passo cruzado, Dança de lâminas, Lâminas em X
+100;duas_espadas;Tanque;fogo;185,1;20,59;106,2;1,00;0,00;101,2;3,9;6,3;4,6;Projétil de fogo, Gume duplo elemental, Lança ígnea, Cruz ascendente, Área de fogo, Dança de lâminas, Tempestade, Ciclone
+100;duas_espadas;Tanque;raio;188,2;20,55;101,4;1,00;0,00;97,7;3,5;7,1;4,3;Projétil de raio, Gume duplo elemental, Cruz ascendente, Área de raio, Dança de lâminas, Tempestade, Ciclone, Passo cruzado
+100;duas_espadas;Leitor (PER);fogo;161,6;17,54;123,2;0,90;0,10;116,9;4,1;7,9;4,5;Projétil de fogo, Lança ígnea, Gume duplo elemental, Área de fogo, Cruz ascendente, Ciclone, Tempestade, Passo cruzado
+100;duas_espadas;Leitor (PER);raio;161,6;17,54;120,9;1,00;0,00;117,8;4,2;7,6;4,3;Projétil de raio, Gume duplo elemental, Área de raio, Cruz ascendente, Ciclone, Tempestade, Passo cruzado, Dança de lâminas
+100;duas_espadas;Mago;fogo;166,2;15,94;119,7;0,70;0,30;116,6;3,1;5,9;5,6;Projétil de fogo, Lança ígnea, Área de fogo, Supernova, Gume duplo elemental, Cruz ascendente, Ciclone, Tempestade
+100;duas_espadas;Mago;raio;137,3;19,36;144,5;0,60;0,40;140,9;3,5;6,3;5,0;Projétil de raio, Área de raio, Martelo do trovão, Choque, Corrente, Raio em cadeia, Gume duplo elemental, Cruz ascendente
+100;duas_espadas;Mago;fogo+raio;157,4;19,51;128,3;0,70;0,30;123,9;3,2;5,6;3,1;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Martelo do trovão, Choque, Supernova
+100;duas_espadas;Mago;fogo+gelo+raio;159,8;16,47;124,9;0,60;0,40;121,7;2,9;6,2;4,1;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Área de fogo, Área de gelo, Estilhaço, Área de raio
+100;duas_espadas;Lâmina mágica;fogo;212,7;18,64;94,2;1,00;0,00;89,7;3,5;5,8;4,5;Projétil de fogo, Lança ígnea, Área de fogo, Gume duplo elemental, Cruz ascendente, Supernova, Ciclone, Tempestade
+100;duas_espadas;Lâmina mágica;raio;183,3;20,59;108,7;0,90;0,10;102,2;3,8;7,3;4,4;Projétil de raio, Área de raio, Gume duplo elemental, Martelo do trovão, Choque, Cruz ascendente, Ciclone, Tempestade
+100;duas_espadas;Lâmina mágica;fogo+raio;200,5;19,82;98,7;1,00;0,00;94,8;3,8;7,0;4,4;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Gume duplo elemental, Martelo do trovão, Choque
+100;duas_espadas;Lâmina mágica;fogo+gelo+raio;198,2;19,55;99,3;0,90;0,10;94,2;3,9;6,0;3,8;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Estilhaço, Área de fogo, Área de gelo, Área de raio
+100;duas_espadas;Generalista;fogo;209,3;17,99;95,3;1,00;0,00;90,9;3,4;5,0;4,6;Projétil de fogo, Lança ígnea, Área de fogo, Gume duplo elemental, Supernova, Cruz ascendente, Ciclone, Tempestade
+100;duas_espadas;Generalista;raio;179,9;19,54;105,5;1,00;0,00;103,4;2,8;7,2;2,8;Projétil de raio, Área de raio, Gume duplo elemental, Martelo do trovão, Choque, Cruz ascendente, Corrente, Ciclone
+100;duas_espadas;Generalista;fogo+raio;195,2;21,00;97,4;1,00;0,00;95,3;3,0;6,3;2,8;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Gume duplo elemental, Martelo do trovão, Choque
+100;duas_espadas;Generalista;fogo+gelo+raio;195,6;18,56;98,1;1,00;0,00;96,2;3,8;5,5;3,7;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Área de fogo, Área de gelo, Estilhaço, Área de raio
+100;espada_e_escudo;Força;fogo;173,4;23,40;110,7;1,00;0,00;108,4;3,4;7,4;9,5;Projétil de fogo, Contra-escudo, Lança ígnea, Área de fogo, Lâmina sagrada, Supernova, Golpe de escudo, Investida de escudo
+100;espada_e_escudo;Força;raio;173,4;23,40;111,3;0,90;0,10;108,1;3,4;7,5;10,1;Projétil de raio, Contra-escudo, Área de raio, Lâmina sagrada, Martelo do trovão, Choque, Corrente, Golpe de escudo
+100;espada_e_escudo;Destreza;fogo;187,8;25,92;102,4;1,00;0,00;99,9;3,1;6,9;9,5;Projétil de fogo, Contra-escudo, Lança ígnea, Área de fogo, Lâmina sagrada, Supernova, Golpe de escudo, Investida de escudo
+100;espada_e_escudo;Destreza;raio;187,8;25,92;103,6;0,90;0,10;99,7;3,1;6,8;10,0;Projétil de raio, Contra-escudo, Área de raio, Lâmina sagrada, Martelo do trovão, Choque, Golpe de escudo, Corrente
+100;espada_e_escudo;Força+Destreza;fogo;205,0;26,00;93,1;1,00;0,00;91,8;3,1;5,8;9,8;Contra-escudo, Projétil de fogo, Lança ígnea, Área de fogo, Lâmina sagrada, Supernova, Golpe de escudo, Investida de escudo
+100;espada_e_escudo;Força+Destreza;raio;205,0;26,00;95,2;1,00;0,00;92,5;3,1;5,7;9,8;Contra-escudo, Projétil de raio, Área de raio, Lâmina sagrada, Martelo do trovão, Choque, Golpe de escudo, Investida de escudo
+100;espada_e_escudo;Tanque;fogo;183,8;24,63;105,2;1,00;0,00;101,3;3,3;7,3;9,5;Projétil de fogo, Contra-escudo, Lança ígnea, Área de fogo, Lâmina sagrada, Supernova, Golpe de escudo, Investida de escudo
+100;espada_e_escudo;Tanque;raio;183,8;24,63;106,9;1,00;0,00;102,2;3,3;7,3;10,1;Projétil de raio, Contra-escudo, Área de raio, Lâmina sagrada, Martelo do trovão, Choque, Golpe de escudo, Corrente
+100;espada_e_escudo;Leitor (PER);fogo;161,0;23,16;118,2;0,80;0,20;115,9;4,0;7,6;10,8;Projétil de fogo, Contra-escudo, Lança ígnea, Área de fogo, Lâmina sagrada, Supernova, Golpe de escudo, Investida de escudo
+100;espada_e_escudo;Leitor (PER);raio;140,0;24,79;140,0;0,90;0,10;134,3;4,7;8,3;12,0;Projétil de raio, Contra-escudo, Área de raio, Martelo do trovão, Choque, Lâmina sagrada, Corrente, Raio em cadeia
+100;espada_e_escudo;Mago;fogo;169,6;19,41;118,7;0,90;0,10;114,4;3,5;5,2;8,0;Projétil de fogo, Lança ígnea, Área de fogo, Supernova, Lâmina sagrada, Contra-escudo, Brasa persistente, Golpe de escudo
+100;espada_e_escudo;Mago;raio;141,9;22,49;138,5;0,60;0,40;138,9;2,9;6,8;4,3;Projétil de raio, Área de raio, Martelo do trovão, Choque, Corrente, Raio em cadeia, Lâmina sagrada, Contra-escudo
+100;espada_e_escudo;Mago;fogo+raio;154,4;19,78;126,9;0,70;0,30;125,6;3,2;5,7;3,1;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Martelo do trovão, Choque, Supernova
+100;espada_e_escudo;Mago;fogo+gelo+raio;158,0;17,08;126,0;0,40;0,60;123,1;2,9;6,3;4,0;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Área de fogo, Área de gelo, Estilhaço, Área de raio
+100;espada_e_escudo;Lâmina mágica;fogo;209,7;22,54;92,4;1,00;0,00;88,9;3,0;6,5;8,9;Projétil de fogo, Lança ígnea, Área de fogo, Contra-escudo, Lâmina sagrada, Supernova, Golpe de escudo, Investida de escudo
+100;espada_e_escudo;Lâmina mágica;raio;182,3;24,63;105,9;1,00;0,00;103,4;3,3;7,3;8,6;Projétil de raio, Área de raio, Contra-escudo, Lâmina sagrada, Martelo do trovão, Choque, Corrente, Raio em cadeia
+100;espada_e_escudo;Lâmina mágica;fogo+raio;204,1;23,05;92,0;1,00;0,00;90,9;3,0;6,5;5,2;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Contra-escudo, Lâmina sagrada, Martelo do trovão
+100;espada_e_escudo;Lâmina mágica;fogo+gelo+raio;195,5;20,27;98,7;0,90;0,10;95,2;4,0;6,1;3,9;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Estilhaço, Área de fogo, Área de gelo, Área de raio
+100;espada_e_escudo;Generalista;fogo;208,7;21,70;91,4;1,00;0,00;89,7;3,3;6,1;5,3;Projétil de fogo, Lança ígnea, Área de fogo, Contra-escudo, Lâmina sagrada, Supernova, Golpe de escudo, Investida de escudo
+100;espada_e_escudo;Generalista;raio;179,5;23,96;105,7;1,00;0,00;103,5;2,7;7,4;5,6;Projétil de raio, Área de raio, Contra-escudo, Martelo do trovão, Choque, Lâmina sagrada, Corrente, Raio em cadeia
+100;espada_e_escudo;Generalista;fogo+raio;198,1;24,57;96,0;0,90;0,10;92,1;3,7;5,7;5,0;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Contra-escudo, Martelo do trovão, Choque
+100;espada_e_escudo;Generalista;fogo+gelo+raio;193,4;19,13;101,5;1,00;0,00;97,4;3,8;5,5;3,9;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Área de fogo, Área de gelo, Estilhaço, Área de raio
+100;katana;Força;fogo;207,5;21,00;92,1;1,00;0,00;91,0;3,1;6,6;5,0;Iai rápido, Mil folhas, Passo do relâmpago, Projétil de fogo, Lua crescente, Saque do vazio, Corte da lua cheia, Passo do vento
+100;katana;Força;raio;207,5;21,00;94,6;1,00;0,00;91,2;3,1;6,5;4,7;Iai rápido, Mil folhas, Passo do relâmpago, Projétil de raio, Lua crescente, Saque do vazio, Corte da lua cheia, Passo do vento
+100;katana;Destreza;fogo;231,1;22,16;84,4;1,00;0,00;81,7;2,8;5,5;4,6;Iai rápido, Mil folhas, Passo do relâmpago, Projétil de fogo, Passo do vento, Lâmina projetada, Lua crescente, Saque do vazio
+100;katana;Destreza;raio;231,1;22,16;84,4;1,00;0,00;82,2;2,9;5,5;4,5;Iai rápido, Mil folhas, Passo do relâmpago, Projétil de raio, Passo do vento, Lâmina projetada, Lua crescente, Saque do vazio
+100;katana;Força+Destreza;fogo;248,8;22,20;76,4;0,80;0,20;75,7;2,7;4,0;2,6;Iai rápido, Mil folhas, Passo do relâmpago, Projétil de fogo, Passo do vento, Lâmina projetada, Lua crescente, Saque do vazio
+100;katana;Força+Destreza;raio;248,8;22,20;77,6;1,00;0,00;76,2;2,8;4,0;2,6;Iai rápido, Mil folhas, Passo do relâmpago, Projétil de raio, Passo do vento, Lâmina projetada, Lua crescente, Saque do vazio
+100;katana;Tanque;fogo;226,8;21,21;86,9;1,00;0,00;83,8;2,9;5,6;4,7;Iai rápido, Mil folhas, Passo do relâmpago, Projétil de fogo, Passo do vento, Lâmina projetada, Lua crescente, Saque do vazio
+100;katana;Tanque;raio;226,8;21,21;86,3;1,00;0,00;83,8;2,8;5,8;4,6;Iai rápido, Mil folhas, Passo do relâmpago, Projétil de raio, Passo do vento, Lâmina projetada, Lua crescente, Saque do vazio
+100;katana;Leitor (PER);fogo;202,6;21,21;98,2;0,90;0,10;94,1;3,6;6,4;4,7;Iai rápido, Mil folhas, Projétil de fogo, Passo do relâmpago, Lança ígnea, Lua crescente, Saque do vazio, Corte da lua cheia
+100;katana;Leitor (PER);raio;181,2;21,98;106,7;1,00;0,00;102,0;4,1;5,6;4,5;Iai rápido, Mil folhas, Projétil de raio, Passo do relâmpago, Lua crescente, Saque do vazio, Corte da lua cheia, Passo do vento
+100;katana;Mago;fogo;190,1;16,77;105,7;0,90;0,10;102,6;3,1;5,7;5,6;Projétil de fogo, Lança ígnea, Área de fogo, Iai rápido, Mil folhas, Supernova, Passo do relâmpago, Passo do vento
+100;katana;Mago;raio;161,5;19,79;123,5;0,50;0,50;122,3;3,5;7,1;4,4;Projétil de raio, Área de raio, Martelo do trovão, Iai rápido, Mil folhas, Choque, Corrente, Passo do relâmpago
+100;katana;Mago;fogo+raio;184,0;17,41;109,2;0,90;0,10;105,8;3,2;5,7;3,1;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Martelo do trovão, Iai rápido, Mil folhas
+100;katana;Mago;fogo+gelo+raio;172,4;17,61;117,6;0,80;0,20;114,0;3,0;6,1;4,0;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Área de fogo, Área de gelo, Estilhaço, Área de raio
+100;katana;Lâmina mágica;fogo;246,5;20,58;80,9;1,00;0,00;76,7;3,1;5,0;4,8;Iai rápido, Mil folhas, Projétil de fogo, Passo do relâmpago, Lança ígnea, Área de fogo, Lua crescente, Saque do vazio
+100;katana;Lâmina mágica;raio;219,6;22,27;87,8;0,90;0,10;84,4;3,2;5,3;4,5;Iai rápido, Mil folhas, Projétil de raio, Passo do relâmpago, Área de raio, Lua crescente, Saque do vazio, Corte da lua cheia
+100;katana;Lâmina mágica;fogo+raio;240,9;20,58;82,2;1,00;0,00;78,5;3,1;5,0;4,5;Iai rápido, Mil folhas, Projétil de fogo, Projétil de raio, Passo do relâmpago, Lança ígnea, Área de fogo, Área de raio
+100;katana;Lâmina mágica;fogo+gelo+raio;240,9;20,29;82,5;0,90;0,10;79,2;3,1;5,0;3,9;Iai rápido, Mil folhas, Projétil de fogo, Projétil de gelo, Projétil de raio, Passo do relâmpago, Lança ígnea, Estilhaço
+100;katana;Generalista;fogo;244,2;19,47;78,9;1,00;0,00;77,3;3,0;5,5;4,7;Projétil de fogo, Iai rápido, Mil folhas, Lança ígnea, Passo do relâmpago, Área de fogo, Passo do vento, Lâmina projetada
+100;katana;Generalista;raio;210,1;22,03;91,6;1,00;0,00;89,1;2,9;6,2;4,4;Projétil de raio, Iai rápido, Mil folhas, Passo do relâmpago, Área de raio, Martelo do trovão, Passo do vento, Lâmina projetada
+100;katana;Generalista;fogo+raio;241,1;19,85;83,8;1,00;0,00;81,4;3,0;5,0;4,5;Projétil de fogo, Projétil de raio, Iai rápido, Mil folhas, Lança ígnea, Passo do relâmpago, Área de fogo, Área de raio
+100;katana;Generalista;fogo+gelo+raio;239,0;19,85;82,6;1,00;0,00;81,2;3,1;5,0;3,8;Projétil de fogo, Projétil de gelo, Projétil de raio, Iai rápido, Mil folhas, Lança ígnea, Passo do relâmpago, Área de fogo
+100;duas_katanas;Força;fogo;180,1;19,77;108,3;1,00;0,00;103,3;2,7;7,1;4,2;Tesoura, Projétil de fogo, Fio elemental, Corte em cruz, Tempestade de pétalas, Fio do silêncio, Rodopio, Corte que segue
+100;duas_katanas;Força;raio;180,1;19,77;106,7;1,00;0,00;103,5;2,7;7,1;3,9;Tesoura, Projétil de raio, Fio elemental, Corte em cruz, Tempestade de pétalas, Fio do silêncio, Rodopio, Corte que segue
+100;duas_katanas;Destreza;fogo;198,9;19,75;95,3;1,00;0,00;92,9;2,5;5,4;4,0;Tesoura, Corte em cruz, Fio elemental, Tempestade de pétalas, Projétil de fogo, Fio do silêncio, Rodopio, Corte que segue
+100;duas_katanas;Destreza;raio;198,9;19,75;96,6;0,90;0,10;92,9;2,5;5,4;3,8;Tesoura, Corte em cruz, Fio elemental, Tempestade de pétalas, Projétil de raio, Fio do silêncio, Rodopio, Corte que segue
+100;duas_katanas;Força+Destreza;fogo;212,5;20,93;90,5;1,00;0,00;86,4;2,5;5,4;3,9;Tesoura, Corte em cruz, Fio elemental, Tempestade de pétalas, Projétil de fogo, Fio do silêncio, Rodopio, Corte que segue
+100;duas_katanas;Força+Destreza;raio;212,5;20,93;90,6;0,90;0,10;86,7;2,5;5,4;3,7;Tesoura, Corte em cruz, Fio elemental, Tempestade de pétalas, Projétil de raio, Fio do silêncio, Rodopio, Corte que segue
+100;duas_katanas;Tanque;fogo;195,5;20,50;97,9;1,00;0,00;94,2;2,5;5,9;4,1;Tesoura, Corte em cruz, Fio elemental, Tempestade de pétalas, Projétil de fogo, Fio do silêncio, Rodopio, Corte que segue
+100;duas_katanas;Tanque;raio;195,5;20,50;97,1;1,00;0,00;94,4;2,5;6,0;3,9;Tesoura, Corte em cruz, Fio elemental, Tempestade de pétalas, Projétil de raio, Fio do silêncio, Rodopio, Corte que segue
+100;duas_katanas;Leitor (PER);fogo;172,5;19,69;112,5;0,70;0,30;108,7;3,9;7,0;3,9;Projétil de fogo, Tesoura, Corte em cruz, Fio elemental, Tempestade de pétalas, Lança ígnea, Fio do silêncio, Rodopio
+100;duas_katanas;Leitor (PER);raio;172,4;19,49;113,5;1,00;0,00;109,6;3,8;6,9;5,6;Projétil de raio, Tesoura, Corte em cruz, Fio elemental, Tempestade de pétalas, Fio do silêncio, Rodopio, Corte que segue
+100;duas_katanas;Mago;fogo;174,1;16,82;114,7;0,80;0,20;111,2;3,1;5,8;5,4;Projétil de fogo, Lança ígnea, Área de fogo, Fio elemental, Supernova, Corte em cruz, Tesoura, Tempestade de pétalas
+100;duas_katanas;Mago;raio;142,2;20,07;135,2;0,70;0,30;132,3;3,5;7,3;4,7;Projétil de raio, Área de raio, Martelo do trovão, Fio elemental, Choque, Corte em cruz, Corrente, Tesoura
+100;duas_katanas;Mago;fogo+raio;156,1;19,03;126,7;0,70;0,30;125,2;3,2;5,6;3,1;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Martelo do trovão, Fio elemental, Choque
+100;duas_katanas;Mago;fogo+gelo+raio;159,8;15,98;125,8;0,70;0,30;120,2;2,9;5,9;4,0;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Área de fogo, Área de gelo, Estilhaço, Área de raio
+100;duas_katanas;Lâmina mágica;fogo;213,1;19,89;89,5;1,00;0,00;86,9;3,8;5,9;3,9;Projétil de fogo, Fio elemental, Corte em cruz, Tesoura, Tempestade de pétalas, Lança ígnea, Área de fogo, Fio do silêncio
+100;duas_katanas;Lâmina mágica;raio;196,1;20,76;98,2;1,00;0,00;94,1;3,8;6,2;3,7;Projétil de raio, Fio elemental, Corte em cruz, Tesoura, Tempestade de pétalas, Área de raio, Fio do silêncio, Rodopio
+100;duas_katanas;Lâmina mágica;fogo+raio;209,6;19,75;92,1;1,00;0,00;88,0;3,8;6,1;3,8;Projétil de fogo, Projétil de raio, Fio elemental, Corte em cruz, Tesoura, Tempestade de pétalas, Lança ígnea, Área de fogo
+100;duas_katanas;Lâmina mágica;fogo+gelo+raio;208,3;19,75;92,5;0,90;0,10;88,4;3,9;6,2;4,3;Projétil de fogo, Projétil de gelo, Projétil de raio, Fio elemental, Corte em cruz, Tesoura, Tempestade de pétalas, Lança ígnea
+100;duas_katanas;Generalista;fogo;218,0;19,43;90,6;1,00;0,00;85,4;3,2;4,5;4,0;Projétil de fogo, Lança ígnea, Fio elemental, Corte em cruz, Tesoura, Tempestade de pétalas, Área de fogo, Fio do silêncio
+100;duas_katanas;Generalista;raio;187,6;20,10;103,7;1,00;0,00;97,4;3,8;5,3;4,1;Projétil de raio, Fio elemental, Corte em cruz, Tesoura, Tempestade de pétalas, Área de raio, Fio do silêncio, Martelo do trovão
+100;duas_katanas;Generalista;fogo+raio;213,2;19,28;91,8;1,00;0,00;87,2;3,3;5,7;4,0;Projétil de fogo, Projétil de raio, Lança ígnea, Fio elemental, Corte em cruz, Tesoura, Tempestade de pétalas, Área de fogo
+100;duas_katanas;Generalista;fogo+gelo+raio;211,2;19,35;91,9;1,00;0,00;87,9;3,3;5,8;4,7;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Fio elemental, Corte em cruz, Tesoura, Tempestade de pétalas
+100;machado_grande;Força;fogo;158,7;24,95;114,0;1,00;0,00;111,5;4,7;8,3;4,9;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina flamejante, Giro pesado, Terremoto, Avalanche, Cataclismo
+100;machado_grande;Força;raio;158,7;24,95;114,7;0,90;0,10;111,7;4,6;8,2;4,9;Projétil de raio, Área de raio, Lâmina flamejante, Giro pesado, Terremoto, Avalanche, Cataclismo, Martelo do trovão
+100;machado_grande;Destreza;fogo;173,8;26,94;107,9;0,90;0,10;105,1;4,7;6,8;4,5;Projétil de fogo, Lança ígnea, Área de fogo, Giro pesado, Terremoto, Avalanche, Cataclismo, Lâmina flamejante
+100;machado_grande;Destreza;raio;173,8;26,94;105,7;1,00;0,00;103,7;4,7;6,8;4,5;Projétil de raio, Área de raio, Giro pesado, Terremoto, Avalanche, Cataclismo, Lâmina flamejante, Martelo do trovão
+100;machado_grande;Força+Destreza;fogo;189,3;27,06;99,3;0,90;0,10;95,4;3,2;6,8;4,5;Projétil de fogo, Lança ígnea, Área de fogo, Giro pesado, Terremoto, Avalanche, Cataclismo, Lâmina flamejante
+100;machado_grande;Força+Destreza;raio;189,3;27,06;99,8;0,90;0,10;95,5;3,2;6,8;4,5;Projétil de raio, Área de raio, Giro pesado, Terremoto, Avalanche, Cataclismo, Lâmina flamejante, Martelo do trovão
+100;machado_grande;Tanque;fogo;166,0;26,57;107,6;1,00;0,00;106,0;4,8;7,0;4,6;Projétil de fogo, Lança ígnea, Área de fogo, Giro pesado, Terremoto, Avalanche, Cataclismo, Lâmina flamejante
+100;machado_grande;Tanque;raio;166,0;26,57;108,2;1,00;0,00;104,2;4,8;7,1;4,6;Projétil de raio, Área de raio, Giro pesado, Terremoto, Avalanche, Cataclismo, Lâmina flamejante, Martelo do trovão
+100;machado_grande;Leitor (PER);fogo;156,0;24,49;123,4;1,00;0,00;117,9;3,9;8,2;4,5;Projétil de fogo, Lança ígnea, Área de fogo, Giro pesado, Terremoto, Avalanche, Cataclismo, Supernova
+100;machado_grande;Leitor (PER);raio;135,8;26,65;139,5;1,00;0,00;133,0;4,7;8,5;4,9;Projétil de raio, Área de raio, Martelo do trovão, Choque, Giro pesado, Terremoto, Avalanche, Cataclismo
+100;machado_grande;Mago;fogo;162,7;18,98;122,9;0,70;0,30;119,4;3,1;5,8;5,9;Projétil de fogo, Lança ígnea, Área de fogo, Supernova, Lâmina flamejante, Giro pesado, Terremoto, Avalanche
+100;machado_grande;Mago;raio;134,4;21,45;147,8;0,80;0,20;142,5;3,5;6,2;4,4;Projétil de raio, Área de raio, Martelo do trovão, Choque, Corrente, Raio em cadeia, Lâmina flamejante, Giro pesado
+100;machado_grande;Mago;fogo+raio;154,0;21,19;129,6;0,70;0,30;124,6;3,2;5,7;3,1;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Martelo do trovão, Choque, Supernova
+100;machado_grande;Mago;fogo+gelo+raio;155,1;19,11;126,9;0,60;0,40;124,0;3,0;5,9;4,1;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Área de fogo, Área de gelo, Estilhaço, Área de raio
+100;machado_grande;Lâmina mágica;fogo;197,3;22,56;99,0;1,00;0,00;94,1;4,7;6,9;3,5;Projétil de fogo, Lança ígnea, Área de fogo, Lâmina flamejante, Supernova, Giro pesado, Terremoto, Avalanche
+100;machado_grande;Lâmina mágica;raio;169,4;22,55;114,7;1,00;0,00;109,1;3,9;8,4;4,9;Projétil de raio, Área de raio, Martelo do trovão, Choque, Lâmina flamejante, Giro pesado, Terremoto, Avalanche
+100;machado_grande;Lâmina mágica;fogo+raio;189,9;22,27;100,3;1,00;0,00;97,6;4,0;6,4;5,3;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Martelo do trovão, Choque, Lâmina flamejante
+100;machado_grande;Lâmina mágica;fogo+gelo+raio;189,4;22,75;103,0;0,80;0,20;98,2;3,9;7,2;4,0;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Estilhaço, Área de fogo, Área de gelo, Área de raio
+100;machado_grande;Generalista;fogo;194,5;21,41;96,0;0,90;0,10;93,6;2,9;5,4;3,5;Projétil de fogo, Lança ígnea, Área de fogo, Supernova, Lâmina flamejante, Giro pesado, Terremoto, Avalanche
+100;machado_grande;Generalista;raio;164,5;23,68;111,3;1,00;0,00;109,4;4,5;7,4;5,2;Projétil de raio, Área de raio, Martelo do trovão, Choque, Lâmina flamejante, Corrente, Raio em cadeia, Giro pesado
+100;machado_grande;Generalista;fogo+raio;188,7;24,12;102,7;1,00;0,00;96,9;3,0;6,2;5,0;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Martelo do trovão, Choque, Supernova
+100;machado_grande;Generalista;fogo+gelo+raio;188,1;21,60;102,0;1,00;0,00;98,2;3,8;5,4;3,9;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Área de fogo, Área de gelo, Estilhaço, Área de raio
+100;machado_pequeno;Força;fogo;182,0;25,53;103,7;0,90;0,10;101,0;3,3;7,0;4,0;Projétil de fogo, Arremesso duplo, Lança ígnea, Lançamento curvo, Tempestade de machados, Machado bumerangue, Machado imbuído, Área de fogo
+100;machado_pequeno;Força;raio;186,9;26,53;104,8;1,00;0,00;101,3;3,5;6,7;3,9;Projétil de raio, Arremesso duplo, Lançamento curvo, Tempestade de machados, Machado bumerangue, Machado imbuído, Área de raio, Golpe da marca
+100;machado_pequeno;Destreza;fogo;191,8;27,07;102,5;1,00;0,00;97,1;3,2;6,6;3,8;Arremesso duplo, Projétil de fogo, Lançamento curvo, Tempestade de machados, Machado bumerangue, Lança ígnea, Machado imbuído, Área de fogo
+100;machado_pequeno;Destreza;raio;201,4;28,07;96,4;1,00;0,00;93,2;3,2;5,0;3,5;Arremesso duplo, Projétil de raio, Lançamento curvo, Tempestade de machados, Machado bumerangue, Machado imbuído, Área de raio, Golpe da marca
+100;machado_pequeno;Força+Destreza;fogo;217,0;28,16;88,4;1,00;0,00;85,6;2,0;5,0;3,8;Arremesso duplo, Projétil de fogo, Lançamento curvo, Tempestade de machados, Machado bumerangue, Machado imbuído, Lança ígnea, Golpe da marca
+100;machado_pequeno;Força+Destreza;raio;217,0;28,16;88,0;1,00;0,00;86,7;2,0;5,0;3,6;Arremesso duplo, Projétil de raio, Lançamento curvo, Tempestade de machados, Machado bumerangue, Machado imbuído, Golpe da marca, Gancho
+100;machado_pequeno;Tanque;fogo;194,6;27,18;102,3;1,00;0,00;95,7;3,3;6,7;3,9;Arremesso duplo, Projétil de fogo, Lançamento curvo, Tempestade de machados, Machado bumerangue, Lança ígnea, Machado imbuído, Área de fogo
+100;machado_pequeno;Tanque;raio;202,8;28,18;97,8;0,90;0,10;92,2;3,1;5,1;3,6;Arremesso duplo, Projétil de raio, Lançamento curvo, Tempestade de machados, Machado bumerangue, Machado imbuído, Área de raio, Golpe da marca
+100;machado_pequeno;Leitor (PER);fogo;172,3;24,52;109,5;0,80;0,20;105,6;3,9;6,9;3,8;Projétil de fogo, Arremesso duplo, Lança ígnea, Lançamento curvo, Tempestade de machados, Machado bumerangue, Área de fogo, Machado imbuído
+100;machado_pequeno;Leitor (PER);raio;150,8;26,14;132,1;0,80;0,20;122,1;4,4;7,3;5,2;Projétil de raio, Arremesso duplo, Lançamento curvo, Tempestade de machados, Machado bumerangue, Área de raio, Machado imbuído, Martelo do trovão
+100;machado_pequeno;Mago;fogo;165,6;19,31;119,8;0,40;0,60;113,2;3,1;5,8;2,9;Projétil de fogo, Lança ígnea, Área de fogo, Supernova, Arremesso duplo, Machado imbuído, Lançamento curvo, Tempestade de machados
+100;machado_pequeno;Mago;raio;138,2;23,10;145,9;0,70;0,30;141,3;3,6;6,3;5,0;Projétil de raio, Área de raio, Martelo do trovão, Choque, Corrente, Raio em cadeia, Arremesso duplo, Machado imbuído
+100;machado_pequeno;Mago;fogo+raio;156,8;23,71;121,4;0,60;0,40;120,9;3,2;5,7;5,4;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Martelo do trovão, Choque, Supernova
+100;machado_pequeno;Mago;fogo+gelo+raio;162,5;22,05;122,4;0,80;0,20;115,9;2,9;5,9;4,1;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Área de fogo, Área de gelo, Estilhaço, Área de raio
+100;machado_pequeno;Lâmina mágica;fogo;218,5;23,12;91,6;1,00;0,00;84,5;3,1;5,0;3,9;Projétil de fogo, Lança ígnea, Arremesso duplo, Área de fogo, Lançamento curvo, Tempestade de machados, Machado bumerangue, Machado imbuído
+100;machado_pequeno;Lâmina mágica;raio;190,6;26,85;108,3;0,90;0,10;96,7;3,4;6,6;3,7;Projétil de raio, Arremesso duplo, Área de raio, Lançamento curvo, Tempestade de machados, Machado bumerangue, Machado imbuído, Martelo do trovão
+100;machado_pequeno;Lâmina mágica;fogo+raio;213,5;23,12;90,3;1,00;0,00;87,7;3,1;5,0;3,7;Projétil de fogo, Projétil de raio, Lança ígnea, Arremesso duplo, Área de fogo, Área de raio, Lançamento curvo, Tempestade de machados
+100;machado_pequeno;Lâmina mágica;fogo+gelo+raio;199,7;25,12;96,0;1,00;0,00;91,2;3,7;6,7;4,4;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Arremesso duplo, Estilhaço, Área de fogo, Área de gelo
+100;machado_pequeno;Generalista;fogo;219,1;21,15;89,7;0,90;0,10;85,5;3,0;5,0;3,8;Projétil de fogo, Lança ígnea, Área de fogo, Arremesso duplo, Lançamento curvo, Tempestade de machados, Machado bumerangue, Machado imbuído
+100;machado_pequeno;Generalista;raio;184,3;23,41;103,0;0,90;0,10;100,0;2,5;6,1;2,5;Projétil de raio, Área de raio, Arremesso duplo, Martelo do trovão, Choque, Lançamento curvo, Tempestade de machados, Machado bumerangue
+100;machado_pequeno;Generalista;fogo+raio;198,9;26,57;99,0;1,00;0,00;93,3;3,0;6,3;2,5;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Arremesso duplo, Martelo do trovão, Choque
+100;machado_pequeno;Generalista;fogo+gelo+raio;197,7;25,06;94,5;0,90;0,10;91,5;3,7;5,4;3,4;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Área de fogo, Área de gelo, Estilhaço, Área de raio
+100;dois_machados;Força;fogo;204,5;23,02;95,2;1,00;0,00;91,1;2,8;4,7;4,4;Mordida dupla, Execução dupla, Salto selvagem, Tormenta, Fúria elemental, Projétil de fogo, Redemoinho, Lança ígnea
+100;dois_machados;Força;raio;204,5;23,02;94,5;1,00;0,00;90,6;2,8;4,8;4,2;Mordida dupla, Execução dupla, Salto selvagem, Tormenta, Fúria elemental, Projétil de raio, Redemoinho, Moedor
+100;dois_machados;Destreza;fogo;215,2;21,42;90,2;1,00;0,00;86,6;2,6;4,5;4,2;Mordida dupla, Execução dupla, Salto selvagem, Tormenta, Projétil de fogo, Fúria elemental, Redemoinho, Moedor
+100;dois_machados;Destreza;raio;215,2;21,42;90,9;0,80;0,20;86,6;2,6;4,4;4,0;Mordida dupla, Execução dupla, Salto selvagem, Tormenta, Projétil de raio, Fúria elemental, Redemoinho, Moedor
+100;dois_machados;Força+Destreza;fogo;231,3;25,72;81,4;1,00;0,00;78,7;2,6;4,4;4,2;Mordida dupla, Execução dupla, Salto selvagem, Tormenta, Fúria elemental, Projétil de fogo, Redemoinho, Moedor
+100;dois_machados;Força+Destreza;raio;231,3;25,72;80,8;0,90;0,10;78,1;2,6;4,4;3,9;Mordida dupla, Execução dupla, Salto selvagem, Tormenta, Fúria elemental, Projétil de raio, Redemoinho, Moedor
+100;dois_machados;Tanque;fogo;218,4;25,70;86,1;1,00;0,00;83,6;2,6;4,5;4,1;Mordida dupla, Execução dupla, Salto selvagem, Tormenta, Fúria elemental, Projétil de fogo, Redemoinho, Moedor
+100;dois_machados;Tanque;raio;218,4;25,70;85,8;1,00;0,00;83,8;2,6;4,5;4,0;Mordida dupla, Execução dupla, Salto selvagem, Tormenta, Fúria elemental, Projétil de raio, Redemoinho, Moedor
+100;dois_machados;Leitor (PER);fogo;187,6;21,20;104,8;1,00;0,00;100,9;2,6;5,7;4,2;Projétil de fogo, Mordida dupla, Execução dupla, Salto selvagem, Tormenta, Lança ígnea, Fúria elemental, Redemoinho
+100;dois_machados;Leitor (PER);raio;187,6;21,20;103,8;1,00;0,00;100,7;2,6;5,9;5,4;Projétil de raio, Mordida dupla, Execução dupla, Salto selvagem, Tormenta, Fúria elemental, Redemoinho, Moedor
+100;dois_machados;Mago;fogo;181,0;20,03;108,9;0,40;0,60;106,1;3,1;5,7;5,5;Projétil de fogo, Lança ígnea, Área de fogo, Fúria elemental, Supernova, Mordida dupla, Execução dupla, Salto selvagem
+100;dois_machados;Mago;raio;154,0;22,79;126,9;0,90;0,10;124,9;3,6;6,6;4,8;Projétil de raio, Área de raio, Fúria elemental, Martelo do trovão, Choque, Corrente, Mordida dupla, Execução dupla
+100;dois_machados;Mago;fogo+raio;158,1;22,50;119,6;0,90;0,10;118,4;3,2;5,6;3,1;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Fúria elemental, Martelo do trovão, Choque
+100;dois_machados;Mago;fogo+gelo+raio;167,7;19,75;119,6;1,00;0,00;114,2;2,9;6,3;3,9;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Área de fogo, Área de gelo, Estilhaço, Área de raio
+100;dois_machados;Lâmina mágica;fogo;231,6;22,87;80,3;0,90;0,10;78,7;2,5;5,3;4,2;Projétil de fogo, Fúria elemental, Mordida dupla, Execução dupla, Salto selvagem, Tormenta, Lança ígnea, Área de fogo
+100;dois_machados;Lâmina mágica;raio;217,2;22,90;88,0;1,00;0,00;85,7;2,7;5,6;4,0;Projétil de raio, Fúria elemental, Mordida dupla, Execução dupla, Salto selvagem, Tormenta, Área de raio, Redemoinho
+100;dois_machados;Lâmina mágica;fogo+raio;227,4;22,87;83,4;1,00;0,00;80,8;2,5;5,3;4,1;Projétil de fogo, Projétil de raio, Fúria elemental, Mordida dupla, Execução dupla, Salto selvagem, Tormenta, Lança ígnea
+100;dois_machados;Lâmina mágica;fogo+gelo+raio;208,6;24,00;90,4;1,00;0,00;87,1;2,5;5,5;4,6;Projétil de fogo, Projétil de gelo, Projétil de raio, Fúria elemental, Mordida dupla, Execução dupla, Salto selvagem, Tormenta
+100;dois_machados;Generalista;fogo;230,4;21,75;83,3;1,00;0,00;80,6;3,5;4,9;4,1;Projétil de fogo, Lança ígnea, Fúria elemental, Mordida dupla, Execução dupla, Salto selvagem, Tormenta, Área de fogo
+100;dois_machados;Generalista;raio;201,7;21,84;96,0;1,00;0,00;91,3;2,4;5,9;4,2;Projétil de raio, Fúria elemental, Mordida dupla, Execução dupla, Salto selvagem, Tormenta, Área de raio, Martelo do trovão
+100;dois_machados;Generalista;fogo+raio;223,6;21,82;85,5;1,00;0,00;82,5;3,5;4,9;4,3;Projétil de fogo, Projétil de raio, Lança ígnea, Fúria elemental, Mordida dupla, Execução dupla, Salto selvagem, Tormenta
+100;dois_machados;Generalista;fogo+gelo+raio;218,4;22,45;88,4;1,00;0,00;84,6;3,4;5,5;3,6;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Fúria elemental, Mordida dupla, Execução dupla, Salto selvagem
+100;arco;Força;fogo;182,2;11,02;115,2;0,90;0,10;109,1;3,6;6,3;4,4;Projétil de fogo, Lança ígnea, Tiro em leque, Flecha do falcão, Tiro perfurante, Área de fogo, Flecha estelar, Supernova
+100;arco;Força;raio;182,2;11,02;114,5;0,80;0,20;109,8;3,6;6,2;4,2;Projétil de raio, Tiro em leque, Flecha do falcão, Tiro perfurante, Área de raio, Flecha estelar, Martelo do trovão, Choque
+100;arco;Destreza;fogo;204,1;11,51;102,2;0,90;0,10;98,0;2,1;6,0;2,1;Projétil de fogo, Tiro em leque, Flecha do falcão, Tiro perfurante, Lança ígnea, Flecha estelar, Área de fogo, Chuva de flechas
+100;arco;Destreza;raio;197,2;11,96;104,1;1,00;0,00;98,7;3,4;5,5;2,1;Projétil de raio, Tiro em leque, Flecha do falcão, Tiro perfurante, Flecha estelar, Área de raio, Martelo do trovão, Choque
+100;arco;Força+Destreza;fogo;217,1;11,51;95,5;0,70;0,30;91,0;2,1;4,7;2,1;Projétil de fogo, Tiro em leque, Flecha do falcão, Tiro perfurante, Lança ígnea, Flecha estelar, Área de fogo, Chuva de flechas
+100;arco;Força+Destreza;raio;212,5;11,96;97,0;0,70;0,30;92,5;3,3;5,5;2,1;Projétil de raio, Tiro em leque, Flecha do falcão, Tiro perfurante, Flecha estelar, Área de raio, Martelo do trovão, Choque
+100;arco;Tanque;fogo;196,2;10,99;105,0;1,00;0,00;99,9;3,7;6,1;4,2;Projétil de fogo, Tiro em leque, Flecha do falcão, Tiro perfurante, Lança ígnea, Área de fogo, Flecha estelar, Chuva de flechas
+100;arco;Tanque;raio;194,7;11,56;105,3;1,00;0,00;102,0;3,4;5,9;3,9;Projétil de raio, Tiro em leque, Flecha do falcão, Tiro perfurante, Área de raio, Flecha estelar, Martelo do trovão, Choque
+100;arco;Leitor (PER);fogo;205,5;12,88;100,1;1,00;0,00;93,6;2,1;4,5;2,1;Tiro em leque, Flecha do falcão, Tiro perfurante, Projétil de fogo, Lança ígnea, Flecha estelar, Área de fogo, Chuva de flechas
+100;arco;Leitor (PER);raio;189,3;12,58;111,0;0,90;0,10;105,8;2,1;4,6;2,1;Tiro em leque, Flecha do falcão, Tiro perfurante, Projétil de raio, Flecha estelar, Área de raio, Chuva de flechas, Flecha elemental
+100;arco;Mago;fogo;176,9;11,64;115,7;0,80;0,20;110,6;3,1;4,7;2,6;Projétil de fogo, Lança ígnea, Área de fogo, Supernova, Tiro em leque, Flecha do falcão, Flecha estelar, Tiro perfurante
+100;arco;Mago;raio;151,4;14,43;136,0;0,30;0,70;131,9;4,1;6,4;4,4;Projétil de raio, Área de raio, Martelo do trovão, Choque, Corrente, Raio em cadeia, Tiro em leque, Flecha do falcão
+100;arco;Mago;fogo+raio;155,6;13,13;130,7;0,40;0,60;127,3;3,2;5,6;4,7;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Martelo do trovão, Choque, Supernova
+100;arco;Mago;fogo+gelo+raio;161,0;10,12;131,1;0,40;0,60;127,8;2,9;6,3;4,1;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Área de fogo, Área de gelo, Estilhaço, Área de raio
+100;arco;Lâmina mágica;fogo;217,7;11,59;92,1;0,70;0,30;90,1;2,9;5,2;4,2;Projétil de fogo, Lança ígnea, Área de fogo, Tiro em leque, Flecha do falcão, Tiro perfurante, Flecha estelar, Supernova
+100;arco;Lâmina mágica;raio;192,7;11,56;109,3;0,90;0,10;103,2;3,4;5,9;4,0;Projétil de raio, Área de raio, Tiro em leque, Flecha do falcão, Tiro perfurante, Flecha estelar, Martelo do trovão, Choque
+100;arco;Lâmina mágica;fogo+raio;214,3;11,73;96,2;0,90;0,10;93,1;3,0;5,3;4,0;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Tiro em leque, Flecha do falcão, Tiro perfurante
+100;arco;Lâmina mágica;fogo+gelo+raio;199,9;10,93;104,5;0,90;0,10;100,2;4,2;6,2;2,9;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Estilhaço, Área de fogo, Área de gelo, Área de raio
+100;arco;Generalista;fogo;224,0;11,71;92,6;1,00;0,00;89,7;2,9;5,1;2,1;Projétil de fogo, Lança ígnea, Área de fogo, Tiro em leque, Flecha do falcão, Tiro perfurante, Flecha estelar, Supernova
+100;arco;Generalista;raio;192,5;13,78;102,8;0,90;0,10;100,1;2,3;5,5;2,1;Projétil de raio, Área de raio, Tiro em leque, Flecha do falcão, Tiro perfurante, Flecha estelar, Martelo do trovão, Choque
+100;arco;Generalista;fogo+raio;218,1;11,89;95,3;0,90;0,10;91,8;2,9;4,9;2,1;Projétil de fogo, Projétil de raio, Lança ígnea, Área de fogo, Área de raio, Tiro em leque, Flecha do falcão, Tiro perfurante
+100;arco;Generalista;fogo+gelo+raio;197,1;10,88;105,0;0,80;0,20;100,5;3,8;5,4;2,8;Projétil de fogo, Projétil de gelo, Projétil de raio, Lança ígnea, Área de fogo, Área de gelo, Estilhaço, Área de raio
