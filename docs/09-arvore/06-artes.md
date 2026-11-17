@@ -3,7 +3,7 @@ Artes são **escondidas**: não aparecem na árvore, não custam PH e são desco
 
 ## Contrato comum (vale para todas)
 - **1 Arte preparada**; ocupa 1 das 8 técnicas (mesmo se o efeito for passivo).
-- Efeitos derivados seguem a regra de **ações derivadas** (00-sistema §7.1): não contam para Leitor, domínio, afinidade nem descoberta; não geram Ímpeto, Sobrecarga, Abertura nem novas ativações; não duplicam acerto, cura, interrupção nem elemento.
+- Efeitos derivados seguem o **contrato de eventos** (00-sistema §7.1): não contam para Leitor, domínio, afinidade nem descoberta; não geram Ímpeto, Sobrecarga, Abertura nem novas ativações; não reproduzem efeitos auxiliares (elemento, controle, estado) **salvo exceção declarada na ficha/alternativa**, que nunca gera recurso nem profundidade > 1.
 - Recargas persistem na troca de arma. Deslocamentos respeitam terreno, arena e linha de visão. Dano e vida usam s; impacto e recursos não.
 - Suporte só entre participantes da mesma tentativa. Nenhuma Arte remove Ferido, cria reserva de cura ou resolve sozinha uma mecânica obrigatória.
 - **Descoberta**: garantida até a 12ª demonstração (núcleo C.3). Cada Arte tem **3 rotas**, qualquer uma basta:
@@ -35,10 +35,10 @@ Artes são **escondidas**: não aparecem na árvore, não custam PH e são desco
 - **Rotas:** Esquiva + Agressão · DES +20 / PER +10 · feras, aviários. Desafios: 10 esquivas perfeitas seguidas sem levar golpe · derrotar uma elite usando só técnicas logo após esquiva · vencer um mini-chefe sem bloquear.
 
 ### 2. Reprise
-- **Ativação:** manual, até 3 s depois de usar uma técnica · **custo** 1,5× o custo-base dela · **recarga** 20 s.
+- **Ativação:** manual, até 3 s depois de usar uma técnica · **custo** 150% do custo **final recalculado** dela (com Modelagem, Sobrecarga e nós) · **recarga** 20 s.
 - **Efeito:** repete a última técnica **ofensiva direta de arma** usada, com a animação completa (preparo e carga incluídos), K e impacto totais ×0,50, ignorando a recarga dela. Sem elemento, controle, geração de recursos nem efeitos auxiliares; as condições de uso são conferidas de novo. Não copia Artes, reações, canalizações nem técnicas de suporte.
-- **Preço:** custo 1,5×; a técnica original ganha +4 s de recarga. **Chefe/PvP:** igual; controles repetidos contam como nova aplicação na categoria.
-- **Alternativas:** Reprise fiel (70% de dano, custo ×2,5) · Reprise curta (só técnicas de recarga ≤ 8 s, custo ×1,5) · Reprise lenta (repete 2 s depois, K ×0,60, custo 1,5×) · Reprise elemental (repete só o elemento, sem dano).
+- **Preço:** custo 150% do final; recursos especiais (Ritmo, Frenesi, cargas) precisam estar disponíveis de novo e são consumidos de novo; a técnica original ganha +4 s de recarga. **Chefe/PvP:** igual; controles repetidos contam como nova aplicação na categoria.
+- **Alternativas:** Reprise fiel (70% de dano, custo ×2,5) · Reprise curta (só técnicas de recarga ≤ 8 s; recarga da Arte 14 s) · Reprise lenta (repete 2 s depois, K ×0,60, custo 1,5×) · Reprise elemental (**exceção declarada**: repete só a aplicação do elemento, sem dano nem recurso).
 - **Rotas:** Compromisso + Agressão · FOR +20 / CON +10 · constructos, humanoides. Desafios: usar 6 técnicas diferentes num só encontro · derrotar 3 elites sem que nenhuma técnica sua fique em recarga mais de 2 s ociosa · vencer um encontro de Cerco sem perder o Núcleo.
 
 ### 3. Rastro duplo
@@ -50,9 +50,9 @@ Artes são **escondidas**: não aparecem na árvore, não custam PH e são desco
 
 ### 4. Memória da lâmina
 - **Ativação:** manual · **custo** 20R · **recarga** 30 s · 0,5 s.
-- **Efeito:** "grava" a próxima técnica **ofensiva direta de arma** que você usar; por 15 s você pode usá-la de novo **uma vez** ignorando a recarga dela, pagando 100% do custo-base e dos recursos especiais (Ritmo, Frenesi, cargas). O 2º uso repete animação e condições e é **recalculado** (não reaproveita crítico, Abertura nem Sobrecarga já consumidos).
+- **Efeito:** "grava" a próxima técnica **ofensiva direta de arma** que você usar; por 15 s você pode usá-la de novo **uma vez** ignorando a recarga dela, pagando 100% do custo **final recalculado** e de novo os recursos especiais (Ritmo, Frenesi, cargas), que precisam estar disponíveis. O 2º uso repete animação e condições e é **recalculado** (não reaproveita crítico, Abertura nem Sobrecarga já consumidos).
 - **Preço:** 20R para gravar + o custo cheio do 2º uso; perder os 15 s desperdiça. **Chefe/PvP:** igual.
-- **Alternativas:** Memória curta (7 s, recarga 20 s) · Memória dupla (grava 2 técnicas, cada uma a 60%) · Memória de reação (grava a técnica de reação) · Memória paciente (30 s, custo 30R).
+- **Alternativas:** Memória curta (7 s, recarga 20 s) · Memória dupla (grava 2 técnicas, cada uma a 60%) · Memória de reação (**exceção ao filtro**: grava a técnica de reação; o 2º uso exige nova condição defensiva e comando manual, mesmo custo e animação, sem 2ª recompensa de recurso) · Memória paciente (30 s, custo 30R).
 - **Rotas:** Precisão + Compromisso · PER +20 / FOR +10 · dracônicos, colossos. Desafios: quebrar 4 partes de um colosso no mesmo combate · derrotar um chefe de Partes · acertar 20 pontos fracos seguidos.
 
 ## Espaço e posição
@@ -89,9 +89,9 @@ Artes são **escondidas**: não aparecem na árvore, não custam PH e são desco
 
 ### 9. Último Fôlego
 - **Ativação:** manual, antes do golpe inimigo · **custo** 30R · **recarga** 60 s (máx. 1 por tentativa de chefe; bloqueado nos 10 s depois de Sangue por fôlego) · 0,3 s · janela 2 s.
-- **Efeito:** um golpe que te derrubaria deixa você com 1 de vida por 1 s; o dano excedente volta no fim desse segundo. **Preço:** sem cura nesse segundo; a dívida só é reduzida por mitigação que já estava ativa no golpe original.
+- **Efeito:** um golpe que te derrubaria deixa você com 1 de vida por 1 s; no fim desse segundo cai a dívida **integral**: dívida = máx(0; D_efetivo − (vida antes − 1)), onde D_efetivo já é o dano depois da defesa original (não é mitigado de novo). **Preço:** sem cura nesse segundo; a dívida não é mitigada de novo (a defesa do golpe original já entrou no D_efetivo).
 - **Chefe/PvP:** não funciona contra morte de ambiente, saída de arena ou falha letal de objetivo.
-- **Alternativas:** permite concluir uma interação já iniciada (sem atacar) · dívida reaplicada em 2 parcelas · janela 1 s e recarga 40 s · a dívida volta em 4 parcelas de 0,25 s (mais tempo para uma mitigação ativa entrar).
+- **Alternativas:** permite concluir uma interação já iniciada (sem atacar) · dívida reaplicada em 2 parcelas · janela 1 s e recarga 40 s · janela de ativação 3 s com recarga 90 s (máx. 1 por tentativa).
 - **Rotas:** Compromisso + Defesa ativa · VIG +20 / FOR +10 · mortos-vivos, colossos. Desafios: concluir 3 intervenções de âncora sob ataque · vencer um chefe sem ser reanimado · completar um Resgate.
 
 ### 10. Contratempo

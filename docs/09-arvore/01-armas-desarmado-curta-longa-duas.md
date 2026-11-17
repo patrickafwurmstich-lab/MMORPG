@@ -50,7 +50,7 @@ Ramos: **A. Fluxo e direções** (combo em direções diferentes) · **B. Agarr�
 | 27 | Pele de pedra | Passiva | 23 · dom. 30 | Contra-golpe reduz o dano recebido para 40% (era 50%); a recarga sobe para 10 s |
 | 28 | Respiração interna | Passiva | 24 · dom. 40 | durante Corpo de ferro, Firmar (VIG) custa só 5R; ao fim, a dívida de postura +20% |
 | 29 | Palma em cadeia | Transformação | 03 · dom. 40 | Palma elemental salta para 1 alvo extra a 3 m com 60% do dano; não empurra |
-| 30 | Punho do espelho | Nó-chave | dom. 60; 8 PH no ramo; 2 técnicas + 2 passivas | Contra-golpe vira parry (janela **técnica** de parry do núcleo, teto 240 ms; com PER ≥ +15 usa a recarga da sua Leitura; sem PER, recarga interna +50%): sucesso devolve o golpe com +10 de impacto e 0% de dano recebido; falha = você leva 100% e 0,35 s de recuperação |
+| 30 | Punho do espelho | Nó-chave | dom. 60; 8 PH no ramo; 2 técnicas + 2 passivas | Contra-golpe vira parry (janela **técnica** de parry do núcleo, teto 240 ms). Com PER < +15: recarga do Contra-golpe modificado ×1,50. Com PER ≥ +15: a recarga final é a **maior** entre a do Contra-golpe modificado e a da Leitura, e cada uso **consome** a sua Leitura. Sucesso devolve o golpe com +10 de impacto e 0% de dano recebido; falha = você leva 100% e 0,35 s de recuperação |
 
 ---
 
@@ -75,7 +75,7 @@ Ramos: **A. Flanco móvel** · **B. Debilitação** (veneno, lentidão, abrir de
 | 09 | Lâminas gêmeas | Técnica | 08 · dom. 60 | K0,50×2 I15 · 0,70 s · 12R · rec. 8 s; o 2º corte só sai se o 1º foi no flanco. [Execução] |
 | 10 | Rodear | Passiva | 07 · dom. 20 | correr em arco em volta de um alvo a até 4 m não gasta resistência por 1 s; o 1º golpe depois disso não pode ser crítico |
 | 11 | Sombra persistente | Passiva | 01 · dom. 30 | Passo de sombra deixa você 0,5 s fora da mira de comuns (não de elites/chefes); recarga 7 → 9 s |
-| 12 | Costas expostas | Passiva | 08 · dom. 40 | acertar 3 golpes de flanco seguidos deixa o alvo Exposto 2 s (+20% de dano recebido), recarga interna de 10 s por alvo; em troca, os golpes que contam custam +2R e um golpe de frente zera o contador |
+| 12 | Costas expostas | Passiva | 08 · dom. 40 | acertar no flanco **3 ações originais diferentes** de execução seguidas (1 contagem por ação; uma técnica de vários golpes, como Cem cortes, conta 1) deixa o alvo Exposto 2 s (+20% de dano recebido), recarga interna de 10 s por alvo; em troca, cada ação que conta custa +2R e um golpe de frente zera o contador |
 | 13 | Passo duplo | Transformação | 01 · dom. 40 | Passo de sombra guarda 2 usos (recarga 10 s cada), mas cada passo alcança só 2 m |
 | 14 | Assassino de sombra | Nó-chave | dom. 60; 8 PH no ramo; 2 técnicas + 2 passivas | golpes de flanco contra alvo que está **atacando outro jogador** ganham +15 p.p. de chance crítica (respeita o teto de 40%; não multiplica de novo o bônus de Flanco); golpes de frente −10% de dano |
 

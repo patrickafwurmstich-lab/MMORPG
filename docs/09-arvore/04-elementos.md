@@ -31,8 +31,8 @@ Ramos: **A. Pressão e abrasão** · **B. Zonas de perigo** · **C. Explosão co
 ### Ramo B — Zonas de perigo
 | Nº | Nó | Tipo | Requisito | Efeito |
 |---|---|---|---|---|
-| 13 | Chão em brasa | Técnica | 02 · dom. 20 | K0,25/s · 1,2 s · 25E · rec. 14 s; área de 3 m por 6 s (Queimando em quem entra; 1 aplicação por alvo). [Contenção] |
-| 14 | Cerco de fogo | Técnica | 13 · dom. 40 | 0 dano direto · 1,4 s · 30E · rec. 24 s; anel de 4 m por 6 s: atravessar custa 6% da vida e Queimando (chefe ignora). [Contenção] |
+| 13 | Chão em brasa | Técnica | 02 · dom. 20 | K0,25 por tique (6 tiques de 1 s) · 1,2 s · 25E · rec. 14 s; área de 3 m por 6 s; no 1º tique válido em cada alvo aplica Queimando = 20% do dano desse tique, em 6 s (1 aplicação por alvo por conjuração). [Contenção] |
+| 14 | Cerco de fogo | Técnica | 13 · dom. 40 | 0 dano direto · 1,4 s · 30E · rec. 24 s; anel de 4 m por 6 s: atravessar causa dano de passagem de 6% da vida (percentual de vida) e Queimando = 20% do dano de passagem efetivamente causado, em 6 s (chefe ignora). [Contenção] |
 | 15 | Fogo amigo nunca | Passiva | 13 · dom. 20 | aliados atravessam as suas zonas sem dano e com +5% de dano por 3 s; as zonas duram 1 s a menos |
 | 16 | Forno | Passiva | 14 · dom. 40 | inimigos dentro do Cerco de fogo têm −15% de regeneração de postura; o Cerco custa 35E |
 | 17 | Muralha em cruz | Transformação | 03 · dom. 40 | Muralha de chamas vira 2 linhas de 3 m em X (cobre esquina) |
@@ -42,7 +42,7 @@ Ramos: **A. Pressão e abrasão** · **B. Zonas de perigo** · **C. Explosão co
 | Nº | Nó | Tipo | Requisito | Efeito |
 |---|---|---|---|---|
 | 19 | Supernova | Técnica | 02 · dom. 40 | K2,40 I30 · 2,2 s · 45E · rec. 25 s; área 4 m centrada em você; você não pode se mover no preparo. [Execução] |
-| 20 | Pavio curto | Passiva | 19 · dom. 40 | consumir 3 cargas de Sobrecarga na Supernova reduz o preparo em 0,4 s (em vez de somar 0,3 s); a Supernova custa 50E |
+| 20 | Pavio curto | Passiva | 19 · dom. 40 | consumir 3 cargas de Sobrecarga na Supernova **substitui todo o acréscimo de preparo da Sobrecarga** (inclusive a 4ª parcela) por −0,40 s; não dispensa nenhuma sobretaxa de energia (custo-base 50E; com 4 parcelas, 90E antes de eficiência) |
 | 21 | Calor do núcleo | Passiva | 19 · dom. 40 | Projétil e Área de fogo dão 1 carga de Sobrecarga extra se acertarem 3+ alvos (exceção explícita: 2 cargas numa ação; máx. 3; recarga interna 8 s; a 2ª carga não dispara efeitos de ganho); com 1 alvo, nada |
 | 22 | Combustão | Passiva | 01 · dom. 30 | acertar Projétil de fogo em alvo Queimando consome o Queimando e causa o dano restante na hora; em troca, o alvo deixa de queimar e a Combustão não reaplica Queimando por 6 s |
 | 23 | Supernova dirigida | Transformação | 19 · dom. 60 | a Supernova sai em cone de 90° a 6 m na sua frente, K2,40 → 2,10 |

@@ -76,11 +76,11 @@ Fórmulas: Expandir = 1,10 + 0,40·r(CON); Comprimir = 1,05 + 0,20·r(CON); Cond
 3 por atributo, nos marcos **+15 / +35 / +55** (exige o atributo **efetivo**, depois da sincronia). Custam **2 PH** e ocupam **1 das 6 passivas**. No máx. **1 especialização por atributo** preparada.
 | Atributo | +15 | +35 | +55 |
 |---|---|---|---|
-| FOR | **Golpe assentado** — Firmar o golpe custa +0,15 s em vez de +0,25 s; a conversão máxima cai para 15% | **Martelo de guarda** — Golpe de Ímpeto contra alvo bloqueando causa +50% de impacto; contra alvo sem guarda, −10% de dano | **Estilhaçar** — quebrar a postura de um inimigo devolve 25 de Ímpeto (recarga interna global de 10 s); em troca, o dano total das suas continuações −10% |
+| FOR | **Golpe assentado** — Firmar o golpe custa +0,15 s em vez de +0,25 s; a conversão máxima cai para 15% | **Martelo de guarda** — Golpe de Ímpeto contra alvo bloqueando causa +50% de impacto; contra alvo sem guarda, −10% de dano | **Estilhaçar** — quebrar a postura de um inimigo dá **25 de Ímpeto no total** (incluindo os 15 normais da quebra; respeita o teto de ganho; recarga interna global de 10 s); em troca, o dano total das suas continuações −10% |
 | DES | **Pés leves** — o deslocamento das continuações pode ser **para trás**; o dano total delas cai 10% quando você recua | **Corrente contínua** — esquiva perfeita durante as continuações não as cancela (1 vez por sequência); a sequência custa 5R | **Vendaval de lâminas** — continuações com Ímpeto ≥ 80 atravessam até 2 inimigos comuns no caminho (dano dividido) |
 | VIG | **Muro de carne** — Firmar dura 1,6 s; a recarga sobe para 15 s | **Dívida parcelada** — a dívida cai em 5 parcelas a cada 0,6 s (mais tempo para agir); dívida máx. −20% | **Segundo fôlego** — Ceder também recupera 10R; Firmar custa 20R |
 | POT | **Reator estável** — cargas expiram após 12 s em vez de 8 s; ganho mínimo entre cargas sobe para 3 s | **Descarga total** — consumir 3 cargas de uma vez dá uma **4ª parcela** de bônus (sobretaxa também de 4 parcelas: +80% do custo-base e +0,40 s), e a energia não regenera por 4 s | **Coração de fornalha** — com 3 cargas acumuladas, sua regeneração de energia +20%; com 0 cargas, −10% |
-| CON | **Mão firme** — estabilidade de conjuração +50% (stagger comum não atrasa seu preparo); Conduzir −10 pontos de velocidade | **Geometria fina** — Expandir e Comprimir podem ser combinados na mesma ação, com os dois efeitos pela metade | **Tecelão** — a 2ª conjuração diferente em até 3 s tem preparo −25% (1 vez a cada 8 s); custo +10% |
+| CON | **Mão firme** — +50 p.p. de estabilidade de conjuração (teto 60%: o atraso mínimo fica 0,08 s); Conduzir −10 p.p. de velocidade | **Geometria fina** — Expandir e Comprimir podem ser combinados na mesma ação, com os dois efeitos pela metade | **Tecelão** — a 2ª conjuração diferente em até 3 s tem preparo −25% (1 vez a cada 8 s); custo +10% |
 | PER | **Olho de caçador** — Leitura recarrega em 6 s; a Abertura dura 1,5 s | **Leitura dupla** — pode marcar 2 ataques ao mesmo tempo; cada Abertura vale 70% | **Abertura conservada** — a Abertura pode ser guardada até 5 s, mas o seu uso escolhido vale 80% |
 
 ### 2.8 Ligações entre atributos (15 — 1 por par)
@@ -108,7 +108,7 @@ Custam **2 PH**, ocupam **1 das 6 passivas**, exigem **+15 efetivos nos dois** a
 - **VIG ↔ todos:** Firmar compra tempo para Sobrecarga (VIG–POT), para conjurar (VIG–CON), para ler (VIG–PER) e para o pesado (FOR–VIG).
 - **POT ↔ CON:** POT decide **quanto** concentrar; CON decide **como** entregar. Juntos (Lente instável), concentram em área com perda.
 - **PER ↔ todos:** a Abertura vira penetração (dano), impacto (quebra) ou resistência (sobrevivência) — PER é o atributo da **resposta certa**.
-- Afinidade (núcleo B.1): cada mecânica alimenta o atributo dela — Firmar o golpe → FOR, continuação dirigida → DES, Firmar/Ceder → VIG, Sobrecarga consumida → POT, Modelagem usada → CON, Abertura usada → PER.
+- Afinidade (núcleo B.1): cada mecânica alimenta o atributo dela — Firmar o golpe → FOR, Golpe de Ímpeto com continuação dirigida → DES (1 registro por operação), Firmar/Ceder → VIG, Sobrecarga consumida → POT, Modelagem usada → CON, Abertura usada → PER.
 
 ---
 
@@ -197,18 +197,26 @@ A prévia de fabricação mostra dano médio e variação com a build atual (o g
 ## 7.0 Orçamentos únicos
 - **Sobrecarga:** cargas armazenadas máx. **3**; efeitos de "4ª carga" (Descarga total, Fúria dos céus) **não acumulam** entre si — no máximo 4 parcelas de bônus por ação, pagando 4 parcelas de sobretaxa. Calor do núcleo (Fogo 21) é a única exceção de 2 cargas numa ação.
 - **Abertura e exaustão de chefe** pertencem à ficha do chefe; nenhum nó, especialização ou Arte muda a duração delas nem a imunidade posterior.
-- **Periódicos** (Queimando, veneno, dano contínuo): "X%" = X% do dano direto **efetivamente causado** pela ação que aplicou, em tiques de 1 s, 1º tique em 1 s; do mesmo jogador não acumula (renova). **Queimando** padrão = 20% em 6 s. Se quem aplica **não causa dano direto** (Chão em brasa ao entrar, Cerco de fogo, imbuir antes do golpe), a base é um golpe-referência de **K0,60** do aplicador (Queimando = K0,12 no total). Periódicos não critam, não causam impacto e não geram recurso.
-- **Curas periódicas iguais** não acumulam no mesmo alvo; áreas de cura (Fonte, Flecha de socorro) atingem no máx. **4 aliados**.
+- **Periódicos** (Queimando, veneno, dano contínuo): "X%" = X% do dano direto **efetivamente causado** pela ação que aplicou (já mitigado: não sofre armadura nem crítico de novo), em tiques de 1 s, 1º tique em 1 s; do mesmo jogador não acumula (renova). **Queimando padrão = 20% em 6 tiques**. Percentual **de vida** (ex.: "6% da vida") é outra categoria, sempre escrita assim. Combustão consome só o saldo do periódico individual (nunca tiques futuros de uma zona). Periódicos não causam impacto nem geram recurso.
+- **Curas periódicas iguais** não acumulam no mesmo alvo; áreas de cura (Fonte, Flecha de socorro) atingem no máx. **4 aliados por ação inteira** (somando os focos da Lente Partida, nunca 4 por círculo).
 - **Métricas do Leitor usadas pelas Artes:** Magia = ações mágicas originais válidas ÷ ações originais válidas (o vetor de 3 componentes do núcleo continua para assinaturas). Suporte = oportunidades de assistência aproveitadas ÷ oportunidades elegíveis; elegível = aliado com déficit de vida ≥ 5% do máximo, estado removível ou ataque telegrafado interceptável; 1 acerto por episódio; mín. 12 oportunidades em 3 encontros, sem atualizar quando não houver oportunidade. Nenhum nó pode desligar ou editar métricas do Leitor.
 - **Consentimento:** qualquer efeito que mova um aliado (Inversão, Mão do vento, Laço de ferro, Horizonte Fixo) obedece à mesma preferência "aceitar deslocamento de aliados" (padrão: só do grupo).
 - **Bloqueio no kit:** o kit fundamental tem bloqueio **quando a arma permite** (katana, duas katanas, duas espadas, dois machados e arco não bloqueiam; Firmar exige bloqueio).
 
-## 7.1 Ações derivadas (vale para nós, especializações, ligações e Artes)
-Ação **derivada** = o que acontece **sem um comando novo seu**: eco, imagem, explosão de rastro, propagação (Queimando que passa, salto de condução, vínculo da Rede), dano transmitido, periódicos.
-Ação **original** = tudo que exige um comando seu, mesmo que dependa de uma defesa anterior: contra-ataques e reflexos de arma com input (Contra perfeito, Contra-golpe, Revide, saque de resposta, Duelista de transição), a 2ª execução de Reprise/Memória (que repetem animação e condições) e o pesado que usa o impacto guardado da Âncora. Essas funcionam exatamente como escrito no nó e contam normalmente; o próprio nó já limita recompensa (regra 3 do §9: 1 recompensa de defesa por sistema por ataque inimigo).
-- Não conta para o **Leitor de Estilo**, **domínio**, **afinidade** nem progresso de Arte — só a ação original conta.
-- Não gera **Ímpeto, Sobrecarga, Abertura, Frenesi, Fluxo** nem qualquer carga ou recurso; não dispara outra ação derivada (profundidade máxima 1).
-- Aplica elemento e controle **só se o texto do nó disser**, e ainda conta na categoria única de controle do núcleo.
+## 7.1 Ações originais e parcelas derivadas (contrato de eventos)
+**Original** = ação que você comanda e paga. **Parcela derivada** = o que sai dela sem comando novo (eco, imagem, explosão de rastro, propagação, salto de condução, dano transmitido, periódico) **ou** uma repetição (Reprise, Memória).
+- Parcela derivada **não** gera Ímpeto, Sobrecarga, Abertura, Frenesi, Fluxo, Ritmo nem outra carga; **não** conta para Leitor, domínio, afinidade nem descoberta de Arte; profundidade máxima 1 (não dispara outra parcela).
+- Parcela derivada **não reproduz efeitos auxiliares** (elemento, controle, estado), **salvo** quando a ficha ou alternativa declara a exceção explicitamente; a exceção nunca autoriza gerar recurso nem profundidade maior que 1.
+
+| Ocorrência | Contagem / recompensa |
+|---|---|
+| Parry (ou bloqueio) seguido de contra-ataque comandado (Contra perfeito, Contra-golpe, Revide, saque de resposta, Duelista) | **1 evento original de defesa** com a recompensa normal do parry/bloqueio; o golpe do contra-ataque causa o dano e o impacto da ficha, mas gera **zero** recurso adicional |
+| Lâmina e reflexo / Punho do espelho | a Abertura vem do parry original (é a recompensa de defesa dele), nunca de outra parcela |
+| Conjuração saindo de você por Condutor vivo | **ação original do aliado** que conjura: ele paga, progride e pode ganhar Sobrecarga pelos requisitos normais; você não recebe nada por ela |
+| Reprise / Memória | repetição derivada: zero geração de recursos, zero demonstrações |
+| Golpe de Ímpeto com continuações (DES) | **1 operação original**: registra afinidade/execução de DES **uma vez**, nunca por continuação |
+| Dano transmitido pela Rede de relâmpagos | parcela derivada: sem nova transmissão, recurso ou elemento |
+| Âncora: pesado com impacto guardado | o pesado é original; o impacto guardado não gera recurso |
 
 ## 8. Como a árvore conversa com o resto
 | Sistema | Papel |
@@ -224,7 +232,7 @@ Ação **original** = tudo que exige um comando seu, mesmo que dependa de uma de
 
 ## 9. Regras contra ciclos e builds dominantes (valem para todos os nós)
 1. Reembolso **não** dispara outro reembolso; custos são pagos **antes** de reembolsos.
-2. Ação derivada (definição única no §7.1: eco, salto, retorno automático, propagação, periódico) **não** gera Ímpeto, carga, Abertura nem dispara efeitos "ao acertar"; contra-ataques com comando são ações originais.
+2. Parcela derivada (definição e tabela de eventos no §7.1) **não** gera Ímpeto, carga, Abertura nem dispara efeitos "ao acertar"; contra-ataque comandado = 1 evento de defesa.
 3. Um ataque inimigo sustenta **no máx. 1 recompensa de defesa por sistema** (Ímpeto, Abertura, resistência).
 4. Nenhuma passiva reduz custo abaixo do piso (5 E / 5R) nem passa os tetos do núcleo (velocidade 1,45, parry técnico 240 ms, crítico 40%, penetração 35%).
 5. Buffs iguais não se somam: vale o maior.
@@ -241,13 +249,13 @@ Ação **original** = tudo que exige um comando seu, mesmo que dependa de uma de
 | Água 12 + transferências | reposição de reserva |
 | Terra: Firmar + barreiras + Inabalável na arma secundária | economias defensivas sobrepostas |
 | POT +35 + POT–CON + Arte de repetição | explosão que paga custos diferentes do que recebe |
-| DES + Continuação + Passo Fantasma + Eco | mobilidade com dano sem compromisso |
-| VIG Firmar + Âncora + Muralha + Juramento | tanque que devolve impacto e protege o grupo |
+| DES + Continuação + Passo Fantasma (preparação 1) e a mesma com Eco (preparação 2) | mobilidade com dano sem compromisso (1 Arte por preparação) |
+| VIG Firmar + Muralha com Âncora (prep. 1) ou com Juramento (prep. 2) | tanque que devolve impacto e protege o grupo |
 | PER + Abertura conservada + Presságio + Bainha de resposta | janela de parry generosa demais |
 | Dois machados: Berserker + Fúria cega + Sangue quente | pico de dano com sobrevivência |
 | Uso de ramo por arma | ramo com < 15% de escolha em preparações competitivas → reescrever a chave ou a transformação |
 
 ## 10. Formato das fichas (01–05)
 `K` = coeficiente de dano · `I` = impacto total da ação · tempo = preparo + execução + recuperação (fases 35/20/45% salvo indicação) · `R` resistência · `E` energia · `rec.` recarga · `s` = escala da camada (núcleo A.7) · `dom.` = domínio da arma/elemento exigido · requisito por número = nó anterior que precisa estar comprado.
-Tipos: **Técnica** (2 PH) · **Reação** (2 PH, vai no espaço de reação) · **Passiva** (1 PH) · **Transformação** (2 PH) · **Nó-chave** (3 PH; exige dom. 60 e o ramo inteiro antes dela: 8 PH com 2 técnicas + 2 passivas — no ramo C dos elementos, 7 PH com 1 técnica + 3 passivas; disciplinas: nível 40, 6 PH, 1 técnica + 2 passivas).
+Tipos: **Técnica** (2 PH) · **Reação** (2 PH, vai no espaço de reação) · **Passiva** (1 PH) · **Transformação** (2 PH) · **Nó-chave** (3 PH; exige dom. 60 e o **investimento mínimo do ramo** antes dela: 8 PH com 2 técnicas + 2 passivas — no ramo C dos elementos, 7 PH com 1 técnica + 3 passivas (o ramo inteiro); disciplinas: nível 40, 6 PH, 1 técnica + 2 passivas).
 Estrutura de toda árvore de arma: **tronco** (nós 01–06: 3 técnicas + 3 passivas, 9 PH) e **3 ramos** de 8 nós (3 técnicas + 3 passivas + 1 transformação + 1 nó-chave = 14 PH).

@@ -43,7 +43,7 @@ Ramos: **A. Contenção individual** (segurar 1 alvo) · **B. Proteção de grup
 ### Ramo C — Avanço e ruptura
 | Nº | Nó | Tipo | Requisito | Efeito |
 |---|---|---|---|---|
-| 23 | Firmeza | Técnica | 02 · dom. 20 | 0 dano · 3 s · 0R · rec. 18 s; postura máxima +40% e movimento −50%. [Contenção] |
+| 23 | Firmeza | Técnica | 02 · dom. 20 | 0 dano · 3 s · 0R · rec. 18 s; postura máxima +40% e movimento −50% (sem a chave Rolo compressor, Investida e Avanço sob Firmeza percorrem 2 m e 3 m). [Contenção] |
 | 24 | Avanço do baluarte | Técnica | 23 · dom. 40 | K0,60 I40 · 1,2 s · 25R · rec. 14 s; arrasta comuns 6 m. [Ruptura] |
 | 25 | Escudo arremessado | Técnica | 24 · dom. 60 | K0,60 I35 · 0,9 s · 18R · rec. 14 s; ricocheteia em até 3 alvos e volta em 1,5 s (sem bloqueio até voltar). [Ruptura] |
 | 26 | Aríete | Passiva | 02 · dom. 20 | Investida de escudo derruba comuns por 1 s no fim; a investida para ao bater num elite (perde o resto do avanço) |
@@ -128,7 +128,7 @@ Ramos: **A. Contra-ataque duplo** · **B. Reposicionamento** · **C. Pressão em
 | 11 | Ritmo de duelo | Passiva | 08 · dom. 40 | 3 parries em 10 s deixam o próximo pesado com +20% de dano, mas esse pesado custa +5R; um golpe recebido zera a contagem |
 | 12 | Olhos atentos | Passiva | 07 · dom. 30 | parries contra ataques de **comuns** recarregam o Espelho 2 s mais rápido; em troca, o Espelho custa +5R |
 | 13 | Espelho partido | Transformação | 07 · dom. 40 | Espelho reflete 100% do impacto, mas a janela fica comum (sem os +30 ms) |
-| 14 | Lâmina e reflexo | Nó-chave | dom. 60; 8 PH no ramo; 2 técnicas + 2 passivas | parry **técnico** (janela ≤ 240 ms) deixa uma Abertura de PER (2 s) **sem** precisar marcar Leitura, 1 vez a cada 10 s; essa Abertura **consome** a sua Leitura (vai para recarga, 12 s); com PER < +15 a Abertura vale só Punir |
+| 14 | Lâmina e reflexo | Nó-chave | dom. 60; 8 PH no ramo; 2 técnicas + 2 passivas | parry **técnico** (janela ≤ 240 ms) deixa uma Abertura de PER (2 s) **sem** precisar marcar Leitura, **só se a sua Leitura estiver pronta**; ao conceder, a Leitura entra em recarga de 12 s; limite adicional de 1 vez a cada 10 s; com PER < +15 a Abertura vale só Punir |
 
 ### Ramo B — Reposicionamento
 | Nº | Nó | Tipo | Requisito | Efeito |
@@ -164,7 +164,7 @@ Ramos: **A. Carga e partes** · **B. Área comprometida** · **C. Guarda e contr
 |---|---|---|---|---|
 | 01 | Golpe de cabo | Técnica | dom. 1 | K0,40 I30 · 0,6 s · 12R · rec. 8 s; rápido, interrompe preparo marcado. [Ruptura] |
 | 02 | Giro pesado | Técnica | dom. 10 | K1,20 I35 · 1,4 s · 22R · rec. 9 s; 360°, sem stagger comum. [Execução] |
-| 03 | Lâmina flamejante | Técnica | dom. 10 | K1,60 I30 · 1,6 s · 30E · rec. 8 s; imbuir carregável (aplica o estado Queimando). [Execução] |
+| 03 | Lâmina flamejante | Técnica | dom. 10 | K1,60 I30 · 1,6 s · 30E · rec. 8 s; imbuir carregável; Queimando = 20% do dano direto efetivamente causado, em 6 tiques de 1 s. [Execução] |
 | 04 | Peso morto | Passiva | 01 · dom. 1 | o pesado nível 1 sai 0,1 s mais cedo; o nível 3 leva +0,1 s |
 | 05 | Pegada dupla | Passiva | 02 · dom. 10 | bloqueio com machado grande custa −10% (além dos +30% de eficiência da arma); sua corrida custa +10% de resistência |
 | 06 | Chão rachado | Passiva | 03 · dom. 20 | pesado nível 3 deixa o chão rachado 2 m por 3 s (inimigos −20% de movimento); você também anda 20% mais devagar sobre ele |

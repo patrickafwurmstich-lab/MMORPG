@@ -73,11 +73,11 @@ Ramos: **A. Frenesi sustentado** · **B. Execução** · **C. Troca de Frenesi p
 |---|---|---|---|---|
 | 07 | Corte em X | Técnica | 01 · dom. 20 | K1,00 I25 · 0,8 s · 15R · rec. 7 s; +2 níveis de Frenesi. [Execução] |
 | 08 | Sem parar | Técnica | 07 · dom. 40 | 0 dano · 4 s · 0R · rec. 20 s; Frenesi não zera ao levar golpe. [Execução] |
-| 09 | Fúria cega | Técnica | 08 · dom. 60 | 0 dano · 6 s · 0R · rec. 30 s; Frenesi começa no máximo, defesa −30% (recebe +30% de dano; contra chefe com Frenesi ≥ 6, +15% a mais). [Execução] |
+| 09 | Fúria cega | Técnica | 08 · dom. 60 | 0 dano · 6 s · 0R · rec. 30 s; Frenesi começa no máximo; dano recebido ×1,30 (contra chefe com Frenesi ≥ 6: ×1,45 — penalidades somadas). [Execução] |
 | 10 | Batida de guerra | Passiva | 07 · dom. 20 | cada nível de Frenesi +3,5% de velocidade (teto 1,45); com Frenesi ≥ 4, cada acerto custa +1R |
 | 11 | Respiro selvagem | Passiva | 08 · dom. 40 | ao terminar o Sem parar com Frenesi máximo, recupera 15R; com menos, nada e −10R |
 | 12 | Tontura de batalha | Passiva | 07 · dom. 30 | Frenesi máximo deixa seus golpes +5 de impacto; o tempo de recuperação do pesado +0,1 s |
-| 13 | Fúria contida | Transformação | 09 · dom. 60 | Fúria cega dura 3 s com defesa −10% |
+| 13 | Fúria contida | Transformação | 09 · dom. 60 | Fúria cega dura 3 s com dano recebido ×1,10 (contra chefe com Frenesi ≥ 6: ×1,25) |
 | 14 | Berserker | Nó-chave | dom. 60; 8 PH no ramo; 2 técnicas + 2 passivas | Frenesi máximo vira 7 níveis (+3% cada, teto 1,45); com Frenesi 7 você não pode usar técnicas [Sustentação] |
 
 ### Ramo B — Execução
