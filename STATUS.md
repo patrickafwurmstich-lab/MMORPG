@@ -39,10 +39,13 @@ Combate de ação parecido com Toram, mas profundo. Cada jogador pode ser protag
 - [x] Auditoria: ChatGPT = INCOMPLETO (`loop/loop2-auditoria-chatgpt.md`); Grok travado (alta demanda); Gemini recusou
 - [x] Decisões do Lucas: **zonas abertas de PvP**, **morte pesada**
 - [x] v5 = `docs/05-nucleo-v5.md` (parte 1, regras) + `docs/05-jogo-completo-v5.md` (parte 2, jogo concreto) + `sim/check_v5.py`
-- [ ] Revisão loop 2 rodada 1 → `loop/loop2-revisao1-*.md`  ← PRÓXIMO
+- [x] Revisão loop 2 rodada 1: ChatGPT NÃO (11 bloqueadores), Grok NÃO (4 bloqueadores) → `loop/loop2-revisao1-chatgpt.md`, `loop/loop2-revisao1-grok.md`
+- [x] v6 = `docs/06-nucleo-v6.md` (parte 1) + `docs/06-jogo-v6.md` (parte 2) + `docs/06-contratos-v6.md` (parte 3: precedência, TTK, chefe/andar-piloto, Fronteira, cadeia produtiva, catálogos, Nova Era) + `sim/check_v6.py` (TUDO OK)
+- [ ] Revisão loop 2 rodada 2 (v6) → `loop/loop2-revisao2-*.md`  ← PRÓXIMO
 - Nota: ler respostas longas do ChatGPT: get_page_text corta; usar scroll + screenshot a partir do heading da última resposta
 - [ ] Repetir até as 3 aprovarem
 - [ ] Depois: aprofundar sistema por sistema (lista de armas e técnicas, 12 famílias, catálogo de Artes, chefes dos andares 1–3, receitas)
 
 ## Próximo passo
-Mandar o v5 (2 links) a ChatGPT (aba 'Auditoria de Sistemas MMORPG') e Grok; repetir até aprovarem completude.
+Mandar o v6 (3 links + check_v6) a ChatGPT (aba 'Auditoria de Sistemas MMORPG') e Grok (aba 'Análise rigorosa do MMORPG v5'); pedir que critiquem também a revisão da outra IA; repetir até as duas aprovarem.
+Leitura de tabelas do ChatGPT: find "tabela com colunas ..." → read_page no ref (get_page_text omite tabelas).
