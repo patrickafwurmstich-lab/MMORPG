@@ -104,4 +104,13 @@ if os.path.exists(arq_a):
 else:
     ok("24 Artes Únicas", False, "(arquivo ainda não existe)")
 
+arq_m = os.path.join(PASTA, "07-mistura-elementos.md")
+if os.path.exists(arq_m):
+    tm = open(arq_m, encoding="utf-8").read()
+    linhas = re.findall(r"^\| \*\*(Fogo|Gelo|Raio|Terra|Vento|Água) \+ (Fogo|Gelo|Raio|Terra|Vento|Água)\*\*.*$", tm, re.M)
+    pares = {frozenset(x) for x in linhas}
+    ok("15 misturas de elemento (todos os pares)", len(pares) == 15 and len(linhas) == 15, f"({len(pares)})")
+    formas = [l for l in tm.splitlines() if re.match(r"^\| \*\*\w+ \+ \w+\*\*", l)]
+    nomes = [n for l in formas for n in re.findall(r"\| \*\*([^*]+)\*\*:", l)]
+    ok("45 reações (3 formas por mistura), nomes únicos", len(nomes) == 45 and len(set(nomes)) == 45, f"({len(nomes)}, únicos {len(set(nomes))})")
 print("\nTUDO OK" if not erros else f"\n{len(erros)} ERRO(S)")

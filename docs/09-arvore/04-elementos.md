@@ -1,5 +1,5 @@
 # Árvore de habilidades — 04. Elementos (Fogo, Gelo, Raio, Terra, Vento, Água)
-Cada personagem acessa **só a árvore do seu elemento** (a Arte Maré troca o elemento aplicado, mas não abre outra árvore). Domínio do elemento: tempo de combate válido usando técnicas do elemento (mesma taxa do domínio de arma).
+Cada personagem acessa **até 3 árvores de elemento** (1ª na criação, 2ª no nível 30, 3ª no nível 60) e pode **misturá-las**: ver `07-mistura-elementos.md` (potência pelo peso em PH e 45 reações elementais). A Arte Maré troca o elemento aplicado, mas não abre outra árvore. Domínio do elemento: tempo de combate válido usando técnicas do elemento (mesma taxa do domínio de arma).
 Estrutura de cada árvore (24 nós, 41 PH): **tronco** 01–06 (as 3 conjurações públicas + 3 passivas) · **ramo A** 07–12 · **ramo B** 13–18 (2 técnicas, 2 passivas, 1 transformação, 1 chave) · **ramo C** 19–24 (1 técnica, 3 passivas, 1 transformação, 1 chave). A chave de cada ramo pede o ramo **inteiro** antes dela: A e B = 8 PH (2 técnicas + 2 passivas), C = 7 PH (1 técnica + 3 passivas).
 Pesos de dano: conjuração POT 0,6 / CON 0,4 (núcleo A.1). Todas as técnicas daqui aceitam **Modelagem** (CON) e **Sobrecarga** (POT), salvo indicação. Limites do núcleo D.3 continuam (não acumula entre jogadores, chefes só em ataques compatíveis etc.).
 

@@ -64,3 +64,8 @@ Leitura de tabelas do ChatGPT: find "tabela com colunas ..." → read_page no re
 - [x] Revisão 2: Grok APROVADO; ChatGPT pediu ajustes locais → aplicados (commit baf173f)
 - [x] Revisão 3: ChatGPT APROVADO → **loop 3 fechado, as duas IAs aprovaram a árvore**
 - [ ] Perguntas finais ao Lucas (último do loop)
+
+## Loop 3 — parte do Lucas (último do loop), 2026-11-17
+- 8 técnicas: OK · Artes escondidas, 1 por vez: OK · próximo passo: ele vai **ler tudo primeiro**.
+- MUDANÇA: **até 3 elementos** por personagem, com mistura que muda conforme os PH em cada um → `docs/09-arvore/07-mistura-elementos.md` (potência por peso, 15 misturas × 3 formas = 45 reações, Ressonância tríplice). Check: TUDO OK.
+- [ ] Revisão da mistura pelo ChatGPT e Grok

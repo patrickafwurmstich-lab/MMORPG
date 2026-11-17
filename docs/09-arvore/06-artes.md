@@ -45,7 +45,7 @@ Artes são **escondidas**: não aparecem na árvore, não custam PH e são desco
 - **Ativação:** passiva enquanto preparada; dispara ao correr 2 s seguidos · **recarga interna** 10 s.
 - **Efeito:** ao parar de correr, uma imagem continua 3 m na direção da corrida e explode (K0,60, I10) — atrai o 1º ataque de comuns a 3 m.
 - **Preço:** ocupa uma técnica sem ser ativa; correr para disparar gasta resistência. **Chefe/PvP:** chefe ignora a isca; PvP a imagem não tem nome nem barra (dá para perceber).
-- **Alternativas:** Rastro longo (6 m) · Rastro de fumaça (sem dano, nuvem 2 s) · Rastro elemental (a explosão vira K0,30 do seu elemento, sem aplicar o efeito do elemento) · Rastro de guarda (a imagem bloqueia 1 projétil).
+- **Alternativas:** Rastro longo (6 m) · Rastro de fumaça (sem dano, nuvem 2 s) · Rastro elemental (a explosão vira K0,30 do seu elemento principal, sem aplicar o efeito do elemento) · Rastro de guarda (a imagem bloqueia 1 projétil).
 - **Rotas:** Mobilidade + Esquiva · DES +20 / VIG +10 · insetos, sombras. Desafios: atravessar o labirinto técnico sem ser atingido por armadilha · escapar de 3 perseguições de elite sem combate · completar a Expedição logística de um andar.
 
 ### 4. Memória da lâmina
@@ -182,7 +182,7 @@ Artes são **escondidas**: não aparecem na árvore, não custam PH e são desco
 - **Efeito:** troca o elemento das suas ações ofensivas para o elemento oposto (Fogo↔Gelo, Raio↔Terra, Vento↔Água).
 - **Preço:** regeneração de energia −25% durante. Não muda Utilidade, árvore, afinidade nem equipamento (Água temporária não move reserva; Terra temporária não cria pilar).
 - **Alternativas:** 3 s por 15 de Ímpeto · troca na esquiva perfeita · mantém os 2 elementos por 2 s ao trocar · dá o elemento oposto a aliados por 4 s (você fica neutro).
-- **Rotas:** Magia (imbuir) + Agressão · POT +20 / CON +10 · elementais. Desafios: derrotar um elemental de cada elemento · vencer um andar com bioma oposto ao seu elemento · aplicar 2 elementos diferentes em 5 s numa âncora 3 vezes.
+- **Rotas:** Magia (imbuir) + Agressão · POT +20 / CON +10 · elementais. Desafios: derrotar um elemental de cada elemento · vencer um andar com bioma oposto ao seu elemento principal · aplicar 2 elementos diferentes em 5 s numa âncora 3 vezes.
 
 ### 22. Lente Partida
 - **Ativação:** muda uma conjuração de área preparada · **custo** +10E · **recarga** 12 s · preparo +0,2 s.
