@@ -1,0 +1,7 @@
+# Loop 3 — revisão 4 (mistura) — ChatGPT: NÃO APROVADO ("não é preciso acrescentar conteúdo")
+B1 gatilho depende de estados que Terra/Água/Vento/Raio não deixam → "contato elemental" de 4 s por técnica original, consumido na reação.
+B2 explosões multiplicam em área (6 alvos × K0,80) → 1 reação por ação original; recarga ofensiva 6 s por jogador compartilhada + 6 s por alvo; apoio 12 s; mista consome as duas; alvo = travado ou mais perto da mira.
+I1 fórmula não cobra divisão → q = 0,70 + 0,30·PH_i/ΣPH (20/20 = 85%) · I2 matriz do que q multiplica · I3 orçamento da reação (neutra, não herda Sobrecarga/Modelagem/Abertura/Ímpeto) · I4 Maré sem exceção de tronco; Fusão não dispara reação · I5 ordem da Ressonância (autorização para ação posterior) · I6 formas vazias contra chefe (Arco ígneo, Clarão, Enxurrada), Lento −30%, Avalanche 1,2 s, Olho da tempestade ×1,10 · I7 limiar troca função com 1 PH → PH habilitam formas e o jogador prepara 1 por mistura.
+Opcionais: exemplo Fogo 9 (tronco = 9 PH); limpeza "exceto Ferido"; postura/cura por reserva como exceção a "não gera recurso"; poças/saltos = componentes da mesma reação.
+Cumpre o pedido do dono no acesso e na diferença qualitativa.
+=> Juntado com o Grok: q = 0,60 + 0,40·PH_i/ΣPH (meio-termo: 20/20 = 80%); formas habilitadas com 0,70/0,30 (limiar do Grok) e escolhidas (modelo do ChatGPT); controle 10 s (Grok); Ressonância sem dispensar recarga, 25 s.
