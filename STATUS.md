@@ -23,13 +23,15 @@ Combate de ação parecido com Toram, mas profundo. Cada jogador pode ser protag
 
 ## Etapas
 - [x] 00 Pesquisa de reclamações → `docs/00-pesquisa-reclamacoes.md`
-- [~] Fase 1 (planejamento): briefing `loop/fase1-briefing.txt` enviado às 3 IAs logadas (17/11 10:40).
-      Respostas → `loop/fase1-chatgpt.md`, `loop/fase1-grok.md`, `loop/fase1-gemini.md`
-      (`loop/rodada1-gemini.md` = teste antigo com Gemini deslogado/Flash Lite, só referência)
-- [ ] Rodada 2: crítica cruzada → `loop/rodada2-*.md`
-- [ ] Documento de sistemas consolidado → `docs/01-...`
-- [ ] Simulação das fórmulas → `sim/`
-- [ ] Rodadas extras por sistema (combate, habilidades, economia...)
+- [x] Fase 1 (planejamento): `loop/fase1-*.md` (`loop/rodada1-gemini.md` = teste antigo deslogado, só referência)
+- [x] Decisões do Lucas: Artes Únicas "fortes mas diferentes"; respec grátis até andar 5, depois custa
+- [x] v1 → `docs/01-sistemas-v1.md` + `sim/check_v1.py`
+- [x] Revisão rodada 1: ChatGPT NÃO, Grok NÃO, Gemini "aprovado com ressalvas" → `loop/revisao1-*.md`
+      (ChatGPT achou erro na simulação econômica do Claude — corrigido no v2)
+- [x] v2 → `docs/02-sistemas-v2.md` + `sim/check_v2.py` (tabela do que mudou no topo)
+- [ ] Revisão rodada 2 → `loop/revisao2-*.md`  ← PRÓXIMO
+- [ ] Repetir até as 3 aprovarem
+- [ ] Depois: aprofundar sistema por sistema (lista de armas e técnicas, 12 famílias, catálogo de Artes, chefes dos andares 1–3, receitas)
 
 ## Próximo passo
-Coletar as respostas da rodada 1.
+Mandar o v2 para revisão rodada 2 (mesmas abas do Chrome: Grok, ChatGPT, Gemini), pedir também ao ChatGPT os itens depois do I7 que a leitura cortou.
