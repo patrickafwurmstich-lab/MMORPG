@@ -52,12 +52,18 @@ ok("2 vivos por 10 s = falência; 3 vivos não", ala_em_falencia(2, 10) and not 
 def proxima_tentativa(alas_completas, intervencoes): return intervencoes - (1 if alas_completas >= 2 else 0)
 ok("≥ 2 alas completas → próxima tentativa com 1 intervenção a menos", proxima_tentativa(2, 4) == 3 and proxima_tentativa(1, 4) == 4)
 
-print("\n== Z domínio: tempo válido ==")
-def unidades(segundos, encontro_valido):
-    if not encontro_valido or segundos < 15: return 0
-    return min(15, segundos // 20)
-ok("encontro de 10 s não conta; inimigo sem ameaça não conta", unidades(10, True) == 0 and unidades(300, False) == 0)
-ok("chefe de 10 min = 15 unidades (teto)", unidades(600, True) == 15)
+print("\n== Z domínio: segundos acumulados entre encontros (v8.1) ==")
+def unidades(encontros):
+    acumulado, total = 0.0, 0
+    for seg, valido in encontros:
+        if not valido: continue
+        acumulado += min(seg, 300)            # teto: 15 unidades (300 s) por encontro
+        total += int(acumulado // 20); acumulado %= 20
+    return total
+ok("seis feras de 10 s = 3 unidades (matar rápido não atrasa)", unidades([(10, True)] * 6) == 3)
+ok("inimigo sem ameaça não conta", unidades([(300, False)]) == 0)
+ok("chefe de 10 min = 15 unidades (teto por tentativa)", unidades([(600, True)]) == 15)
+ok("60 insetos de 2,6 s = 7 unidades", unidades([(2.6, True)] * 60) == 7)
 
 print("\n== Textos coerentes ==")
 ok("tempo-alvo do chefe de 6 é 6–10 min em todo o documento", "8–12 min" not in N3)

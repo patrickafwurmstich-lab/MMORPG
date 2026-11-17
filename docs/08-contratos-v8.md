@@ -3,6 +3,18 @@
 > **Parte 3 de 3.** A parte 1 (`08-nucleo-v8.md`) tem as fórmulas; a parte 2 (`08-jogo-v8.md`) tem o jogo concreto. Esta parte fecha **como os sistemas se encontram**: precedência, encontro e reset, tempo de combate, chefe e andar-piloto completos, Fronteira completa, controle no PvP, sincronia, cadeia produtiva com três contabilidades, catálogos (modificadores, Encaixes, acessórios, receitas, avançadas, assinaturas) e Nova Era.
 > Foi escrita para responder à revisão 1 do loop 2 (ChatGPT: 11 bloqueadores; Grok: 4 bloqueadores + exploits). Números de protótipo; os que o `sim/check_v8.py` confere estão marcados com ✔.
 
+## Ajustes do v8.1 (revisão 4 do ChatGPT — aprovado, correções locais)
+| Item | Onde |
+|---|---|
+| I1 domínio acumula segundos entre encontros (matar rápido não atrasa) | parte 2, Z |
+| I2 sucesso parcial: cadeia de 30 min, sem acúmulo, 3 trocas, recompensa 1 vez, equivalentes por tipo | BA |
+| I3 ala em falência: episódio, alívio 1 vez, saída com 3 em pé, reforço fica no grupo de origem, espera 60 s por ciclo | BA |
+| I4 ajuste: primeiro mecânica, depois vida | AY (alinhado com AI.6) |
+| I5 Perseguição: falha repete a sala | AZ.4 |
+| I6 logout volta na posição persistida | AL.2 |
+| I7 custódia com prazo visível e 1 transferência | AU |
+| AL.6 com estado de cada exploit | AL.6 |
+
 ## O que mudou do v7 para o v8 (parte 3)
 | Revisão 3 | Onde |
 |---|---|
@@ -173,7 +185,7 @@ Ao entrar numa área de **andar f** (nível-teto(f) = mín(100; f + 5), camada c
 Nada some por falta de capacidade: sem capacidade, a operação simplesmente não acontece (ou é parcial, para dono e grupo).
 - **Proteção do dono:** 15 s, **uma vez por Túmulo**; termina ao recolher, extrair ou fazer ação hostil. Aproximar e afastar não renova.
 - **Retorno protegido:** morrer de novo em até 60 s na entrada, antes de atacar ou coletar, não gera nova perda.
-- **Desconectar na Fronteira:** o personagem fica **30 s no mundo** depois do logout (vulnerável, como qualquer um); se morrer nesse tempo, as regras acima valem (o quente cai inteiro). Se sair inteiro, volta na **entrada** da Fronteira ao logar, com o material e as marcas (origem e quente, com o tempo do quente pausado).
+- **Desconectar na Fronteira:** o personagem fica **30 s no mundo** depois do logout (vulnerável, como qualquer um); se morrer nesse tempo, as regras acima valem (o quente cai inteiro). Se sair inteiro, ao logar você **volta na mesma posição** (persistida e validada pelo servidor), com o material e as marcas (origem e quente, com o tempo do quente pausado). Só se a posição for inválida (dentro de parede, área fechada) o servidor escolhe o **ponto válido mais próximo** — nunca um portão nem a entrada (logout não é viagem).
 - **Saque "quente":** além da marca de origem, o que foi saqueado fica **quente por 10 min**: não vai ao banco, ao mercado, a outro jogador nem a Túmulo de outra pessoa. Se o saqueador **morre** com material quente, o quente **cai inteiro** no Túmulo dele (não divide 50/50 — quem rouba arrisca tudo) e segue as regras acima; nunca fica preservado por omissão.
 - **Rentabilidade do saque é hipótese a medir, não garantia:** sem Infâmia o saqueador recebe 0,5 × 0,5 = **25%** da carga da vítima; contra uma vítima com 40 min de coleta isso vale ~10 min de coleta. Caçar na Fronteira é um perfil assumido; o protótipo mede se ele rende mais que coletar e ajusta (destruição do saque, pureza, peso ×1,5).
 
@@ -201,30 +213,32 @@ Nada some por falta de capacidade: sem capacidade, a operação simplesmente nã
 - Benefício: +**15%** de velocidade de coleta para a guilda ao redor do Posto e estandarte; **não fecha nós** (todos coletam), não gera ouro, não dá poder.
 - **No máx. 1 Posto por guilda por Fronteira**; alianças não somam Postos.
 
-### AL.6 Exploits fechados (Grok + ChatGPT)
-| Exploit | Fechado por |
+### AL.6 Exploits (Grok + ChatGPT) — com o estado de cada um
+Estado: **encerrado por regra** (a regra impede) · **mitigado** (fica mais caro, ainda possível) · **depende de validação** (só o protótipo diz). Camping, rentabilidade de caçar e controle de portões ficam nas duas últimas categorias.
+| Exploit | Tratamento |
 |---|---|
-| Camping de Túmulo | renascer na entrada, 15 s de proteção, retorno protegido, 1 saque/8 min |
-| Seguro universal (Selo) | Selo não funciona na Fronteira; cobertura limitada fora dela |
-| Personagem "caminhão" | capacidade máxima = confortável + 20; pureza ≥ 85 pesa ×1,5; não larga material em combate; capacidade recalculada antes de entrar |
-| Entrega por Túmulo | só o grupo **do momento da derrota** recolhe; capacidade de quem recolhe; saque destrói 50% |
-| Bandido sem patrimônio | Infâmia bloqueia contratos e Postos; sem banco |
-| Lavagem por cúmplice ou por transformação | saque "quente" 10 min + marca de origem que passa por toda transformação e não expira |
-| Indução de Infâmia | agressor inicial + tempo do combate com monstro |
-| Morte pelo último golpe | registro de 30 s define derrota PvP |
-| Duelo como proteção de XP | dano consensual fora da atribuição |
-| Proteção de Túmulo renovável | 1 vez por Túmulo |
-| Empurrões curtos em cadeia | todo deslocamento forçado entra na categoria de controle (AT) |
-| Compressão de carga por receitas | saída pesa ≥ entrada; marca de origem pelo peso de origem |
-| Infâmia alternando personagens | Infâmia por conta |
-| Lotação do canal do Posto | contestação em instância própria (AL.5) |
-| Controle dos 3 portões (contramedida, medir) | portão móvel, agressor sem portão por 60 s, defensor extrai após 10 s sem ação hostil, interrupção só por dano ≥ 5%/controle, −30% de dano perto do portão |
-| Duelo iniciado durante PvP | duelo não pode começar com hostilidade nos últimos 30 s; dano de terceiro hostil cancela o duelo na hora (as regras normais voltam) |
-| Reconhecimento com proteção de entrada | sem coletar/interagir; reentrada em < 5 min não renova |
-| Troca de canal | 5 min; recursos por conta |
-| Contas em todos os canais | Postos globais, 1 por guilda |
-| Ferida + Selo | Selo não ativa com 2+ Feridas; recarga 30 min |
-| IP como critério | só sinal para investigação |
+| Camping de Túmulo | renascer na entrada, 15 s de proteção, retorno protegido, 1 saque/8 min (**mitigado**) |
+| Seguro universal (Selo) | Selo não funciona na Fronteira; cobertura limitada fora dela (**encerrado por regra**) |
+| Personagem "caminhão" | capacidade máxima = confortável + 20; pureza ≥ 85 pesa ×1,5; não larga material em combate; capacidade recalculada antes de entrar (**mitigado**) |
+| Entrega por Túmulo | só o grupo **do momento da derrota** recolhe; capacidade de quem recolhe; saque destrói 50% (**encerrado por regra**) |
+| Bandido sem patrimônio | Infâmia bloqueia contratos e Postos; sem banco (**mitigado**) |
+| Lavagem por cúmplice ou por transformação | saque "quente" 10 min + marca de origem que passa por toda transformação e não expira (**encerrado por regra**) |
+| Indução de Infâmia | agressor inicial + tempo do combate com monstro (**encerrado por regra**) |
+| Morte pelo último golpe | registro de 30 s define derrota PvP (**encerrado por regra**) |
+| Duelo como proteção de XP | dano consensual fora da atribuição (**encerrado por regra**) |
+| Proteção de Túmulo renovável | 1 vez por Túmulo (**encerrado por regra**) |
+| Empurrões curtos em cadeia | todo deslocamento forçado entra na categoria de controle (AT) (**encerrado por regra**) |
+| Compressão de carga por receitas | saída pesa ≥ entrada; marca de origem pelo peso de origem (**encerrado por regra**) |
+| Infâmia alternando personagens | Infâmia por conta (**encerrado por regra**) |
+| Lotação do canal do Posto | contestação em instância própria (AL.5) (**encerrado por regra**) |
+| Controle dos 3 portões (contramedida, medir) | portão móvel, agressor sem portão por 60 s, defensor extrai após 10 s sem ação hostil, interrupção só por dano ≥ 5%/controle, −30% de dano perto do portão (**depende de validação**) |
+| Duelo iniciado durante PvP | duelo não pode começar com hostilidade nos últimos 30 s; dano de terceiro hostil cancela o duelo na hora (as regras normais voltam) (**encerrado por regra**) |
+| Reconhecimento com proteção de entrada | sem coletar/interagir; reentrada em < 5 min não renova (**encerrado por regra**) |
+| Troca de canal | 5 min; recursos por conta (**encerrado por regra**) |
+| Contas em todos os canais | Postos globais, 1 por guilda (**mitigado**) |
+| Ferida + Selo | Selo não ativa com 2+ Feridas; recarga 30 min (**encerrado por regra**) |
+| IP como critério | só sinal para investigação (**encerrado por regra**) |
+| Caçar na Fronteira render mais que coletar | 25% líquido por saque, 1 saque/8 min, peso ×1,5; a rentabilidade é medida no protótipo (**depende de validação**) |
 
 ---
 
@@ -400,7 +414,7 @@ Passo Fantasma — 2: atravessa projéteis · 3: deixa rastro Lento · 4: ativa 
 
 ## AU. Nova Era (transição)
 1. Vencer o andar 100 **habilita** a Nova Era; a transição acontece **7 dias depois** (aviso global), e a Era precisa ter durado **no mínimo 12 semanas** (se não, espera completar).
-2. **Migração (manutenção de 2 h):** **todo** personagem é validado — online, offline, em instância, em qualquer andar: quem está num lugar que não existe/está fechado na nova Era vai para a **cidade do andar aberto mais alto** (no começo, a do andar 1), sem perda; instâncias em andamento são encerradas com recompensa de participação parcial; Túmulos **de PvE** são devolvidos ao dono; Túmulos e cargas **com marca de origem ou quente** vão para **custódia** na entrada da Fronteira da camada na nova Era, com as marcas preservadas — o dono só libera entrando e **extraindo** por um portão (a manutenção nunca é uma extração gratuita); personagens offline são processados ao logar; **progresso pessoal histórico** fica registrado; na nova Era, o acesso pessoal (Y.2) recomeça pela regra normal, mas **Ventos de retorno** valem para andares que você já venceu na Era anterior (+50% XP, 1 tentativa de Assalto a mais por semana).
+2. **Migração (manutenção de 2 h):** **todo** personagem é validado — online, offline, em instância, em qualquer andar: quem está num lugar que não existe/está fechado na nova Era vai para a **cidade do andar aberto mais alto** (no começo, a do andar 1), sem perda; instâncias em andamento são encerradas com recompensa de participação parcial; Túmulos **de PvE** são devolvidos ao dono; Túmulos e cargas **com marca de origem ou quente** vão para **custódia** na entrada da Fronteira da camada na nova Era, com as marcas preservadas — o dono só libera entrando e **extraindo** por um portão (a manutenção nunca é uma extração gratuita). A interface mostra **onde está a custódia, a condição de liberação e quando a Fronteira daquela camada reabre**; enquanto a Fronteira original estiver fechada, a custódia pode ser **transferida uma vez** para a Fronteira da camada aberta mais alta (mesmas marcas; precisa extrair lá); personagens offline são processados ao logar; **progresso pessoal histórico** fica registrado; na nova Era, o acesso pessoal (Y.2) recomeça pela regra normal, mas **Ventos de retorno** valem para andares que você já venceu na Era anterior (+50% XP, 1 tentativa de Assalto a mais por semana).
 3. Materiais e equipamentos continuam; estações e cidades acima do andar aberto ficam inacessíveis até reabrir.
 4. **Singulares** seguem o calendário próprio (núcleo C.4).
 5. Recompensas únicas de abertura têm identificador **por Era e por conta** (não repetem infinitamente).
@@ -486,7 +500,7 @@ Formato dos ataques: dano / aviso / impacto / frequência — resposta.
 ### AZ.4 Perseguição (andar 6)
 - Vida 90.000 · Postura 1.000. Começa no centro do labirinto; a cada **30% de vida perdida** ele foge para uma das 3 salas-esconderijo, numa **permutação sem repetição** (as 3 salas, cada uma uma vez, ordem sorteada na tentativa). **Trava por limiar:** ele não perde vida abaixo do próximo limiar (70% / 40% / 10%) enquanto não for encurralado na sala atual.
 - Encurralar: o grupo fecha as **2 saídas** da sala (alavanca de 3 s cada, ou pilar de Terra na porta, ou 2 jogadores parados na porta) → encurralado 10 s (abertura, +30% de dano).
-- Se não for encurralado em 45 s, ele **recupera 5%** e foge de novo.
+- Se não for encurralado em 45 s, ele **recupera 5%** e foge de novo **para a mesma sala da permutação** (a perseguição daquela sala recomeça); só um encurralamento concluído avança para a próxima sala.
 - Ataques: Rasteira em corrida 300 / 1,0 s / 40 / 10 s · Bomba de fumaça (some 3 s, reaparece atrás de quem mais causou dano) — / 1,2 s / — / 20 s · Armadilhas deixadas na fuga (Preso 2 s).
 - Vitória: vida zerada; pela trava, só é possível depois de encurralado nas **3 salas** (cada uma uma vez).
 
@@ -516,8 +530,8 @@ Formato dos ataques: dano / aviso / impacto / frequência — resposta.
 - Reanimação: além do teto do Assalto, **teto por ala = 6** (uma ala não gasta as de todos).
 - Chamado de Resgate: 1 por tentativa por jogador e no máx. **2 usos por ala em qualquer janela móvel de 60 s** (sem cascata); os tetos (jogador, ala, Assalto) são conferidos **antes** de consumir o item — se algum teto bloqueia, o item não é gasto.
 - **Ala sem líder** (saiu, caiu por > 30 s ou desconectou): o **Conselho herda** os marcadores da ala até alguém aceitar.
-- **Ala em falência:** se uma ala fica com **≤ 2 jogadores em pé por 10 s**, o objetivo dela **congela** (não regride nem avança), o chefe **não usa ataques locais** naquela ala por **20 s** e o painel avisa todas as alas; o Conselho pode mandar jogadores de outra ala (a leitura da ala que recebe não muda). A janela simultânea de 10 s espera a ala em falência se recompor (até 60 s; depois disso, a ala conta como "não fechou").
-- **Sucesso parcial:** se a tentativa falha mas **≥ 2 alas** completaram seus objetivos, a próxima tentativa (até 30 min depois, mesma composição ± 3 trocas entre tentativas) começa com as âncoras/partes/Núcleos daquelas alas **com 1 intervenção a menos**, e todos recebem recompensa de participação reduzida (material, sem marca de abertura).
+- **Ala em falência:** se uma ala fica com **≤ 2 jogadores em pé por 10 s**, começa um **episódio de falência**: o objetivo dela **congela** (não regride nem avança), o chefe **não usa ataques locais** naquela ala por **20 s** (o alívio dispara **1 vez por episódio**) e o painel avisa todas as alas. A ala **sai** da falência ao manter **3 jogadores em pé por 10 s**; um novo alívio só pode acontecer **60 s** depois do anterior. Reforços de outra ala ajudam fisicamente, mas **continuam no grupo de origem** (tetos de reanimação e leitura não mudam). A janela simultânea de 10 s espera a ala em falência **no máx. 60 s por ciclo** (oscilar de estado não renova a espera); depois, a ala conta como "não fechou".
+- **Sucesso parcial:** se a tentativa falha mas **≥ 2 alas** completaram seus objetivos, abre-se uma **cadeia de tentativas** de **30 min contados da primeira concessão** (não renova). Nela, cada objetivo daquelas alas começa com **1 intervenção a menos em relação à ficha-base** (máximo 1, **sem acúmulo** em novas derrotas). Vale para a composição original beneficiada com até **3 trocas no total** na cadeia. Recompensa reduzida (material, sem marca de abertura) **1 vez por objetivo creditado** na cadeia. Equivalentes por tipo: Âncoras −1 intervenção; Partes: a parte começa com 30% do dano necessário; Cerco: o Núcleo começa com +10% de vida; Arena, Duplo e Perseguição: **só a recompensa reduzida** (sem vantagem na próxima tentativa).
 
 ## BB. Andar-piloto 2 — andar 5 (campo aberto + partes)
 | Parte | Conteúdo |
@@ -589,4 +603,4 @@ Liberadas nos marcos 90 e 100 (e a 6ª pelo **Desafio de rota**: completar 50 en
 | Catálogos | **quantidade**: 54 modificadores, 50 receitas, 66 avançadas, 15 assinaturas — não a coerência dos efeitos |
 | Domínio | horas até 50 e 100 pela taxa de 20 s |
 **Não prova:** diversão, execução real das técnicas, rede, comportamento de jogadores, economia por agentes, rentabilidade de caçar na Fronteira, duração total dos chefes com mecânicas, Nova Era em servidor real. Isso é trabalho do protótipo (parte 2, AH).
-**Testes cruzados obrigatórios no protótipo:** derrota × Selo × Infâmia × Túmulo · troca de arma × recargas × efeitos · cadeia de controle 3×3 · reset de tentativa × reconexão × Água · transição de Era com jogadores em todos os andares · **duração total dos 6 chefes** (se as mecânicas passarem de 40% do tempo, reduzir a vida — Grok).
+**Testes cruzados obrigatórios no protótipo:** derrota × Selo × Infâmia × Túmulo · troca de arma × recargas × efeitos · cadeia de controle 3×3 · reset de tentativa × reconexão × Água · transição de Era com jogadores em todos os andares · **duração total dos 6 chefes** pela regra de AI.6: se a parcela de mecânica passar de 40%, **primeiro** reduzir o trabalho mecânico ou a espera obrigatória (e atualizar vitória e limiares que dependiam da etapa removida); **depois** ajustar a vida para a duração total (reduzir só a vida **aumenta** a parcela de mecânica).
