@@ -50,7 +50,7 @@ Ramos: **A. Fluxo e direções** (combo em direções diferentes) · **B. Agarr�
 | 27 | Pele de pedra | Passiva | 23 · dom. 30 | Contra-golpe reduz o dano recebido para 40% (era 50%); a recarga sobe para 10 s |
 | 28 | Respiração interna | Passiva | 24 · dom. 40 | durante Corpo de ferro, Firmar (VIG) não custa resistência; ao fim, a dívida de postura +20% |
 | 29 | Palma em cadeia | Transformação | 03 · dom. 40 | Palma elemental salta para 1 alvo extra a 3 m com 60% do dano; não empurra |
-| 30 | Punho do espelho | Nó-chave | dom. 60; 8 PH no ramo; 2 técnicas + 2 passivas | Contra-golpe vira parry de janela comum: sucesso devolve o golpe com +10 de impacto e 0% de dano recebido; falha = você leva 100% e 0,35 s de recuperação |
+| 30 | Punho do espelho | Nó-chave | dom. 60; 8 PH no ramo; 2 técnicas + 2 passivas | Contra-golpe vira parry (janela **técnica** de parry do núcleo, teto 240 ms; com PER ≥ +15 usa a recarga da sua Leitura; sem PER, recarga interna +50%): sucesso devolve o golpe com +10 de impacto e 0% de dano recebido; falha = você leva 100% e 0,35 s de recuperação |
 
 ---
 

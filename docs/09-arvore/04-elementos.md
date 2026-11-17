@@ -1,6 +1,6 @@
 # Árvore de habilidades — 04. Elementos (Fogo, Gelo, Raio, Terra, Vento, Água)
 Cada personagem acessa **só a árvore do seu elemento** (a Arte Maré troca o elemento aplicado, mas não abre outra árvore). Domínio do elemento: tempo de combate válido usando técnicas do elemento (mesma taxa do domínio de arma).
-Estrutura de cada árvore (24 nós, 41 PH): **tronco** 01–06 (as 3 conjurações públicas + 3 passivas) · **ramo A** 07–12 · **ramo B** 13–18 (2 técnicas, 2 passivas, 1 transformação, 1 chave) · **ramo C** 19–24 (1 técnica, 3 passivas, 1 transformação, 1 chave).
+Estrutura de cada árvore (24 nós, 41 PH): **tronco** 01–06 (as 3 conjurações públicas + 3 passivas) · **ramo A** 07–12 · **ramo B** 13–18 (2 técnicas, 2 passivas, 1 transformação, 1 chave) · **ramo C** 19–24 (1 técnica, 3 passivas, 1 transformação, 1 chave). A chave de cada ramo pede o ramo **inteiro** antes dela: A e B = 8 PH (2 técnicas + 2 passivas), C = 7 PH (1 técnica + 3 passivas).
 Pesos de dano: conjuração POT 0,6 / CON 0,4 (núcleo A.1). Todas as técnicas daqui aceitam **Modelagem** (CON) e **Sobrecarga** (POT), salvo indicação. Limites do núcleo D.3 continuam (não acumula entre jogadores, chefes só em ataques compatíveis etc.).
 
 ---
@@ -46,7 +46,7 @@ Ramos: **A. Pressão e abrasão** · **B. Zonas de perigo** · **C. Explosão co
 | 21 | Calor do núcleo | Passiva | 19 · dom. 40 | Projétil e Área de fogo dão 1 carga de Sobrecarga extra se acertarem 3+ alvos (respeita o máx. 3 e os 2 s); com 1 alvo, nada |
 | 22 | Combustão | Passiva | 01 · dom. 30 | acertar Projétil de fogo em alvo Queimando consome o Queimando e causa o dano restante na hora; em troca, o alvo deixa de queimar e a Combustão não reaplica Queimando por 6 s |
 | 23 | Supernova dirigida | Transformação | 19 · dom. 60 | a Supernova sai em cone de 90° a 6 m na sua frente, K2,40 → 2,10 |
-| 24 | Sol interior | Nó-chave | dom. 60; 8 PH no ramo; 2 técnicas + 2 passivas | com 3 cargas de Sobrecarga, sua próxima técnica de Fogo ignora 15% da armadura (soma com Punir até o teto de 35%); depois, a energia não regenera por 3 s |
+| 24 | Sol interior | Nó-chave | dom. 60; 7 PH no ramo; 1 técnica + 3 passivas | com 3 cargas de Sobrecarga, sua próxima técnica de Fogo ignora 15% da armadura (**não soma** com Punir nem com outra penetração temporária: vale a maior; teto 35%); depois, a energia não regenera por 3 s |
 
 ---
 
@@ -91,7 +91,7 @@ Ramos: **A. Alteração de cadência** · **B. Terreno** · **C. Fratura em jane
 | 21 | Frieza calculada | Passiva | 01 · dom. 30 | a cada 3 projéteis de gelo no mesmo alvo, o 4º ganha +10 de impacto; em troca, trocar de alvo zera a contagem e o 4º projétil custa +5E |
 | 22 | Fratura em cadeia | Passiva | 19 · dom. 40 | Estilhaço que quebra o gelo espalha o efeito do Gelo para 1 inimigo a 3 m; o Estilhaço custa 35E |
 | 23 | Estilhaço em leque | Transformação | 19 · dom. 60 | o Estilhaço vira cone de 60° a 5 m, K1,40 (quebra o gelo de todos) |
-| 24 | Zero absoluto | Nó-chave | dom. 60; 8 PH no ramo; 2 técnicas + 2 passivas | quebrar o gelo de um alvo com Estilhaço durante a janela de abertura de um chefe dá +3 s de abertura (1 vez por abertura); fora disso, Estilhaço rec. 14 → 18 s |
+| 24 | Zero absoluto | Nó-chave | dom. 60; 7 PH no ramo; 1 técnica + 3 passivas | quebrar o gelo de um alvo com Estilhaço durante a janela de abertura de um chefe dá +25% de dano a esse Estilhaço e +15 de impacto (não estende a janela); fora disso, Estilhaço rec. 14 → 18 s |
 
 ---
 
@@ -136,7 +136,7 @@ Ramos: **A. Interrupção** · **B. Saltos entre alvos** · **C. Descarga concen
 | 21 | Céu carregado | Passiva | 19 · dom. 40 | durante bioma de tempestade, o Martelo custa 25E; fora dele, 45E |
 | 22 | Alvo sem guarda | Passiva | 01 · dom. 30 | o bônus +25% de impacto do Raio vale também contra alvo atordoado; contra alvo em guarda, seus golpes de raio −5% |
 | 23 | Martelo em linha | Transformação | 19 · dom. 60 | o Martelo vira 3 raios em linha (2 m cada, 1 s entre eles), K1,00 cada |
-| 24 | Fúria dos céus | Nó-chave | dom. 60; 8 PH no ramo; 2 técnicas + 2 passivas | o Martelo do trovão ganha 1 carga extra de Sobrecarga se consumir 3 (efeito de 4 cargas, teto do núcleo respeitado: ×1,56 com POT +40); depois, Martelo rec. 22 → 30 s |
+| 24 | Fúria dos céus | Nó-chave | dom. 60; 7 PH no ramo; 1 técnica + 3 passivas | o Martelo do trovão ganha 1 carga extra de Sobrecarga se consumir 3 (efeito de 4 cargas, teto do núcleo respeitado: ×1,56 com POT +40); depois, Martelo rec. 22 → 30 s |
 
 ---
 
@@ -181,7 +181,7 @@ Ramos: **A. Postura** · **B. Obstáculos válidos** · **C. Impacto comprometid
 | 21 | Rocha imbuída | Passiva | 01 · dom. 30 | canalizar Terra na arma (imbuir) dá +6 de impacto por golpe; o custo de imbuir +4E |
 | 22 | Falha geológica | Passiva | 19 · dom. 40 | o Terremoto arcano deixa o chão quebrado por 4 s (inimigos −20% de movimento); você também |
 | 23 | Terremoto focado | Transformação | 19 · dom. 60 | Terremoto arcano num círculo de 2 m, I50 → 70 |
-| 24 | Punho do mundo | Nó-chave | dom. 60; 8 PH no ramo; 2 técnicas + 2 passivas | Sobrecarga em técnicas de Terra pode virar impacto (+10 por carga) em vez de dano (escolha na preparação, por técnica); técnicas com essa escolha −10% de dano mesmo sem carga |
+| 24 | Punho do mundo | Nó-chave | dom. 60; 7 PH no ramo; 1 técnica + 3 passivas | Sobrecarga em técnicas de Terra pode virar impacto (+10 por carga) em vez de dano (escolha na preparação, por técnica); técnicas com essa escolha −10% de dano mesmo sem carga |
 
 ---
 
@@ -227,7 +227,7 @@ Regra da árvore: Vento **não** pode ter ao mesmo tempo o melhor deslocamento, 
 | 21 | Rajada cortante | Passiva | 03 · dom. 30 | a Rajada causa K0,50 e +5 de impacto; empurra 3 m (era 5 m) |
 | 22 | Pressão do ar | Passiva | 19 · dom. 40 | inimigos puxados pelo Tornado perdem 10 de postura ao chegar ao centro; o Tornado custa 45E |
 | 23 | Tornado parado | Transformação | 19 · dom. 60 | o Tornado fica parado no ponto escolhido por 5 s com raio 3 m |
-| 24 | Olho da tempestade | Nó-chave | dom. 60; 8 PH no ramo; 2 técnicas + 2 passivas | enquanto um Tornado seu existe, o +10 Ímpeto do Vento vale 1×/0,6 s para você; depois que ele some, nenhum Ímpeto de Vento por 3 s |
+| 24 | Olho da tempestade | Nó-chave | dom. 60; 7 PH no ramo; 1 técnica + 3 passivas | enquanto um Tornado seu existe, o +10 Ímpeto do Vento vale 1×/0,6 s para você; depois que ele some, nenhum Ímpeto de Vento por 3 s |
 
 ---
 
@@ -253,7 +253,7 @@ Regra da árvore: Água precisa ter dano viável — o ramo C tem dano comparáv
 | 09 | Gota a gota | Passiva | 07 · dom. 20 | a Bolha move até 260·s; custo 25 → 30E |
 | 10 | Correnteza | Passiva | 08 · dom. 40 | aliados dentro da Fonte também recuperam postura como se não fossem atingidos; a Fonte dura 4 s |
 | 11 | Bolha em cadeia | Transformação | 03 · dom. 40 | a Bolha move 120·s de cada um de 3 aliados para o mais ferido |
-| 12 | Senhor das marés | Nó-chave | dom. 60; 8 PH no ramo; 2 técnicas + 2 passivas | 10% de toda reserva que você move não sai de quem doa (conta como sua conservação de reserva, teto 10%); você não ganha Sobrecarga com técnicas de Água de suporte |
+| 12 | Senhor das marés | Nó-chave | dom. 60; 8 PH no ramo; 2 técnicas + 2 passivas | suas transferências de reserva custam −25% de energia e alcançam +4 m; a transferência continua 1:1 (nada é criado nem descontado); você não ganha Sobrecarga com técnicas de Água de suporte |
 
 ### Ramo B — Socorro
 | Nº | Nó | Tipo | Requisito | Efeito |
@@ -273,4 +273,4 @@ Regra da árvore: Água precisa ter dano viável — o ramo C tem dano comparáv
 | 21 | Água limpa | Passiva | 01 · dom. 30 | seus projéteis de água removem Queimando de aliados que atravessarem; custam +3E |
 | 22 | Correnteza forte | Passiva | 19 · dom. 40 | a Lâmina d'água empurra comuns 2 m na direção do disparo; o dano dela −5% |
 | 23 | Jato | Transformação | 19 · dom. 60 | a Lâmina d'água vira jato contínuo de 1,5 s (K0,90 por 0,5 s, 3 vezes); você anda a 30% |
-| 24 | Maremoto | Nó-chave | dom. 60; 8 PH no ramo; 2 técnicas + 2 passivas | a Lâmina d'água ganha Sobrecarga com +0,15 por carga (em vez de 0,08 + 0,12·r(POT) com POT baixo); com POT ≥ +40, vale a fórmula normal; a Lâmina custa 35E |
+| 24 | Maremoto | Nó-chave | dom. 60; 7 PH no ramo; 1 técnica + 3 passivas | a Lâmina d'água ganha Sobrecarga com +0,15 por carga (em vez de 0,08 + 0,12·r(POT) com POT baixo); com POT ≥ +40, vale a fórmula normal; a Lâmina custa 35E |

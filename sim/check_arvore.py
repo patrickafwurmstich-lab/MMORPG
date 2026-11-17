@@ -48,7 +48,15 @@ def confere(arvores, nos, ph, estrutura, rotulo):
         por_n = {x["n"]: x for x in lista}
         for x in lista:
             if x["tipo"] == "Nó-chave":
-                ok(f"{x['n']:02d} chave com requisito de chave", ("dom. 60" in x["req"] and "8 PH" in x["req"]) or ("nível 40" in x["req"] and "6 PH" in x["req"]))
+                ok(f"{x['n']:02d} chave com requisito de chave", ("dom. 60" in x["req"] and re.search(r"[78] PH", x["req"])) or ("nível 40" in x["req"] and "6 PH" in x["req"]))
+                # alcançável: o ramo antes da chave precisa ter PH, técnicas e passivas suficientes
+                ini = max(i for i, f, _ in estrutura if i <= x["n"])
+                antes = [y for y in lista if ini <= y["n"] < x["n"]]
+                mph = re.search(r"(\d+) PH", x["req"]); mt = re.search(r"(\d+) técnicas?", x["req"]); mp = re.search(r"(\d+) passivas?", x["req"])
+                ph_r = sum(PH[y["tipo"]] for y in antes)
+                tec = sum(1 for y in antes if y["tipo"] in ("Técnica", "Reação")); pas = sum(1 for y in antes if y["tipo"] == "Passiva")
+                ok(f"{x['n']:02d} chave alcançável (ramo tem {ph_r} PH, {tec} téc., {pas} pas.)",
+                   (not mph or ph_r >= int(mph.group(1))) and (not mt or tec >= int(mt.group(1))) and (not mp or pas >= int(mp.group(1))))
                 continue
             refs = [int(r) for r in re.findall(r"\b(\d{2})\b(?! s)", x["req"].split("dom.")[0].split("nível")[0])]
             for r in refs:

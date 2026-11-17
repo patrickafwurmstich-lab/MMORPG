@@ -97,7 +97,7 @@ Ramos: **A. Frenesi sustentado** · **B. Execução** · **C. Troca de Frenesi p
 |---|---|---|---|---|
 | 23 | Grito de guerra | Técnica | 03 · dom. 20 | 0 dano · 0,6 s · 10R · rec. 18 s; aliados a 6 m +10% de velocidade 5 s (não soma com o Frenesi do próprio). [Sustentação] |
 | 24 | Redemoinho | Técnica | 23 · dom. 40 | K0,40×6 I25 total · 1,5 s · 25R · rec. 14 s; puxa comuns 2 m. [Ruptura] |
-| 25 | Sangue quente | Técnica | 24 · dom. 60 | 0 dano · 0,5 s · 0R · rec. 30 s; converte o Frenesi atual em vida (5% por nível, gasta a sua reserva de cura). [Sustentação] |
+| 25 | Sangue quente | Técnica | 24 · dom. 60 | 0 dano · 0,5 s · 0R · rec. 30 s; converte o Frenesi atual em vida (5% por nível, gasta a sua reserva de cura); **não pode ser usado durante a Fúria cega nem nos 3 s seguintes**. [Sustentação] |
 | 26 | Grito de alento | Passiva | 23 · dom. 20 | o Grito de guerra também dá +10 de postura aos aliados; seu Frenesi cai 2 níveis ao gritar |
 | 27 | Escudo de fúria | Passiva | 25 · dom. 60 | Sangue quente também dá 2 s de −20% de dano recebido; a recarga sobe para 35 s |
 | 28 | Fôlego de lobo | Passiva | 24 · dom. 40 | cada comum puxado pelo Redemoinho devolve 3R (máx. 9R); o Redemoinho custa +5R |

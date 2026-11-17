@@ -69,7 +69,7 @@ Ramos: **A. Cura** · **B. Resgate e limpeza**.
 | 15 | Antídoto | Passiva | 02 · nível 40 | Expurgo em aliado envenenado também o deixa imune a veneno por 4 s; custo +5E |
 | 16 | Reanimador | Passiva | 13 · nível 40 | aliado que você reanima volta com Ímpeto 20; você fica 3 s sem poder conjurar |
 | 17 | Arrastar longe | Transformação | 13 · nível 40 | Arrastar puxa 7 m, mas leva 1,0 s |
-| 18 | Anjo do campo | Nó-chave | nível 40; 6 PH no ramo; 1 técnica + 2 passivas | 1 vez por tentativa, reanimar um aliado não conta no teto de reanimações do grupo (conta no teto do Assalto); depois disso, Socorrista (06) deixa de funcionar na tentativa |
+| 18 | Anjo do campo | Nó-chave | nível 40; 6 PH no ramo; 1 técnica + 2 passivas | 1 vez por tentativa, reanimar um aliado não conta no teto de reanimações do grupo (no Assalto o nó fica **inativo**); depois disso, Socorrista (06) deixa de funcionar na tentativa |
 
 ---
 

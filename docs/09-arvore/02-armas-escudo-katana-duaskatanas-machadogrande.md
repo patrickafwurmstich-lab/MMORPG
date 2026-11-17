@@ -128,7 +128,7 @@ Ramos: **A. Contra-ataque duplo** · **B. Reposicionamento** · **C. Pressão em
 | 11 | Ritmo de duelo | Passiva | 08 · dom. 40 | 3 parries em 10 s deixam o próximo pesado com +20% de dano, mas esse pesado custa +5R; um golpe recebido zera a contagem |
 | 12 | Olhos atentos | Passiva | 07 · dom. 30 | parries contra ataques de **comuns** recarregam o Espelho 2 s mais rápido; em troca, o Espelho custa +5R |
 | 13 | Espelho partido | Transformação | 07 · dom. 40 | Espelho reflete 100% do impacto, mas a janela fica comum (sem os +30 ms) |
-| 14 | Lâmina e reflexo | Nó-chave | dom. 60; 8 PH no ramo; 2 técnicas + 2 passivas | parry bem-sucedido deixa uma Abertura de PER (2 s) **sem** precisar marcar Leitura, 1 vez a cada 8 s; com isso, sua Leitura (PER) recarrega em 12 s |
+| 14 | Lâmina e reflexo | Nó-chave | dom. 60; 8 PH no ramo; 2 técnicas + 2 passivas | parry **técnico** (janela ≤ 240 ms) deixa uma Abertura de PER (2 s) **sem** precisar marcar Leitura, 1 vez a cada 10 s; essa Abertura **consome** a sua Leitura (vai para recarga, 12 s); com PER < +15 a Abertura vale só Punir |
 
 ### Ramo B — Reposicionamento
 | Nº | Nó | Tipo | Requisito | Efeito |

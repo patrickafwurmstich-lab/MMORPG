@@ -43,6 +43,7 @@ Seis atributos (FOR, DES, VIG, POT, **CON = Controle**, PER), até +60 investido
 - Com o bloqueio erguido, uma **2ª entrada** ativa **Firmar** por **1,2 s**: custo **15R**, recarga **12 s**. Não reduz dano de vida.
 - Adia **f = 0,20 + 0,30·r(VIG)** do impacto recebido como **dívida de postura** (máx. **15 + 25·r(VIG)**). VIG +40 → adia 35%, dívida máx. 27,5.
 - Ao sair do Firmar, a dívida cai na sua postura em **3 parcelas a cada 0,5 s** (pode quebrar você). Não some com troca de arma, cura ou fim do bloqueio.
+- **Golpe durante o pagamento:** a dívida aparece como trecho tracejado na barra de postura (sempre visível). Impacto novo soma normalmente às parcelas; se a postura **quebrar**, a dívida restante é **apagada** (nunca há quebra dupla) e o Firmar entra em recarga normal. Firmar de novo durante o pagamento é proibido até a última parcela cair.
 - **Ceder** (durante o Firmar): recua até **1,5 m em 0,4 s**, larga o bloqueio e **reduz a dívida em 40%**. Sem invulnerabilidade; exige espaço.
 
 ### 2.4 POT — Sobrecarga
@@ -169,7 +170,7 @@ A prévia de fabricação mostra dano médio e variação com a build atual (o g
 | Espaço | Quantidade | Regra |
 |---|---|---|
 | Técnicas ativas | **8** | a Arte Única ocupa 1 delas |
-| Reação | **1** | só técnicas marcadas como reação (contra-ataque, defesa especial, resgate) — nunca automática |
+| Reação | **1** | só técnicas marcadas como reação (contra-ataque, defesa especial, resgate) — nunca automática. Só a técnica **neste espaço** usa o botão de reação (buffer próprio de 120 ms). Outras reações compradas podem ir num espaço de **técnica**, com input de técnica e sem o buffer |
 | Passivas | **6** | incluem especialização e ligação |
 | Nós-chave | **2** | máx. 1 por árvore |
 | Transformações | **3** | máx. 1 por técnica |
@@ -188,9 +189,15 @@ A prévia de fabricação mostra dano médio e variação com a build atual (o g
 - Arena de treino: testa qualquer nó sem comprar.
 
 ## 7. Sincronia e PvP
-- Técnicas e nós comprados continuam disponíveis; **requisitos** (especialização, ligação) usam os atributos **sincronizados**.
+- Técnicas e nós comprados continuam disponíveis; **requisitos** (especialização, ligação) usam os atributos **sincronizados**. Se a sincronia derrubar um marco, a especialização ou ligação fica **preparada mas inativa** (o espaço de passiva continua ocupado; trocar só nos lugares de troca da preparação) e volta sozinha quando o atributo efetivo voltar.
 - Arena e Provação: **63 PH** (nível 60) e acesso a **todos os nós públicos** na preparação de Arena.
 - PvP não dá domínio, Leitor, afinidade nem Artes (núcleo C.2).
+
+## 7.1 Ações derivadas (vale para nós, especializações, ligações e Artes)
+Ação **derivada** = eco, imagem, repetição (Reprise, Memória), devolução (Revide, reflexos de arma, Âncora), propagação (Queimando que passa, condução), explosão de rastro.
+- Não conta para o **Leitor de Estilo**, **domínio**, **afinidade** nem progresso de Arte — só a ação original conta.
+- Não gera **Ímpeto, Sobrecarga, Abertura, Frenesi, Fluxo** nem qualquer carga ou recurso; não dispara outra ação derivada (profundidade máxima 1).
+- Aplica elemento e controle **só se o texto do nó disser**, e ainda conta na categoria única de controle do núcleo.
 
 ## 8. Como a árvore conversa com o resto
 | Sistema | Papel |

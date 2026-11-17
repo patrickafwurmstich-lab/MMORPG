@@ -3,7 +3,7 @@ Artes são **escondidas**: não aparecem na árvore, não custam PH e são desco
 
 ## Contrato comum (vale para todas)
 - **1 Arte preparada**; ocupa 1 das 8 técnicas (mesmo se o efeito for passivo).
-- Efeitos derivados **não** geram Ímpeto, Sobrecarga, Abertura nem novas ativações; não duplicam acerto, cura, interrupção nem elemento.
+- Efeitos derivados seguem a regra de **ações derivadas** (00-sistema §7.1): não contam para Leitor, domínio, afinidade nem descoberta; não geram Ímpeto, Sobrecarga, Abertura nem novas ativações; não duplicam acerto, cura, interrupção nem elemento.
 - Recargas persistem na troca de arma. Deslocamentos respeitam terreno, arena e linha de visão. Dano e vida usam s; impacto e recursos não.
 - Suporte só entre participantes da mesma tentativa. Nenhuma Arte remove Ferido, cria reserva de cura ou resolve sozinha uma mecânica obrigatória.
 - **Descoberta**: garantida até a 12ª demonstração (núcleo C.3). Cada Arte tem **3 rotas**, qualquer uma basta:
@@ -88,7 +88,7 @@ Artes são **escondidas**: não aparecem na árvore, não custam PH e são desco
 ## Resposta e antecipação
 
 ### 9. Último Fôlego
-- **Ativação:** manual, antes do golpe inimigo · **custo** 30R · **recarga** 60 s (máx. 1 por tentativa de chefe) · 0,3 s · janela 2 s.
+- **Ativação:** manual, antes do golpe inimigo · **custo** 30R · **recarga** 60 s (máx. 1 por tentativa de chefe; bloqueado nos 10 s depois de Sangue por fôlego) · 0,3 s · janela 2 s.
 - **Efeito:** um golpe que te derrubaria deixa você com 1 de vida por 1 s; o dano excedente volta no fim desse segundo. **Preço:** sem cura nesse segundo; a dívida só é reduzida por mitigação que já estava ativa no golpe original.
 - **Chefe/PvP:** não funciona contra morte de ambiente, saída de arena ou falha letal de objetivo.
 - **Alternativas:** permite concluir uma interação já iniciada (sem atacar) · dívida reaplicada em 2 parcelas · janela 1 s e recarga 40 s · converte a dívida em postura (você fica atordoado em vez de cair, se a postura aguentar).
@@ -124,7 +124,7 @@ Artes são **escondidas**: não aparecem na árvore, não custam PH e são desco
 - **Rotas:** Defesa ativa + Compromisso · VIG +20 / FOR +10 · constructos, mortos-vivos. Desafios: quebrar a postura de um chefe com impacto guardado · bloquear 3 investidas de elite seguidas · vencer um Cerco sem Muralha.
 
 ### 14. Sangue por fôlego
-- **Ativação:** manual · **custo** 8% da sua vida atual (não da reserva) · **recarga** 20 s · 0,3 s.
+- **Ativação:** manual · **custo** 8% da sua vida atual (não da reserva) · **recarga** 20 s · 0,3 s · bloqueado nos 10 s depois de Último Fôlego.
 - **Efeito:** recupera 30R na hora e a regeneração de resistência +20% por 4 s.
 - **Preço:** a vida perdida só volta pela reserva (gasta reserva como qualquer cura); abaixo de 20% de vida não pode ser usada. **Chefe/PvP:** igual.
 - **Alternativas:** 5% de vida → 20R · troca vida por postura (+30) · troca vida por energia (+25E) · sem custo de vida, mas a reserva de cura perde 60·s.
