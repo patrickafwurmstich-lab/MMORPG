@@ -1,6 +1,7 @@
 # Sistemas do MMORPG — v4
 
-> v4 = v3 + revisão rodada 3 (Grok: APROVADO · ChatGPT: NÃO APROVADO por 1 bloqueador documental · Gemini fora: recusou responder 3 vezes na rodada 2).
+> ✅ **APROVADO por ChatGPT e Grok na revisão rodada 4** (17/11/2026). Gemini fora: recusou responder 3 vezes na rodada 2.
+> v4 = v3 + revisão rodada 3 + 2 ajustes finais da rodada 4 (família da Provação igual para todos; teste do gasto limpo).
 > Números conferidos em `sim/check_v4.py` (verificações automáticas). Só mecânica, sistemas e economia.
 
 ## O que mudou do v3 para o v4
@@ -235,7 +236,7 @@ Cada Arte tem **3 assinaturas alternativas** (rotas).
   - Cada jogador tem **3 tentativas** de Provação na janela; vale a **melhor**. Mais horas não dão mais tentativas.
   - **Pontuação final = 70% Provação + 30% consistência de estilo**. Quem *vive* aquele estilo ganha peso, não só quem treina a prova.
   - **Consistência de estilo**: nos 14 dias anteriores, o servidor registra automaticamente os **12 primeiros encontros válidos de cada dia**. Um encontro é "compatível" se o vetor daquele encontro cumpre os limites mínimos da assinatura. **C = 100 × compatíveis / registrados.** Exige ≥ 12 encontros registrados em ≥ 3 dias diferentes. Dia sem jogar não reduz a nota; jogar mais de 12 encontros no dia não aumenta.
-  - Nas primeiras temporadas do servidor, 1 das 3 famílias da Provação pode ser **"família livre"** (qualquer uma do bestiário da assinatura), para reduzir a carga de conteúdo.
+  - Nas primeiras temporadas do servidor, a 3ª família da Provação pode ser uma **família livre do bestiário da assinatura** (reduz a carga de conteúdo) — mas é **a mesma para todos os concorrentes daquela Arte naquela temporada**, sorteada e anunciada no início da janela (ninguém escolhe o adversário mais fácil).
   - Empate (diferença ≤ 0,5/100): Provação extra idêntica entre os empatados. Nunca desempate por quem chegou primeiro.
 - **Uma posse por conta a cada 60 dias** (o mesmo jogador não fica com ela para sempre; dá espaço a outros protagonistas).
 - Presa ao personagem; sem uso por 14 dias → volta para disputa antecipada.

@@ -33,10 +33,11 @@ Combate de ação parecido com Toram, mas profundo. Cada jogador pode ser protag
 - [x] v3 → `docs/03-sistemas-v3.md` + `sim/check_v3.py` (verificações automáticas, termina em TUDO OK)
 - [x] Revisão rodada 3: Grok APROVADO; ChatGPT NÃO (1 bloqueador: base dos ralos) → `loop/revisao3-*.md`
 - [x] v4 → `docs/04-sistemas-v4.md` + `sim/check_v4.py`
-- [ ] Revisão rodada 4 → `loop/revisao4-*.md`  ← PRÓXIMO
+- [x] Revisão rodada 4: ✅ **ChatGPT APROVADO + Grok APROVADO** → `loop/revisao4.md`. Ajustes finais aplicados no v4.
+- [x] **PLANEJAMENTO DOS SISTEMAS ENCERRADO** (documento: `docs/04-sistemas-v4.md`)
 - Nota: ler respostas longas do ChatGPT: get_page_text corta; usar scroll + screenshot a partir do heading da última resposta
 - [ ] Repetir até as 3 aprovarem
 - [ ] Depois: aprofundar sistema por sistema (lista de armas e técnicas, 12 famílias, catálogo de Artes, chefes dos andares 1–3, receitas)
 
 ## Próximo passo
-Coletar a rodada 4 (abas do Chrome: Grok, ChatGPT). Gemini fora até o Lucas decidir.
+Esperar o Lucas escolher: (a) aprofundar conteúdo (armas e técnicas, 12 famílias, catálogo de Artes, chefes dos andares 1–3, receitas) com novo loop; ou (b) protótipo da arena de combate (seção I.1).

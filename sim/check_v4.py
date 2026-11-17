@@ -53,6 +53,15 @@ for des in range(0, 61):
             assert dano >= d1, (des, imp)                       # mais Ímpeto nunca piora o dano
 print(f"  ok  {combos} combinações DES 0–60 × Ímpeto 20–100: sem degraus")
 confere("impacto FOR+60 Ímpeto 80 (x)", 1 + 80 * (0.5 + r(60)) / 100, 1.88, 0.005)
+def impacto_principal(imp, forc):
+    base = 1 + imp * (0.5 + r(forc)) / 100
+    return base * (1.08 if imp >= 70 else 1.0)   # gasto limpo
+confere("gasto limpo FOR+60 Ímpeto 80 (x)", impacto_principal(80, 60), 2.0304, 0.0001)
+assert impacto_principal(69, 60) < impacto_principal(70, 60) <= impacto_principal(100, 60)
+for imp in (69, 70, 100):   # o bônus não muda dano nem tempo
+    _, d, t = golpe_impeto(imp, 60)
+    assert abs(d - d_leve(60) * imp / 100 * (1 + 3 * r(60))) < 1e-9 and abs(t - 0.45 * imp / 100) < 1e-12
+print("  ok  gasto limpo em 69/70/100: só o impacto muda; dano e tempo iguais")
 
 print("\n== B.1 afinidade ==")
 eco = lambda x, m: m * min(15, 0.25 * C(x))
