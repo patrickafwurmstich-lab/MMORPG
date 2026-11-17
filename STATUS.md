@@ -29,9 +29,12 @@ Combate de ação parecido com Toram, mas profundo. Cada jogador pode ser protag
 - [x] Revisão rodada 1: ChatGPT NÃO, Grok NÃO, Gemini "aprovado com ressalvas" → `loop/revisao1-*.md`
       (ChatGPT achou erro na simulação econômica do Claude — corrigido no v2)
 - [x] v2 → `docs/02-sistemas-v2.md` + `sim/check_v2.py` (tabela do que mudou no topo)
-- [ ] Revisão rodada 2 → `loop/revisao2-*.md`  ← PRÓXIMO
+- [x] Revisão rodada 2: Grok APROVADO (3 ajustes), ChatGPT NÃO (3 bloqueadores), Gemini recusou 3× ("não consigo ajudar") → `loop/revisao2-*.md`
+- [x] v3 → `docs/03-sistemas-v3.md` + `sim/check_v3.py` (verificações automáticas, termina em TUDO OK)
+- [ ] Revisão rodada 3 (ChatGPT + Grok) → `loop/revisao3-*.md`  ← PRÓXIMO
+- Nota: ler respostas longas do ChatGPT: get_page_text corta; usar scroll + screenshot a partir do heading da última resposta
 - [ ] Repetir até as 3 aprovarem
 - [ ] Depois: aprofundar sistema por sistema (lista de armas e técnicas, 12 famílias, catálogo de Artes, chefes dos andares 1–3, receitas)
 
 ## Próximo passo
-Mandar o v2 para revisão rodada 2 (mesmas abas do Chrome: Grok, ChatGPT, Gemini), pedir também ao ChatGPT os itens depois do I7 que a leitura cortou.
+Coletar a rodada 3 (abas do Chrome: Grok, ChatGPT). Gemini fora até o Lucas decidir.
