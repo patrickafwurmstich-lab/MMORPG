@@ -59,5 +59,7 @@ Leitura de tabelas do ChatGPT: find "tabela com colunas ..." → read_page no re
 - [x] Plano do ChatGPT → `loop/loop3-planejamento-chatgpt.md`
 - [x] Escrito: sistema, 11 armas (330), 6 elementos (144), 4 disciplinas (72), 18 especializações, 15 ligações, 24 Artes
 - [x] `sim/check_arvore.py` → TUDO OK
-- [ ] Revisão do ChatGPT (BLOQUEADOR/IMPORTANTE/OPCIONAL) → corrigir até aprovar; Grok se o limite liberar
+- [x] Grok aprovou o v8 (loop 2 fechado com os dois) → `loop/revisao4-grok-aprovado.md`
+- [x] Revisão 1: ChatGPT e Grok NÃO APROVADO → `loop/loop3-revisao1-*.md`; tudo corrigido → `docs/09-arvore/CHANGELOG.md`
+- [ ] Revisão 2 enviada aos dois (`loop/loop3-revisao2-mensagem.txt`) → corrigir até aprovarem
 - [ ] Perguntas finais ao Lucas (último do loop)

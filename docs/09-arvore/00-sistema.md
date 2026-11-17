@@ -197,14 +197,15 @@ A prévia de fabricação mostra dano médio e variação com a build atual (o g
 ## 7.0 Orçamentos únicos
 - **Sobrecarga:** cargas armazenadas máx. **3**; efeitos de "4ª carga" (Descarga total, Fúria dos céus) **não acumulam** entre si — no máximo 4 parcelas de bônus por ação, pagando 4 parcelas de sobretaxa. Calor do núcleo (Fogo 21) é a única exceção de 2 cargas numa ação.
 - **Abertura e exaustão de chefe** pertencem à ficha do chefe; nenhum nó, especialização ou Arte muda a duração delas nem a imunidade posterior.
-- **Periódicos** (Queimando, veneno, dano contínuo): "X%" = X% do dano direto **efetivamente causado** pela ação que aplicou, em tiques de 1 s, 1º tique em 1 s; do mesmo jogador não acumula (renova).
+- **Periódicos** (Queimando, veneno, dano contínuo): "X%" = X% do dano direto **efetivamente causado** pela ação que aplicou, em tiques de 1 s, 1º tique em 1 s; do mesmo jogador não acumula (renova). **Queimando** padrão = 20% em 6 s. Se quem aplica **não causa dano direto** (Chão em brasa ao entrar, Cerco de fogo, imbuir antes do golpe), a base é um golpe-referência de **K0,60** do aplicador (Queimando = K0,12 no total). Periódicos não critam, não causam impacto e não geram recurso.
 - **Curas periódicas iguais** não acumulam no mesmo alvo; áreas de cura (Fonte, Flecha de socorro) atingem no máx. **4 aliados**.
 - **Métricas do Leitor usadas pelas Artes:** Magia = ações mágicas originais válidas ÷ ações originais válidas (o vetor de 3 componentes do núcleo continua para assinaturas). Suporte = oportunidades de assistência aproveitadas ÷ oportunidades elegíveis; elegível = aliado com déficit de vida ≥ 5% do máximo, estado removível ou ataque telegrafado interceptável; 1 acerto por episódio; mín. 12 oportunidades em 3 encontros, sem atualizar quando não houver oportunidade. Nenhum nó pode desligar ou editar métricas do Leitor.
 - **Consentimento:** qualquer efeito que mova um aliado (Inversão, Mão do vento, Laço de ferro, Horizonte Fixo) obedece à mesma preferência "aceitar deslocamento de aliados" (padrão: só do grupo).
 - **Bloqueio no kit:** o kit fundamental tem bloqueio **quando a arma permite** (katana, duas katanas, duas espadas, dois machados e arco não bloqueiam; Firmar exige bloqueio).
 
 ## 7.1 Ações derivadas (vale para nós, especializações, ligações e Artes)
-Ação **derivada** = eco, imagem, repetição (Reprise, Memória), devolução (Revide, reflexos de arma, Âncora), propagação (Queimando que passa, condução), explosão de rastro.
+Ação **derivada** = o que acontece **sem um comando novo seu**: eco, imagem, explosão de rastro, propagação (Queimando que passa, salto de condução, vínculo da Rede), dano transmitido, periódicos.
+Ação **original** = tudo que exige um comando seu, mesmo que dependa de uma defesa anterior: contra-ataques e reflexos de arma com input (Contra perfeito, Contra-golpe, Revide, saque de resposta, Duelista de transição), a 2ª execução de Reprise/Memória (que repetem animação e condições) e o pesado que usa o impacto guardado da Âncora. Essas funcionam exatamente como escrito no nó e contam normalmente; o próprio nó já limita recompensa (regra 3 do §9: 1 recompensa de defesa por sistema por ataque inimigo).
 - Não conta para o **Leitor de Estilo**, **domínio**, **afinidade** nem progresso de Arte — só a ação original conta.
 - Não gera **Ímpeto, Sobrecarga, Abertura, Frenesi, Fluxo** nem qualquer carga ou recurso; não dispara outra ação derivada (profundidade máxima 1).
 - Aplica elemento e controle **só se o texto do nó disser**, e ainda conta na categoria única de controle do núcleo.
@@ -223,7 +224,7 @@ Ação **derivada** = eco, imagem, repetição (Reprise, Memória), devolução 
 
 ## 9. Regras contra ciclos e builds dominantes (valem para todos os nós)
 1. Reembolso **não** dispara outro reembolso; custos são pagos **antes** de reembolsos.
-2. Ação derivada (eco, salto, retorno, continuação) **não** gera Ímpeto, carga, Abertura nem dispara efeitos "ao acertar".
+2. Ação derivada (definição única no §7.1: eco, salto, retorno automático, propagação, periódico) **não** gera Ímpeto, carga, Abertura nem dispara efeitos "ao acertar"; contra-ataques com comando são ações originais.
 3. Um ataque inimigo sustenta **no máx. 1 recompensa de defesa por sistema** (Ímpeto, Abertura, resistência).
 4. Nenhuma passiva reduz custo abaixo do piso (5 E / 5R) nem passa os tetos do núcleo (velocidade 1,45, parry técnico 240 ms, crítico 40%, penetração 35%).
 5. Buffs iguais não se somam: vale o maior.
