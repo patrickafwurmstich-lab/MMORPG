@@ -34,10 +34,15 @@ Combate de ação parecido com Toram, mas profundo. Cada jogador pode ser protag
 - [x] Revisão rodada 3: Grok APROVADO; ChatGPT NÃO (1 bloqueador: base dos ralos) → `loop/revisao3-*.md`
 - [x] v4 → `docs/04-sistemas-v4.md` + `sim/check_v4.py`
 - [x] Revisão rodada 4: ✅ **ChatGPT APROVADO + Grok APROVADO** → `loop/revisao4.md`. Ajustes finais aplicados no v4.
-- [x] **PLANEJAMENTO DOS SISTEMAS ENCERRADO** (documento: `docs/04-sistemas-v4.md`)
+- [x] v4 aprovado (só fórmulas)
+## LOOP 2 (Lucas: "está raso e incompleto")
+- [x] Auditoria: ChatGPT = INCOMPLETO (`loop/loop2-auditoria-chatgpt.md`); Grok travado (alta demanda); Gemini recusou
+- [x] Decisões do Lucas: **zonas abertas de PvP**, **morte pesada**
+- [x] v5 = `docs/05-nucleo-v5.md` (parte 1, regras) + `docs/05-jogo-completo-v5.md` (parte 2, jogo concreto) + `sim/check_v5.py`
+- [ ] Revisão loop 2 rodada 1 → `loop/loop2-revisao1-*.md`  ← PRÓXIMO
 - Nota: ler respostas longas do ChatGPT: get_page_text corta; usar scroll + screenshot a partir do heading da última resposta
 - [ ] Repetir até as 3 aprovarem
 - [ ] Depois: aprofundar sistema por sistema (lista de armas e técnicas, 12 famílias, catálogo de Artes, chefes dos andares 1–3, receitas)
 
 ## Próximo passo
-Esperar o Lucas escolher: (a) aprofundar conteúdo (armas e técnicas, 12 famílias, catálogo de Artes, chefes dos andares 1–3, receitas) com novo loop; ou (b) protótipo da arena de combate (seção I.1).
+Mandar o v5 (2 links) a ChatGPT (aba 'Auditoria de Sistemas MMORPG') e Grok; repetir até aprovarem completude.

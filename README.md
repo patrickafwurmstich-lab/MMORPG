@@ -2,8 +2,8 @@
 
 Mecânica completa de um MMORPG de ação (combate tipo Toram Online, torre de andares estilo Sword Art Online T1). Só sistemas, sem história nem personagens.
 
-**Documento aprovado:** [`docs/04-sistemas-v4.md`](docs/04-sistemas-v4.md) — aprovado por ChatGPT e Grok no loop entre IAs (17/11/2026).
-**Verificação dos números:** `python3 sim/check_v4.py` → termina em `TUDO OK`.
+**Documento atual (v5, em revisão):** [`docs/05-nucleo-v5.md`](docs/05-nucleo-v5.md) (regras) + [`docs/05-jogo-completo-v5.md`](docs/05-jogo-completo-v5.md) (armas, inimigos, andar, morte, PvP, guildas, fim de jogo).
+**Verificação dos números:** `python3 sim/check_v5.py` → termina em `TUDO OK`.
 
 | Pasta | O que tem |
 |---|---|
