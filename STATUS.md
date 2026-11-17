@@ -71,3 +71,11 @@ Leitura de tabelas do ChatGPT: find "tabela com colunas ..." → read_page no re
 - [x] Mistura v1: os dois NÃO APROVADO → v2 juntando os dois (commit fb9272b)
 - [x] Mistura v2: **Grok APROVADO + ChatGPT APROVADO**
 - [ ] Lucas lê tudo e diz o que mudar (ele pediu para ler antes do próximo passo)
+
+## Simulador de equilíbrio (2026-11-17)
+- `node sim/simulador.js` → `sim/resultado/relatorio.md` e `builds.csv` (176 builds: nível 15 de referência + nível 100).
+- Cumpre: ≥ 8 builds a ≤ 15% (31), armas ±15% (11/11), generalista a 7%.
+- Não cumpre: perfis Força pura (+22%), Leitor/PER (+28%) e Mago puro (+33%, morre 30%) ficam fora dos 15%.
+- Calibração: a árvore dá ~25% mais dano/s que o modelo de papel (AI.1: 87 vs 70) → combates mais curtos que os tempos-alvo.
+- 42 das 116 técnicas de dano dão menos dano que o ataque básico (até −5%); quase todas são de controle/impacto.
+- [ ] Decidir com o Lucas / mandar ao loop: Mago, PER e Força pura; calibrar vidas ou P_arma.

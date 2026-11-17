@@ -1,0 +1,284 @@
+{
+ "dentro15": 40,
+ "melhorT": 42.7999999999997,
+ "fora": [],
+ "porArma": {
+  "desarmado": {
+   "perfil": "Generalista",
+   "elems": [
+    "fogo",
+    "raio"
+   ],
+   "dps": 192.1029105261662,
+   "ips": 23.481375661375658,
+   "chefeT": 55.22083333333233,
+   "grupoT": 1.3500000000000005
+  },
+  "espada_curta": {
+   "perfil": "Lâmina mágica",
+   "elems": [
+    "fogo"
+   ],
+   "dps": 234.22743423766775,
+   "ips": 20.316295751633987,
+   "chefeT": 45.65833333333288,
+   "grupoT": 2.5562499999999986
+  },
+  "espada_longa": {
+   "perfil": "Generalista",
+   "elems": [
+    "fogo",
+    "raio"
+   ],
+   "dps": 201.81844166169728,
+   "ips": 23.07974867724868,
+   "chefeT": 52.183333333332506,
+   "grupoT": 1.4500000000000008
+  },
+  "duas_espadas": {
+   "perfil": "Força+Destreza",
+   "elems": [
+    "raio"
+   ],
+   "dps": 202.87091282051296,
+   "ips": 23.083466666666663,
+   "chefeT": 50.08333333333263,
+   "grupoT": 0.09999999999999999
+  },
+  "espada_e_escudo": {
+   "perfil": "Lâmina mágica",
+   "elems": [
+    "fogo"
+   ],
+   "dps": 205.20851405527637,
+   "ips": 22.806186274509805,
+   "chefeT": 52.03749999999918,
+   "grupoT": 2.5562499999999986
+  },
+  "katana": {
+   "perfil": "Força+Destreza",
+   "elems": [
+    "fogo"
+   ],
+   "dps": 239.25163589743585,
+   "ips": 22.196294444444444,
+   "chefeT": 42.89999999999969,
+   "grupoT": 0.09999999999999999
+  },
+  "duas_katanas": {
+   "perfil": "Generalista",
+   "elems": [
+    "fogo"
+   ],
+   "dps": 208.1272883686361,
+   "ips": 19.427301587301585,
+   "chefeT": 48.49999999999938,
+   "grupoT": 1.600000000000001
+  },
+  "machado_grande": {
+   "perfil": "Lâmina mágica",
+   "elems": [
+    "fogo"
+   ],
+   "dps": 186.72844945612275,
+   "ips": 22.561004901960782,
+   "chefeT": 55.354166666665655,
+   "grupoT": 2.7062499999999985
+  },
+  "machado_pequeno": {
+   "perfil": "Generalista",
+   "elems": [
+    "fogo"
+   ],
+   "dps": 210.84768758294857,
+   "ips": 21.480505952380952,
+   "chefeT": 49.266666666666005,
+   "grupoT": 1.600000000000001
+  },
+  "dois_machados": {
+   "perfil": "Força+Destreza",
+   "elems": [
+    "fogo"
+   ],
+   "dps": 226.0391466666665,
+   "ips": 25.99393333333333,
+   "chefeT": 44.7499999999996,
+   "grupoT": 0.09999999999999999
+  },
+  "arco": {
+   "perfil": "Generalista",
+   "elems": [
+    "fogo"
+   ],
+   "dps": 214.03814482136227,
+   "ips": 11.71111111111111,
+   "chefeT": 50.49166666666593,
+   "grupoT": 1.3500000000000005
+  }
+ },
+ "altos": [
+  [
+   "Projétil de fogo",
+   "fogo",
+   3.4999999999999996
+  ],
+  [
+   "Projétil de gelo",
+   "gelo",
+   3.4999999999999996
+  ],
+  [
+   "Projétil de raio",
+   "raio",
+   3.4999999999999996
+  ],
+  [
+   "Projétil de terra",
+   "terra",
+   3.4999999999999996
+  ],
+  [
+   "Projétil de água",
+   "agua",
+   3.4999999999999996
+  ],
+  [
+   "Projétil de vento",
+   "vento",
+   3.25
+  ],
+  [
+   "Lança ígnea",
+   "fogo",
+   2.25
+  ],
+  [
+   "Tiro em leque",
+   "arco",
+   1.875
+  ]
+ ],
+ "baixos": [
+  [
+   "Rede",
+   "arco",
+   0.125
+  ],
+  [
+   "Tornado",
+   "vento",
+   0.125
+  ],
+  [
+   "Chão em brasa",
+   "fogo",
+   0.13392857142857142
+  ],
+  [
+   "Bola elétrica",
+   "raio",
+   0.140625
+  ],
+  [
+   "Tiro de pinos",
+   "arco",
+   0.1875
+  ],
+  [
+   "Brasa persistente",
+   "fogo",
+   0.25
+  ],
+  [
+   "Arremesso de grupo",
+   "desarmado",
+   0.26785714285714285
+  ],
+  [
+   "Armadilha",
+   "arco",
+   0.26785714285714285
+  ],
+  [
+   "Golpe de escudo",
+   "espada_e_escudo",
+   0.28125
+  ],
+  [
+   "Tiro de atordoar",
+   "arco",
+   0.3
+  ],
+  [
+   "Avanço do baluarte",
+   "espada_e_escudo",
+   0.32142857142857145
+  ],
+  [
+   "Escudo arremessado",
+   "espada_e_escudo",
+   0.32142857142857145
+  ],
+  [
+   "Guarda de passagem",
+   "espada_longa",
+   0.328125
+  ],
+  [
+   "Rasteira",
+   "desarmado",
+   0.33333333333333337
+  ],
+  [
+   "Corte dos tendões",
+   "espada_curta",
+   0.375
+  ],
+  [
+   "Reflexo duplo",
+   "duas_katanas",
+   0.375
+  ],
+  [
+   "Corrente",
+   "machado_pequeno",
+   0.375
+  ],
+  [
+   "Palma que sela",
+   "desarmado",
+   0.375
+  ],
+  [
+   "Investida de escudo",
+   "espada_e_escudo",
+   0.375
+  ],
+  [
+   "Golpe de cabo",
+   "machado_grande",
+   0.375
+  ],
+  [
+   "Gancho",
+   "machado_pequeno",
+   0.375
+  ],
+  [
+   "Corrente",
+   "raio",
+   0.375
+  ],
+  [
+   "Pegada de gigante",
+   "machado_grande",
+   0.4285714285714286
+  ],
+  [
+   "Espinhos",
+   "terra",
+   0.4285714285714286
+  ]
+ ],
+ "nunca": 36
+}
