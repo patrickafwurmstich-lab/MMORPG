@@ -43,11 +43,13 @@ Combate de ação parecido com Toram, mas profundo. Cada jogador pode ser protag
 - [x] v6 = `docs/06-nucleo-v6.md` (parte 1) + `docs/06-jogo-v6.md` (parte 2) + `docs/06-contratos-v6.md` (parte 3: precedência, TTK, chefe/andar-piloto, Fronteira, cadeia produtiva, catálogos, Nova Era) + `sim/check_v6.py` (TUDO OK)
 - [x] Revisão loop 2 rodada 2 (v6): ChatGPT NÃO (N1–N6: sincronia por custo, unidades/escala, substitutos, chefe nas escalas, Túmulo/origem, duelo); Grok NÃO (+chefes-piloto, +andar-piloto, UI do Assalto, Nova Era) → `loop/loop2-revisao2-*.md`
 - [x] v7 = `docs/07-nucleo-v7.md` + `docs/07-jogo-v7.md` + `docs/07-contratos-v7.md` + `sim/check_v7.py` (TUDO OK)
-- [ ] Revisão loop 2 rodada 3 (v7) → `loop/loop2-revisao3-*.md`  ← PRÓXIMO
+- [x] Revisão loop 2 rodada 3 (v7): ChatGPT NÃO (B7.1 sincronia aumentava atributo, B7.2 duas curvas de teto, B7.3 Arena sem chão; "não pediria mais sistemas"); Grok NÃO (duração dos chefes, ala em falência; "com esses ajustes passa a ser aprovável") → `loop/loop2-revisao3-*.md`
+- [x] v8 = `docs/08-*-v8.md` + `sim/check_v8.py` (TUDO OK)
+- [ ] Revisão loop 2 rodada 4 (v8) → `loop/loop2-revisao4-*.md`  ← PRÓXIMO
 - Nota: ler respostas longas do ChatGPT: get_page_text corta; usar scroll + screenshot a partir do heading da última resposta
 - [ ] Repetir até as 3 aprovarem
 - [ ] Depois: aprofundar sistema por sistema (lista de armas e técnicas, 12 famílias, catálogo de Artes, chefes dos andares 1–3, receitas)
 
 ## Próximo passo
-Mandar o v7 (3 links + check_v7) a ChatGPT (aba 'Auditoria de Sistemas MMORPG') e Grok (aba 'Análise rigorosa do MMORPG v5'); pedir que critiquem também a revisão da outra IA; repetir até as duas aprovarem.
+Mandar o v8 (3 links + check_v8) a ChatGPT (aba 'Auditoria de Sistemas MMORPG') e Grok (aba 'Análise rigorosa do MMORPG v5'); pedir que critiquem também a revisão da outra IA; repetir até as duas aprovarem.
 Leitura de tabelas do ChatGPT: find "tabela com colunas ..." → read_page no ref (get_page_text omite tabelas).

@@ -563,18 +563,23 @@ Liberadas nos marcos 90 e 100 (e a 6ª pelo **Desafio de rota**: completar 50 en
 ---
 
 ## AY. O que está provado e o que não está
-`sim/check_v8.py` (roda v4, v5 e v6 antes). **Nome do teste = propriedade testada:**
+`sim/check_v8.py` (roda v4–v7 antes; os testes de sincronia do v7 ficaram como histórico — a função válida é a do v8). **Nome do teste = propriedade testada:**
 | Teste | O que ele realmente confere |
 |---|---|
 | Perfil de referência | o custo do perfil (+20/+15/+10) cabe no orçamento do nível-teto da camada; DPS ≈ 70 |
 | TTK (fase de dano) | vida ÷ DPS de cada linha de AI.2 dentro do tempo-alvo de **dano** (não executa âncoras, adds ou deslocamento) |
 | Ataque do chefe | 18–25% da vida do tanque de referência (VIG +20) para todos os ataques principais de AI.3, AO e AZ |
 | Quadro de unidades | parry/postura, poção/vida e custo de bloqueio iguais nas camadas 1 e 10 |
-| Sincronia por custo | para builds especialista, generalista e híbrida (níveis 100→6, 100→20, 60→15, 20→20): custo ≤ orçamento, sobra < 1 ponto, 0–60, secundários não apagados, razão entre atributos ±1 ponto |
+| Sincronia por custo (v8) | o caso 20/4/1 (38 → 35); especialista, generalista e híbrida (100 → 6, 100 → 20, 60 → 15, com builds de origem válidas); **3.000 builds aleatórias** com atributos de 1–5 e afinidade: custo ≤ orçamento, nenhum atributo acima do original, desvio < 1 do alvo, nenhum atributo existente zerado, nenhum ponto admissível sobrando |
+| Curva única | o texto de AK não contém a fórmula antiga; perfil do andar 2 sincronizado **com** a afinidade do perfil |
+| Orçamento de mecânicas (AI.6) | modelo de papel tempo = (vida/D + M)/n: parcela ≤ 40% e 6–10 min com +20% para os 6 chefes; regra de ajuste limitada a ±20% |
+| Arena (AZ.2) | placas restantes 7 → 5 → 4 |
+| Túmulo (v8) | retirada parcial do dono; terceiro sem capacidade não faz nada e nada some; cadeia vítima → saqueador → grupo do saqueador = 40 → 20 → 10 → 5 |
+| Assalto | ala em falência (≤ 2 vivos por 10 s); sucesso parcial com ≥ 2 alas; autorressurreição do último não evita derrota |
 | Arena | distribuição própria de 197 válida; nunca expande acima de 60 |
 | Tentativa | reconexão não cria reserva; substituto só entre tentativas; "puxar e soltar" não recupera |
 | Derrota | estados PvE / Fronteira / duelo / Arena × Infâmia 0/1/2/3 × Selo × protegido |
-| Túmulo | dono 100%, grupo 100%, terceiro 25% líquido; saque fecha; quente cai inteiro |
+| Túmulo (v7) | dono 100%, grupo 100%, terceiro 25% líquido; saque fecha; quente cai inteiro |
 | Marca de origem | sobrevive a 3 transformações e não expira com tempo |
 | Controle PvP | sequência de controles de fontes diferentes, incluindo empurrões curtos, ≤ 2,25 s em 8 s (modelo abstrato: sem distância nem latência) |
 | Participação | dimensão com média 0 nunca qualifica; mínimo de 2% no Assalto 24 |
