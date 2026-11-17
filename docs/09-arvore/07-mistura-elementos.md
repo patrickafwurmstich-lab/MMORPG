@@ -29,6 +29,7 @@
 
 ## 3. Reação elemental
 **Contato elemental:** toda técnica **original** sua que acerta um inimigo registra nele um **contato** do elemento aplicado de fato, identificado por jogador, por **4 s** (ícone visível para você e o grupo), mesmo quando o efeito do elemento não se aplica (Terra, Água, Vento instantâneo). Parcelas derivadas não registram contato. Um contato seu por alvo (o novo substitui o antigo).
+**Ordem de resolução de cada acerto:** (1) verifica o contato anterior; (2) resolve a reação elegível; (3) só então registra o contato novo; (4) Ressonância verifica o histórico. O preparador nunca é apagado antes da verificação.
 **Reação:** quando um inimigo tem um **contato seu do elemento A** e você o acerta com uma técnica original de **outro elemento seu, B**, acontece a **reação A+B**: o contato preparador é **consumido**; a ação que ativou pode deixar o próprio contato. A/B seguem a ordem da tabela (em "Fogo + Gelo", A = Fogo).
 - **Requisito:** troncos (nós 01–06) das duas árvores comprados.
 - **Formas pelos pontos:** p = PH_A ÷ (PH_A + PH_B). Os PH **habilitam** formas e você **prepara 1 forma por mistura** (no Santuário/checkpoint, nunca em hostilidade):

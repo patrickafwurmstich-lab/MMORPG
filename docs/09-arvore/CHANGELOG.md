@@ -19,3 +19,6 @@
 - Último Fôlego: dívida = máx(0; D_efetivo − (vida antes − 1)); alternativa trocada por janela 3 s / recarga 90 s.
 - Mão firme: +50 p.p. de estabilidade (teto 60%). Punho do espelho e Lâmina e reflexo com contador de Leitura explícito. Pavio curto substitui o acréscimo de preparo (−0,40 s). Fúria cega ×1,30 / ×1,45; Fúria contida ×1,10 / ×1,25. Estilhaçar 25 de Ímpeto no total. Costas expostas: 3 ações originais diferentes.
 - Opcionais: testes com 1 Arte por preparação; "investimento mínimo do ramo"; Firmeza sem a chave 2 m / 3 m; curas em área: 4 por ação inteira.
+
+# Decisão do Lucas: até 3 elementos (07-mistura-elementos.md)
+- v1 → os dois NÃO APROVADO; v2: contato elemental 4 s, 1 reação por ação, recargas compartilhadas (dano 6 s, controle 10 s, apoio 12 s), potência q = 0,60 + 0,40·PH_i/ΣPH, PH habilitam formas (0,70/0,30) e o jogador prepara 1 por mistura, reação neutra sem herdar bônus, Ressonância por autorização (25 s), Maré/Fusão sem atalho. **Aprovada pelos dois.**

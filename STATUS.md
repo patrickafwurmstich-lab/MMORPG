@@ -68,4 +68,6 @@ Leitura de tabelas do ChatGPT: find "tabela com colunas ..." → read_page no re
 ## Loop 3 — parte do Lucas (último do loop), 2026-11-17
 - 8 técnicas: OK · Artes escondidas, 1 por vez: OK · próximo passo: ele vai **ler tudo primeiro**.
 - MUDANÇA: **até 3 elementos** por personagem, com mistura que muda conforme os PH em cada um → `docs/09-arvore/07-mistura-elementos.md` (potência por peso, 15 misturas × 3 formas = 45 reações, Ressonância tríplice). Check: TUDO OK.
-- [ ] Revisão da mistura pelo ChatGPT e Grok
+- [x] Mistura v1: os dois NÃO APROVADO → v2 juntando os dois (commit fb9272b)
+- [x] Mistura v2: **Grok APROVADO + ChatGPT APROVADO**
+- [ ] Lucas lê tudo e diz o que mudar (ele pediu para ler antes do próximo passo)
