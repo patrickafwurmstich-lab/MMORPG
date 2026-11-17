@@ -1,0 +1,32 @@
+Seja criterioso e rigoroso: quero qualidade de game designer sênior, sem respostas genéricas, sem "depende", com números e fórmulas. Responda em português.
+
+TAREFA: criar do zero o SISTEMA DE MECÂNICAS completo de um MMORPG de ação (combate em tempo real com esquiva/bloqueio, parecido com Toram Online) com estrutura de mundo como Sword Art Online temporada 1: torre/andares, cada andar é um bioma; o chefe do andar, quando derrotado por qualquer grupo, libera o próximo andar para TODOS os jogadores. NÃO crie história, personagens nem lore. Só mecânica, sistemas e economia.
+
+PROBLEMAS QUE O SISTEMA TEM QUE RESOLVER (reclamações reais de jogadores):
+1) progressão previsível: o nível 1 olha o nível 100 e já sabe o próprio futuro; tudo leva ao mesmo lugar;
+2) build meta: só 1–2 builds viáveis, expulsão de grupo por não ser meta;
+3) atributos/itens chatos (+5 dano, +5%) que não conversam entre si;
+4) chefe vira corrida de DPS;
+5) grind e RNG puro onde esforço não vira progresso;
+6) inflação de ouro (Tibia) e deflação por excesso de ralos (New World);
+7) guias externos matam a descoberta em minutos;
+8) áreas antigas ficam mortas;
+9) sistema que não se entende em 10 min afasta jogador;
+10) Toram: combate bom, progressão rasa e entediante.
+
+IDEIAS DO DONO (pode criticar e melhorar, não precisa manter igual):
+- pontos híbridos: o nível dá pontos e o jeito de jogar deixa certos atributos mais baratos;
+- atributos que se combinam (força também ajuda a mover mais rápido, velocidade gera mais golpes);
+- habilidades escondidas: um sistema analisa o estilo de luta + atributos + tipos de monstro derrotados e concede habilidades raras e fortes sem aviso; a chance cresce conforme o jogador acerta as condições (não é sorte pura);
+- não existe classe de mago: todos usam magia, escolhem 1 elemento e o que muda é onde canalizam (na arma, disparando pela arma ou conjurando); o status define o que rende mais;
+- objetivo: cada jogador pode ser protagonista.
+
+ENTREGUE, nesta ordem, com tudo conversando entre si:
+A) Atributos (lista, o que cada um faz, interações cruzadas, fórmulas de dano/defesa/velocidade, retornos decrescentes);
+B) Progressão (nível, pontos, custo variável, como evitar o caminho previsível);
+C) Habilidades (como nascem, como evoluem, como o sistema de estilo de luta funciona de forma calculável e anti-guia);
+D) Combate (ações, esquiva, bloqueio, postura/stagger, magia/canalização, papéis em grupo sem classes fixas);
+E) Chefes e andares (como evitar corrida de DPS, mecânicas que exigem builds diferentes, desbloqueio coletivo);
+F) Itens e criação (crafting com esforço determinístico, sem "+5%");
+G) Economia (torneiras e ralos com números, mercado entre jogadores, como manter andares antigos vivos);
+H) Os 3 maiores riscos do seu próprio design e como mitigar.
