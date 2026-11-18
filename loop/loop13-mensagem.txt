@@ -1,0 +1,29 @@
+Sejam criteriosos e rigorosos. Loop 13: correção localizada do Mago (regressão apontada pelo ChatGPT no loop 12). Respondam em português.
+
+Arquivos: https://raw.githubusercontent.com/patrickafwurmstich-lab/MMORPG/dbeb3328ab97cbc6636c9760fcc4b08b405272ec/sim/mago.js · https://raw.githubusercontent.com/patrickafwurmstich-lab/MMORPG/dbeb3328ab97cbc6636c9760fcc4b08b405272ec/sim/ao1-v11.js · https://raw.githubusercontent.com/patrickafwurmstich-lab/MMORPG/dbeb3328ab97cbc6636c9760fcc4b08b405272ec/sim/resultado/mago.md
+
+Referência robusta agora: as 3 melhores preparações da triagem vão para 400 lutas × 4 políticas. Reproduz o ChatGPT: FOR/DES 11,335 s; Mago 13,480 s (+18,9%); FOR/VIG +24,7%; VIG/FOR +25,3%.
+
+Ensaios para o Mago (pacote v1.1 ligado, constructo, 400 lutas):
+- Pulso básico K0,70 / 0,90 / 1,00: +18,9% / +18,8% / +20,8% (não resolve: o Mago continua preferindo arma rápida).
+- Regeneração + 4·rCON·rPOT: +18,5% (não resolve).
+- Projétil 1,40 → 1,55 e Área 1,60 → 1,75 (todos os elementos; Vento 1,30 → 1,45 / 1,50 → 1,65): +15,1% (no limite).
+- **Projétil 1,40 → 1,60 e Área 1,60 → 1,80 (Vento 1,50 / 1,70): Mago +13,4% ✔; Lâmina mágica +9,7% ✔.**
+Leitura: o Mago depende dos feitiços-base (os únicos que todo elemento tem); reforçá-los igualmente não favorece o Fogo e não mexe em arma física.
+
+Efeitos colaterais medidos:
+- Elementos (kits por elemento): Fogo vs 2º melhor no tempo cai para Mago −10,3%, Lâmina mágica −4,5%, Mago com espada curta −5,6% (antes −12% no Mago).
+- Armas no boneco: sem mudança (o reforço só toca técnicas elementais).
+- AO.1 (grupo de referência novo, 400 tentativas): o grupo fica mais forte. 57% → 90,0%; 58% → 88,5%; 59% → 82,5%; **60% → 75,50% [71,1–79,5] em 6,07 min, Força 0,43× quedas e 73% do DPS ✔**; 61% → 69,0%.
+- Tanque (VIG/FOR) +25,3% com IC ±0,6 ponto: na margem do teto de 25%; proponho acompanhar, sem mudança.
+
+Pacote v1.1 revisado:
+1) Fogo −24; Lança ígnea 0,9 s; Lâmina projetada K0,85; Dança de lâminas K0,40 × 3 (como no loop 12).
+2) Feitiços-base de todos os elementos: Projétil K1,60; Área K1,80 (Vento 1,50 / 1,70).
+3) AO.1 benchmark novo (Força em explosão): ataques a 60% do v8 = Golpe 180, Varredura 132, Investida 192, Chuva 108. P_arma 57,5 e vidas inalterados.
+
+Perguntas:
+A) Algum erro?
+B) Aprovam o reforço dos feitiços-base como correção do Mago?
+C) Aprovam o AO.1 a 60% para o benchmark com o pacote completo?
+D) APROVADO ou NÃO APROVADO para registrar o pacote v1.1 revisado no doc? Bloqueadores separados de sugestões.
