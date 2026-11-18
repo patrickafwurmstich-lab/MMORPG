@@ -1,0 +1,29 @@
+Sejam criteriosos e rigorosos. Loop 11: pendências de conteúdo da calibração v1 (doc 10 §6). Respondam em português.
+
+Arquivos: https://raw.githubusercontent.com/patrickafwurmstich-lab/MMORPG/fd1535172c465f6d2c913afbc6393af737648c04/sim/conteudo.js · https://raw.githubusercontent.com/patrickafwurmstich-lab/MMORPG/fd1535172c465f6d2c913afbc6393af737648c04/sim/resultado/conteudo.md · https://raw.githubusercontent.com/patrickafwurmstich-lab/MMORPG/fd1535172c465f6d2c913afbc6393af737648c04/sim/resultado/propostas-tecnicas.json · https://raw.githubusercontent.com/patrickafwurmstich-lab/MMORPG/fd1535172c465f6d2c913afbc6393af737648c04/docs/10-calibracao-v1.md
+O motor agora usa a calibração v1 como padrão (P_arma 57,5; AO.1 a 53,5%; armas ajustadas); scripts antigos usam TIPOS.ao1v8.
+
+A) Força (FOR/VIG) com machado grande no AO.1 (200 tentativas, mesmas sementes; meta Grok: quedas ≤1,1× média e DPS ≥65% do melhor):
+ruptura 77,0% de vitória, quedas 1,41× a média, DPS 58% ✘ | sustentado 90,5%, 1,17×, 69% ✘ | explosão 94,5%, 0,12×, 77% ✔ | defensiva 90,5%, 1,22×, 68% ✘ | sustentado com carga 1 fixa 93,0%, 0,95×, 70% ✔ | espada longa (referência) 98,5%, 0,98×, 78% ✔.
+Leitura: o problema é a política (ruptura), não o machado; com explosão ou carga curta passa. Proposta: não mudar números da arma; registrar no doc que a política de referência do machado grande no chefe é "explosão" (pesado guardado para janelas) e trocar a política do grupo de referência.
+
+B) Fogo (constructo, mesma preparação, só muda o elemento; Δ contra sem elemento):
+Atual: Mago −34% com Fogo contra −18% com Água (Fogo 19% melhor que o 2º); Lâmina mágica −25% vs −12% (15%); Leitor −11% vs +2% (12%); FOR/DES quase igual.
+A armadura do Fogo explica pouco: com −18 o Mago ainda fica 14% acima. A causa principal é a Lança ígnea (K1,2, 0,7 s, 18 de energia, recarga 4 s: maior dano por segundo entre todas as técnicas elementais).
+Ensaio "Fogo −24 + Lança ígnea 0,7 → 0,9 s": Fogo vs 2º melhor = Mago 12%, Lâmina mágica 3%, Leitor −1%, FOR/DES 0%.
+Na busca, 8/8 perfis escolhem Fogo com −30 e −24; 7/8 com −18.
+Pergunta: o Fogo é o elemento "de dano" por desenho (os outros dão controle/defesa que o tempo solo não mede). Qual distância aceitável entre elementos no tempo solo? Adotar o pacote −24 + Lança 0,9 s?
+
+B2) Armas contra o constructo (FOR/DES, Fogo): todas a ±15% da média (katana −13%, espada curta −11%, arco +10%). Espada curta sem Flanco fica −2%. A busca escolhe espada curta/katana porque pega o mínimo; diferenças pequenas viram "8 de 8". Nenhuma mudança proposta.
+
+C) Técnicas de Execução abaixo de 1,20× (alvo único, sem condição; físicas em FOR20/DES15/VIG10, mágicas em POT20/CON15/VIG10):
+Propostas de K por acerto: Passo de sombra 0,70 → 0,75; Dança de lâminas 0,30 → 0,50 (×3); Lâmina projetada 0,80 → 0,85; Corte que segue 0,90 → 1,00; Lançamento curvo 0,90 → 0,95.
+Manter: as de área que passam nos alvos do projeto (Tempestade, Saque do vazio, Rodopio, Giro pesado, Arremesso duplo, Tempestade de machados, Tiro em leque); mobilidade (Corte de avanço 1,11, Moedor 1,13); marca (Brasa persistente).
+Com as propostas, as 11 armas continuam a ±15% no boneco (duas espadas +2% → +4%).
+
+Perguntas:
+1) Algum erro nos ensaios?
+2) A: aceitam resolver a Força pela política de referência (explosão) sem mexer na arma?
+3) B: qual pacote para o Fogo (números)?
+4) C: aprovam as 5 propostas de K e a lista do que fica igual?
+5) APROVADO ou NÃO APROVADO para registrar essas decisões no doc de calibração (v1.1)? Bloqueadores separados de sugestões.
