@@ -1,0 +1,26 @@
+Sejam criteriosos e rigorosos. Revisão do SIMULADOR v3.1 (loop 7), com as correções do loop 6. Respondam em português.
+
+Arquivos fixados no commit:
+- Motor: https://raw.githubusercontent.com/patrickafwurmstich-lab/MMORPG/a7de3b5a154214dc718da61ec57f2c4f75f01bd5/sim/simulador3.js
+- Execução: https://raw.githubusercontent.com/patrickafwurmstich-lab/MMORPG/a7de3b5a154214dc718da61ec57f2c4f75f01bd5/sim/rodar3.js
+- Relatório: https://raw.githubusercontent.com/patrickafwurmstich-lab/MMORPG/a7de3b5a154214dc718da61ec57f2c4f75f01bd5/sim/resultado/relatorio3.md
+- CSV: https://raw.githubusercontent.com/patrickafwurmstich-lab/MMORPG/a7de3b5a154214dc718da61ec57f2c4f75f01bd5/sim/resultado/builds3.csv
+
+Corrigido (bloqueadores do ChatGPT B1–B6 e pontos do Grok):
+B1 ponto fraco ×1,5 e Brasa ×1,08 fora do comentário. B2 zona só lançada no fim da execução e só se a ação continua válida; Ritmo/Fluxo/Frenesi/Marca só no acerto. B3 Golpe de Ímpeto: principal (pesos de pesado, impacto com Ímpeto e +8% se ≥70) e continuação separada (pesos de leve, impacto 0,35·I_leve·I/100 sem FOR/CON, trecho próprio de 0,45·I/100 s, sem gerar recursos). B4 contato por alvo e por jogador (Map), registra B após a reação, impacto da reação × (1+0,6rFOR+0,4rCON), raio 2 m ≈ 2 alvos / 3 m ≈ 3, Lava em 4 tiques, formas sem efeito numérico fora da busca; Gelo +15% na recuperação (nada no chefe); Terra barreira 20 (máx. 40, 4 s). B5 Grito ×1,2 por 10 s, só na fase 2, cortado só por técnica cujo texto diz "interrompe", pagando custo e acertando dentro de 1,2 s; fúria exige âncoras E vida ≤25%. B6 Frenesi acelera (+3%/acerto, teto H 1,45); duas katanas 0,24 s; saque de resposta exige 0,4 s sem atacar e a carga vem do tempo guardado; Flanco no chefe só com ele em ataque/abertura (medido: ~52%).
+Também: aggro D.5 (e^(−Δt/8), +2×postura, troca com +20%); Leitura E.3 (≥20 oportunidades, aviso 5 s, ≤25% dos golpes da família, 30 s, papel pesa metade); rotas recalculadas com quem está de pé; Precisão aberta a todos (arco/PER≥15 só aumenta chance); poção guarda reserva para 1 reanimação salvo vida <20%; busca escolhe pelo constructo (pré-filtro no boneco); ensaios do chefe com as mesmas sementes; técnicas mágicas medidas em perfil Mago e área nos alvos do projeto.
+
+Resultados:
+- Calibração: boneco 154,8; eventos 113,8 (fera) / 122,1 (constructo). P_arma 65 → 72,1 de DPS, fera 7,0 s, constructo 12,8 s. Vidas ×1,45 → fera 5,3 s, constructo 10,6 s.
+- Armas: Machado grande −23% e agora Dois machados +19% (o Frenesi passou a acelerar). Pacote do Grok para o machado → −13%.
+- Perfis nível 15: 5 de 8 a ≤15% do melhor (Força +23%, Tanque +31%, Leitor +22%). Nível 100: 4 de 8; a busca escolhe Dois machados + Fogo para 6 de 8.
+- Pacote de conteúdo do Grok (Fogo −18, Flanco +20%, machado): 3 de 8; a busca passa a escolher Dois machados sem elemento.
+- AO.1 misto médio: 21/40 (53%) em 3,4 min; bom 40/40 em 3,0 min. 6× Leitor 95%, 6× Tanque 95%, 6× Destreza 55%, 6× Força 0%.
+- Ensaios do chefe (mesmas sementes): reserva 900 → 93% em 3,3 min; bloqueio 15% + área 40% → 60%; escudo 20% → 57%; P_arma 65 + dano do chefe 100/75/60/50% → 0% / 8% / 78% em 5,6 min / 100% em 5,2 min; pacote do Grok (vida 175 mil, −33%, reserva 900, reanimação 50 fixos, bloqueio 15%, área 40%) → 100% em 4,1 min.
+- Técnicas: 16 de 66 Execuções abaixo de 1,20× em alvo único; 7 delas passam nos alvos do projeto.
+
+Perguntas:
+A) Os bloqueadores B1–B6 estão resolvidos? Algum erro novo (citem trecho)?
+B) Com estes números, qual calibração adotar: P_arma 65 (ou outro valor) com dano do chefe ~60%, ou vidas ×1,45 com o pacote do Grok? Proponham números finais para fechar fera 8–12 s, constructo 14–18 s e AO.1 6–10 min com 70–85% para o médio.
+C) Dois machados +19% depois da correção do Frenesi: o que mudar?
+D) O simulador v3.1 está APROVADO como ferramenta de equilíbrio-base? Separem bloqueadores de sugestões.
