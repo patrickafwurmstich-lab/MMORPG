@@ -261,7 +261,7 @@ function tomar(p,dano,I,t,fonte){sofrer(p,dano,I);p.semPos=0;p.fluxo=0;p.ritmo=0
   if(p.tarefa&&p.tarefa.tipo==='canal')p.tarefa.interrompida=true;if(p.ajudando){p.ajudando.ajudante=null;p.ajudando=null;}
   if(I>0&&!(p.acao&&p.acao.superArmadura&&!fonte.chefe)){cortarAcao(p);p.flinch=0.4;}
   if(p.pos<=0){p.pos=p.posMax*.4;p.atord=2;cortarAcao(p);}if(p.vida<=0)cair(p,t);return 'golpe';}
-function cair(p,t){if(p.caido)return;p.caido=true;p.caidoT=t;p.quedas++;p.vida=0;cortarAcao(p);if(p.tarefa){p.tarefa.falhou=true;p.tarefa=null;}if(p.ajudando){p.ajudando.ajudante=null;p.ajudando=null;}}
+function cair(p,t){if(p.caido)return;if(cena&&cena.primeiraQueda==null)cena.primeiraQueda=t;p.caido=true;p.caidoT=t;p.quedas++;p.vida=0;cortarAcao(p);if(p.tarefa){p.tarefa.falhou=true;p.tarefa=null;}if(p.ajudando){p.ajudando.ajudante=null;p.ajudando=null;}}
 function abrir(p,e,pol){p.abertura=2;p.abertAlvo=e;p.usoAb=pol.impacto?'Desmontar':(pol.resMin?'Retomar':'Punir');}
 function responder(p,e,atq,t,pol,hab,leitura){const a=p.a,A=ARMAS[p.b.arma];const dano=atq.dano*e.s,I=atq.I;const marcado=p.marcado;p.marcado=false;
   if(!podeDefender(p,t))return tomar(p,dano,I,t,e);
@@ -396,7 +396,7 @@ function luta(builds,cfgCena,hab,pol,seed){RND=mulberry(seed);const s=cfgCena.s;
   return {venceu,tempo:t,motivo:venceu?'vitória':C.motivo,quedas:players.reduce((q,p)=>q+p.quedas,0),reanim:players.reduce((q,p)=>q+p.reanim,0),pocoes:players.reduce((q,p)=>q+5-p.pocoes,0),
     dps:players.reduce((q,p)=>q+p.dano,0)/t/players.length/s,ofens:media(players.map(p=>p.ofens/t)),semEne:media(players.map(p=>p.semEne/t)),forc:media(players.map(p=>p.forc/Math.max(1,p.acoes))),
     recebido:media(players.map(p=>p.recebido/s/t*60)),quebras:alvos.reduce((q,e)=>q+e.quebras,0),tarefas:C.tarefasT/players.length/t,gritos:C.gritos,gritosCortados:C.gritosCortados,colisoes:C.colisoes,
-    reacoes:C.reacoes,flanco:C.flancoT/t,leituras:C.leituras,semReserva:C.quedasSemReserva,
+    reacoes:C.reacoes,flanco:C.flancoT/t,primeiraQueda:C.primeiraQueda==null?t:C.primeiraQueda,leituras:C.leituras,semReserva:C.quedasSemReserva,
     porJogador:players.map(p=>({perfil:p.b.perfil,dps:p.dano/t/s,recebido:p.recebido/s/t*60,quedas:p.quedas}))};}
 // papel do jogador = etiqueta majoritária das técnicas equipadas (D.4)
 function papel(b){const c={};for(const fc of b.tec)c[fc.tag]=(c[fc.tag]||0)+1;let m='?',v=0;for(const k in c)if(c[k]>v){v=c[k];m=k;}return m;}
@@ -432,7 +432,7 @@ function bateria(builds,cfgCena,n,hab,pol,base){const R=[];for(let i=0;i<n;i++)R
   const vit=R.filter(x=>x.venceu);const tv=vit.map(x=>x.tempo);const [wl,wh]=wilson(vit.length,n);const mot={};R.forEach(x=>mot[x.motivo]=(mot[x.motivo]||0)+1);
   const m=k=>media(R.map(x=>x[k]));
   return {n,vit:vit.length,vitorias:vit.length/n,wl,wh,tempo:vit.length?media(tv):Infinity,ic:icT(tv),motivos:mot,quedas:m('quedas'),reanim:m('reanim'),pocoes:m('pocoes'),dps:m('dps'),ofens:m('ofens'),semEne:m('semEne'),forc:m('forc'),
-    recebido:m('recebido'),quebras:m('quebras'),tarefas:m('tarefas'),gritos:m('gritos'),gritosCortados:m('gritosCortados'),colisoes:m('colisoes'),dur:m('tempo'),reacoes:m('reacoes'),flanco:m('flanco'),leituras:m('leituras'),semReserva:m('semReserva'),
+    recebido:m('recebido'),quebras:m('quebras'),tarefas:m('tarefas'),gritos:m('gritos'),gritosCortados:m('gritosCortados'),colisoes:m('colisoes'),dur:m('tempo'),reacoes:m('reacoes'),primeiraQueda:m('primeiraQueda'),flanco:m('flanco'),leituras:m('leituras'),semReserva:m('semReserva'),
     porJogador:R[0].porJogador.map((_,j)=>({perfil:R[0].porJogador[j].perfil,dps:media(R.map(x=>x.porJogador[j].dps)),recebido:media(R.map(x=>x.porJogador[j].recebido)),quedas:media(R.map(x=>x.porJogador[j].quedas))}))};}
 // boneco = mesmo motor, inimigo sem ataques, sem ameaça
 function dpsBoneco(b,pol,dur){const s=b.cfg.s;const r=luta([b],{s,inimigos:[{tipo:'boneco'}],dur:dur||60,ameaca:false},HAB['médio'],pol,42);return r.dps;}

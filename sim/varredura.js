@@ -1,5 +1,4 @@
-process.argv.push('--x');
-const S=require('/home/claude/mmorpg/sim/simulador3.js');const {montarBuild,bateria,dpsBoneco,PERFIS,ARMAS,POL,HAB,media}=S;
+const S=require('./simulador3.js');const {montarBuild,bateria,dpsBoneco,PERFIS,ARMAS,POL,HAB,media}=S;
 Object.assign(ARMAS.machado_grande,{lK:.92,pK:2.05,pT:1.40});ARMAS.dois_machados.lK=.34;S.GLOBAL.frenesiVel=.02;
 const c15={nivel:15,s:1};const ELS=['fogo','gelo','raio','terra','vento','agua'];const solo=(t,m)=>({s:1,inimigos:[{tipo:t,mod:m}],dur:240,ameaca:true});
 const GRUPO=[['espada_e_escudo','Tanque',['terra'],'defensiva'],['machado_grande','Força',['fogo'],'ruptura'],['duas_espadas','Destreza',['vento'],'explosao'],['arco','Leitor (PER)',['raio'],'sustentado'],['desarmado','Mago',['gelo'],'sustentado'],['espada_longa','Lâmina mágica',['agua'],'sustentado']];
