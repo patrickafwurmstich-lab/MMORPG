@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MMORPG — Protótipo de Interface v4 (Pedra, Marfim e Luz)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Barlow+Condensed:wght@500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --carvao:#1C1A1A; --pedra:#2A2725; --pedra2:#3A342F; --cav:#0F0E0D;
+  --marfim:#E8DCC6; --marfim2:#A99E8E; --bronze:#9D7752; --bronze2:#C29A63; --linha:#6E604F;
+  --vida:#D9434F; --vidaT:#2A1214; --res:#4FA878; --resT:#10241A; --post:#8E6FD8; --postT:#1E1630;
+  --imp:#E2A63C; --imp2:#F6CF62; --perigo:#E8613F; --cristal:#5FC4C9;
+  --tit:"Marcellus",Georgia,serif; --num:"Barlow Condensed","Arial Narrow",sans-serif; --txt:"Atkinson Hyperlegible",system-ui,sans-serif;
+  --sombra:0 2px 0 #050505;
+  --borda-suja:radial-gradient(ellipse at 50% 40%,transparent 55%,rgba(0,0,0,.35) 100%);
+  --ruido-off:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .05 0'/></filter><rect width='140' height='140' filter='url(%23n)'/></svg>");
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{min-height:100%;background:#141211;color:var(--marfim);font-family:var(--txt)}
+button{font:inherit;color:inherit;cursor:pointer;background:none;border:0}
+.n{font-family:var(--num);font-variant-numeric:tabular-nums;font-weight:600}
+.t{font-family:var(--tit);font-weight:400}
+
+/* ---------- página ---------- */
+.topo{display:flex;align-items:flex-end;gap:22px;padding:14px 22px 0;background:#121010;border-bottom:1px solid #2c2622;position:sticky;top:0;z-index:50;flex-wrap:wrap}
+.topo h1{font:24px var(--tit);color:var(--marfim);padding-bottom:12px;letter-spacing:.02em}
+.topo h1 span{color:var(--marfim2);font:15px var(--txt);margin-left:10px}
+.abas{display:flex;gap:2px}
+.abas a{padding:10px 16px 11px;color:var(--marfim2);text-decoration:none;font-size:14px;border-bottom:2px solid transparent}
+.abas a.on{color:var(--marfim);border-bottom-color:var(--bronze2)}
+.vista{display:none;padding:18px 22px 50px}
+.vista.on{display:block}
+.ctl{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;align-items:center}
+.ctl button{padding:6px 12px;font-size:13px;color:var(--marfim2);border:1px solid #3a332d;background:#1d1a18}
+.ctl button:hover{color:var(--marfim);border-color:var(--bronze)}
+.ctl button.on{color:var(--marfim);border-color:var(--bronze2);background:#2a2420}
+.ctl i{width:1px;height:22px;background:#3a332d;margin:0 6px}
+.nota{color:var(--marfim2);font-size:13px;line-height:1.6;max-width:1100px}
+.nota b{color:var(--marfim);font-weight:700}
+
+/* ---------- palco ---------- */
+.wrap{position:relative;width:100%;overflow:hidden;background:#000;outline:1px solid #2c2622}
+.palco{position:absolute;left:0;top:0;transform-origin:0 0;overflow:hidden}
+.palco.r1080{width:1920px;height:1080px}.palco.r720{width:1280px;height:720px}
+.cena{position:absolute;inset:0;background:linear-gradient(#93b9cf 0%,#c3d6d6 40%,#b9c7a6 51%,#5f8a4c 52%,#3f6b37 100%)}
+.cena .torre{position:absolute;left:46.5%;top:0;width:7%;height:53%;background:linear-gradient(90deg,#77808c,#aab1b8 45%,#6c7580);clip-path:polygon(28% 0,72% 0,100% 100%,0 100%);opacity:.6}
+.cena .torre::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(transparent 0 38px,rgba(0,0,0,.18) 38px 40px)}
+.cena .morro{position:absolute;bottom:47%;border-radius:50% 50% 0 0;background:#58804f}
+.cena .arv{position:absolute;bottom:46%;width:2.2%;height:12%;background:#2f5a35;clip-path:polygon(50% 0,100% 85%,0 85%)}
+.cena .piso{position:absolute;left:23%;top:61%;width:54%;height:33%;border-radius:50%;background:radial-gradient(#cdbf9f,#ae9f7f 70%,#968866)}
+.cena .pilar{position:absolute;bottom:45%;width:2.6%;height:15%;background:#8e8a83;box-shadow:inset -8px 0 0 rgba(0,0,0,.2)}
+.ent{position:absolute}.ent svg{width:100%;height:100%;overflow:visible}
+.tele{position:absolute;left:46%;top:58.5%;width:13.5%;height:11%;clip-path:polygon(100% 50%,0 0,0 100%);background:linear-gradient(270deg,rgba(232,97,63,.75),rgba(232,97,63,.18));}
+.tele::before{content:"";position:absolute;inset:0;background:linear-gradient(270deg,rgba(255,200,170,.55),transparent);width:var(--carga,40%);right:0;left:auto}
+.dano{position:absolute;font:700 46px var(--num);color:#fff;text-shadow:0 2px 0 #000,0 0 3px #000;animation:sobe 1.3s ease-out 1 forwards}
+.dano.fl{color:#ffd35c}.dano.pq{color:#e9a2ff}
+@keyframes sobe{0%{transform:translateY(8px);opacity:0}12%{opacity:1;transform:translateY(0)}75%{opacity:1}100%{transform:translateY(-54px);opacity:0}}
+.r720 .dano{font-size:32px}
+
+/* ---------- HUD ---------- */
+.hud{position:absolute;inset:0}
+.sobre{text-shadow:0 1px 3px rgba(0,0,0,.95),0 0 1px #000}
+
+/* jogador: sem cartão, barras em escada */
+#jog{position:absolute;left:24px;top:22px;width:440px;padding:10px 0 12px 30px;isolation:isolate;z-index:1}
+#jog::before{content:"";position:absolute;left:0;right:-10px;top:4px;bottom:54px;background:linear-gradient(90deg,rgba(8,7,6,.72),rgba(8,7,6,.5) 75%,transparent);z-index:-1}
+#jog .ancora{position:absolute;left:0;top:10px;bottom:12px;width:14px;background:linear-gradient(90deg,#4a4038,#2c2622);box-shadow:inset 0 0 0 1px #6e604f,var(--sombra)}
+#jog .ancora::before,#jog .ancora::after{content:"";position:absolute;left:4px;width:6px;height:6px;border-radius:50%;background:#8a7a66;box-shadow:inset 0 -1px 0 #2a2420}
+#jog .ancora::before{top:6px}#jog .ancora::after{bottom:6px}
+#jog .cab{display:flex;align-items:baseline;gap:10px;margin-bottom:6px}
+#jog .cab .nm{font:22px var(--tit)}
+#jog .cab .nv{font:600 16px var(--num);color:var(--bronze2);letter-spacing:.04em}
+#jog .cab .arma{font-size:13px;color:#e9e1d2;opacity:.85;margin-left:auto}
+.br{position:relative;display:flex;align-items:center;gap:10px;margin:4px 0}
+.br .trilho{position:relative;height:var(--h);width:var(--w);background:var(--tr);clip-path:polygon(5px 0,100% 0,calc(100% - 5px) 100%,0 100%);box-shadow:var(--sombra);overflow:hidden;outline:1px solid #000}
+.br .ench{position:absolute;inset:0 auto 0 0;background:var(--c);transition:width .22s}
+.br .ench::after{content:"";position:absolute;left:0;right:0;top:0;height:35%;background:rgba(255,255,255,.22)}
+.br .atras{position:absolute;inset:0 auto 0 0;background:#f3e3c8;opacity:.55;transition:width .7s .35s}
+.br .div{position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 calc(25% - 1px),#0F0E0D calc(25% - 1px) 25%)}
+.br .v{position:absolute;right:12px;top:50%;transform:translateY(-50%);font:700 var(--fs,14px)/1 var(--num);color:#fff;text-shadow:0 0 2px #000,0 1px 0 #000,1px 0 0 #000,-1px 0 0 #000;z-index:3;pointer-events:none}
+.br .v small{font-size:.8em;color:#f0e4d0;opacity:.9}
+.br .trilho{z-index:1}
+.br .v small{font-size:13px;color:#d8cdb9;opacity:.8}
+.br .rot{position:absolute;left:-2px;top:-15px;font:700 11px var(--txt);letter-spacing:.12em;color:#efe6d6;opacity:.8}
+.vida{--fs:15px;--w:340px;--h:18px;--c:var(--vida);--tr:var(--vidaT)}
+.res{--fs:12px;--w:240px;--h:13px;--c:var(--res);--tr:var(--resT)}
+.post{--fs:12px;--w:190px;--h:13px;--c:var(--post);--tr:var(--postT)}
+#jog .vida{margin-top:18px}
+#jog .res,#jog .post{margin-left:0}
+.vida-baixa .vida .trilho{animation:perigo 1s infinite}
+@keyframes perigo{50%{box-shadow:0 0 0 2px #ff4a55,0 0 14px #ff4a55}}
+.vida-baixa #jog .vida .trilho{background:#160809}
+.quebra{display:none;position:absolute;left:196px;top:-6px;font:700 19px var(--num);letter-spacing:.1em;color:#e9b8ff;align-items:center;gap:5px;white-space:nowrap}
+.post-quebrada .quebra{display:flex}
+.post-quebrada .post .trilho{background:repeating-linear-gradient(90deg,#3a2550 0 5px,#140e1f 5px 9px)}
+.post-quebrada .post .v{visibility:hidden}
+.sem-res .res .trilho{animation:pisca .16s 3}
+@keyframes pisca{50%{box-shadow:0 0 0 2px #fff}}
+#buffs{display:flex;gap:7px;margin-top:12px;align-items:flex-end}
+.bf{width:36px;height:36px;background:var(--cav);box-shadow:0 0 0 1px #4b4038,var(--sombra);position:relative;display:grid;place-items:center;clip-path:polygon(0 0,100% 0,100% 72%,72% 100%,0 100%)}
+.bf svg{width:22px;height:22px}
+.bf b{position:absolute;left:0;right:0;bottom:-1px;text-align:center;font:600 11px var(--num);background:rgba(0,0,0,.6)}
+.bf.ruim{background:#1d0f0d;box-shadow:inset 0 0 0 2px #e0503a,var(--sombra)}
+.bf.ruim::after{content:"";position:absolute;left:2px;top:2px;border-left:7px solid #e0503a;border-bottom:7px solid transparent}
+.bf.acaba{animation:pisca 1s infinite}
+
+/* grupo: sem caixa, linhas finas */
+#grp{position:absolute;left:24px;top:250px;width:260px;padding:8px 10px;background:linear-gradient(90deg,rgba(10,9,8,.55),transparent)}
+.gm{display:grid;grid-template-columns:30px 1fr;gap:8px;align-items:center;margin-bottom:9px}
+.gm .ret{width:28px;height:28px;background:var(--pedra);border-radius:50%;box-shadow:inset 0 0 0 1px var(--linha);display:grid;place-items:center;font:15px var(--tit)}
+.gm .l1{display:flex;justify-content:space-between;font-size:13px}
+.gm .l1 span:last-child{font:600 13px var(--num);color:#ddd2bf}
+.gm .mb{height:6px;background:var(--vidaT);margin-top:3px;outline:1px solid #000}
+.gm .mb i{display:block;height:100%;background:var(--vida)}
+.gm.caido{opacity:.65}.gm.caido .l1 span:last-child{color:#ff9a96}
+
+/* alvo: cabeçalho flutuante sem caixa */
+#alvo{position:absolute;left:740px;top:26px;width:440px;text-align:center;padding:10px 0 12px;background:radial-gradient(ellipse 60% 55% at 50% 55%,rgba(10,9,8,.42),transparent 100%)}
+#alvo .l1{display:flex;justify-content:center;align-items:center;gap:10px}
+#alvo .selo{height:24px;padding:0 8px;background:var(--pedra);box-shadow:inset 0 0 0 1px var(--bronze);clip-path:polygon(7px 0,100% 0,100% 100%,0 100%,0 7px);display:grid;place-items:center;font:700 13px var(--num);color:var(--bronze2)}
+#alvo .nome{font:21px var(--tit)}
+#alvo .tipo{font-size:12px;color:#ddd2bf;letter-spacing:.08em}
+#alvo .hp{position:relative;width:360px;height:10px;margin:6px auto 0;background:var(--vidaT);clip-path:polygon(2% 0,98% 0,100% 50%,98% 100%,2% 100%,0 50%)}
+#alvo .hp i{position:absolute;inset:0 auto 0 0;background:var(--vida);transition:width .2s}
+#alvo .hpn{font:600 14px var(--num);margin-top:2px;color:#e7dccb}
+#alvo .pt{width:260px;height:7px;outline:1px solid #000;margin:3px auto 0;background:var(--postT)}
+#alvo .pt i{display:block;height:100%;background:var(--post);transition:width .2s}
+#alvo .golpe{margin:0 auto 6px;width:220px;text-align:center}
+#alvo.perigo .golpe .gb{box-shadow:inset 0 0 0 1px #c9452c,0 0 8px rgba(232,97,63,.6)}
+@keyframes pal{50%{filter:drop-shadow(0 0 6px #ff6a3c)}}
+#alvo .golpe .gn{display:inline-block;font:700 16px var(--num);letter-spacing:.12em;color:#fff;background:rgba(80,20,10,.85);padding:1px 10px;box-shadow:inset 0 0 0 1px #c9452c}
+#alvo .golpe .gb{height:12px;width:220px;outline:1px solid #000;background:rgba(0,0,0,.6);margin-top:3px;box-shadow:0 0 0 1px #6b2c1e}
+#alvo .golpe .gb i{display:block;height:100%;background:linear-gradient(90deg,#c9452c,#ffb07a);width:var(--carga,40%)}
+#alvo .marca-alvo{position:absolute;left:50%;top:-12px;transform:translateX(-50%);font:700 11px var(--num);letter-spacing:.2em;color:var(--bronze2)}
+
+/* minimapa */
+#mini{position:absolute;left:1640px;top:28px;width:250px;height:290px}
+#mini .bus{position:absolute;left:25px;top:0;width:200px;height:200px}
+#mini .bus svg{width:100%;height:100%;overflow:visible}
+#mini .placa{position:absolute;left:30px;width:190px;top:208px;text-align:center;background:var(--carvao);background-image:var(--borda-suja);box-shadow:0 0 0 1px var(--linha),var(--sombra);clip-path:polygon(10px 0,calc(100% - 10px) 0,100% 10px,100% 100%,0 100%,0 10px);padding:6px 0 7px}
+#mini .placa .an{font:17px var(--tit);letter-spacing:.06em;display:flex;align-items:center;justify-content:center;gap:8px}
+#mini .placa .zn{font-size:12px;color:var(--marfim2);margin-top:1px}
+#mini .hora{position:absolute;right:6px;top:4px;font:600 13px var(--num);color:#e8dcc6}
+
+/* missão: placa com corte e linha de acento */
+#mis{position:absolute;left:1600px;top:330px;width:290px;padding:10px 14px 10px 16px;background:rgba(28,26,26,.88);background-image:var(--borda-suja);clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,0 100%);box-shadow:inset 3px 0 0 var(--bronze)}
+#mis .tg{font:700 11px var(--txt);letter-spacing:.14em;color:var(--bronze2)}
+#mis .qt{font:18px var(--tit);margin:3px 0 6px}
+.ob{display:flex;gap:8px;font-size:14px;margin:5px 0;line-height:1.3}
+.ob .ck{width:11px;height:11px;margin-top:4px;flex:none;box-shadow:inset 0 0 0 1px var(--marfim2)}
+.ob.ok{color:var(--marfim2)}.ob.ok .ck{background:var(--res);box-shadow:none}
+.ob .q{margin-left:auto;font:600 14px var(--num);color:var(--marfim)}
+
+/* chat: sem caixa quando inativo */
+#chat{position:absolute;left:24px;top:800px;width:480px;padding:8px 12px;background:linear-gradient(90deg,rgba(10,9,8,.55),rgba(10,9,8,.25) 75%,transparent)}
+#chat .abs{display:flex;gap:14px;margin-bottom:6px;font:700 12px var(--txt);letter-spacing:.1em}
+#chat .abs span{color:#cfc4b2;opacity:.7;padding-bottom:2px}
+#chat .abs span.on{opacity:1;color:var(--marfim);box-shadow:0 2px 0 var(--bronze2)}
+#chat .ms{font-size:15px;line-height:1.5;-webkit-text-stroke:.2px #000}
+#chat .ms .s{color:#e7c98f}.ms .p{color:#9fd6dc}.ms .gu{color:#b6dca0}
+#chat .in{margin-top:8px;height:30px;background:rgba(15,14,13,.7);box-shadow:inset 0 0 0 1px #4b4038;font-size:13px;color:#a99e8e;padding:6px 10px}
+
+/* barra de ações */
+#acoes{position:absolute;left:0;right:0;top:930px;display:flex;justify-content:center;align-items:flex-end;gap:22px}
+.base{display:flex;gap:8px;align-items:flex-end;position:relative}
+.sl{position:relative;width:56px;height:56px;background:var(--cav);background-image:var(--borda-suja);clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px));display:grid;place-items:center}
+.sl::before{content:"";position:absolute;inset:0;clip-path:inherit;box-shadow:inset 0 0 0 1px #5a4c40;pointer-events:none}
+.sl svg{width:38px;height:38px}
+.slw{position:relative;display:flex;flex-direction:column;align-items:center}
+.tk{margin-top:-8px;z-index:2;min-width:22px;height:15px;line-height:15px;text-align:center;font:700 11px var(--num);letter-spacing:.04em;background:var(--cav);color:#efe4d0;padding:0 4px;box-shadow:inset 0 0 0 1px #5a4c40}
+.sl.peq{width:44px;height:44px;clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,9px 100%,0 calc(100% - 9px))}
+.sl.peq svg{width:28px;height:28px}
+.sl.vazio svg{opacity:.18}
+.sl .cd{position:absolute;inset:0;background:conic-gradient(rgba(0,0,0,.75) var(--p,0%),transparent 0);display:none;place-items:center;font:700 22px var(--num);text-shadow:0 1px 2px #000}
+.sl.recarga .cd{display:grid}
+.sl.indisp svg{filter:grayscale(1) brightness(.55)}
+.sl .qtd{position:absolute;right:4px;top:2px;font:700 13px var(--num)}
+.sl .cst{position:absolute;right:13px;top:2px;font:700 14px/1 var(--num);color:#f6dca6;background:rgba(8,7,6,.85);padding:1px 3px;z-index:2}
+.sl.pronto{background-color:#2a1f0e}
+.sl.pronto::before{box-shadow:inset 0 0 0 2px var(--imp),inset 0 0 14px rgba(226,166,60,.45)}
+.sl.flash{animation:fl .22s}
+@keyframes fl{50%{filter:brightness(2.2)}}
+.rotulo{position:absolute;top:-19px;left:0;right:0;text-align:center;font:700 11px var(--txt);letter-spacing:.1em;color:#efe6d6;opacity:.75;white-space:nowrap}
+
+/* ímpeto: 2 blocos de 50, colado ao Q */
+#imp{position:absolute;left:50%;top:-50px;transform:translateX(-50%);display:flex;align-items:center;gap:6px}
+#imp .bl{position:relative;width:104px;height:15px;background:#24190a;outline:1px solid #000;box-shadow:var(--sombra);overflow:hidden}
+#imp .bl i{position:absolute;inset:0 auto 0 0;background:linear-gradient(90deg,#b8791f,var(--imp));transition:width .2s}
+#imp .bl.cheio i{background:linear-gradient(90deg,var(--imp),var(--imp2))}
+#imp .bl.cheio{box-shadow:0 0 0 1px #000,0 0 10px rgba(246,207,98,.75)}
+#imp .impn{position:absolute;right:5px;top:50%;transform:translateY(-50%);font:700 12px/1 var(--num);color:#fff;text-shadow:0 0 2px #000,0 1px 0 #000;z-index:2}
+#imp .entalhe{width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-top:9px solid #5a4630}
+#imp.meio .entalhe{border-top-color:var(--imp2)}
+#imp .vl{position:absolute;right:calc(104px + 6px);display:none}#imp .vl small{font-size:12px;color:#c9a46a}
+
+/* notificações e central */
+#notif{position:absolute;left:1600px;top:880px;width:290px;display:flex;flex-direction:column;gap:6px}
+.nt{font-size:14px;padding:6px 10px 6px 12px;background:rgba(28,26,26,.86);box-shadow:inset 2px 0 0 var(--linha);animation:entra .25s}
+.nt.imp{box-shadow:inset 2px 0 0 var(--imp)}
+@keyframes entra{from{transform:translateX(24px);opacity:0}}
+#centro{position:absolute;left:0;right:0;top:300px;text-align:center;font:36px var(--tit);letter-spacing:.08em;text-shadow:0 2px 0 #000,0 0 12px #000;opacity:0;transition:opacity .18s}
+#centro.on{opacity:1}
+#flash{position:absolute;inset:0;pointer-events:none;opacity:0}
+#flash.on{animation:fx .4s}
+@keyframes fx{20%{opacity:1}}
+
+.modo-combate #chat .ms,.modo-combate #chat .abs{opacity:.12}
+.modo-combate #mis{opacity:.3}
+.modo-combate #grp{opacity:.55}
+.alto-contraste .sobre{text-shadow:0 0 0 #000,0 0 4px #000,0 0 4px #000}
+.alto-contraste #chat .ms,.alto-contraste #grp{background:rgba(0,0,0,.75)}
+
+/* 1280x720 */
+.r720 #jog{left:20px;top:18px;width:300px}
+.r720 #jog .cab .nm{font-size:17px}.r720 #jog .cab .nv{font-size:14px}.r720 #jog .cab .arma{display:none}
+.r720 .vida{--w:230px;--h:12px}.r720 .res{--w:150px;--h:6px}.r720 .post{--w:116px;--h:6px}
+.r720 .br .v{font-size:14px;min-width:60px}
+.r720 #jog .vida{margin-top:14px}
+.r720 .quebra{left:130px;font-size:11px}
+.r720 #buffs{margin-top:8px}.r720 .bf{width:24px;height:24px}.r720 .bf svg{width:17px;height:17px}
+.r720 #grp{left:20px;top:156px;width:190px}
+.r720 .gm{grid-template-columns:24px 1fr;margin-bottom:6px}.r720 .gm .ret{width:24px;height:24px;font-size:12px}
+.r720 .gm .l1{font-size:12px}
+.r720 #alvo{left:465px;top:18px;width:350px}
+.r720 #alvo .nome{font-size:16px}.r720 #alvo .hp{width:260px;height:8px}.r720 #alvo .pt{width:190px}
+.r720 #alvo .golpe{width:190px;margin-top:6px}
+.r720 #mini{left:1100px;top:14px;width:170px;height:200px}
+.r720 #mini .bus{left:13px;width:144px;height:144px}
+.r720 #mini .placa{left:12px;width:146px;top:150px;padding:4px 0}
+.r720 #mini .placa .an{font-size:13px}.r720 #mini .placa .zn{font-size:11px}
+.r720 #mis{left:1040px;top:226px;width:225px;padding:6px 10px}
+.r720 #mis .qt{font-size:14px}.r720 .ob{font-size:12px}.r720 #mis .ob:nth-of-type(n+3){display:none}
+.r720 #chat{left:20px;top:560px;width:330px}
+.r720 #chat .ms{font-size:13px}.r720 #chat .ms div:nth-last-child(n+3){display:none}
+.r720 #acoes{top:640px;gap:14px}
+.r720 .sl{width:46px;height:46px}.r720 .sl svg{width:30px;height:30px}
+.r720 .sl.peq{width:38px;height:38px}.r720 .sl.peq svg{width:24px;height:24px}
+.r720 .rotulo{display:none}
+.r720 #imp{top:-22px}.r720 #imp .bl{width:70px;height:7px}
+.r720 #notif{left:1040px;top:600px;width:225px}.r720 .nt{font-size:12px}
+.r720 #centro{top:200px;font-size:26px}
+
+/* ---------- menus ---------- */
+.jan{max-width:1500px;margin:0 auto;position:relative;background:var(--carvao);background-image:var(--borda-suja),linear-gradient(#211e1d,#181615);box-shadow:0 0 0 1px #4b4038,0 3px 0 #050505;clip-path:polygon(18px 0,100% 0,100% calc(100% - 18px),calc(100% - 18px) 100%,0 100%,0 18px);display:grid;grid-template-columns:230px 1fr;min-height:760px}
+.jan::before{content:"";position:absolute;inset:6px;border:1px solid rgba(157,119,82,.28);pointer-events:none;clip-path:polygon(14px 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%,0 14px)}
+.lat{border-right:1px solid #352e29;padding:22px 0;background:rgba(0,0,0,.18)}
+.lat .marca{display:flex;align-items:center;gap:10px;padding:0 22px 18px;font:21px var(--tit);color:var(--marfim)}
+.lat .sub{padding:0 22px 8px;font:700 11px var(--txt);letter-spacing:.16em;color:var(--marfim2)}
+.rom{font:13px var(--tit);color:var(--bronze2);letter-spacing:0;margin-right:2px}
+.it{display:flex;justify-content:space-between;align-items:center;width:100%;padding:11px 22px;font-size:15px;color:var(--marfim2);text-align:left;position:relative}
+.it kbd{font:600 13px var(--num);color:#7d7264}
+.it:hover{color:var(--marfim)}
+.it.on{color:var(--marfim);background:linear-gradient(90deg,rgba(157,119,82,.22),transparent)}
+.it.on::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:3px;background:var(--bronze2)}
+.cont{padding:24px 28px;position:relative}
+.cont .cab{display:flex;align-items:baseline;gap:14px;margin-bottom:18px;padding-bottom:12px;position:relative}
+.cont .cab::after{content:"";position:absolute;left:0;right:0;bottom:0;height:7px;background:linear-gradient(#352e29,#352e29) 0 6px/38% 1px no-repeat,linear-gradient(#352e29,#352e29) 100% 0/calc(62% - 9px) 1px no-repeat,linear-gradient(to top right,transparent calc(50% - 1px),#9D7752 50%,transparent calc(50% + 1px)) 38% 0/9px 7px no-repeat}
+.cont .cab h2{font:30px var(--tit);font-weight:400}
+.cont .cab span{font-size:14px;color:var(--marfim2)}
+.cont .cab .dir{margin-left:auto;font:600 16px var(--num);color:var(--marfim)}
+.pg{display:none}.pg.on{display:block}
+.duas{display:grid;gap:26px}
+.sec{font:700 11px var(--txt);letter-spacing:.16em;color:var(--marfim2);margin-bottom:10px}
+.fil{display:flex;gap:18px;margin-bottom:14px;font-size:14px;color:var(--marfim2)}
+.fil span.on{color:var(--marfim);box-shadow:0 2px 0 var(--bronze2);padding-bottom:3px}
+.grd{display:grid;grid-template-columns:repeat(8,60px);gap:6px}
+.ce{width:60px;height:60px;background:var(--cav);position:relative;display:grid;place-items:center;clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,0 100%)}
+.ce::before{content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 1px #3a322b;pointer-events:none}
+.ce svg{width:40px;height:40px}
+.ce b{position:absolute;right:4px;bottom:1px;font:700 13px var(--num)}
+.ce::after{content:"";position:absolute;right:0;top:0;width:12px;height:12px;background:var(--rar,transparent);clip-path:polygon(0 0,100% 0,100% 100%)}
+.ce.c1{--rar:#a99e8e}.ce.c2{--rar:#4FA878}.ce.c3{--rar:#5aa7d6}.ce.c4{--rar:#9b7ee0}.ce.c5{--rar:#e2a63c}
+.ce.esc::before{box-shadow:inset 0 0 0 2px var(--marfim)}
+.det{background:rgba(0,0,0,.22);padding:18px 20px;box-shadow:inset 0 0 0 1px #352e29}
+.det h3{font:24px var(--tit);font-weight:400}
+.rar{font:700 12px var(--txt);letter-spacing:.14em;margin:4px 0 12px}
+.ln{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px dotted #3d352f;font-size:14px}
+.ln b{font:600 17px var(--num)}
+.up{color:#7fd09e}.dn{color:#ef8a87}
+.bts{display:flex;gap:8px;margin-top:16px}
+.bt{padding:9px 16px;font-size:14px;background:#2a2521;box-shadow:inset 0 0 0 1px #54473b,var(--sombra)}
+.bt:hover{box-shadow:inset 0 0 0 1px var(--bronze2),var(--sombra)}
+.bt.p{background:linear-gradient(#a98458,#7c5c39);color:#1a120a;font-weight:700;box-shadow:inset 0 0 0 1px #d2ad78,var(--sombra)}
+.flavor{font-style:italic;color:#c9bca7;font-size:14px;line-height:1.55;margin:10px 0 12px;border-left:2px solid #4b4038;padding-left:10px}
+.vrm{position:relative;background:radial-gradient(ellipse at 50% 88%,rgba(194,154,99,.18),transparent 55%),linear-gradient(#1f1c1a,#121110);box-shadow:inset 0 0 0 1px #352e29;display:grid;place-items:center;overflow:hidden}
+.vrm .lg{position:absolute;left:14px;top:10px;font:700 11px var(--txt);letter-spacing:.16em;color:var(--marfim2)}
+.vrm .rd{position:absolute;bottom:12px;left:0;right:0;text-align:center;font-size:12px;color:var(--marfim2)}
+.vrm .chao{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);width:260px;height:40px;border-radius:50%;box-shadow:0 0 0 1px rgba(194,154,99,.35)}
+.eq{display:flex;gap:12px;align-items:center;padding:8px 0;border-bottom:1px solid #2f2925}
+.eq .ce{width:52px;height:52px}.eq .ce svg{width:34px;height:34px}
+.eq small{display:block;font:700 11px var(--txt);letter-spacing:.14em;color:var(--marfim2);margin-bottom:2px}
+.eq .vz{color:#7d7264;font-style:italic}
+.at{display:grid;grid-template-columns:62px 1fr 56px 74px;gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid #2f2925}
+.at .sg{font:24px var(--tit);color:var(--bronze2)}
+.at .ds{font-size:13px;color:var(--marfim2)}
+.at .v{font:700 24px var(--num);text-align:center}
+.at .pm{display:flex;gap:4px}
+.at .pm button{width:30px;height:30px;background:#2a2521;box-shadow:inset 0 0 0 1px #54473b;font:700 18px var(--num)}
+.at .pm button:hover{box-shadow:inset 0 0 0 1px var(--bronze2)}
+.arv{position:relative;height:540px;background-image:radial-gradient(rgba(194,154,99,.07) 1px,transparent 1px);background-size:22px 22px}
+.arv svg.lig{position:absolute;inset:0;width:100%;height:100%}
+.no{position:absolute;width:56px;height:56px;transform:translate(-50%,-50%);display:grid;place-items:center;background:var(--cav);clip-path:circle(50%)}
+.no.esp{width:66px;height:66px;clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%)}
+.no svg{width:30px;height:30px}
+.no::before{content:"";position:absolute;inset:0;clip-path:inherit;box-shadow:inset 0 0 0 2px var(--bd,#4b4038)}
+.no.adq{--bd:var(--bronze2);background:#4a3720}
+.no.disp{--bd:var(--cristal)}
+.no.bloq svg{opacity:.3}
+.nol{position:absolute;transform:translateX(-50%);font-size:12px;color:var(--marfim2);white-space:nowrap;text-align:center}
+.nol.on{color:var(--marfim)}
+.nol small{display:block;font:600 11px var(--num);letter-spacing:.08em}
+.cfg{display:grid;grid-template-columns:1fr 280px 56px;gap:12px;align-items:center;padding:11px 0;border-bottom:1px solid #2f2925;font-size:14px}
+.cfg input[type=range]{width:100%;accent-color:var(--bronze2)}
+.sw{width:42px;height:20px;background:#2a2521;box-shadow:inset 0 0 0 1px #54473b;position:relative}
+.sw::after{content:"";position:absolute;left:3px;top:3px;width:14px;height:14px;background:#7d7264;transition:.15s}
+.sw.on{background:#3d3020}.sw.on::after{left:25px;background:var(--bronze2)}
+.opc{display:flex;gap:4px}.opc span{padding:4px 10px;font-size:13px;color:var(--marfim2);box-shadow:inset 0 0 0 1px #3d352f}.opc span.on{color:var(--marfim);box-shadow:inset 0 0 0 1px var(--bronze2)}
+.mi{padding:12px 14px;margin-bottom:6px;box-shadow:inset 0 0 0 1px #2f2925;cursor:pointer}
+.mi.on{box-shadow:inset 3px 0 0 var(--bronze2),inset 0 0 0 1px #4b4038;background:rgba(157,119,82,.08)}
+.mi small{display:block;color:var(--marfim2);font-size:12px;margin-top:3px}
+.mi .tp{font:700 11px var(--txt);letter-spacing:.14em;color:var(--bronze2)}
+.mi .tp.sec2{color:#8fb7c4}
+
+/* seleção de personagem */
+.sel{max-width:1500px;margin:0 auto;display:grid;grid-template-columns:330px 1fr 320px;min-height:720px;background:linear-gradient(#1a1817,#0f0e0d);box-shadow:0 0 0 1px #352e29;position:relative}
+.sel .lista{padding:26px 22px;border-right:1px solid #2f2925}
+.sel h2{font:28px var(--tit);font-weight:400;margin-bottom:16px}
+.pc{display:flex;gap:12px;align-items:center;padding:12px 10px;border-bottom:1px solid #2a2421;cursor:pointer}
+.pc.on{background:linear-gradient(90deg,rgba(157,119,82,.18),transparent);box-shadow:inset 3px 0 0 var(--bronze2)}
+.pc .rt{width:50px;height:50px;background:var(--pedra);clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);overflow:hidden}
+.pc small{display:block;color:var(--marfim2);font-size:12px}
+.pc.novo{color:var(--marfim2);justify-content:center;border:1px dashed #3d352f;margin-top:14px}
+.sel .info{padding:26px 24px;border-left:1px solid #2f2925;display:flex;flex-direction:column}
+.entrar{margin-top:auto;padding:16px;font:22px var(--tit);background:linear-gradient(#a98458,#6f5032);color:#1a120a;box-shadow:inset 0 0 0 1px #d2ad78,var(--sombra);clip-path:polygon(12px 0,calc(100% - 12px) 0,100% 50%,calc(100% - 12px) 100%,12px 100%,0 50%)}
+
+/* ícones/paleta */
+.grade2{display:grid;grid-template-columns:1fr 1fr;gap:26px;max-width:1500px}
+.bloco{background:var(--carvao);background-image:var(--borda-suja);box-shadow:0 0 0 1px #352e29;padding:20px 22px}
+.bloco h3{font:22px var(--tit);font-weight:400;margin-bottom:14px}
+.pal{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px}
+.cor{box-shadow:0 0 0 1px #352e29}.cor div{height:52px}.cor p{padding:6px 8px;font-size:12px;color:var(--marfim2)}.cor p b{display:block;font:600 15px var(--num);color:var(--marfim)}
+.icg{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:12px}
+.icg div{text-align:center;font-size:12px;color:var(--marfim2)}
+.icg .sl{margin:0 auto 6px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{text-align:left;padding:7px 8px;border-bottom:1px solid #2f2925}
+th{font:700 11px var(--txt);letter-spacing:.14em;color:var(--marfim2)}
+td:first-child{font:600 15px var(--num)}
+.pr0{color:#ef8a87}.pr1{color:var(--imp2)}.pr2{color:#8fb7c4}.pr3{color:var(--marfim2)}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+  <!-- símbolo da torre: duas colunas e o degrau -->
+  <symbol id="torre" viewBox="0 0 24 24"><path d="M6 2v9l12 4v7M18 2v7M6 15v7" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="square"/></symbol>
+  <!-- ícones: silhueta cheia em dois tons (gravura), sem gradiente -->
+  <symbol id="i-leve" viewBox="0 0 48 48"><path d="M37 4l7 0 0 7-23 23-7-7z" fill="#d9d2c4"/><path d="M37 4l7 0-23 23-3.5-3.5z" fill="#fff8ea"/><path d="M12 25l11 11-3 3-11-11z" fill="#b88a4e"/><path d="M8 33l7 7-5 5-7-7z" fill="#6b4a2b"/></symbol>
+  <symbol id="i-pesado" viewBox="0 0 48 48"><path d="M21 8h6v36h-6z" fill="#6b4a2b"/><path d="M27 6c11 0 17 7 17 17-6-3-11-3-17 1z" fill="#cfc6b6"/><path d="M21 6C10 6 4 13 4 23c6-3 11-3 17 1z" fill="#a69c8b"/><path d="M27 6c7 1 12 5 14 11-4-2-9-2-14 0z" fill="#fff6e4"/></symbol>
+  <symbol id="i-bloq" viewBox="0 0 48 48"><path d="M24 3l18 6v14c0 12-8 19-18 22C14 42 6 35 6 23V9z" fill="#6e604f"/><path d="M24 7l14 5v11c0 9-6 15-14 18z" fill="#8f7d66"/><path d="M24 7v34C16 38 10 32 10 23V12z" fill="#5a4e40"/><path d="M24 12v24M15 22h18" stroke="#d6b27a" stroke-width="3"/></symbol>
+  <symbol id="i-esq" viewBox="0 0 48 48"><path d="M4 34c6-14 17-22 32-23l-2-7 12 11-13 9 1-7C22 18 12 25 4 34z" fill="#d9d2c4"/><path d="M6 41h12M22 41h7M33 41h4" stroke="#8a7d6a" stroke-width="3"/></symbol>
+  <symbol id="i-imp" viewBox="0 0 48 48"><path d="M24 2l6 14 15 2-11 10 3 16-13-8-13 8 3-16L3 18l15-2z" fill="#c98f2e"/><path d="M24 2l6 14 15 2-11 10-10-6z" fill="#f6cf62"/><circle cx="24" cy="25" r="4" fill="#fff3cf"/></symbol>
+  <symbol id="i-aparar" viewBox="0 0 48 48"><path d="M7 37L36 8l4 4-29 29z" fill="#d9d2c4"/><path d="M11 8l29 29-4 4L7 12z" fill="#a69c8b"/><path d="M24 18l6 6-6 6-6-6z" fill="#e2a63c"/></symbol>
+  <symbol id="i-fogo" viewBox="0 0 48 48"><path d="M24 2c7 11 15 15 13 28-1 9-7 14-13 14-8 0-14-6-13-15 1-7 6-9 6-17 4 4 4 8 6 10 2-6-2-12 1-20z" fill="#c9452c"/><path d="M24 22c5 6 6 10 1 17-6-3-6-9-1-17z" fill="#ffc46b"/></symbol>
+  <symbol id="i-agua" viewBox="0 0 48 48"><path d="M24 3c9 13 15 20 15 29a15 15 0 0 1-30 0c0-9 6-16 15-29z" fill="#3c86b5"/><path d="M24 3c9 13 15 20 15 29a15 15 0 0 1-15 15z" fill="#5aa7d6"/><path d="M16 32a8 8 0 0 0 7 8" stroke="#e5f5ff" stroke-width="3" fill="none"/></symbol>
+  <symbol id="i-vento" viewBox="0 0 48 48"><path d="M4 16h26a5 5 0 1 0-5-5" stroke="#9fd6c4" stroke-width="4.5" fill="none"/><path d="M4 26h34a6 6 0 1 1-6 6" stroke="#7fb9a6" stroke-width="4.5" fill="none"/><path d="M4 35h14" stroke="#9fd6c4" stroke-width="4.5"/></symbol>
+  <symbol id="i-terra" viewBox="0 0 48 48"><path d="M3 42l11-24 7 9 9-20 15 35z" fill="#8a6a45"/><path d="M30 7l15 35H25z" fill="#a8845a"/><path d="M26 17l4-9 4 10z" fill="#d6be93"/></symbol>
+  <symbol id="i-lamina" viewBox="0 0 48 48"><path d="M5 21h26v6H5z" fill="#d9d2c4"/><path d="M5 21h26v2H5z" fill="#fff8ea"/><path d="M28 12l17 12-17 12 5-12z" fill="#5fc4c9"/><path d="M5 15h4v18H5z" fill="#b88a4e"/></symbol>
+  <symbol id="i-danca" viewBox="0 0 48 48"><path d="M8 39L32 8l3 3L11 42z" fill="#d9d2c4"/><path d="M40 39L16 8l-3 3 24 31z" fill="#a69c8b"/><path d="M24 6a20 20 0 0 1 18 14" stroke="#9b7ee0" stroke-width="3" fill="none"/><path d="M24 44A20 20 0 0 1 6 30" stroke="#9b7ee0" stroke-width="3" fill="none"/></symbol>
+  <symbol id="i-pocao" viewBox="0 0 48 48"><path d="M19 3h10v9l9 13v14a6 6 0 0 1-6 6H16a6 6 0 0 1-6-6V25l9-13z" fill="#4b4038"/><path d="M12 28h24v11a5 5 0 0 1-5 5H17a5 5 0 0 1-5-5z" fill="#c23f48"/><path d="M15 31h4v8h-4z" fill="#f08a90"/><path d="M18 2h12v4H18z" fill="#8a6a45"/></symbol>
+  <symbol id="i-elmo" viewBox="0 0 48 48"><path d="M7 31C7 14 15 5 24 5s17 9 17 26v9H30v-9H18v9H7z" fill="#a69c8b"/><path d="M24 5c9 0 17 9 17 26v9H30v-9h-6z" fill="#cfc6b6"/><path d="M22 5h4v18h-4z" fill="#8a6a45"/></symbol>
+  <symbol id="i-peito" viewBox="0 0 48 48"><path d="M9 10l9-5c2 5 10 5 12 0l9 5 2 13-7 2v18H14V25l-7-2z" fill="#6e604f"/><path d="M24 9c3 0 5-1 6-4l9 5 2 13-7 2v18H24z" fill="#8f7d66"/><path d="M23 12h2v29h-2z" fill="#c29a63"/></symbol>
+  <symbol id="i-bota" viewBox="0 0 48 48"><path d="M13 5h15v25l13 4v9H11V30z" fill="#6b4a2b"/><path d="M11 37h30v6H11z" fill="#3d2a19"/><path d="M13 9h15v4H13z" fill="#a8845a"/></symbol>
+  <symbol id="i-luva" viewBox="0 0 48 48"><path d="M13 45V23l-2-12c1-4 5-4 6 0l2 9 1-14c2-4 5-3 6 0v13l2-11c2-3 5-2 5 1v13l4-8c3-2 6 0 5 3l-5 17v10z" fill="#8a6a45"/><path d="M13 36h22v4H13z" fill="#5a4330"/></symbol>
+  <symbol id="i-anel" viewBox="0 0 48 48"><circle cx="24" cy="29" r="12" fill="none" stroke="#c29a63" stroke-width="5"/><path d="M17 13l7-10 7 10-7 6z" fill="#9b7ee0"/><path d="M24 3l7 10-7 6z" fill="#c6b2f2"/></symbol>
+  <symbol id="i-pele" viewBox="0 0 48 48"><path d="M8 12c10-7 22-7 32 0l-3 11 6 11c-12 9-26 9-38 0l6-11z" fill="#8a7a66"/><path d="M14 18c7-3 13-3 20 0" stroke="#5e5244" stroke-width="2" fill="none"/></symbol>
+  <symbol id="i-minerio" viewBox="0 0 48 48"><path d="M7 34l6-21 16-6 13 14-6 19-20 2z" fill="#4e4a47"/><path d="M29 7l13 14-6 19-12-15z" fill="#625d58"/><path d="M19 19l7-4 5 9-7 4z" fill="#5fc4c9"/></symbol>
+  <symbol id="i-chave" viewBox="0 0 48 48"><circle cx="14" cy="24" r="8" fill="none" stroke="#c29a63" stroke-width="5"/><path d="M21 22h22v5H21zM34 27h4v7h-4zM40 27h3v5h-3z" fill="#c29a63"/></symbol>
+  <symbol id="i-cajado" viewBox="0 0 48 48"><path d="M12 45l17-31 3 2-17 31z" fill="#6b4a2b"/><circle cx="33" cy="10" r="7" fill="#3c86b5"/><path d="M33 3a7 7 0 0 1 0 14z" fill="#5fc4c9"/></symbol>
+  <symbol id="i-katana" viewBox="0 0 48 48"><path d="M8 40C20 30 32 18 42 4l2 2C35 21 22 33 10 42z" fill="#d9d2c4"/><path d="M5 37l6 6-3 3-6-6z" fill="#8a2f2a"/><path d="M9 34l5 5" stroke="#c29a63" stroke-width="3"/></symbol>
+  <symbol id="i-machado" viewBox="0 0 48 48"><path d="M14 45L28 6l3 1-14 39z" fill="#6b4a2b"/><path d="M27 7c12-2 18 6 17 18-6-4-12-5-20-1z" fill="#cfc6b6"/><path d="M27 7c8-1 13 3 15 9-5-2-10-2-15 0z" fill="#fff6e4"/></symbol>
+  <symbol id="i-atk" viewBox="0 0 48 48"><path d="M24 4l12 16h-7v22h-10V20h-7z" fill="#e0794f"/></symbol>
+  <symbol id="i-def" viewBox="0 0 48 48"><path d="M24 4l16 6v12c0 11-7 17-16 20C15 39 8 33 8 22V10z" fill="#4FA878"/></symbol>
+  <symbol id="i-queima" viewBox="0 0 48 48"><path d="M24 4c6 10 12 14 10 25-1 8-6 13-10 13-7 0-12-5-11-13 1-6 5-8 5-15 3 3 3 7 5 9 2-6-2-11 1-19z" fill="#c9452c"/></symbol>
+  <symbol id="i-portal" viewBox="0 0 48 48"><path d="M12 44V20a12 12 0 0 1 24 0v24z" fill="#4b4038"/><path d="M16 44V21a8 8 0 0 1 16 0v23z" fill="#9b7ee0"/></symbol>
+  <symbol id="i-quebra" viewBox="0 0 48 48"><path d="M24 4l20 20-20 20L4 24z" fill="none" stroke="#e9b8ff" stroke-width="4"/><path d="M24 6l-4 13 8 6-6 10 2 11" stroke="#e9b8ff" stroke-width="3" fill="none"/></symbol>
+  <!-- personagem anime (rascunho; no jogo é o VRM) -->
+  <symbol id="pers" viewBox="0 0 100 200">
+    <ellipse cx="50" cy="196" rx="26" ry="4.5" fill="#000" opacity=".28"/>
+    <path d="M38 120L35 190h11l4-50 4 50h11l-3-70z" fill="#2c2a33"/>
+    <path d="M34 186h13v8H32zM53 186h13l2 8H53z" fill="#3d2a19"/>
+    <path d="M30 70q20-8 40 0l5 58q-25 9-50 0z" fill="#e3dccd"/>
+    <path d="M30 70l-5 58q13 4 19 2l-4-56zM70 70l5 58q-13 4-19 2l4-56z" fill="#5a3f33"/>
+    <path d="M44 72l6 18 6-18" fill="#9d7752"/>
+    <path d="M30 72q-10 24-6 46" stroke="#e3dccd" stroke-width="9" fill="none" stroke-linecap="round"/>
+    <path d="M70 72q12 22 8 44" stroke="#e3dccd" stroke-width="9" fill="none" stroke-linecap="round"/>
+    <path d="M77 112l19-72 2 1-18 72z" fill="#d9d2c4"/><path d="M72 110l12 7-2 3-12-7z" fill="#9d7752"/>
+    <rect x="45" y="56" width="10" height="12" fill="#efcdb8"/>
+    <ellipse cx="50" cy="42" rx="17" ry="19" fill="#f6dccb"/>
+    <path d="M31 44q-1-26 19-26 22 0 19 28l-3-12-4 6-4-12-6 10-6-12-4 12-4-8-4 14z" fill="#463040"/>
+    <path d="M31 40q-3 20 3 26l2-20zM69 40q3 20-3 26l-2-20z" fill="#463040"/>
+    <ellipse cx="43" cy="46" rx="3" ry="4.2" fill="#7a4f2e"/><ellipse cx="57" cy="46" rx="3" ry="4.2" fill="#7a4f2e"/>
+    <circle cx="44" cy="44.5" r="1" fill="#fff"/><circle cx="58" cy="44.5" r="1" fill="#fff"/>
+    <path d="M47 54q3 2 6 0" stroke="#a8604f" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="lobo" viewBox="0 0 120 80">
+    <ellipse cx="60" cy="76" rx="42" ry="5" fill="#000" opacity=".28"/>
+    <path d="M24 34q16-12 50-8l20-8 6-12 6 12 8 6-6 10-10 2-6 12-4 24h-8l-2-20H50l-6 20h-8V50q-16 0-20-10L4 34l14-2z" fill="#6f747d"/>
+    <path d="M24 34q16-12 50-8l20-8 6 4-24 10q-30-2-52 2z" fill="#8a909a"/>
+    <circle cx="104" cy="24" r="2.2" fill="#ffd35c"/>
+  </symbol>
+</defs>
+</svg>
+
+<header class="topo">
+  <h1>A Torre <span>protótipo de interface · v4</span></h1>
+  <nav class="abas" id="abas">
+    <a href="#hud" data-v="hud">Combate</a>
+    <a href="#menus" data-v="menus">Menus</a>
+    <a href="#personagem" data-v="personagem">Seleção de personagem</a>
+    <a href="#icones" data-v="icones">Paleta, letras e ícones</a>
+  </nav>
+</header>
+
+<!-- ================= COMBATE ================= -->
+<section class="vista" id="v-hud">
+  <div class="ctl" id="ctl">
+    <button data-res="1080" class="on">1920×1080</button><button data-res="720">1280×720</button><i></i>
+    <button data-a="leve">Golpe leve</button><button data-a="pesado">Golpe pesado</button><button data-a="vida">Vida baixa</button>
+    <button data-a="postura">Quebrar postura</button><button data-a="semres">Sem resistência</button><button data-a="impeto">Encher Ímpeto</button>
+    <button data-a="perfeita">Esquiva perfeita</button><button data-a="aparar">Aparar</button><button data-a="recarga">Recarga (1)</button><i></i>
+    <button data-t="modo-combate">Modo combate</button><button data-t="alto-contraste">Alto contraste</button><button data-a="reset">Restaurar</button>
+  </div>
+  <div class="wrap" id="wrap">
+    <div class="palco r1080" id="palco">
+      <div class="cena" id="cena">
+        <div class="torre"></div>
+        <div class="morro" style="left:-6%;width:42%;height:17%"></div><div class="morro" style="left:58%;width:52%;height:21%;background:#4f7848"></div>
+        <div class="arv" style="left:8%"></div><div class="arv" style="left:11%;height:9%"></div><div class="arv" style="left:80%;height:10%"></div><div class="arv" style="left:83%"></div>
+        <div class="pilar" style="left:20%"></div><div class="pilar" style="left:36%;height:11%"></div><div class="pilar" style="left:66%;height:12%"></div><div class="pilar" style="left:77%"></div>
+        <div class="piso"></div>
+        <div class="tele" id="tele"></div>
+        <div class="ent" style="left:57%;top:50%;width:13%;height:13%"><svg><use href="#lobo"/></svg></div>
+        <div class="ent" style="left:44%;top:45%;width:6.5%;height:24%"><svg><use href="#pers"/></svg></div>
+      </div>
+      <div id="flash"></div>
+      <div class="hud sobre" id="hud">
+
+        <div id="jog"><div class="ancora"></div>
+          <div class="cab"><span class="nm">Lucas</span><span class="nv">NV 12</span><span class="arma">espada longa</span></div>
+          <div class="br vida"><span class="rot">VIDA</span><div class="trilho"><div class="atras" id="aVida" style="width:100%"></div><div class="ench" id="bVida" style="width:100%"></div><div class="div"></div><span class="v" id="tVida">1245 <small>/ 1245</small></span></div></div>
+          <div class="br res"><div class="trilho"><div class="ench" id="bRes" style="width:100%"></div><span class="v" id="tRes">116</span></div></div>
+          <div class="br post"><div class="trilho"><div class="ench" id="bPost" style="width:100%"></div><span class="v" id="tPost">135</span></div><span class="quebra"><svg width="15" height="15"><use href="#i-quebra"/></svg>POSTURA QUEBRADA <span id="tq">2.0</span>s</span></div>
+          <div id="buffs">
+            <div class="bf" title="Ataque +10%"><svg><use href="#i-atk"/></svg><b>42</b></div>
+            <div class="bf" title="Barreira de terra"><svg><use href="#i-def"/></svg><b>8</b></div>
+            <div class="bf ruim acaba" title="Queimadura"><svg><use href="#i-queima"/></svg><b>4</b></div>
+          </div>
+        </div>
+
+        <div id="grp">
+          <div class="gm"><div class="ret">A</div><div><div class="l1"><span>Asuna_br</span><span>NV 13</span></div><div class="mb"><i style="width:82%"></i></div></div></div>
+          <div class="gm"><div class="ret">K</div><div><div class="l1"><span>KleinPT</span><span>NV 11</span></div><div class="mb"><i style="width:44%"></i></div></div></div>
+          <div class="gm caido"><div class="ret">S</div><div><div class="l1"><span>Silica</span><span>caída</span></div><div class="mb"><i style="width:0"></i></div></div></div>
+        </div>
+
+        <div id="alvo" class="perigo">
+          <div class="marca-alvo">◆ TRAVADO ◆</div>
+          <div class="l1"><span class="selo n">NV 10</span><span class="nome">Lobo do Bosque</span></div>
+          <div class="tipo">fera</div>
+          <div class="golpe"><div class="gn">INVESTIDA</div><div class="gb"><i id="gCarga"></i></div></div>
+          <div class="hp"><i id="bAlvo" style="width:72%"></i></div>
+          <div class="hpn n" id="tAlvo">468 / 650</div>
+          <div class="pt"><i id="bAlvoP" style="width:55%"></i></div>
+        </div>
+
+        <div id="mini">
+          <div class="bus">
+            <svg viewBox="0 0 220 220">
+              <defs><clipPath id="cm"><circle cx="110" cy="110" r="92"/></clipPath></defs>
+              <g clip-path="url(#cm)">
+                <rect width="220" height="220" fill="#2d4a30"/>
+                <path d="M0 150q60-22 110-12t110-20v102H0z" fill="#26402a"/>
+                <circle cx="110" cy="110" r="36" fill="#a3957a" opacity=".85"/>
+                <path d="M110 0v74M110 146v74M0 110h74M146 110h74" stroke="#a89a7d" stroke-width="7" opacity=".6"/>
+                <path d="M0 0h80v62H0zM160 158h60v62h-60z" fill="#0f0e0d" opacity=".82"/>
+                <circle cx="140" cy="88" r="4.5" fill="#d9434f" stroke="#000"/><circle cx="152" cy="100" r="4.5" fill="#d9434f" stroke="#000"/>
+                <circle cx="96" cy="122" r="4.5" fill="#8fd0dc" stroke="#000"/><circle cx="88" cy="104" r="4.5" fill="#8fd0dc" stroke="#000"/>
+                <path d="M168 50l7-12 7 12z" fill="#e2a63c" stroke="#000"/>
+                <use href="#i-portal" x="26" y="150" width="24" height="24"/>
+                <path d="M64 146l5 5-5 5-5-5z" fill="#b6dca0" stroke="#000"/>
+                <path d="M110 101l7 16-7-4-7 4z" fill="#fff" stroke="#000" stroke-width="1.5"/>
+              </g>
+              <circle cx="110" cy="110" r="96" fill="none" stroke="#e8dcc6" stroke-width="2" stroke-dasharray="520 83" stroke-dashoffset="-40" opacity=".9"/>
+              <circle cx="110" cy="110" r="102" fill="none" stroke="#000" stroke-width="1" opacity=".5"/>
+              <g stroke="#e8dcc6" stroke-width="2"><path d="M110 6v10M110 204v10M6 110h10M204 110h10"/></g>
+              <g stroke="#e8dcc6" stroke-width="1" opacity=".55" id="ticks"></g>
+              <text x="110" y="-2" text-anchor="middle" font-family="Marcellus" font-size="15" fill="#c29a63">N</text>
+            </svg>
+          </div>
+          <span class="hora n">14:20</span>
+          <div class="placa"><div class="an"><svg width="16" height="16" style="color:#c29a63"><use href="#torre"/></svg>ANDAR I</div><div class="zn">Bosque Inicial</div></div>
+        </div>
+
+        <div id="mis">
+          <div class="tg">MISSÃO · J</div>
+          <div class="qt">O primeiro degrau</div>
+          <div class="ob ok"><span class="ck"></span>Falar com a guardiã do portão</div>
+          <div class="ob"><span class="ck"></span>Derrotar lobos do bosque<span class="q">3/5</span></div>
+          <div class="ob"><span class="ck"></span>Encontrar a sala do chefe</div>
+        </div>
+
+        <div id="chat">
+          <div class="abs"><span class="on">GERAL</span><span>GRUPO</span><span>GUILDA</span><span>SISTEMA</span></div>
+          <div class="ms">
+            <div><b>Klein:</b> alguém pra ajudar no golem?</div>
+            <div class="s">Asuna_br entrou no grupo.</div>
+            <div class="gu"><b>Agil</b> (guilda): mercado aberto na praça</div>
+            <div class="p"><b>Asuna_br</b> (grupo): vou curar, segura o lobo!</div>
+            <div class="s">Você recebeu Pele de lobo ×2.</div>
+          </div>
+          <div class="in">Enter para conversar</div>
+        </div>
+
+        <div id="acoes">
+          <div class="base" id="base">
+            <div id="imp"><div class="bl" id="imp1"><i style="width:68%"></i></div><span class="entalhe"></span><div class="bl" id="imp2"><i style="width:0"></i><span class="impn n" id="tImp">34</span></div></div>
+            <div class="slw"><span class="rotulo">LEVE</span><div class="sl" id="sLeve"><svg><use href="#i-leve"/></svg></div><span class="tk">LMB</span></div>
+            <div class="slw"><span class="rotulo">PESADO</span><div class="sl" id="sPesado"><svg><use href="#i-pesado"/></svg></div><span class="tk">E</span></div>
+            <div class="slw"><span class="rotulo">ÍMPETO</span><div class="sl indisp" id="sImp"><span class="cst">50</span><svg><use href="#i-imp"/></svg></div><span class="tk">Q</span></div>
+            <div class="slw"><span class="rotulo">GUARDA</span><div class="sl" id="sBloq"><svg><use href="#i-bloq"/></svg></div><span class="tk">RMB</span></div>
+            <div class="slw"><span class="rotulo">ESQUIVA</span><div class="sl" id="sEsq"><span class="cst">26</span><svg><use href="#i-esq"/></svg></div><span class="tk">ESPAÇO</span></div>
+          </div>
+          <div class="base">
+            <div class="slw"><div class="sl peq" id="s1"><svg><use href="#i-lamina"/></svg><div class="cd" id="cd1">6.0</div></div><span class="tk">1</span></div>
+            <div class="slw"><div class="sl peq"><svg><use href="#i-danca"/></svg></div><span class="tk">2</span></div>
+            <div class="slw"><div class="sl peq vazio"><svg><use href="#torre"/></svg></div><span class="tk">3</span></div>
+            <div class="slw"><div class="sl peq"><span class="qtd">5</span><svg><use href="#i-pocao"/></svg></div><span class="tk">4</span></div>
+          </div>
+        </div>
+
+        <div id="notif"><div class="nt">Pele de lobo ×2</div><div class="nt">Lobos do bosque 3/5</div></div>
+        <div id="centro"></div>
+      </div>
+    </div>
+  </div>
+  <p class="nota" style="margin-top:12px"><b>v4:</b> números dentro das barras; barra de preparação do golpe inimigo mais alta (sem piscar a vida); Ímpeto mais alto com "34 / 100" dentro; custo dos botões numa etiqueta escura; buffs e debuffs do mesmo tamanho, com o debuff marcado por borda vermelha e triângulo; minimapa um pouco menor.<br><b>v3:</b> barras retas e mais grossas, presas numa plaquinha de ferro e com sombra escura atrás para ler em qualquer fundo; o alvo mostra só o nome do golpe ("INVESTIDA"), sem mandar o que fazer, e pisca vermelho enquanto carrega; Ímpeto mostra "34 / 100"; teclas em etiquetas pequenas; minimapa com só 8 marcas; grupo em círculos; árvore com nós redondos (losango só no especial); sem ruído espalhado. <br><b>Da v2:</b> as barras ficam direto sobre o jogo, sem cartão e sem retrato redondo. O alvo virou um cabeçalho flutuante, e o aviso agora mostra o nome do golpe do inimigo com uma barra carregando. O Ímpeto tem dois blocos de 50, colados no Q. As teclas ficam numa plaquinha embaixo de cada botão. As cores são de pedra, marfim e bronze, e o ciano só aparece em pontinhos.</p>
+</section>
+
+<!-- ================= MENUS ================= -->
+<section class="vista" id="v-menus">
+  <div class="jan">
+    <aside class="lat">
+      <div class="marca"><svg width="22" height="22" style="color:#c29a63"><use href="#torre"/></svg>Registros</div>
+      <div class="sub"><span class="rom">I.</span> PERSONAGEM</div>
+      <button class="it on" data-m="inv">Inventário <kbd>I</kbd></button>
+      <button class="it" data-m="eq">Equipamento <kbd>C</kbd></button>
+      <button class="it" data-m="st">Atributos <kbd>P</kbd></button>
+      <button class="it" data-m="hab">Habilidades <kbd>K</kbd></button>
+      <div class="sub" style="margin-top:14px"><span class="rom">II.</span> MUNDO</div>
+      <button class="it" data-m="mapa">Mapa <kbd>M</kbd></button>
+      <button class="it" data-m="mis">Missões <kbd>J</kbd></button>
+      <button class="it" data-m="grp">Grupo e guilda <kbd>O</kbd></button>
+      <div class="sub" style="margin-top:14px"><span class="rom">III.</span> SISTEMA</div>
+      <button class="it" data-m="cfg">Opções <kbd>Esc</kbd></button>
+    </aside>
+    <div class="cont">
+
+      <div class="pg on" id="m-inv">
+        <div class="cab"><h2>Inventário</h2><span>17 de 48 espaços</span><span class="dir">1.240 col</span></div>
+        <div class="duas" style="grid-template-columns:auto 1fr">
+          <div>
+            <div class="fil"><span class="on">Tudo</span><span>Armas</span><span>Armaduras</span><span>Consumíveis</span><span>Materiais</span><span>Missão</span></div>
+            <div class="grd" id="grd"></div>
+          </div>
+          <div class="det">
+            <h3>Espada da Guardiã</h3>
+            <div class="rar" style="color:#5aa7d6">RARA · ESPADA LONGA</div>
+            <div style="display:flex;gap:14px"><div class="ce c3" style="width:90px;height:90px"><svg style="width:62px;height:62px"><use href="#i-leve"/></svg></div>
+            <p class="flavor" style="margin:0">"Forjada com o ferro dos portões do primeiro andar. Quem a empunha jura não descer."</p></div>
+            <div style="margin-top:14px">
+              <div class="ln"><span>Poder da arma</span><b>62,0 <span class="up">+4,5</span></b></div>
+              <div class="ln"><span>Golpe leve (K)</span><b>0,62</b></div>
+              <div class="ln"><span>Golpe pesado (K)</span><b>1,45</b></div>
+              <div class="ln"><span>Impacto</span><b>10 / 26</b></div>
+              <div class="ln"><span>Peso</span><b>3,5 <span class="dn">+0,5</span></b></div>
+            </div>
+            <div class="bts"><button class="bt p">Equipar</button><button class="bt">Comparar</button><button class="bt">Descartar</button></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pg" id="m-eq">
+        <div class="cab"><h2>Equipamento</h2><span>armadura 85 · peso 12</span></div>
+        <div class="duas" style="grid-template-columns:240px 1fr 240px">
+          <div>
+            <div class="eq"><div class="ce c3"><svg><use href="#i-leve"/></svg></div><div><small>ARMA</small>Espada da Guardiã</div></div>
+            <div class="eq"><div class="ce"><svg style="opacity:.2"><use href="#i-bloq"/></svg></div><div><small>MÃO SECUNDÁRIA</small><span class="vz">vazio</span></div></div>
+            <div class="eq"><div class="ce c2"><svg><use href="#i-elmo"/></svg></div><div><small>CABEÇA</small>Elmo de couro</div></div>
+            <div class="eq"><div class="ce c2"><svg><use href="#i-peito"/></svg></div><div><small>CORPO</small>Gibão reforçado</div></div>
+            <div class="eq"><div class="ce c1"><svg><use href="#i-luva"/></svg></div><div><small>MÃOS</small>Luvas de trabalho</div></div>
+          </div>
+          <div class="vrm" style="min-height:560px"><span class="lg">MODELO VRM</span><div class="chao"></div><svg viewBox="0 0 100 200" style="height:490px;position:relative"><use href="#pers"/></svg><span class="rd">arraste para girar · roda para aproximar</span></div>
+          <div>
+            <div class="eq"><div class="ce c1"><svg><use href="#i-bota"/></svg></div><div><small>PÉS</small>Botas de viagem</div></div>
+            <div class="eq"><div class="ce c4"><svg><use href="#i-anel"/></svg></div><div><small>ANEL</small>Anel da guardiã</div></div>
+            <div class="eq"><div class="ce"><svg style="opacity:.2"><use href="#i-anel"/></svg></div><div><small>AMULETO</small><span class="vz">vazio</span></div></div>
+            <div style="margin-top:18px" class="sec">TOTAIS</div>
+            <div class="ln"><span>Armadura</span><b>85</b></div>
+            <div class="ln"><span>Peso</span><b>12</b></div>
+            <div class="ln"><span>Custo da esquiva</span><b>26</b></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pg" id="m-st">
+        <div class="cab"><h2>Atributos</h2><span>use os pontos e veja os valores mudarem</span><span class="dir">pontos livres <span id="livres" style="color:var(--imp2)">5</span></span></div>
+        <div class="duas" style="grid-template-columns:1.15fr 1fr">
+          <div id="attrs"></div>
+          <div class="det"><div class="sec">VALORES DERIVADOS</div><div id="deriv"></div><p class="nota" style="margin-top:12px">Fórmulas da calibração v1.1, com r(x) = x / (x + 40).</p></div>
+        </div>
+      </div>
+
+      <div class="pg" id="m-hab">
+        <div class="cab"><h2>Habilidades</h2><span>espada longa</span><span class="dir">pontos 2</span></div>
+        <div class="duas" style="grid-template-columns:1fr 300px">
+          <div>
+            <div class="fil"><span class="on">Espada longa</span><span>Katana</span><span>Machado grande</span><span>Dois machados</span><span>Duas espadas</span><span>Cajado</span></div>
+            <div class="arv">
+              <svg class="lig" viewBox="0 0 800 520" preserveAspectRatio="none">
+                <g fill="none" stroke-width="2">
+                  <path d="M400 60V160" stroke="#c29a63"/><path d="M400 160L250 270" stroke="#c29a63"/><path d="M400 160L550 270" stroke="#5fc4c9"/>
+                  <path d="M250 270V390M550 270V390M250 390L400 460L550 390" stroke="#4b4038" stroke-dasharray="4 6"/>
+                </g>
+              </svg>
+              <div class="no adq" style="left:50%;top:11.5%"><svg><use href="#i-leve"/></svg></div><div class="nol on" style="left:50%;top:17.5%">Corte básico<small>I</small></div>
+              <div class="no adq" style="left:50%;top:30.8%"><svg><use href="#i-pesado"/></svg></div><div class="nol on" style="left:50%;top:36.8%">Golpe pesado<small>I</small></div>
+              <div class="no adq" style="left:31.25%;top:52%;outline:none"><svg><use href="#i-lamina"/></svg></div><div class="nol on" style="left:31.25%;top:58%">Lâmina projetada<small>I · selecionada</small></div>
+              <div class="no disp" style="left:68.75%;top:52%"><svg><use href="#i-aparar"/></svg></div><div class="nol on" style="left:68.75%;top:58%">Contragolpe<small>disponível</small></div>
+              <div class="no bloq" style="left:31.25%;top:75%"><svg><use href="#i-danca"/></svg></div><div class="nol" style="left:31.25%;top:81%">Dança de lâminas<small>requer nv 15</small></div>
+              <div class="no bloq" style="left:68.75%;top:75%"><svg><use href="#i-imp"/></svg></div><div class="nol" style="left:68.75%;top:81%">Ímpeto ampliado<small>requer contragolpe</small></div>
+              <div class="no bloq esp" style="left:50%;top:88.5%"><svg><use href="#i-quebra"/></svg></div><div class="nol" style="left:50%;top:94%">Quebra-guarda</div>
+            </div>
+          </div>
+          <div class="det">
+            <h3>Lâmina projetada</h3>
+            <div class="rar" style="color:var(--bronze2)">APRENDIDA · NÍVEL I</div>
+            <p class="flavor">Lança o fio do corte para frente. Alcança o inimigo que recua.</p>
+            <div class="ln"><span>Multiplicador</span><b>0,85</b></div>
+            <div class="ln"><span>Recarga</span><b>6 s</b></div>
+            <div class="ln"><span>Requer</span><b>Golpe pesado</b></div>
+            <div class="bts"><button class="bt p">Pôr na barra</button></div>
+            <p class="nota" style="margin-top:14px">Círculo bronze cheio = aprendida · contorno ciano = disponível · apagado = bloqueada · losango = nó especial (especialização).</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="pg" id="m-mapa">
+        <div class="cab"><h2>Andar I</h2><span>Bosque Inicial · 38% explorado</span></div>
+        <div class="duas" style="grid-template-columns:1fr 240px">
+          <svg viewBox="0 0 800 520" style="width:100%;box-shadow:inset 0 0 0 1px #352e29;background:#24392a">
+            <path d="M0 380q200-50 400-20t400-40v200H0z" fill="#1d3022"/>
+            <circle cx="400" cy="260" r="88" fill="#a3957a" opacity=".8"/>
+            <path d="M400 0v172M400 348v172M0 260h312M488 260h312" stroke="#a89a7d" stroke-width="14" opacity=".5"/>
+            <rect width="250" height="180" fill="#0f0e0d" opacity=".85"/><rect x="600" y="400" width="200" height="120" fill="#0f0e0d" opacity=".85"/>
+            <text x="125" y="96" fill="#7d7264" font-family="Marcellus" font-size="20" text-anchor="middle">névoa</text>
+            <path d="M640 120l18-32 18 32z" fill="#e2a63c" stroke="#000" stroke-width="2"/><text x="658" y="146" fill="#e8dcc6" font-family="Marcellus" font-size="17" text-anchor="middle">Sala do chefe</text>
+            <use href="#i-portal" x="70" y="400" width="50" height="50"/><text x="95" y="470" fill="#e8dcc6" font-family="Marcellus" font-size="16" text-anchor="middle">Portão</text>
+            <circle cx="470" cy="210" r="8" fill="#d9434f" stroke="#000"/><circle cx="500" cy="236" r="8" fill="#d9434f" stroke="#000"/>
+            <path d="M250 320l9 9-9 9-9-9z" fill="#b6dca0" stroke="#000"/><text x="250" y="358" fill="#e8dcc6" font-family="Atkinson Hyperlegible" font-size="14" text-anchor="middle">Guardiã</text>
+            <path d="M380 290l14 32-14-8-14 8z" fill="#fff" stroke="#000" stroke-width="2"/>
+          </svg>
+          <div class="det"><div class="sec">LEGENDA</div>
+            <div class="ln"><span>▲ você</span></div><div class="ln"><span style="color:#8fd0dc">● grupo</span></div><div class="ln"><span style="color:#ef8a87">● inimigo</span></div>
+            <div class="ln"><span style="color:#b6dca0">◆ personagem</span></div><div class="ln"><span style="color:var(--imp2)">▲ objetivo</span></div><div class="ln"><span style="color:#b9a6ec">◘ portão</span></div>
+            <div class="sec" style="margin-top:18px">ANDARES</div>
+            <div class="ln"><span>I · Bosque Inicial</span><b style="color:var(--bronze2)">aqui</b></div>
+            <div class="ln"><span style="color:#7d7264">II · ???</span><b style="color:#7d7264">fechado</b></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pg" id="m-mis">
+        <div class="cab"><h2>Missões</h2><span>3 ativas</span></div>
+        <div class="duas" style="grid-template-columns:330px 1fr">
+          <div>
+            <div class="mi on"><div class="tp">PRINCIPAL</div>O primeiro degrau<small>Andar I · 1 de 3</small></div>
+            <div class="mi"><div class="tp sec2">PEDIDO</div>Pele para o curtidor<small>Andar I · 2 de 6 peles</small></div>
+            <div class="mi"><div class="tp sec2">PEDIDO</div>O golem adormecido<small>Andar I · melhor em grupo</small></div>
+          </div>
+          <div class="det">
+            <h3>O primeiro degrau</h3>
+            <p class="flavor">"Ninguém sobe a torre sem antes provar o próprio valor no bosque." — Guardiã do portão</p>
+            <div class="ob ok"><span class="ck"></span>Falar com a guardiã do portão</div>
+            <div class="ob"><span class="ck"></span>Derrotar lobos do bosque<span class="q">3/5</span></div>
+            <div class="ob"><span class="ck"></span>Encontrar a sala do chefe</div>
+            <div class="sec" style="margin-top:18px">RECOMPENSA</div>
+            <div style="display:flex;gap:8px"><div class="ce c3"><svg><use href="#i-leve"/></svg></div><div class="ce c1"><svg><use href="#i-pocao"/></svg><b>3</b></div><div class="ce" style="font:700 16px var(--num);color:var(--imp2)">300</div></div>
+            <div class="bts"><button class="bt p">Acompanhar</button><button class="bt">Ver no mapa</button></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pg" id="m-grp">
+        <div class="cab"><h2>Grupo e guilda</h2></div>
+        <div class="duas" style="grid-template-columns:1fr 1fr">
+          <div class="det"><div class="sec">GRUPO · 3 DE 4</div>
+            <div class="gm"><div class="ret">L</div><div><div class="l1"><span>Lucas · líder</span><span>NV 12</span></div><div class="mb"><i style="width:100%"></i></div></div></div>
+            <div class="gm"><div class="ret">A</div><div><div class="l1"><span>Asuna_br</span><span>NV 13</span></div><div class="mb"><i style="width:82%"></i></div></div></div>
+            <div class="gm"><div class="ret">K</div><div><div class="l1"><span>KleinPT</span><span>NV 11</span></div><div class="mb"><i style="width:44%"></i></div></div></div>
+            <div class="bts"><button class="bt">Convidar</button><button class="bt">Sair</button></div></div>
+          <div class="det"><div class="sec">LÂMINAS DO PARECIS · GUILDA</div>
+            <div class="ln"><span>Agil · mestre</span><b class="up">online</b></div><div class="ln"><span>Silica · oficial</span><b class="up">online</b></div>
+            <div class="ln"><span>Liz</span><b style="color:#7d7264">2 h</b></div><div class="ln"><span>Thinker</span><b style="color:#7d7264">1 dia</b></div></div>
+        </div>
+      </div>
+
+      <div class="pg" id="m-cfg">
+        <div class="cab"><h2>Opções</h2><span>interface e acessibilidade</span></div>
+        <div style="max-width:760px">
+          <div class="cfg"><span>Escala da interface</span><input type="range" min="80" max="140" value="100" id="cEsc"><span class="n" id="vEsc">100%</span></div>
+          <div class="cfg"><span>Tamanho do texto</span><span class="opc"><span class="on">normal</span><span>grande</span><span>enorme</span></span><span></span></div>
+          <div class="cfg"><span>Números de dano</span><span class="sw on"></span><span></span></div>
+          <div class="cfg"><span>Alto contraste</span><span class="sw"></span><span></span></div>
+          <div class="cfg"><span>Daltonismo</span><span class="opc"><span class="on">nenhum</span><span>protanopia</span><span>deuteranopia</span></span><span></span></div>
+          <div class="cfg"><span>Reduzir clarões e tremores</span><span class="sw"></span><span></span></div>
+          <div class="cfg"><span>Chat durante o combate</span><span class="sw"></span><span></span></div>
+          <p class="nota" style="margin-top:12px">A escala muda o HUD de verdade (veja a aba Combate).</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= SELEÇÃO ================= -->
+<section class="vista" id="v-personagem">
+  <div class="sel">
+    <div class="lista">
+      <h2>Personagens</h2>
+      <div class="pc on"><div class="rt"><svg viewBox="29 20 42 42"><use href="#pers" width="100" height="200"/></svg></div><div>Lucas<small>NV 12 · espada longa · andar I</small></div></div>
+      <div class="pc"><div class="rt"><svg viewBox="29 20 42 42"><use href="#pers" width="100" height="200"/></svg></div><div>Lyra<small>NV 7 · cajado · andar I</small></div></div>
+      <div class="pc novo">+ novo personagem (VRM)</div>
+    </div>
+    <div class="vrm"><span class="lg">MODELO VRM</span><div class="chao" style="width:320px;bottom:60px"></div><svg viewBox="0 0 100 200" style="height:600px;position:relative"><use href="#pers"/></svg></div>
+    <div class="info">
+      <h2>Lucas</h2>
+      <div class="ln"><span>Nível</span><b>12</b></div><div class="ln"><span>Arma</span><b>espada longa</b></div>
+      <div class="ln"><span>Andar mais alto</span><b>I</b></div><div class="ln"><span>Tempo de jogo</span><b>3 h 20</b></div><div class="ln"><span>Servidor</span><b>Brasil 1</b></div>
+      <button class="entrar">Subir a torre</button>
+      <div class="bts"><button class="bt" style="flex:1">Opções</button><button class="bt" style="flex:1">Sair</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PALETA ================= -->
+<section class="vista" id="v-icones">
+  <div class="grade2">
+    <div class="bloco">
+      <h3>Paleta · pedra, marfim e luz</h3>
+      <div class="pal" id="pal"></div>
+      <h3 style="margin-top:22px">Letras</h3>
+      <p style="font:34px var(--tit)">Andar I · Lobo do Bosque</p><p class="nota">Marcellus: andar, títulos, chefes</p>
+      <p style="font:600 34px var(--num);margin-top:10px">1245 / 1245 · 6.0 s · 38</p><p class="nota">Barlow Condensed: números (todos com a mesma largura)</p>
+      <p style="font:17px var(--txt);margin-top:10px">Forjada com o ferro dos portões do primeiro andar. Ação, coração, missão.</p><p class="nota">Atkinson Hyperlegible: textos, chat e menus</p>
+    </div>
+    <div class="bloco">
+      <h3>Ícones · silhueta cheia em dois tons (rascunho)</h3>
+      <div class="icg" id="icg"></div>
+      <p class="nota" style="margin-top:14px">Regra: cada família tem forma própria. Espadas são longas e diagonais, machados pesam na cabeça, a defesa é compacta, a magia usa a forma do elemento. Nada de gradiente brilhante.</p>
+    </div>
+  </div>
+  <div class="bloco" style="max-width:1500px;margin-top:26px">
+    <h3>Imagens que o ChatGPT vai gerar depois da aprovação</h3>
+    <table>
+      <tr><th>ARQUIVO</th><th>TAMANHO</th><th>FUNDO</th><th>PRIORIDADE</th><th>USO</th></tr>
+      <tr><td>emblema_torre.png</td><td>256×256</td><td>transparente</td><td class="pr0">P0</td><td>símbolo da torre (andar, cabeçalhos, chefes)</td></tr>
+      <tr><td>placa_andar.png</td><td>512×128</td><td>transparente</td><td class="pr0">P0</td><td>placa do andar sob o minimapa</td></tr>
+      <tr><td>anel_minimapa.png</td><td>512×512</td><td>transparente</td><td class="pr0">P0</td><td>aro incompleto + bússola</td></tr>
+      <tr><td>slot_comando.png / slot_habilidade.png</td><td>128×128</td><td>transparente</td><td class="pr0">P0</td><td>fundo de pedra dos botões (nine-slice)</td></tr>
+      <tr><td>skill_leve, pesado, guarda, esquiva, impeto</td><td>128×128</td><td>transparente</td><td class="pr1">P1</td><td>5 ícones de teste primeiro (validar a linguagem)</td></tr>
+      <tr><td>elementos: fogo, água, vento, terra</td><td>128×128</td><td>transparente</td><td class="pr1">P1</td><td>magias</td></tr>
+      <tr><td>textura_pedra_painel.png</td><td>512×512</td><td>opaco, repete</td><td class="pr2">P2</td><td>fundo dos menus (bem discreta)</td></tr>
+      <tr><td>moldura_janela.png</td><td>1024×1024</td><td>transparente</td><td class="pr2">P2</td><td>janela principal (nine-slice)</td></tr>
+      <tr><td>fundo_selecao.png</td><td>1920×1080</td><td>opaco</td><td class="pr3">P3</td><td>tela de seleção de personagem</td></tr>
+    </table>
+  </div>
+</section>
+
+<script>
+const vistas=["hud","menus","personagem","icones"];
+function mostrar(){let v=(location.hash||"#hud").slice(1); if(!vistas.includes(v))v="hud";
+  document.querySelectorAll(".vista").forEach(s=>s.classList.toggle("on",s.id==="v-"+v));
+  document.querySelectorAll("#abas a").forEach(a=>a.classList.toggle("on",a.dataset.v===v)); if(v==="hud")ajustar();}
+addEventListener("hashchange",mostrar);
+const palco=document.getElementById("palco"),wrap=document.getElementById("wrap"),$=i=>document.getElementById(i),hud=$("hud");
+let res=1080;
+function ajustar(){const w=res===1080?1920:1280,h=res===1080?1080:720,s=wrap.clientWidth/w;palco.style.transform=`scale(${s})`;wrap.style.height=(h*s)+"px";}
+addEventListener("resize",ajustar);
+/* bússola: traços a cada 15 graus */
+(()=>{let g=$("ticks"),s="";for(let a=45;a<360;a+=90){const r=a*Math.PI/180,x1=110+Math.sin(r)*99,y1=110-Math.cos(r)*99,x2=110+Math.sin(r)*104,y2=110-Math.cos(r)*104;s+=`<path d="M${x1.toFixed(1)} ${y1.toFixed(1)}L${x2.toFixed(1)} ${y2.toFixed(1)}"/>`;}g.innerHTML=s;})();
+
+const E={vida:1245,vmax:1245,res:116,rmax:116,post:135,pmax:135,imp:34,alvo:468,amax:650,aPost:55};
+function render(){
+  $("bVida").style.width=(E.vida/E.vmax*100)+"%";$("aVida").style.width=(E.vida/E.vmax*100)+"%";$("tVida").innerHTML=`${Math.round(E.vida)} <small>/ ${E.vmax}</small>`;
+  $("bRes").style.width=(E.res/E.rmax*100)+"%";$("tRes").textContent=Math.round(E.res);
+  $("bPost").style.width=(E.post/E.pmax*100)+"%";$("tPost").textContent=Math.round(E.post);
+  const a=Math.min(50,E.imp),b=Math.max(0,E.imp-50);
+  $("imp1").firstElementChild.style.width=(a/50*100)+"%";$("imp2").firstElementChild.style.width=(b/50*100)+"%";
+  $("imp1").classList.toggle("cheio",E.imp>=50);$("imp2").classList.toggle("cheio",E.imp>=100);$("imp").classList.toggle("meio",E.imp>=50);
+  $("tImp").textContent=Math.round(E.imp)+' / 100';
+  $("sImp").classList.toggle("indisp",E.imp<50);$("sImp").classList.toggle("pronto",E.imp>=50);
+  hud.classList.toggle("vida-baixa",E.vida/E.vmax<.3);
+  $("bAlvo").style.width=(E.alvo/E.amax*100)+"%";$("tAlvo").textContent=`${Math.round(E.alvo)} / ${E.amax}`;$("bAlvoP").style.width=E.aPost+"%";
+}
+function centro(t,c){const m=$("centro");m.textContent=t;m.style.color=c;m.classList.add("on");clearTimeout(m._t);m._t=setTimeout(()=>m.classList.remove("on"),900);}
+function flash(c){const f=$("flash");f.style.background=`radial-gradient(circle,transparent 45%,${c})`;f.classList.remove("on");void f.offsetWidth;f.classList.add("on");}
+function bate(i){const s=$(i);s.classList.remove("flash");void s.offsetWidth;s.classList.add("flash");}
+function nt(t,c){const n=document.createElement("div");n.className="nt "+(c||"");n.innerHTML=t;const box=$("notif");box.prepend(n);while(box.children.length>3)box.lastChild.remove();}
+function dano(v,c){const d=document.createElement("div");d.className="dano "+(c||"");d.textContent=v;d.style.left=(60+Math.random()*7)+"%";d.style.top=(43+Math.random()*5)+"%";$("cena").appendChild(d);setTimeout(()=>d.remove(),1400);}
+let tq,cd;
+const A={
+  leve(){bate("sLeve");E.alvo=Math.max(0,E.alvo-38);E.imp=Math.min(100,E.imp+4);E.aPost=Math.max(0,E.aPost-7);dano("38");render();},
+  pesado(){bate("sPesado");E.alvo=Math.max(0,E.alvo-89);E.imp=Math.min(100,E.imp+8);E.aPost=Math.max(0,E.aPost-18);dano("116","fl");render();},
+  vida(){E.vida=E.vmax*.22;render();centro("Vida crítica","#ff8a8f");},
+  postura(){E.post=0;hud.classList.add("post-quebrada");render();centro("Postura quebrada","#e9b8ff");let t=2;clearInterval(tq);
+    tq=setInterval(()=>{t-=.1;$("tq").textContent=Math.max(0,t).toFixed(1);if(t<=0){clearInterval(tq);hud.classList.remove("post-quebrada");}},100);},
+  semres(){E.res=6;render();hud.classList.remove("sem-res");void hud.offsetWidth;hud.classList.add("sem-res");centro("Sem fôlego","#9fe0b8");},
+  impeto(){E.imp=100;render();bate("sImp");nt("Ímpeto pronto · <b>Q</b>","imp");},
+  perfeita(){E.imp=Math.min(100,E.imp+20);render();bate("sEsq");flash("rgba(95,196,201,.5)");centro("Esquiva perfeita","#bff1f2");},
+  aparar(){E.imp=Math.min(100,E.imp+15);E.aPost=Math.max(0,E.aPost-30);render();bate("sBloq");flash("rgba(226,166,60,.5)");centro("Aparado","#f6cf62");},
+  recarga(){const s=$("s1");let t=6;s.classList.add("recarga");clearInterval(cd);
+    cd=setInterval(()=>{t-=.1;$("cd1").textContent=t.toFixed(1);s.style.setProperty("--p",(t/6*100)+"%");if(t<=0){clearInterval(cd);s.classList.remove("recarga");bate("s1");}},100);},
+  reset(){Object.assign(E,{vida:1245,res:116,post:135,imp:34,alvo:468,aPost:55});hud.classList.remove("post-quebrada","vida-baixa");render();}
+};
+document.querySelectorAll("#ctl button").forEach(b=>b.addEventListener("click",()=>{
+  if(b.dataset.res){res=+b.dataset.res;const extra=[...palco.classList].filter(c=>c==="modo-combate"||c==="alto-contraste");palco.className="palco r"+res+" "+extra.join(" ");
+    document.querySelectorAll("[data-res]").forEach(x=>x.classList.toggle("on",x===b));ajustar();return;}
+  if(b.dataset.t){palco.classList.toggle(b.dataset.t);b.classList.toggle("on");return;}
+  A[b.dataset.a]&&A[b.dataset.a]();}));
+/* aviso do lobo carregando (telégrafo) */
+let carga=0;setInterval(()=>{carga=(carga+2)%110;const c=Math.min(100,carga);$("gCarga").style.width=c+"%";$("tele").style.setProperty("--carga",c+"%");},40);
+setInterval(()=>{E.res=Math.min(E.rmax,E.res+18*.25);if(!hud.classList.contains("post-quebrada"))E.post=Math.min(E.pmax,E.post+12*.25);render();},250);
+
+/* menus */
+document.querySelectorAll(".it").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".it").forEach(x=>x.classList.toggle("on",x===b));
+  document.querySelectorAll(".pg").forEach(p=>p.classList.toggle("on",p.id==="m-"+b.dataset.m));}));
+const itens=[["i-leve","c3"],["i-katana","c2"],["i-machado","c1"],["i-cajado","c4"],["i-pocao","c1",5],["i-pocao","c1",2],["i-elmo","c2"],["i-peito","c1"],["i-bota","c1"],["i-luva","c2"],["i-anel","c5"],["i-pele","c1",12],["i-minerio","c1",7],["i-chave","c4"],["i-fogo","c3",3],["i-agua","c3",1],["i-terra","c2",4]];
+const grd=$("grd");for(let i=0;i<48;i++){const c=document.createElement("div"),it=itens[i];c.className="ce "+(it?it[1]:"")+(i===0?" esc":"");if(it)c.innerHTML=`<svg><use href="#${it[0]}"/></svg>`+(it[2]?`<b>${it[2]}</b>`:"");grd.appendChild(c);}
+document.querySelectorAll(".sw").forEach(t=>t.addEventListener("click",()=>t.classList.toggle("on")));
+document.querySelectorAll(".opc").forEach(o=>o.querySelectorAll("span").forEach(s=>s.addEventListener("click",()=>o.querySelectorAll("span").forEach(x=>x.classList.toggle("on",x===s)))));
+$("cEsc").addEventListener("input",e=>{const k=e.target.value/100;$("vEsc").textContent=e.target.value+"%";hud.style.transformOrigin="0 0";hud.style.transform=`scale(${k})`;hud.style.width=(100/k)+"%";hud.style.height=(100/k)+"%";});
+
+/* atributos com as fórmulas reais */
+const AT={FOR:20,DES:20,VIG:15,PER:10,CON:10,POT:0},base={...AT};let livres=5;
+const dsc={FOR:"força dos golpes e impacto",DES:"precisão e golpe leve",VIG:"vida, fôlego e postura",PER:"janela de aparar",CON:"impacto que você causa",POT:"energia e magia"};
+const r=x=>x/(x+40);
+function rAt(){const el=$("attrs");el.innerHTML="";for(const k in AT){const d=document.createElement("div");d.className="at";
+  d.innerHTML=`<span class="sg">${k}</span><span class="ds">${dsc[k]}</span><span class="v">${AT[k]}</span><span class="pm"><button data-k="${k}" data-d="-1">−</button><button data-k="${k}" data-d="1">+</button></span>`;el.appendChild(d);}
+  el.querySelectorAll("button").forEach(b=>b.onclick=()=>{const k=b.dataset.k,dd=+b.dataset.d;if(dd>0&&livres<=0)return;if(dd<0&&AT[k]<=base[k])return;AT[k]+=dd;livres-=dd;rAt();});
+  $("livres").textContent=livres;
+  const L=[["Vida",(1000*(1+.9*r(AT.VIG))).toFixed(0)],["Resistência",(100*(1+.6*r(AT.VIG))).toFixed(0)],["Energia",(100*(1+.6*r(AT.POT))).toFixed(0)],["Postura",(100*(1+.8*r(AT.VIG)+.4*r(AT.FOR))).toFixed(0)],
+    ["Janela de aparar",Math.min(180,140+67*r(AT.PER)).toFixed(0)+" ms"],["Golpe leve (sem armadura)",(57.5*.62*(1+.3*r(AT.FOR)+.7*r(AT.DES))).toFixed(1)],["Impacto do golpe leve",(10*(1+.6*r(AT.FOR)+.4*r(AT.CON))).toFixed(1)],["Custo da esquiva","26"]];
+  $("deriv").innerHTML=L.map(l=>`<div class="ln"><span>${l[0]}</span><b>${l[1]}</b></div>`).join("");}
+rAt();
+const cores=[["Carvão","#1C1A1A"],["Pedra","#2A2725"],["Pedra alta","#3A342F"],["Cavidade","#0F0E0D"],["Marfim","#E8DCC6"],["Marfim apagado","#A99E8E"],["Bronze","#9D7752"],["Bronze claro","#C29A63"],["Vida","#D9434F"],["Fôlego","#4FA878"],["Postura","#8E6FD8"],["Ímpeto","#E2A63C"],["Perigo","#E8613F"],["Cristal (só pontos)","#5FC4C9"]];
+$("pal").innerHTML=cores.map(c=>`<div class="cor"><div style="background:${c[1]}"></div><p><b>${c[1]}</b>${c[0]}</p></div>`).join("");
+const ics=[["i-leve","golpe leve"],["i-pesado","golpe pesado"],["i-bloq","guarda"],["i-esq","esquiva"],["i-imp","ímpeto"],["i-aparar","aparar"],["i-quebra","postura quebrada"],["i-fogo","fogo"],["i-agua","água"],["i-vento","vento"],["i-terra","terra"],["i-lamina","lâmina projetada"],["i-danca","dança de lâminas"],["i-katana","katana"],["i-machado","machado"],["i-cajado","cajado"],["i-pocao","poção"],["i-portal","portão"]];
+$("icg").innerHTML=ics.map(i=>`<div><div class="sl"><svg><use href="#${i[0]}"/></svg></div>${i[1]}</div>`).join("");
+render();mostrar();
+</script>
+</body>
+</html>
