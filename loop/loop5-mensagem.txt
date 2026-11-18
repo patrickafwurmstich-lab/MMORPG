@@ -1,0 +1,34 @@
+Sejam criteriosos e rigorosos. Revisão do SIMULADOR DE EQUILÍBRIO v2 (loop 5), refeito a partir das críticas que vocês fizeram no loop 4. Respondam em português.
+
+Arquivos (fixados no commit, leiam estes e não versões em cache):
+- Motor: https://raw.githubusercontent.com/patrickafwurmstich-lab/MMORPG/50ff069277513d44cddb6b24ff1406fc3bc446ad/sim/simulador2.js
+- Execução e relatório: https://raw.githubusercontent.com/patrickafwurmstich-lab/MMORPG/50ff069277513d44cddb6b24ff1406fc3bc446ad/sim/rodar2.js
+- Fichas revisadas das técnicas: https://raw.githubusercontent.com/patrickafwurmstich-lab/MMORPG/50ff069277513d44cddb6b24ff1406fc3bc446ad/sim/fichas.js
+- Relatório gerado: https://raw.githubusercontent.com/patrickafwurmstich-lab/MMORPG/50ff069277513d44cddb6b24ff1406fc3bc446ad/sim/resultado/relatorio2.md
+- CSV: https://raw.githubusercontent.com/patrickafwurmstich-lab/MMORPG/50ff069277513d44cddb6b24ff1406fc3bc446ad/sim/resultado/builds2.csv
+
+O que mudou desde o loop 4:
+1) Fichas explícitas (102 técnicas revisadas à mão: K por acerto, acertos, alvos, forma, tiques, condição, alternativa, bônus, debuff).
+2) Fórmulas D.1/D.2 do núcleo: impacto × (1+0,6rFOR+0,4rCON); parry 25×(1+0,5rFOR+0,5rPER), janela mín(180; 140+67·rPER) ms; erro de tempo sorteado (σ 0,117 s médio, 0,07 s bom); esquiva 0,30 s com perfeita nos últimos 0,12 s (devolve custo, +20 Ímpeto); bloqueio pela fórmula do núcleo com 30% atravessando; resistência 18/s após 0,8 s; quebra 2 s ×1,3 + 8 s de resistência; ponto fraco ×1,5 (FOR .3/DES .3/PER .4).
+3) Cura sem conservação (poção 250 da reserva, máx. 5); Ímpeto só de eventos originais (derivados não geram); sobretaxas somadas sobre o custo-base.
+4) Sementes mulberry32; 100 lutas na triagem, 400 nas finalistas; IC de Wilson e t.
+5) 4 políticas: sustentado, explosão, ruptura, defensiva.
+6) Chefe de Andar real: 6 jogadores, vida 120.000·s compartilhada, postura 1.000, ataque 300 com aviso 1,0 s, área 200 a cada 10 s, reanimação (2 por jogador, mín(30%; reserva)).
+7) Calibração em dois modos: abstrato (boneco × 0,55 uma vez) e por eventos (60 s contra fera real).
+8) Mesma busca de elementos para todos os perfis; afinidade no perfil de referência (FOR20/DES15/VIG10).
+
+Resultados principais:
+- Boneco 146,4; abstrato 80,5; por eventos 129,1 (tempo ofensivo efetivo 74%, não 55%). Com as vidas atuais a fera morre em ~4,4 s (contrato 8–12 s). Fator sugerido ×1,84; da seção 2 em diante as vidas estão × 1,84.
+- Armas (boneco): todas a ±11%, exceto Machado grande −19%.
+- Perfis (constructo, 400 lutas): 7 de 8 a ≤ 15% da mediana; Tanque +16%. Mago (+8%) e Leitor (−8%) agora dentro; os ensaios Pulso básico / RegE extra não mudam nada.
+- Chefe: jogador médio perde sempre (~3 min de sobrevivência; o contrato pede 6–10 min). Só Força+Destreza "bom" vence, em 3,0 min. Dano bruto por jogador 2.354/min ÷ s; chega 27% após defesa; orçamento vida+reserva ~1.930 ÷ s. Para 8 min seria preciso ~38% do dano atual, ou cura que não sai da reserva.
+- Tanque (bloqueio) recebe MAIS dano que os outros (30% atravessa e a área não se bloqueia nem aparra).
+- 26 de 119 técnicas de dano abaixo de 95% do ataque leve (lista no relatório).
+
+Perguntas:
+A) O simulador v2 corrige os bloqueadores do loop 4? Aponte qualquer erro de fórmula, de implementação ou de método (citem linha/trecho do código).
+B) A calibração por eventos (74% de tempo ofensivo) é confiável o bastante para trocar as vidas por ×1,84? Ou o 0,55 do contrato deve continuar?
+C) O conflito do chefe: reduzir o dano para ~38%, criar cura fora da reserva, aumentar a reserva, ou mudar o padrão de ataque? Proponham números.
+D) O bloqueio/Tanque precisa de correção de regra? Qual?
+E) Machado grande −19% e as técnicas abaixo do básico: o que mudar?
+Respondam com APROVADO ou NÃO APROVADO para o simulador v2 como ferramenta de equilíbrio, listando bloqueadores separados de sugestões.

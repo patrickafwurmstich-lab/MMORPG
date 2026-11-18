@@ -75,7 +75,7 @@ for(const [nome,pf,opc] of [['Mago + Pulso básico (K0,70, 1,0 s, custo 0)','Mag
 out('| Ensaio | Antes | Depois | Δ vs mediana |');out('|---|---|---|---|');ens.forEach(x=>out(x));
 
 // 5) Chefe de Andar real: 6 jogadores, vida compartilhada 120.000·s
-out('');out(`## 5. Chefe de Andar (6 jogadores, vida 120.000·s compartilhada, postura 1.000, ataque de 300 com aviso de 1,0 s, área a cada 10 s) — ${NC} lutas por grupo`);out('');
+out('');out(`## 5. Chefe de Andar (6 jogadores, vida 120.000·s × ${f(VM,2)} compartilhada, postura 1.000, ataque de 300 com aviso de 1,0 s, área a cada 10 s) — ${NC} lutas por grupo`);out('');
 out('Regras usadas: 5 poções de 250 por tentativa (saem da reserva), até 2 reanimações por jogador (4 s de um aliado, volta com mín(30%; reserva)), caído por 25 s.');out('');
 out('| Grupo (6 iguais) | Política | Vitória | Tempo da vitória | Duração média | Quedas por luta | Quebras de postura | Dano recebido por jogador/min ÷ s | Orçamento de vida + reserva ÷ s | Contrato |');out('|---|---|---|---|---|---|---|---|---|---|');
 const brutoMin=300*60/2.6/6+200*6;const taxas=[];
