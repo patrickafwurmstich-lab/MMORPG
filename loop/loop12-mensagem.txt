@@ -1,0 +1,26 @@
+Sejam criteriosos e rigorosos. Loop 12: validação do pacote de conteúdo v1.1 com as correções do loop 11. Respondam em português.
+
+Arquivos: https://raw.githubusercontent.com/patrickafwurmstich-lab/MMORPG/370e0f3e661cc8a7eec73b31d6ae2ee5b735984f/sim/conteudo2.js · https://raw.githubusercontent.com/patrickafwurmstich-lab/MMORPG/370e0f3e661cc8a7eec73b31d6ae2ee5b735984f/sim/resultado/conteudo2.md
+
+Pacote (já com as decisões do ChatGPT): Fogo −30 → −24; Lança ígnea 0,7 → 0,9 s (K, custo e recarga iguais); Lâmina projetada K 0,80 → 0,85; Dança de lâminas K 0,30 → 0,40 × 3. Passo de sombra, Corte que segue e Lançamento curvo ficam como estão (utilidade não medida). Áreas, Corte de avanço, Moedor e Brasa persistente sem mudança.
+Grupo de referência novo (benchmark novo): Força com machado grande em "explosão".
+
+1) AO.1 com critério do grupo E da Força em colunas separadas (400 tentativas, mesmas sementes):
+| Cenário | Dano do chefe | Vitória [IC] | Tempo | Grupo | Força (quedas ÷ média; DPS ÷ melhor) |
+| v1 (ruptura, sem pacote) | 53,5% | 77,25% [72,9–81,1] | 6,24 | ✔ | 1,43×; 57% ✘ |
+| explosão, sem pacote | 53,5% | 94,50% | 5,87 | ✘ | 0,12×; 77% ✔ |
+| explosão + pacote | 53,5% | 92,00% | 6,10 | ✘ | 0,16×; 73% ✔ |
+| explosão + pacote | 56% | 84,25% [80,4–87,5] | 6,16 | ✔ | 0,29×; 75% ✔ |
+| explosão + pacote | 57% | 76,25% [71,8–80,2] | 6,18 | ✔ | 0,40×; 76% ✔ |
+| explosão + pacote | 58% | 72,50% [67,9–76,6] | 6,26 | ✔ | 0,43×; 77% ✔ |
+| explosão + pacote | 60% | 55,25% | 6,28 | ✘ | 0,61×; 80% ✔ |
+Proposta: novo benchmark com ataques do AO.1 a 57% do v8 (Golpe 171, Varredura 125, Investida 182, Chuva 103). É ajuste do encontro (o grupo ficou mais forte com a política melhor), não da escala global; P_arma continua 57,5.
+
+2) Elementos com o pacote (kits montados para cada elemento — rótulo corrigido): Fogo vs 2º melhor no tempo: Mago −12% (≈ +13% de DPS), Lâmina mágica −3%, Leitor +1%, FOR/DES 0%. Com a busca refeita com o pacote ligado, só 2/8 perfis escolhem Fogo (Mago e Lâmina mágica); os físicos passam a escolher "sem elemento" (os elementos dão −1% a −2% de tempo para FOR/DES).
+3) Armas no boneco com o pacote: todas a ±15% (dois machados +12%, machado grande −13%).
+
+Perguntas:
+A) Algum erro?
+B) Aprovam o benchmark novo com o chefe a 57%?
+C) O Mago com Fogo 13% acima em DPS (constructo neutro) fica dentro do aceitável? Os físicos sem ganho de elemento é problema a tratar depois?
+D) APROVADO ou NÃO APROVADO para registrar o pacote v1.1 no doc de calibração? Bloqueadores separados de sugestões.
