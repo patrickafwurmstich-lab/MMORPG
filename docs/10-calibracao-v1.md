@@ -119,7 +119,7 @@ Resultado medido:
 | Passo de sombra, Corte que segue, Lançamento curvo | — | **sem mudança.** Têm utilidade que o simulador não mede (reposicionar, perseguir, contornar guarda). |
 | Técnicas de área, Corte de avanço, Moedor, Brasa persistente | — | sem mudança |
 | Grupo de referência do AO.1 | Força com machado grande em "ruptura" | **Força com machado grande em "explosão"** (guarda o pesado para as janelas). Alternativa: "sustentado" com carga 1. |
-| Ataques do AO.1 | 53,5% do v8 (160 / 118 / 171 / 96) | **60% do v8: Golpe pesado 180, Varredura 132, Investida 192, Chuva 96 → 108** |
+| Ataques do AO.1 | 53,5% do v8 (160 / 118 / 171 / 96) | **60% do v8: Golpe pesado 180, Varredura 132, Investida 192, Chuva 108** |
 | P_arma, vidas, reserva, bloqueio, reanimação | — | sem mudança |
 
 Por que o chefe subiu de 53,5% para 60%: o grupo de referência ficou mais forte. A Força passou a jogar melhor (explosão) e os feitiços foram reforçados. Isso ajusta só este encontro; a escala global do jogo continua a mesma.
