@@ -1,0 +1,21 @@
+Sejam criteriosos e rigorosos. Loop 9: conferência final com os ajustes de arma que vocês dois aceitaram e preparações reotimizadas dentro de cada calibração. Respondam em português.
+
+Arquivos: https://raw.githubusercontent.com/patrickafwurmstich-lab/MMORPG/157c895df2c34ef8160762e4944336299b392da8/sim/final.js · https://raw.githubusercontent.com/patrickafwurmstich-lab/MMORPG/157c895df2c34ef8160762e4944336299b392da8/sim/resultado/final.md · https://raw.githubusercontent.com/patrickafwurmstich-lab/MMORPG/157c895df2c34ef8160762e4944336299b392da8/sim/varredura.js
+
+Aplicado: Dois machados Frenesi +2%/acerto (teto 10%) e leve 0,34; Machado grande leve 0,92, pesado 2,05, pesado 1,40 s. Armas: todas a ±15% (Dois machados +12%, Machado grande −13%).
+
+Critérios (mesmas sementes; comuns 400, perfis 200, AO.1 400 médio / 40 bom):
+| Calibração | Fera | Constructo | Perfis ≤15% | Tanque | AO.1 médio | Tempo | Reanimações |
+| A (P57,5; chefe 52%; bloqueio 30%; reserva 600) | 8,5 s | 14,9 s | 6/8 | +20% | 84,5% [81–88] | 6,20 min | 0,15 |
+| A2 Grok (P60; chefe 55%; bloqueio 15%; área 40%; reserva 750) | 8,3 s | 13,9 s | 6/8 | +17% | 99,8% | 5,56 min | 0,15 |
+| A3 Grok (idem com reanimação 50 fixos) | 8,3 s | 13,9 s | 6/8 | +17% | 100% | 5,02 min | 3,37 |
+Fora em A: Força +18% e Tanque +20% (a reotimização com as armas novas mudou as escolhas; antes eram 7/8).
+Varredura extra: A + Fogo −18 + Flanco +20% → Força +24%, Tanque +21% (não resolve); reanimação 50 fixos torna o chefe trivial (100% mesmo com dano 62%).
+
+Leitura: o atraso de Força e Tanque vem de VIG (vida, postura, reserva), que não aparece no tempo de luta solo contra o constructo; no AO.1 eles caem menos. Os buffs defensivos do Grok facilitam demais o chefe.
+
+Perguntas:
+A) Algum erro nesta conferência?
+B) O critério "≥7/8 perfis a ≤15% do melhor no constructo solo" deve medir também sobrevivência para perfis de VIG (ex.: tempo ajustado por quedas, ou um cenário com dano letal)? Ou Força/Tanque precisam de ganho ofensivo? Proponham a regra ou os números.
+C) Calibração final: A (com 84,5% no limite superior), ou A com dano do chefe ~55% para centrar em ~78%? Reanimação ≥0,5 é requisito?
+D) APROVADO ou NÃO APROVADO para fechar a calibração-base e atualizar os documentos (contrato AI e K.2)? Bloqueadores separados de sugestões.
