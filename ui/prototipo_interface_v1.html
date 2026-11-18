@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MMORPG — Protótipo de Interface (Cristal da Torre) v1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Exo+2:wght@500;600;700&family=Noto+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#101827; --panel:#1B2A3B; --txt:#D9E7F0; --txt2:#8EA6B9; --ouro:#D8B56A; --cristal:#52B6C7;
+  --vida:#D94D62; --res:#49BFA3; --post:#A38AE5; --imp:#F0B94F; --aviso:#E97954; --info:#65B9ED;
+  --hudop:.86;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#0a0f18;color:var(--txt);font-family:"Noto Sans",system-ui,sans-serif}
+button{font:inherit;color:inherit;cursor:pointer}
+.num{font-family:Rajdhani,sans-serif;font-weight:600;letter-spacing:.02em}
+.tit{font-family:"Exo 2",sans-serif;font-weight:600}
+
+/* ---------- barra superior da página ---------- */
+.topo{display:flex;align-items:center;gap:14px;padding:10px 18px;background:#0d1420;border-bottom:1px solid #22344a;position:sticky;top:0;z-index:50;flex-wrap:wrap}
+.topo h1{font-family:"Exo 2";font-size:17px;font-weight:700;color:var(--ouro);margin-right:8px}
+.topo h1 small{color:var(--txt2);font-weight:500;font-size:12px;margin-left:6px}
+.abas{display:flex;gap:4px;flex-wrap:wrap}
+.abas a{padding:7px 14px;border-radius:8px;color:var(--txt2);text-decoration:none;font-family:"Exo 2";font-size:14px;border:1px solid transparent}
+.abas a.on{color:var(--txt);background:var(--panel);border-color:#2f4560}
+.vista{display:none;padding:16px 18px 40px}
+.vista.on{display:block}
+
+/* ---------- palco do HUD (escala para caber) ---------- */
+.palco-wrap{position:relative;width:100%;overflow:hidden;border-radius:12px;border:1px solid #22344a;background:#000}
+.palco{position:absolute;left:0;top:0;transform-origin:0 0;overflow:hidden}
+.palco.r1080{width:1920px;height:1080px}
+.palco.r720{width:1280px;height:720px}
+.controles{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.controles button,.chip{background:var(--panel);border:1px solid #2f4560;border-radius:8px;padding:7px 12px;font-size:13px}
+.controles button:hover{border-color:var(--cristal)}
+.controles .sep{width:1px;background:#2f4560;margin:0 4px}
+.controles button.on{border-color:var(--ouro);color:var(--ouro)}
+.nota{color:var(--txt2);font-size:13px;line-height:1.5;max-width:1100px}
+.nota b{color:var(--txt)}
+
+/* cena de fundo (sem imagens: só gradientes) */
+.cena{position:absolute;inset:0;background:
+  radial-gradient(ellipse 60% 30% at 50% 0%,#bfe4ff 0%,transparent 70%),
+  linear-gradient(#7fb6e8 0%,#a9d3f2 38%,#cfe8d0 52%,#6fae5f 53%,#4f8f45 100%)}
+.cena .torre{position:absolute;left:47%;top:2%;width:6%;height:52%;background:linear-gradient(90deg,#8aa0bd,#c9d6e6 40%,#7d93b0);clip-path:polygon(30% 0,70% 0,100% 100%,0 100%);opacity:.55}
+.cena .morro{position:absolute;bottom:46%;border-radius:50% 50% 0 0;background:#5f9a6a;opacity:.7}
+.cena .piso{position:absolute;left:24%;top:60%;width:52%;height:34%;border-radius:50%;background:radial-gradient(#d9cfb8,#bfb294 70%,#a99c7d);box-shadow:0 0 0 6px #9a8e70 inset}
+.cena .pilar{position:absolute;width:3.2%;height:16%;border-radius:6px;bottom:44%}
+.r720 .cena .pilar{border-radius:4px}
+.telegrafo{position:absolute;left:47%;top:58%;width:13%;height:12%;background:radial-gradient(ellipse at 100% 50%,rgba(233,121,84,.8),rgba(233,121,84,.25) 75%,transparent 77%);clip-path:polygon(100% 50%,0 0,0 100%);animation:pul 1s infinite}
+.telegrafo::after{content:"";position:absolute;inset:0;border:3px dashed rgba(255,230,210,.8);clip-path:inherit}
+@keyframes pul{50%{opacity:.55}}
+.ent{position:absolute}
+.ent svg{width:100%;height:100%;overflow:visible}
+.excl{position:absolute;left:50%;transform:translateX(-50%);top:-22%;font:700 54px Rajdhani;color:#ff5a3c;text-shadow:0 0 6px #000,0 0 2px #000}
+.r720 .excl{font-size:36px}
+.anel-alvo{position:absolute;left:8%;right:8%;bottom:-6%;height:18%;border:3px solid var(--ouro);border-radius:50%;box-shadow:0 0 10px var(--ouro)}
+.dano{position:absolute;font:700 40px Rajdhani;color:#fff;text-shadow:0 2px 0 #000,0 0 4px #000;animation:sobe 1.4s ease-out infinite}
+.dano.fl{color:#ffd54a}.dano.pq{color:#ff8ad8}
+.r720 .dano{font-size:28px}
+@keyframes sobe{0%{transform:translateY(0);opacity:0}10%{opacity:1}70%{opacity:1}100%{transform:translateY(-60px);opacity:0}}
+
+/* ---------- componentes do HUD ---------- */
+.hud{position:absolute;inset:0;font-size:16px}
+.pn{position:absolute;background:rgba(16,24,39,var(--hudop));border:1px solid rgba(142,166,185,.28);border-radius:8px;box-shadow:0 3px 10px rgba(0,0,0,.45)}
+.pn.ouro{border-color:rgba(216,181,106,.55)}
+.alto-contraste .pn{background:rgba(5,8,14,.96);border-color:#fff}
+.alto-contraste .barra .fundo{background:#000;outline:1px solid #fff}
+
+/* jogador */
+#pJog{left:32px;top:32px;width:380px;height:142px;padding:12px 14px 12px 104px}
+.retrato{position:absolute;left:12px;top:14px;width:80px;height:80px;border-radius:50%;border:2px solid var(--ouro);background:radial-gradient(circle at 50% 35%,#35506e,#152234);overflow:hidden}
+.retrato svg{width:100%;height:100%}
+.nv{position:absolute;left:12px;top:100px;width:80px;text-align:center;font-size:15px;color:var(--ouro)}
+.nome{font-size:17px;margin-bottom:6px;display:flex;justify-content:space-between}
+.nome span:last-child{color:var(--txt2);font-size:13px;font-family:Rajdhani}
+.barra{margin:5px 0}
+.barra .rot{display:flex;justify-content:space-between;font-size:13px;color:var(--txt2);line-height:1}
+.barra .rot b{font-family:Rajdhani;font-weight:600;color:var(--txt);font-size:15px}
+.barra .fundo{position:relative;height:12px;background:rgba(0,0,0,.55);border-radius:3px;overflow:hidden;margin-top:3px}
+.barra .ench{position:absolute;inset:0 auto 0 0;border-radius:3px;transition:width .25s}
+.barra .atras{position:absolute;inset:0 auto 0 0;background:#fff8;transition:width .6s .35s}
+.barra.vida .ench{background:linear-gradient(#e8687b,var(--vida))}
+.barra.res .ench{background:linear-gradient(#63d6b9,var(--res))}
+.barra.post .ench{background:linear-gradient(#bba6f0,var(--post))}
+.barra .ico{display:inline-block;width:12px;margin-right:4px}
+.vida-baixa .barra.vida .fundo{animation:perigo .9s infinite}
+@keyframes perigo{50%{box-shadow:0 0 0 2px #ff3b55,0 0 12px #ff3b55}}
+.quebrada{position:absolute;right:10px;top:8px;font:700 13px Rajdhani;color:#ff8ad8;letter-spacing:.06em;display:none;align-items:center;gap:4px}
+.post-quebrada .quebrada{display:flex}
+.post-quebrada .nome span:last-child{visibility:hidden}
+.post-quebrada .barra.post .fundo{background:repeating-linear-gradient(45deg,#3a2a52 0 6px,#20172e 6px 12px)}
+.sem-res .barra.res .fundo{animation:pisca .18s 2}
+@keyframes pisca{50%{box-shadow:0 0 0 2px #fff}}
+
+/* buffs (abaixo do painel do jogador) */
+#buffs{position:absolute;left:32px;top:182px;display:flex;gap:6px}
+.buff{width:32px;height:32px;border-radius:6px;background:rgba(16,24,39,.9);border:1px solid #49BFA3;position:relative;display:grid;place-items:center}
+.buff.deb{border-color:var(--vida)}
+.buff svg{width:22px;height:22px}
+.buff i{position:absolute;bottom:-14px;left:0;right:0;text-align:center;font:600 12px Rajdhani;font-style:normal;color:var(--txt)}
+.buff.fim{animation:pisca 1s infinite}
+
+/* grupo */
+#pGrupo{left:32px;top:236px;width:306px;padding:8px 10px}
+.memb{display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid rgba(142,166,185,.15)}
+.memb:last-child{border:0}
+.memb .av{width:34px;height:34px;border-radius:50%;background:#26405c;border:1px solid var(--cristal);display:grid;place-items:center;font:600 14px "Exo 2"}
+.memb .info{flex:1}
+.memb .info div:first-child{font-size:14px;display:flex;justify-content:space-between}
+.memb .info small{color:var(--txt2);font-family:Rajdhani;font-size:13px}
+.memb .mini{height:7px;background:rgba(0,0,0,.55);border-radius:2px;margin-top:3px;overflow:hidden}
+.memb .mini i{display:block;height:100%;background:var(--vida)}
+.memb.caido{opacity:.6}.memb.caido .av{border-color:var(--vida)}
+
+/* alvo travado */
+#pAlvo{left:750px;top:44px;width:420px;height:88px;padding:10px 14px}
+#pAlvo .l1{display:flex;justify-content:space-between;align-items:baseline}
+#pAlvo .l1 .tit{font-size:18px}
+#pAlvo .l1 .num{color:var(--txt2);font-size:14px}
+#pAlvo .hp{height:14px;background:rgba(0,0,0,.55);border-radius:3px;margin-top:6px;position:relative;overflow:hidden}
+#pAlvo .hp i{position:absolute;inset:0 auto 0 0;background:linear-gradient(#e8687b,var(--vida))}
+#pAlvo .hp span{position:absolute;inset:0;text-align:center;font:600 12px/14px Rajdhani;text-shadow:0 1px 2px #000}
+#pAlvo .pt{height:5px;background:rgba(0,0,0,.55);border-radius:2px;margin-top:4px;overflow:hidden}
+#pAlvo .pt i{display:block;height:100%;background:var(--post)}
+#pAlvo .estado{position:absolute;right:12px;bottom:-24px;font:700 14px Rajdhani;color:var(--aviso);letter-spacing:.08em;background:rgba(16,24,39,.9);padding:1px 8px;border-radius:4px;border:1px solid var(--aviso)}
+.alvo-trava{position:absolute;left:12px;top:-11px;font:600 12px Rajdhani;color:var(--ouro);background:var(--bg);padding:0 6px;border:1px solid rgba(216,181,106,.55);border-radius:4px}
+
+/* minimapa */
+#mini{left:1580px;top:32px;width:288px;height:288px;background:none;border:0;box-shadow:none}
+.mapa-c{position:absolute;left:28px;top:12px;width:232px;height:232px;border-radius:50%;overflow:hidden;border:2px solid var(--ouro);box-shadow:0 0 0 4px rgba(16,24,39,.9),0 4px 12px #000;background:#22382a}
+.mapa-c svg{width:100%;height:100%}
+.norte{position:absolute;left:136px;top:2px;font:700 14px Rajdhani;color:var(--ouro);background:var(--bg);border-radius:50%;width:18px;height:18px;text-align:center;line-height:18px}
+.andar{position:absolute;left:14px;right:14px;top:252px;text-align:center;font:700 15px Rajdhani;letter-spacing:.08em;background:rgba(16,24,39,.92);border:1px solid rgba(216,181,106,.55);border-radius:6px;padding:3px 0;color:var(--txt)}
+.andar b{color:var(--ouro)}
+.mini-bts{position:absolute;right:6px;top:180px;display:flex;flex-direction:column;gap:4px}
+.mini-bts span{width:24px;height:24px;border-radius:50%;background:rgba(16,24,39,.92);border:1px solid #2f4560;display:grid;place-items:center;font:700 14px Rajdhani}
+
+/* missão */
+#pMissao{left:1536px;top:350px;width:332px;padding:10px 14px}
+#pMissao h4{font:600 13px Rajdhani;letter-spacing:.1em;color:var(--ouro);margin-bottom:6px}
+.obj{font-size:14px;margin:5px 0;display:flex;gap:8px;align-items:flex-start}
+.obj .ck{width:14px;height:14px;border:1px solid var(--txt2);border-radius:3px;margin-top:3px;flex:none}
+.obj.ok{color:var(--txt2);text-decoration:line-through}
+.obj.ok .ck{background:var(--res);border-color:var(--res)}
+.obj .num{margin-left:auto;color:var(--info)}
+.qtit{font:600 16px "Exo 2";margin-bottom:4px}
+
+/* chat */
+#pChat{left:32px;top:794px;width:464px;height:230px;display:flex;flex-direction:column}
+.chat-abas{display:flex;gap:2px;padding:6px 8px 0}
+.chat-abas span{font:600 13px Rajdhani;letter-spacing:.05em;padding:3px 10px;border-radius:5px 5px 0 0;color:var(--txt2)}
+.chat-abas span.on{background:rgba(82,182,199,.18);color:var(--txt)}
+.chat-msgs{flex:1;padding:6px 10px;font-size:14px;line-height:1.45;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end}
+.chat-msgs .g{color:#d9e7f0}.chat-msgs .p{color:#7fd3ff}.chat-msgs .s{color:var(--ouro)}.chat-msgs .gu{color:#9be3a5}
+.chat-msgs b{font-weight:600}
+.chat-in{margin:0 8px 8px;height:30px;border-radius:6px;background:rgba(0,0,0,.4);border:1px solid #2f4560;color:var(--txt2);font-size:13px;padding:6px 10px}
+
+/* barra de ações */
+#barra{left:614px;top:908px;width:692px;height:112px;padding:10px 12px;display:flex;gap:10px;align-items:flex-end}
+.grupo-acoes{display:flex;gap:6px}
+.div-v{width:1px;align-self:stretch;background:rgba(142,166,185,.3);margin:4px 2px}
+.slot{width:64px;height:64px;border-radius:8px;position:relative;background:linear-gradient(#22344a,#152234);border:1px solid #3a5470;display:grid;place-items:center}
+.slot svg{width:42px;height:42px}
+.slot .tecla{position:absolute;right:3px;bottom:2px;font:700 12px Rajdhani;background:rgba(0,0,0,.6);padding:0 4px;border-radius:3px;color:var(--txt)}
+.slot .nm{position:absolute;left:0;right:0;top:-17px;text-align:center;font:600 11px Rajdhani;color:var(--txt2);letter-spacing:.04em;white-space:nowrap}
+.slot.vazio{border-style:dashed;opacity:.55}
+.slot.vazio::after{content:"vazio";font:600 11px Rajdhani;color:var(--txt2)}
+.slot .cd{position:absolute;inset:0;border-radius:7px;background:conic-gradient(rgba(0,0,0,.72) var(--p,0%),transparent 0);display:none;place-items:center;font:700 22px Rajdhani;text-shadow:0 1px 2px #000}
+.slot.recarga .cd{display:grid}
+.slot.indisp{filter:grayscale(1) brightness(.6)}
+.slot.pronto{border-color:var(--imp);box-shadow:0 0 0 1px var(--imp),0 0 14px rgba(240,185,79,.6)}
+.slot.flash{animation:flash .25s}
+@keyframes flash{50%{box-shadow:0 0 0 3px #fff,0 0 22px #fff}}
+.slot.custo::before{content:attr(data-custo);position:absolute;left:3px;top:2px;font:700 11px Rajdhani;color:var(--imp)}
+
+/* ímpeto */
+#imp{left:784px;top:876px;width:352px;height:22px;background:none;border:0;box-shadow:none}
+#imp .fundo{position:absolute;left:28px;right:0;top:5px;height:12px;background:rgba(16,24,39,.9);border:1px solid rgba(240,185,79,.5);border-radius:6px;overflow:hidden}
+#imp .ench{position:absolute;inset:0 auto 0 0;background:linear-gradient(90deg,#c98a2a,var(--imp));transition:width .3s}
+#imp .marca{position:absolute;left:50%;top:-3px;bottom:-3px;width:2px;background:#fff}
+#imp .emb{position:absolute;left:0;top:-3px;width:28px;height:28px}
+#imp .val{position:absolute;right:4px;top:-17px;font:700 14px Rajdhani;color:var(--imp)}
+#imp.cheio .fundo{box-shadow:0 0 10px rgba(240,185,79,.8)}
+
+/* notificações */
+#notif{position:absolute;left:1536px;top:880px;width:332px;display:flex;flex-direction:column;gap:6px}
+.nt{background:rgba(16,24,39,.92);border-left:3px solid var(--info);border-radius:6px;padding:7px 10px;font-size:14px;animation:entra .25s}
+.nt.ouro{border-color:var(--ouro)}.nt.res{border-color:var(--res)}
+@keyframes entra{from{transform:translateX(30px);opacity:0}}
+
+/* mensagens centrais de combate */
+#msgCentro{position:absolute;left:0;right:0;top:300px;text-align:center;font:700 34px "Exo 2";letter-spacing:.06em;text-shadow:0 2px 0 #000,0 0 10px #000;opacity:0;transition:opacity .2s}
+#msgCentro.on{opacity:1}
+.flashTela{position:absolute;inset:0;pointer-events:none;opacity:0}
+.flashTela.on{animation:fl .4s}
+@keyframes fl{20%{opacity:1}}
+
+/* modo combate: esconde o secundário */
+.modo-combate #pChat .chat-msgs, .modo-combate #pChat .chat-abas{opacity:.15}
+.modo-combate #pMissao{opacity:.35}
+.modo-combate #pGrupo{opacity:.55}
+
+/* ---------- versão 1280x720 (compacta) ---------- */
+.r720 .hud{font-size:14px}
+.r720 #pJog{left:20px;top:20px;width:290px;height:116px;padding:8px 10px 8px 78px}
+.r720 .retrato{left:8px;top:10px;width:60px;height:60px}
+.r720 .nv{left:8px;top:74px;width:60px;font-size:13px}
+.r720 .nome{font-size:14px;margin-bottom:2px}
+.r720 .barra{margin:3px 0}
+.r720 .barra .rot{font-size:12px}.r720 .barra .rot b{font-size:14px}
+.r720 .barra .fundo{height:9px;margin-top:2px}
+.r720 #buffs{left:20px;top:142px}
+.r720 .buff{width:26px;height:26px}.r720 .buff svg{width:18px;height:18px}
+.r720 #pGrupo{left:20px;top:184px;width:240px;padding:5px 8px}
+.r720 .memb{padding:3px 0}.r720 .memb .av{width:26px;height:26px;font-size:12px}
+.r720 .memb .info div:first-child{font-size:13px}
+.r720 #pAlvo{left:485px;top:22px;width:310px;height:66px;padding:6px 10px}
+.r720 #pAlvo .l1 .tit{font-size:15px}
+.r720 #pAlvo .hp{height:11px;margin-top:4px}
+.r720 #pAlvo .estado{font-size:12px;bottom:-20px}
+.r720 #mini{left:1086px;top:16px;width:174px;height:174px}
+.r720 .mapa-c{left:14px;top:8px;width:146px;height:146px}
+.r720 .norte{left:78px;top:0;font-size:12px;width:16px;height:16px;line-height:16px}
+.r720 .andar{left:-20px;right:-20px;top:160px;font-size:12px;padding:2px 0;white-space:nowrap}
+.r720 .mini-bts{display:none}
+.r720 #pMissao{left:1010px;top:214px;width:250px;padding:6px 10px}
+.r720 #pMissao .obj:nth-of-type(n+3){display:none}
+.r720 .obj{font-size:13px}.r720 .qtit{font-size:14px}
+.r720 #pChat{left:20px;top:560px;width:330px;height:140px}
+.r720 .chat-msgs{font-size:13px}
+.r720 .chat-msgs div:nth-last-child(n+3){display:none}
+.r720 #barra{left:416px;top:628px;width:476px;height:80px;padding:6px 8px;gap:6px}
+.r720 .grupo-acoes{gap:4px}
+.r720 .slot{width:44px;height:44px}.r720 .slot svg{width:28px;height:28px}
+.r720 .slot .nm{display:none}
+.r720 .slot .tecla{font-size:11px}
+.r720 .slot.vazio::after{font-size:10px}
+.r720 .slot .cd{font-size:16px}
+.r720 #imp{left:500px;top:604px;width:280px}
+.r720 #notif{left:1010px;top:600px;width:250px}
+.r720 .nt{font-size:13px;padding:5px 8px}
+.r720 #msgCentro{top:200px;font-size:26px}
+
+/* ---------- menus ---------- */
+.menu{max-width:1280px;margin:0 auto;background:rgba(16,24,39,.96);border:1px solid rgba(216,181,106,.45);border-radius:12px;box-shadow:0 10px 40px #000;overflow:hidden;display:grid;grid-template-rows:auto 1fr auto;min-height:680px}
+.menu-topo{display:flex;align-items:center;gap:4px;padding:10px 14px;border-bottom:1px solid rgba(142,166,185,.25);background:linear-gradient(#1B2A3B,#152234);flex-wrap:wrap}
+.menu-topo .tt{font:700 18px "Exo 2";color:var(--ouro);margin-right:14px}
+.mt{padding:6px 12px;border-radius:7px;font:600 14px "Exo 2";color:var(--txt2);border:1px solid transparent;background:none}
+.mt kbd{font:700 11px Rajdhani;background:#0b121d;border:1px solid #2f4560;border-radius:3px;padding:0 4px;margin-left:6px;color:var(--txt2)}
+.mt.on{background:rgba(82,182,199,.15);color:var(--txt);border-color:rgba(82,182,199,.5)}
+.menu-corpo{padding:16px;min-height:560px}
+.menu-rodape{display:flex;justify-content:space-between;padding:10px 16px;border-top:1px solid rgba(142,166,185,.25);font-size:13px;color:var(--txt2)}
+.menu-rodape kbd,.k{font:700 12px Rajdhani;background:#0b121d;border:1px solid #2f4560;border-radius:3px;padding:0 5px;margin:0 3px;color:var(--txt)}
+.mp{display:none}.mp.on{display:block}
+.cols{display:grid;gap:16px}
+.cx{background:rgba(27,42,59,.55);border:1px solid rgba(142,166,185,.22);border-radius:10px;padding:14px}
+.cx h3{font:600 15px "Exo 2";color:var(--ouro);margin-bottom:10px;letter-spacing:.03em}
+.filtros{display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap}
+.filtros span{font:600 13px Rajdhani;padding:3px 10px;border-radius:12px;border:1px solid #2f4560;color:var(--txt2)}
+.filtros span.on{border-color:var(--cristal);color:var(--txt)}
+.grade{display:grid;grid-template-columns:repeat(8,64px);gap:6px}
+.cel{width:64px;height:64px;border-radius:8px;background:#0e1724;border:1px solid #2a3d54;position:relative;display:grid;place-items:center}
+.cel svg{width:40px;height:40px}
+.cel i{position:absolute;right:4px;bottom:1px;font:700 13px Rajdhani;font-style:normal}
+.cel.comum{border-color:#8EA6B9}.cel.inc{border-color:#49BFA3}.cel.raro{border-color:#65B9ED}.cel.epico{border-color:#A38AE5}.cel.lend{border-color:#D8B56A;box-shadow:0 0 8px rgba(216,181,106,.4) inset}
+.cel.sel{outline:2px solid #fff;outline-offset:1px}
+.raridade{font:600 13px Rajdhani;letter-spacing:.08em}
+.linha{display:flex;justify-content:space-between;padding:4px 0;font-size:14px;border-bottom:1px solid rgba(142,166,185,.12)}
+.linha b{font-family:Rajdhani;font-size:16px;font-weight:600}
+.mais{color:#6be3a0}.menos{color:#ff7a8a}
+.bt{background:linear-gradient(#2a4058,#1d2e42);border:1px solid #3e5a78;border-radius:8px;padding:8px 14px;font:600 14px "Exo 2"}
+.bt.pri{background:linear-gradient(#d8b56a,#a8853f);color:#1a1206;border-color:#e8cc8c}
+.vrm{position:relative;border-radius:10px;background:radial-gradient(ellipse at 50% 85%,rgba(82,182,199,.25),transparent 60%),linear-gradient(#1b2a3b,#0e1724);border:1px solid rgba(142,166,185,.25);display:grid;place-items:center;overflow:hidden}
+.vrm .etq{position:absolute;left:10px;top:8px;font:600 12px Rajdhani;color:var(--txt2);letter-spacing:.08em}
+.vrm .gira{position:absolute;bottom:10px;left:0;right:0;text-align:center;font-size:12px;color:var(--txt2)}
+.eqslot{display:flex;align-items:center;gap:10px;padding:7px;border-radius:8px;background:#0e1724;border:1px solid #2a3d54;margin-bottom:8px}
+.eqslot .cel{width:48px;height:48px}.eqslot .cel svg{width:30px;height:30px}
+.eqslot small{display:block;color:var(--txt2);font:600 12px Rajdhani;letter-spacing:.06em}
+.attr{display:grid;grid-template-columns:70px 1fr 50px 70px;align-items:center;gap:8px;padding:7px 0;border-bottom:1px solid rgba(142,166,185,.12)}
+.attr .sig{font:700 18px Rajdhani;color:var(--ouro)}
+.attr .desc{font-size:13px;color:var(--txt2)}
+.attr .v{font:700 20px Rajdhani;text-align:center}
+.attr .pm{display:flex;gap:4px}
+.attr .pm button{width:28px;height:28px;border-radius:6px;background:#1d2e42;border:1px solid #3e5a78;font:700 16px Rajdhani}
+.arvore{position:relative;height:500px;background:radial-gradient(ellipse at 50% 30%,rgba(82,182,199,.08),transparent 70%)}
+.arvore svg.lig{position:absolute;inset:0;width:100%;height:100%}
+.no{position:absolute;width:64px;height:64px;transform:translate(-50%,-50%);border-radius:12px;display:grid;place-items:center;background:#0e1724;border:2px solid #3a5470}
+.no svg{width:36px;height:36px}
+.no.adq{border-color:var(--ouro);background:linear-gradient(#3a3020,#1c1810)}
+.no.disp{border-color:var(--cristal);box-shadow:0 0 10px rgba(82,182,199,.5)}
+.no.bloq{opacity:.45;border-style:dashed}
+.no.bloq::after{content:"🔒";position:absolute;right:-6px;top:-8px;font-size:13px}
+.no small{position:absolute;top:68px;white-space:nowrap;font:600 12px Rajdhani;color:var(--txt2)}
+.no.sel{outline:2px solid #fff;outline-offset:3px}
+.cfg{display:grid;grid-template-columns:1fr 260px 60px;gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid rgba(142,166,185,.12);font-size:14px}
+.cfg input[type=range]{width:100%;accent-color:var(--cristal)}
+.cfg .num{text-align:right}
+.tog{width:44px;height:24px;border-radius:12px;background:#2a3d54;position:relative;border:1px solid #3e5a78}
+.tog::after{content:"";position:absolute;left:2px;top:2px;width:18px;height:18px;border-radius:50%;background:#8EA6B9;transition:.15s}
+.tog.on{background:rgba(82,182,199,.5)}.tog.on::after{left:22px;background:#fff}
+.missao{padding:10px;border-radius:8px;border:1px solid #2a3d54;margin-bottom:8px;background:#0e1724}
+.missao.on{border-color:var(--ouro)}
+.missao small{color:var(--txt2);font-family:Rajdhani;font-size:13px}
+.tag{font:700 11px Rajdhani;padding:1px 6px;border-radius:4px;letter-spacing:.06em;margin-right:6px}
+.tag.pri{background:rgba(216,181,106,.2);color:var(--ouro)}.tag.sec{background:rgba(101,185,237,.2);color:var(--info)}
+
+/* seleção de personagem */
+.selpers{display:grid;grid-template-columns:320px 1fr 300px;gap:16px;max-width:1280px;margin:0 auto;min-height:640px}
+.pslot{padding:12px;border-radius:10px;border:1px solid #2a3d54;background:#0e1724;margin-bottom:10px;display:flex;gap:12px;align-items:center}
+.pslot.on{border-color:var(--ouro);box-shadow:0 0 0 1px var(--ouro)}
+.pslot .av{width:52px;height:52px;border-radius:50%;background:#26405c;border:2px solid var(--cristal);overflow:hidden}
+.pslot small{color:var(--txt2);font:600 13px Rajdhani}
+.pslot.novo{border-style:dashed;justify-content:center;color:var(--txt2);min-height:76px}
+
+/* ícones e paleta */
+.pal{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.sw{border-radius:10px;overflow:hidden;border:1px solid #2a3d54}
+.sw div{height:64px}.sw p{padding:6px 10px;font-size:13px;background:#0e1724}.sw p b{display:block;font:600 14px Rajdhani}
+.icos{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:10px}
+.icc{background:#0e1724;border:1px solid #2a3d54;border-radius:10px;padding:12px 6px;text-align:center;font-size:12px;color:var(--txt2)}
+.icc .slot{margin:0 auto 8px}
+table.ass{width:100%;border-collapse:collapse;font-size:13px}
+table.ass th,table.ass td{padding:6px 8px;border-bottom:1px solid rgba(142,166,185,.15);text-align:left}
+table.ass th{color:var(--ouro);font-family:"Exo 2";font-weight:600}
+table.ass td:first-child{font-family:Rajdhani;font-weight:600;font-size:14px;color:var(--txt)}
+.p0{color:#ff8a9a;font:700 12px Rajdhani}.p1{color:var(--imp);font:700 12px Rajdhani}.p2{color:var(--info);font:700 12px Rajdhani}.p3{color:var(--txt2);font:700 12px Rajdhani}
+</style>
+</head>
+<body>
+
+<!-- ícones (rascunhos em SVG; as artes finais serão geradas depois) -->
+<svg width="0" height="0" style="position:absolute">
+<defs>
+  <linearGradient id="gAco" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f2f7ff"/><stop offset="1" stop-color="#8ea6b9"/></linearGradient>
+  <linearGradient id="gOuro" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3d58f"/><stop offset="1" stop-color="#a8853f"/></linearGradient>
+  <symbol id="i-leve" viewBox="0 0 48 48"><path d="M10 38 L32 10 L38 10 L38 16 L14 40Z" fill="url(#gAco)" stroke="#0b121d" stroke-width="2"/><path d="M8 34l6 6M11 43l-5-5" stroke="url(#gOuro)" stroke-width="4" stroke-linecap="round"/><path d="M30 6 q10 4 12 14" stroke="#52B6C7" stroke-width="3" fill="none" stroke-linecap="round"/></symbol>
+  <symbol id="i-pesado" viewBox="0 0 48 48"><path d="M22 6 h4 v34 h-4z" fill="#8a5a2e" stroke="#0b121d" stroke-width="2"/><path d="M26 8 q16 2 16 14 q-10 -2 -16 4z M22 8 q-16 2 -16 14 q10 -2 16 4z" fill="url(#gAco)" stroke="#0b121d" stroke-width="2"/><path d="M14 44 h20" stroke="#E97954" stroke-width="3" stroke-linecap="round"/></symbol>
+  <symbol id="i-bloq" viewBox="0 0 48 48"><path d="M24 4 L40 10 V22 C40 33 33 40 24 44 C15 40 8 33 8 22 V10Z" fill="#2a4058" stroke="url(#gOuro)" stroke-width="3"/><path d="M24 12 V36 M15 20 H33" stroke="#52B6C7" stroke-width="3" stroke-linecap="round"/></symbol>
+  <symbol id="i-esq" viewBox="0 0 48 48"><path d="M8 30 q8 -16 26 -18" stroke="#52B6C7" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M30 6 l8 6 -8 6" fill="none" stroke="#52B6C7" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 40 h10 M20 40 h6 M30 40 h3" stroke="#D9E7F0" stroke-width="3" stroke-linecap="round"/></symbol>
+  <symbol id="i-imp" viewBox="0 0 48 48"><path d="M24 3 l5 13 14 1 -11 9 4 14 -12 -8 -12 8 4 -14 -11 -9 14 -1z" fill="url(#gOuro)" stroke="#0b121d" stroke-width="2"/><circle cx="24" cy="24" r="5" fill="#fff4cf"/></symbol>
+  <symbol id="i-aparar" viewBox="0 0 48 48"><path d="M10 38 L34 14 M14 14 L38 38" stroke="url(#gAco)" stroke-width="5" stroke-linecap="round"/><circle cx="24" cy="26" r="6" fill="none" stroke="#F0B94F" stroke-width="3"/><path d="M24 6v6M8 26h6M34 26h6" stroke="#F0B94F" stroke-width="3" stroke-linecap="round"/></symbol>
+  <symbol id="i-fogo" viewBox="0 0 48 48"><path d="M24 4 C30 14 38 18 36 30 C35 39 29 44 24 44 C17 44 11 38 12 29 C13 22 18 20 18 12 C22 16 22 20 24 22 C26 16 22 10 24 4Z" fill="#E97954" stroke="#0b121d" stroke-width="2"/><path d="M24 26 C28 31 29 35 24 40 C19 36 20 31 24 26Z" fill="#ffd27a"/></symbol>
+  <symbol id="i-agua" viewBox="0 0 48 48"><path d="M24 4 C32 16 38 23 38 31 A14 14 0 0 1 10 31 C10 23 16 16 24 4Z" fill="#65B9ED" stroke="#0b121d" stroke-width="2"/><path d="M17 31 a7 7 0 0 0 7 7" stroke="#e8f7ff" stroke-width="3" fill="none" stroke-linecap="round"/></symbol>
+  <symbol id="i-vento" viewBox="0 0 48 48"><path d="M6 18 h24 a6 6 0 1 0 -6 -6 M6 26 h32 a6 6 0 1 1 -6 6 M6 34 h14" stroke="#9be3d0" stroke-width="4" fill="none" stroke-linecap="round"/></symbol>
+  <symbol id="i-terra" viewBox="0 0 48 48"><path d="M6 40 L16 18 L22 26 L30 8 L42 40Z" fill="#b08a5a" stroke="#0b121d" stroke-width="2"/><path d="M26 18 l4 -8 4 10" fill="#d8c29a"/></symbol>
+  <symbol id="i-lamina" viewBox="0 0 48 48"><path d="M6 24 H34" stroke="#dfe8f2" stroke-width="6" stroke-linecap="round"/><path d="M30 14 L44 24 L30 34" fill="#52B6C7" opacity=".85"/><path d="M8 16 v16" stroke="#D8B56A" stroke-width="4" stroke-linecap="round"/></symbol>
+  <symbol id="i-danca" viewBox="0 0 48 48"><path d="M10 38 L30 10 M38 38 L18 10" stroke="url(#gAco)" stroke-width="4" stroke-linecap="round"/><circle cx="24" cy="26" r="16" fill="none" stroke="#A38AE5" stroke-width="2" stroke-dasharray="5 4"/></symbol>
+  <symbol id="i-cura" viewBox="0 0 48 48"><path d="M20 8h8v12h12v8H28v12h-8V28H8v-8h12z" fill="#49BFA3" stroke="#0b121d" stroke-width="2"/></symbol>
+  <symbol id="i-pocao" viewBox="0 0 48 48"><path d="M19 4h10v8l8 12v14a6 6 0 0 1-6 6H17a6 6 0 0 1-6-6V24l8-12z" fill="#2a4058" stroke="#D9E7F0" stroke-width="2"/><path d="M12 28h24v10a5 5 0 0 1-5 5H17a5 5 0 0 1-5-5z" fill="#D94D62"/></symbol>
+  <symbol id="i-elmo" viewBox="0 0 48 48"><path d="M8 30 C8 14 16 6 24 6 C32 6 40 14 40 30 V38 H30 V30 H18 V38 H8Z" fill="url(#gAco)" stroke="#0b121d" stroke-width="2"/><path d="M24 6 V22" stroke="#D8B56A" stroke-width="3"/></symbol>
+  <symbol id="i-peito" viewBox="0 0 48 48"><path d="M10 10 L18 6 Q24 12 30 6 L38 10 L40 22 L34 24 V42 H14 V24 L8 22Z" fill="#6e8aa8" stroke="#0b121d" stroke-width="2"/><path d="M24 14 V40" stroke="#D8B56A" stroke-width="2"/></symbol>
+  <symbol id="i-bota" viewBox="0 0 48 48"><path d="M14 6 H28 V30 L40 34 V42 H12 V30Z" fill="#7a5233" stroke="#0b121d" stroke-width="2"/><path d="M12 36 H40" stroke="#D8B56A" stroke-width="2"/></symbol>
+  <symbol id="i-luva" viewBox="0 0 48 48"><path d="M14 44 V22 L12 10 Q14 6 17 10 L19 20 L20 6 Q23 3 25 7 L25 20 L27 8 Q30 6 31 10 L31 22 L35 14 Q39 13 38 18 L34 34 V44Z" fill="#8a6a4a" stroke="#0b121d" stroke-width="2"/></symbol>
+  <symbol id="i-anel" viewBox="0 0 48 48"><circle cx="24" cy="28" r="12" fill="none" stroke="url(#gOuro)" stroke-width="5"/><path d="M18 12 L24 4 L30 12 L24 18Z" fill="#A38AE5" stroke="#0b121d" stroke-width="1.5"/></symbol>
+  <symbol id="i-minerio" viewBox="0 0 48 48"><path d="M8 34 L14 14 L30 8 L42 22 L36 40 L16 42Z" fill="#5a6a80" stroke="#0b121d" stroke-width="2"/><path d="M20 20 L26 16 L30 24 L24 28Z" fill="#52B6C7"/></symbol>
+  <symbol id="i-pele" viewBox="0 0 48 48"><path d="M10 12 Q24 4 38 12 L36 24 L42 34 Q24 44 6 34 L12 24Z" fill="#8a7a6a" stroke="#0b121d" stroke-width="2"/></symbol>
+  <symbol id="i-chave" viewBox="0 0 48 48"><circle cx="14" cy="24" r="8" fill="none" stroke="url(#gOuro)" stroke-width="4"/><path d="M22 24 H42 M36 24 v8 M42 24 v6" stroke="#D8B56A" stroke-width="4" stroke-linecap="round"/></symbol>
+  <symbol id="i-cajado" viewBox="0 0 48 48"><path d="M14 44 L30 14" stroke="#8a5a2e" stroke-width="4" stroke-linecap="round"/><circle cx="33" cy="10" r="7" fill="#52B6C7" stroke="#D8B56A" stroke-width="2"/></symbol>
+  <symbol id="i-katana" viewBox="0 0 48 48"><path d="M8 42 Q26 28 42 6" stroke="url(#gAco)" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M10 36 l6 6" stroke="#D94D62" stroke-width="5" stroke-linecap="round"/></symbol>
+  <symbol id="i-machado" viewBox="0 0 48 48"><path d="M16 44 L30 8" stroke="#8a5a2e" stroke-width="4" stroke-linecap="round"/><path d="M26 10 Q42 8 42 24 Q34 18 24 22Z" fill="url(#gAco)" stroke="#0b121d" stroke-width="2"/></symbol>
+  <symbol id="i-buffAtk" viewBox="0 0 48 48"><path d="M24 6 l10 14 h-6 v20 h-8 V20 h-6z" fill="#E97954"/></symbol>
+  <symbol id="i-buffDef" viewBox="0 0 48 48"><path d="M24 6 L38 12 V24 C38 34 31 40 24 42 C17 40 10 34 10 24 V12Z" fill="#49BFA3"/></symbol>
+  <symbol id="i-queima" viewBox="0 0 48 48"><path d="M24 6 C30 16 36 20 34 30 C33 38 28 42 24 42 C18 42 13 37 14 29 C15 22 20 20 20 13 C23 17 23 20 24 22 C26 16 22 11 24 6Z" fill="#D94D62"/></symbol>
+  <symbol id="i-portal" viewBox="0 0 48 48"><ellipse cx="24" cy="24" rx="12" ry="18" fill="none" stroke="#A38AE5" stroke-width="4"/><ellipse cx="24" cy="24" rx="6" ry="11" fill="#A38AE5" opacity=".5"/></symbol>
+  <symbol id="i-quebra" viewBox="0 0 48 48"><circle cx="24" cy="24" r="16" fill="none" stroke="#ff8ad8" stroke-width="4"/><path d="M24 6 L20 18 L28 24 L22 34 L26 42" stroke="#ff8ad8" stroke-width="3" fill="none"/></symbol>
+  <!-- personagem estilo anime (rascunho; no jogo será o modelo VRM) -->
+  <symbol id="pers" viewBox="0 0 100 200">
+    <ellipse cx="50" cy="196" rx="28" ry="5" fill="#000" opacity=".25"/>
+    <path d="M38 120 L34 190 H46 L50 140 L54 190 H66 L62 120Z" fill="#2b3550"/>
+    <path d="M34 186 h14 v8 h-16z M52 186 h14 l2 8 h-16z" fill="#4a2e1e"/>
+    <path d="M30 70 Q50 62 70 70 L74 126 Q50 134 26 126Z" fill="#e9eef6"/>
+    <path d="M30 70 L26 126 Q38 130 44 128 L40 74Z M70 70 L74 126 Q62 130 56 128 L60 74Z" fill="#33507a"/>
+    <path d="M44 72 L50 90 L56 72" fill="#D8B56A"/>
+    <path d="M30 72 Q20 96 24 118" stroke="#e9eef6" stroke-width="9" fill="none" stroke-linecap="round"/>
+    <path d="M70 72 Q82 94 78 116" stroke="#e9eef6" stroke-width="9" fill="none" stroke-linecap="round"/>
+    <path d="M78 114 L96 40" stroke="url(#gAco)" stroke-width="4" stroke-linecap="round"/><path d="M73 112 L84 118" stroke="#D8B56A" stroke-width="4" stroke-linecap="round"/>
+    <rect x="45" y="56" width="10" height="12" fill="#f4d6c4"/>
+    <ellipse cx="50" cy="42" rx="17" ry="19" fill="#f8e1d2"/>
+    <path d="M31 44 Q30 18 50 18 Q72 18 69 46 L66 34 L62 40 L58 28 L52 38 L46 26 L42 38 L38 30 L34 44Z" fill="#3b2a4a"/>
+    <path d="M31 40 Q28 60 34 66 L36 46Z M69 40 Q72 60 66 66 L64 46Z" fill="#3b2a4a"/>
+    <ellipse cx="43" cy="46" rx="3.2" ry="4.2" fill="#3a6fb0"/><ellipse cx="57" cy="46" rx="3.2" ry="4.2" fill="#3a6fb0"/>
+    <circle cx="44" cy="44.5" r="1.1" fill="#fff"/><circle cx="58" cy="44.5" r="1.1" fill="#fff"/>
+    <path d="M47 54 q3 2 6 0" stroke="#b46a5a" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="lobo" viewBox="0 0 120 80">
+    <ellipse cx="60" cy="76" rx="44" ry="5" fill="#000" opacity=".25"/>
+    <path d="M24 34 Q40 22 74 26 L94 18 L100 6 L106 18 L114 24 L108 34 L98 36 L92 48 L88 72 H80 L78 52 L50 52 L44 72 H36 L36 50 Q20 50 16 40 L4 34 L18 32Z" fill="#7d8aa0" stroke="#3a4558" stroke-width="2"/>
+    <circle cx="104" cy="24" r="2.2" fill="#ffd54a"/>
+  </symbol>
+</defs>
+</svg>
+
+<header class="topo">
+  <h1>MMORPG · Interface<small>Direção "Cristal da Torre" (plano do ChatGPT) · protótipo v1</small></h1>
+  <nav class="abas" id="abas">
+    <a href="#hud" data-v="hud">HUD em combate</a>
+    <a href="#menus" data-v="menus">Menus</a>
+    <a href="#personagem" data-v="personagem">Seleção de personagem</a>
+    <a href="#icones" data-v="icones">Ícones, paleta e imagens</a>
+  </nav>
+</header>
+
+<!-- ======================= HUD ======================= -->
+<section class="vista" id="v-hud">
+  <div class="controles" id="ctrl">
+    <button data-res="1080" class="on">1920×1080</button>
+    <button data-res="720">1280×720 (compacto)</button>
+    <span class="sep"></span>
+    <button data-acao="leve">Golpe leve</button>
+    <button data-acao="pesado">Golpe pesado</button>
+    <button data-acao="vida">Vida baixa</button>
+    <button data-acao="postura">Quebrar postura</button>
+    <button data-acao="semres">Sem resistência</button>
+    <button data-acao="impeto">Encher Ímpeto</button>
+    <button data-acao="perfeita">Esquiva perfeita</button>
+    <button data-acao="aparar">Aparar</button>
+    <button data-acao="recarga">Recarga (habilidade 1)</button>
+    <span class="sep"></span>
+    <button data-tog="modo-combate">Modo combate</button>
+    <button data-tog="alto-contraste">Alto contraste</button>
+    <button data-acao="reset">Restaurar</button>
+  </div>
+  <div class="palco-wrap" id="wrap">
+    <div class="palco r1080" id="palco">
+      <div class="cena">
+        <div class="torre"></div>
+        <div class="morro" style="left:-5%;width:40%;height:18%"></div>
+        <div class="morro" style="left:60%;width:50%;height:22%;opacity:.55"></div>
+        <div class="pilar" style="left:14%;background:#f0a070"></div>
+        <div class="pilar" style="left:30%;background:#79a6f0;height:12%"></div>
+        <div class="pilar" style="left:72%;background:#f5d26a;height:13%"></div>
+        <div class="pilar" style="left:86%;background:#b58ae8"></div>
+        <div class="piso"></div>
+        <div class="telegrafo"></div>
+        <div class="ent" style="left:57%;top:50%;width:13%;height:13%"><svg><use href="#lobo"/></svg><div class="excl">!</div><div class="anel-alvo"></div></div>
+        <div class="ent" style="left:44%;top:45%;width:6.5%;height:24%"><svg><use href="#pers"/></svg></div>
+        <div class="dano" style="left:62%;top:44%">38</div>
+        <div class="dano fl" style="left:66%;top:47%;animation-delay:.5s">49 flanco</div>
+      </div>
+      <div class="flashTela" id="flash"></div>
+
+      <div class="hud" id="hud">
+        <!-- jogador -->
+        <div class="pn ouro" id="pJog">
+          <div class="retrato"><svg viewBox="29 20 42 42"><use href="#pers" width="100" height="200"/></svg></div>
+          <div class="nv num">Nv. 12</div>
+          <div class="quebrada"><svg width="16" height="16"><use href="#i-quebra"/></svg>POSTURA QUEBRADA <span id="tq">2.0</span>s</div>
+          <div class="nome"><span class="tit">Lucas</span><span>Espada longa</span></div>
+          <div class="barra vida"><div class="rot"><span>♥ VIDA</span><b id="tVida">1245 / 1245</b></div><div class="fundo"><div class="atras" id="aVida" style="width:100%"></div><div class="ench" id="bVida" style="width:100%"></div></div></div>
+          <div class="barra res"><div class="rot"><span>◆ RESISTÊNCIA</span><b id="tRes">116 / 116</b></div><div class="fundo"><div class="ench" id="bRes" style="width:100%"></div></div></div>
+          <div class="barra post"><div class="rot"><span>▲ POSTURA</span><b id="tPost">135 / 135</b></div><div class="fundo"><div class="ench" id="bPost" style="width:100%"></div></div></div>
+        </div>
+        <div id="buffs">
+          <div class="buff" title="Ataque +10%"><svg><use href="#i-buffAtk"/></svg><i>42s</i></div>
+          <div class="buff" title="Barreira de terra"><svg><use href="#i-buffDef"/></svg><i>8s</i></div>
+          <div class="buff deb fim" title="Queimadura"><svg><use href="#i-queima"/></svg><i>4s</i></div>
+        </div>
+
+        <!-- grupo -->
+        <div class="pn" id="pGrupo">
+          <div class="memb"><div class="av">A</div><div class="info"><div>Asuna_br <small>Nv.13 · cajado</small></div><div class="mini"><i style="width:82%"></i></div></div></div>
+          <div class="memb"><div class="av">K</div><div class="info"><div>KleinPT <small>Nv.11 · katana</small></div><div class="mini"><i style="width:44%"></i></div></div></div>
+          <div class="memb caido"><div class="av">S</div><div class="info"><div>Silica <small style="color:#ff7a8a">CAÍDO · reanimar</small></div><div class="mini"><i style="width:0%"></i></div></div></div>
+        </div>
+
+        <!-- alvo travado -->
+        <div class="pn ouro" id="pAlvo">
+          <span class="alvo-trava">◎ ALVO TRAVADO · TAB</span>
+          <div class="l1"><span class="tit">Lobo do Bosque</span><span class="num">Nv. 10 · fera</span></div>
+          <div class="hp"><i id="bAlvo" style="width:72%"></i><span id="tAlvo">468 / 650</span></div>
+          <div class="pt"><i id="bAlvoP" style="width:55%"></i></div>
+          <div class="estado" id="estAlvo">! PREPARANDO ATAQUE</div>
+        </div>
+
+        <!-- minimapa -->
+        <div class="pn" id="mini">
+          <div class="mapa-c">
+            <svg viewBox="0 0 200 200">
+              <rect width="200" height="200" fill="#2e4a34"/>
+              <path d="M0 140 Q60 120 100 130 T200 110 V200 H0Z" fill="#26402c"/>
+              <circle cx="100" cy="100" r="38" fill="#a99c7d" opacity=".75"/>
+              <path d="M100 0 V62 M100 138 V200 M0 100 H62 M138 100 H200" stroke="#b7aa8a" stroke-width="7" opacity=".6"/>
+              <rect x="0" y="0" width="70" height="60" fill="#0b121d" opacity=".75"/>
+              <rect x="150" y="150" width="50" height="50" fill="#0b121d" opacity=".75"/>
+              <circle cx="128" cy="80" r="5" fill="#D94D62"/><circle cx="140" cy="92" r="5" fill="#D94D62"/>
+              <circle cx="88" cy="112" r="5" fill="#65B9ED"/><circle cx="80" cy="96" r="5" fill="#65B9ED"/>
+              <path d="M160 40 l8 -14 8 14z" fill="#F0B94F" stroke="#000"/>
+              <use href="#i-portal" x="20" y="150" width="26" height="26"/>
+              <circle cx="60" cy="140" r="5" fill="#9be3a5" stroke="#000"/>
+              <path d="M100 92 l7 16 -7 -4 -7 4z" fill="#fff" stroke="#000" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <div class="norte">N</div>
+          <div class="mini-bts"><span>+</span><span>−</span></div>
+          <div class="andar"><b>ANDAR 01</b> · BOSQUE INICIAL</div>
+        </div>
+
+        <!-- missão -->
+        <div class="pn" id="pMissao">
+          <h4>MISSÃO ATIVA · J</h4>
+          <div class="qtit">O primeiro degrau</div>
+          <div class="obj ok"><span class="ck"></span>Falar com a guardiã do portão</div>
+          <div class="obj"><span class="ck"></span>Derrotar lobos do bosque<span class="num">3/5</span></div>
+          <div class="obj"><span class="ck"></span>Encontrar a sala do chefe</div>
+        </div>
+
+        <!-- chat -->
+        <div class="pn" id="pChat">
+          <div class="chat-abas"><span class="on">GERAL</span><span>GRUPO</span><span>GUILDA</span><span>SISTEMA</span></div>
+          <div class="chat-msgs">
+            <div class="g"><b>Klein:</b> alguém pra ajudar no golem?</div>
+            <div class="s">[Sistema] Asuna_br entrou no grupo.</div>
+            <div class="gu"><b>[Guilda] Agil:</b> mercado aberto na praça do Andar 1</div>
+            <div class="p"><b>[Grupo] Asuna_br:</b> vou curar, segura o lobo!</div>
+            <div class="s">[Sistema] Você recebeu Pele de lobo ×2.</div>
+          </div>
+          <div class="chat-in">Enter para conversar…</div>
+        </div>
+
+        <!-- ímpeto -->
+        <div class="pn" id="imp">
+          <svg class="emb"><use href="#i-imp"/></svg>
+          <div class="fundo"><div class="ench" id="bImp" style="width:34%"></div><div class="marca"></div></div>
+          <span class="val" id="tImp">34</span>
+        </div>
+
+        <!-- barra de ações -->
+        <div class="pn" id="barra">
+          <div class="grupo-acoes">
+            <div class="slot" id="sLeve"><span class="nm">LEVE ×3</span><svg><use href="#i-leve"/></svg><span class="tecla">LMB</span></div>
+            <div class="slot" id="sPesado"><span class="nm">PESADO</span><svg><use href="#i-pesado"/></svg><span class="tecla">E</span></div>
+            <div class="slot custo indisp" id="sImp" data-custo="50"><span class="nm">ÍMPETO</span><svg><use href="#i-imp"/></svg><span class="tecla">Q</span></div>
+            <div class="slot" id="sBloq"><span class="nm">BLOQUEAR</span><svg><use href="#i-bloq"/></svg><span class="tecla">RMB</span></div>
+            <div class="slot custo" id="sEsq" data-custo="26"><span class="nm">ESQUIVA</span><svg><use href="#i-esq"/></svg><span class="tecla">ESP</span></div>
+          </div>
+          <div class="div-v"></div>
+          <div class="grupo-acoes">
+            <div class="slot" id="s1"><span class="nm">LÂMINA</span><svg><use href="#i-lamina"/></svg><span class="tecla">1</span><div class="cd" id="cd1">6.0</div></div>
+            <div class="slot"><span class="nm">DANÇA</span><svg><use href="#i-danca"/></svg><span class="tecla">2</span></div>
+            <div class="slot vazio"><span class="tecla">3</span></div>
+            <div class="slot"><span class="nm">POÇÃO</span><svg><use href="#i-pocao"/></svg><span class="tecla">4</span><i style="position:absolute;left:4px;top:1px;font:700 12px Rajdhani;font-style:normal">×5</i></div>
+          </div>
+        </div>
+
+        <div id="notif">
+          <div class="nt ouro">Item obtido: <b>Pele de lobo ×2</b></div>
+          <div class="nt res">Missão atualizada: lobos 3/5</div>
+        </div>
+        <div id="msgCentro"></div>
+      </div>
+    </div>
+  </div>
+  <p class="nota" style="margin-top:12px">
+    <b>Como ler:</b> a barra de ações tem duas partes. À esquerda ficam os 5 comandos que <b>já existem no jogo</b>, com as teclas de verdade (LMB = clique esquerdo, RMB = clique direito, ESP = Espaço). À direita ficam os slots 1–4: são uma <b>proposta</b> para habilidades configuráveis e ainda não estão no jogo (o ChatGPT apontou isso como risco).
+    Os botões acima simulam os estados. Os ícones são rascunhos em SVG; as artes finais o ChatGPT gera depois que você aprovar o layout.
+  </p>
+</section>
+
+<!-- ======================= MENUS ======================= -->
+<section class="vista" id="v-menus">
+  <div class="menu">
+    <div class="menu-topo" id="mtopo">
+      <span class="tt">◈ TORRE</span>
+      <button class="mt on" data-m="inv">Inventário<kbd>I</kbd></button>
+      <button class="mt" data-m="eq">Equipamento<kbd>C</kbd></button>
+      <button class="mt" data-m="st">Status<kbd>P</kbd></button>
+      <button class="mt" data-m="hab">Habilidades<kbd>K</kbd></button>
+      <button class="mt" data-m="mapa">Mapa<kbd>M</kbd></button>
+      <button class="mt" data-m="mis">Missões<kbd>J</kbd></button>
+      <button class="mt" data-m="grp">Grupo<kbd>O</kbd></button>
+      <button class="mt" data-m="cfg">Configurações<kbd>Esc</kbd></button>
+    </div>
+    <div class="menu-corpo">
+
+      <!-- inventário -->
+      <div class="mp on" id="m-inv">
+        <div class="cols" style="grid-template-columns:auto 1fr">
+          <div class="cx">
+            <div class="filtros"><span class="on">Tudo</span><span>Armas</span><span>Armaduras</span><span>Consumíveis</span><span>Materiais</span><span>Missão</span></div>
+            <div class="grade" id="grade"></div>
+            <div style="display:flex;justify-content:space-between;margin-top:10px;font-size:13px;color:var(--txt2)"><span>Espaços <b class="num" style="color:var(--txt)">17 / 48</b></span><span>Col <b class="num" style="color:var(--ouro)">1.240</b></span></div>
+          </div>
+          <div class="cx">
+            <h3>Espada da Guardiã</h3>
+            <div class="raridade" style="color:#65B9ED">RARO · ESPADA LONGA</div>
+            <div style="display:flex;gap:14px;margin:12px 0"><div class="cel raro" style="width:96px;height:96px"><svg style="width:64px;height:64px"><use href="#i-leve"/></svg></div>
+              <div style="flex:1;font-size:14px;color:var(--txt2);line-height:1.5">Forjada com o aço dos portões do Andar 1. Equilibrada para golpes rápidos.</div></div>
+            <div class="linha"><span>P_arma</span><b>62,0 <span class="mais">+4,5</span></b></div>
+            <div class="linha"><span>Leve (K)</span><b>0,62</b></div>
+            <div class="linha"><span>Pesado (K)</span><b>1,45</b></div>
+            <div class="linha"><span>Impacto</span><b>10 / 26</b></div>
+            <div class="linha"><span>Peso</span><b>3 <span class="menos">+0,5</span></b></div>
+            <div style="display:flex;gap:8px;margin-top:14px"><button class="bt pri">Equipar</button><button class="bt">Comparar</button><button class="bt">Descartar</button></div>
+            <p class="nota" style="margin-top:12px">Comparação com a arma equipada: verde = melhor, vermelho = pior.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- equipamento -->
+      <div class="mp" id="m-eq">
+        <div class="cols" style="grid-template-columns:260px 1fr 260px">
+          <div>
+            <div class="eqslot"><div class="cel raro"><svg><use href="#i-leve"/></svg></div><div><small>ARMA</small>Espada da Guardiã</div></div>
+            <div class="eqslot"><div class="cel"><svg style="opacity:.25"><use href="#i-bloq"/></svg></div><div><small>SECUNDÁRIA</small><span style="color:var(--txt2)">vazio</span></div></div>
+            <div class="eqslot"><div class="cel inc"><svg><use href="#i-elmo"/></svg></div><div><small>CABEÇA</small>Elmo de couro</div></div>
+            <div class="eqslot"><div class="cel inc"><svg><use href="#i-peito"/></svg></div><div><small>CORPO</small>Armadura média</div></div>
+            <div class="eqslot"><div class="cel comum"><svg><use href="#i-luva"/></svg></div><div><small>MÃOS</small>Luvas simples</div></div>
+          </div>
+          <div class="vrm" style="min-height:540px">
+            <span class="etq">PRÉVIA DO MODELO VRM · SUBVIEWPORT 3D</span>
+            <svg viewBox="0 0 100 200" style="height:470px"><use href="#pers"/></svg>
+            <span class="gira">⟲ arraste para girar · roda = zoom · aparência à parte do status</span>
+          </div>
+          <div>
+            <div class="eqslot"><div class="cel comum"><svg><use href="#i-bota"/></svg></div><div><small>PÉS</small>Botas de viagem</div></div>
+            <div class="eqslot"><div class="cel epico"><svg><use href="#i-anel"/></svg></div><div><small>ACESSÓRIO 1</small>Anel do cristal</div></div>
+            <div class="eqslot"><div class="cel"><svg style="opacity:.25"><use href="#i-anel"/></svg></div><div><small>ACESSÓRIO 2</small><span style="color:var(--txt2)">vazio</span></div></div>
+            <div class="cx" style="margin-top:12px">
+              <h3>Totais</h3>
+              <div class="linha"><span>Armadura</span><b>85</b></div>
+              <div class="linha"><span>Peso total</span><b>12</b></div>
+              <div class="linha"><span>Custo da esquiva</span><b>26</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- status -->
+      <div class="mp" id="m-st">
+        <div class="cols" style="grid-template-columns:1.1fr 1fr">
+          <div class="cx">
+            <h3>Atributos <span style="float:right;font:600 14px Rajdhani;color:var(--txt2)">Pontos livres: <b id="livres" style="color:var(--ouro)">5</b></span></h3>
+            <div id="attrs"></div>
+            <p class="nota" style="margin-top:10px">Use + e − para ver os valores derivados mudarem. São as fórmulas da calibração v1.1: r(x) = x/(x+40).</p>
+          </div>
+          <div class="cx">
+            <h3>Valores derivados</h3>
+            <div id="deriv"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- habilidades -->
+      <div class="mp" id="m-hab">
+        <div class="cols" style="grid-template-columns:1fr 300px">
+          <div class="cx">
+            <div class="filtros"><span class="on">Espada longa</span><span>Katana</span><span>Machado grande</span><span>Dois machados</span><span>Duas espadas</span><span>Cajado</span></div>
+            <div class="arvore" id="arvore">
+              <svg class="lig" viewBox="0 0 800 500" preserveAspectRatio="none">
+                <g stroke-width="3" fill="none">
+                  <path d="M400 70 V170" stroke="#D8B56A"/>
+                  <path d="M400 170 L240 280" stroke="#D8B56A"/>
+                  <path d="M400 170 L560 280" stroke="#52B6C7" stroke-dasharray="0"/>
+                  <path d="M240 280 V400" stroke="#3a5470" stroke-dasharray="6 6"/>
+                  <path d="M560 280 V400" stroke="#3a5470" stroke-dasharray="6 6"/>
+                  <path d="M240 400 L400 460 L560 400" stroke="#3a5470" stroke-dasharray="6 6"/>
+                </g>
+              </svg>
+              <div class="no adq" style="left:50%;top:14%"><svg><use href="#i-leve"/></svg><small>Corte básico</small></div>
+              <div class="no adq" style="left:50%;top:34%"><svg><use href="#i-pesado"/></svg><small>Golpe pesado</small></div>
+              <div class="no adq sel" style="left:30%;top:56%"><svg><use href="#i-lamina"/></svg><small>Lâmina projetada</small></div>
+              <div class="no disp" style="left:70%;top:56%"><svg><use href="#i-aparar"/></svg><small>Contra-ataque</small></div>
+              <div class="no bloq" style="left:30%;top:80%"><svg><use href="#i-danca"/></svg><small>Dança de lâminas</small></div>
+              <div class="no bloq" style="left:70%;top:80%"><svg><use href="#i-imp"/></svg><small>Ímpeto ampliado</small></div>
+              <div class="no bloq" style="left:50%;top:92%"><svg><use href="#i-quebra"/></svg><small>Quebra-guarda</small></div>
+            </div>
+          </div>
+          <div class="cx">
+            <h3>Lâmina projetada</h3>
+            <div class="raridade" style="color:var(--ouro)">ADQUIRIDA · NÍVEL 1</div>
+            <p style="font-size:14px;color:var(--txt2);margin:10px 0;line-height:1.5">Projeta o corte à distância. Bom contra alvos que fogem do alcance.</p>
+            <div class="linha"><span>K</span><b>0,85</b></div>
+            <div class="linha"><span>Recarga</span><b>6 s</b></div>
+            <div class="linha"><span>Requisito</span><b>Golpe pesado</b></div>
+            <p class="nota" style="margin-top:12px">Legenda: <b style="color:var(--ouro)">dourado</b> = adquirida · <b style="color:var(--cristal)">brilho ciano</b> = disponível · tracejado com cadeado = bloqueada. A forma também muda, não só a cor.</p>
+            <button class="bt pri" style="margin-top:10px;width:100%">Atribuir à barra (1–4)</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- mapa -->
+      <div class="mp" id="m-mapa">
+        <div class="cols" style="grid-template-columns:1fr 260px">
+          <div class="cx" style="padding:0;overflow:hidden">
+            <svg viewBox="0 0 800 520" style="width:100%;display:block">
+              <rect width="800" height="520" fill="#22382a"/>
+              <path d="M0 380 Q200 330 400 360 T800 320 V520 H0Z" fill="#1d3124"/>
+              <circle cx="400" cy="260" r="90" fill="#a99c7d" opacity=".75"/>
+              <path d="M400 0 V170 M400 350 V520 M0 260 H310 M490 260 H800" stroke="#b7aa8a" stroke-width="14" opacity=".55"/>
+              <rect x="0" y="0" width="260" height="180" fill="#0b121d" opacity=".8"/>
+              <rect x="600" y="400" width="200" height="120" fill="#0b121d" opacity=".8"/>
+              <text x="130" y="95" fill="#8EA6B9" font-family="Rajdhani" font-size="20" text-anchor="middle">não explorado</text>
+              <path d="M640 120 l18 -32 18 32z" fill="#F0B94F" stroke="#000" stroke-width="2"/>
+              <text x="658" y="146" fill="#D9E7F0" font-family="Exo 2" font-size="15" text-anchor="middle">Sala do chefe</text>
+              <use href="#i-portal" x="70" y="400" width="54" height="54"/>
+              <text x="97" y="470" fill="#D9E7F0" font-family="Exo 2" font-size="15" text-anchor="middle">Portal da cidade</text>
+              <circle cx="470" cy="210" r="9" fill="#D94D62"/><circle cx="500" cy="235" r="9" fill="#D94D62"/>
+              <circle cx="250" cy="330" r="9" fill="#9be3a5" stroke="#000" stroke-width="2"/>
+              <text x="250" y="358" fill="#D9E7F0" font-family="Exo 2" font-size="14" text-anchor="middle">Guardiã</text>
+              <path d="M380 290 l14 32 -14 -8 -14 8z" fill="#fff" stroke="#000" stroke-width="2"/>
+              <text x="20" y="505" fill="#D8B56A" font-family="Rajdhani" font-size="22" font-weight="700">ANDAR 01 · BOSQUE INICIAL</text>
+            </svg>
+          </div>
+          <div class="cx">
+            <h3>Legenda</h3>
+            <div class="linha"><span>▲ Você</span></div>
+            <div class="linha"><span style="color:#65B9ED">● Grupo</span></div>
+            <div class="linha"><span style="color:#D94D62">● Inimigo relevante</span></div>
+            <div class="linha"><span style="color:#9be3a5">● NPC</span></div>
+            <div class="linha"><span style="color:#F0B94F">▲ Objetivo</span></div>
+            <div class="linha"><span style="color:#A38AE5">◎ Portal</span></div>
+            <div class="linha"><span style="color:#8EA6B9">■ Névoa (não explorado)</span></div>
+            <h3 style="margin-top:14px">Andares</h3>
+            <div class="linha"><span style="color:var(--ouro)">Andar 01</span><b>atual</b></div>
+            <div class="linha"><span style="color:var(--txt2)">Andar 02</span><b style="color:var(--txt2)">bloqueado</b></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- missões -->
+      <div class="mp" id="m-mis">
+        <div class="cols" style="grid-template-columns:340px 1fr">
+          <div>
+            <div class="filtros"><span class="on">Ativas</span><span>Concluídas</span></div>
+            <div class="missao on"><span class="tag pri">PRINCIPAL</span><b>O primeiro degrau</b><br><small>Andar 01 · 1/3 objetivos</small></div>
+            <div class="missao"><span class="tag sec">SECUNDÁRIA</span><b>Pele para o curtidor</b><br><small>Andar 01 · 2/6 peles</small></div>
+            <div class="missao"><span class="tag sec">SECUNDÁRIA</span><b>O golem adormecido</b><br><small>Andar 01 · recomendado em grupo</small></div>
+          </div>
+          <div class="cx">
+            <h3>O primeiro degrau</h3>
+            <p style="font-size:14px;color:var(--txt2);line-height:1.6;margin-bottom:12px">A guardiã do portão diz que ninguém sobe a torre sem provar o próprio valor no bosque. Limpe o caminho e encontre a sala do chefe do Andar 1.</p>
+            <div class="obj ok"><span class="ck"></span>Falar com a guardiã do portão</div>
+            <div class="obj"><span class="ck"></span>Derrotar lobos do bosque<span class="num">3/5</span></div>
+            <div class="obj"><span class="ck"></span>Encontrar a sala do chefe</div>
+            <h3 style="margin-top:16px">Recompensas</h3>
+            <div style="display:flex;gap:8px"><div class="cel raro"><svg><use href="#i-leve"/></svg></div><div class="cel comum"><svg><use href="#i-pocao"/></svg><i>×3</i></div><div class="cel" style="font:700 15px Rajdhani;color:var(--ouro)">300 Col</div></div>
+            <div style="display:flex;gap:8px;margin-top:14px"><button class="bt pri">Acompanhar</button><button class="bt">Marcar no mapa</button></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- grupo -->
+      <div class="mp" id="m-grp">
+        <div class="cols" style="grid-template-columns:1fr 1fr">
+          <div class="cx">
+            <h3>Grupo (3/4)</h3>
+            <div class="memb"><div class="av">L</div><div class="info"><div>Lucas (líder) <small>Nv.12 · espada longa</small></div><div class="mini"><i style="width:100%"></i></div></div></div>
+            <div class="memb"><div class="av">A</div><div class="info"><div>Asuna_br <small>Nv.13 · cajado</small></div><div class="mini"><i style="width:82%"></i></div></div></div>
+            <div class="memb"><div class="av">K</div><div class="info"><div>KleinPT <small>Nv.11 · katana</small></div><div class="mini"><i style="width:44%"></i></div></div></div>
+            <div style="display:flex;gap:8px;margin-top:12px"><button class="bt">Convidar</button><button class="bt">Sair do grupo</button></div>
+          </div>
+          <div class="cx">
+            <h3>Guilda · Lâminas do Parecis <span style="float:right;color:var(--txt2);font:600 13px Rajdhani">G</span></h3>
+            <div class="linha"><span>Agil · Mestre</span><b style="color:#6be3a0">online</b></div>
+            <div class="linha"><span>Silica · Oficial</span><b style="color:#6be3a0">online</b></div>
+            <div class="linha"><span>Liz · Membro</span><b style="color:var(--txt2)">há 2 h</b></div>
+            <div class="linha"><span>Thinker · Membro</span><b style="color:var(--txt2)">há 1 dia</b></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- configurações -->
+      <div class="mp" id="m-cfg">
+        <div class="cols" style="grid-template-columns:200px 1fr">
+          <div>
+            <div class="missao on">Interface</div><div class="missao">Vídeo</div><div class="missao">Áudio</div><div class="missao">Controles</div><div class="missao">Acessibilidade</div>
+          </div>
+          <div class="cx">
+            <h3>Interface e acessibilidade</h3>
+            <div class="cfg"><span>Escala da interface</span><input type="range" min="80" max="140" value="100" id="cEscala"><span class="num" id="vEscala">100%</span></div>
+            <div class="cfg"><span>Opacidade do HUD</span><input type="range" min="40" max="100" value="86" id="cOp"><span class="num" id="vOp">86%</span></div>
+            <div class="cfg"><span>Tamanho do texto</span><span><button class="chip">Normal</button> <button class="chip">Grande</button> <button class="chip">Extra</button></span><span></span></div>
+            <div class="cfg"><span>Números de dano</span><span class="tog on"></span><span></span></div>
+            <div class="cfg"><span>Alto contraste</span><span class="tog"></span><span></span></div>
+            <div class="cfg"><span>Modo para daltonismo</span><span><button class="chip">Nenhum</button> <button class="chip">Protanopia</button> <button class="chip">Deuteranopia</button></span><span></span></div>
+            <div class="cfg"><span>Reduzir flashes e tremores</span><span class="tog"></span><span></span></div>
+            <div class="cfg"><span>Mostrar chat em combate</span><span class="tog"></span><span></span></div>
+            <p class="nota" style="margin-top:10px">Os interruptores clicam (só visual). Escala e opacidade mudam o HUD de verdade: veja na aba HUD.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="menu-rodape"><span><kbd>Q</kbd><kbd>E</kbd> trocar aba · <kbd>↑↓←→</kbd> navegar · <kbd>Enter</kbd> confirmar</span><span><kbd>Esc</kbd> fechar</span></div>
+  </div>
+</section>
+
+<!-- ======================= SELEÇÃO DE PERSONAGEM ======================= -->
+<section class="vista" id="v-personagem">
+  <div class="selpers">
+    <div class="cx">
+      <h3>Seus personagens</h3>
+      <div class="pslot on"><div class="av"><svg viewBox="29 20 42 42"><use href="#pers" width="100" height="200"/></svg></div><div><b class="tit">Lucas</b><br><small>Nv. 12 · Espada longa · Andar 01</small></div></div>
+      <div class="pslot"><div class="av" style="border-color:#A38AE5"><svg viewBox="29 20 42 42"><use href="#pers" width="100" height="200"/></svg></div><div><b class="tit">Lyra</b><br><small>Nv. 7 · Cajado · Andar 01</small></div></div>
+      <div class="pslot novo">+ Criar personagem (VRM)</div>
+    </div>
+    <div class="vrm" style="min-height:620px">
+      <span class="etq">PRÉVIA VRM · POSE DE ENTRADA</span>
+      <svg viewBox="0 0 100 200" style="height:560px"><use href="#pers"/></svg>
+      <span class="gira">O modelo VRM escolhido aparece aqui, iluminado, girando devagar</span>
+    </div>
+    <div class="cx" style="display:flex;flex-direction:column">
+      <h3>Lucas</h3>
+      <div class="linha"><span>Nível</span><b>12</b></div>
+      <div class="linha"><span>Arma</span><b>Espada longa</b></div>
+      <div class="linha"><span>Andar mais alto</span><b>01</b></div>
+      <div class="linha"><span>Tempo de jogo</span><b>3 h 20 min</b></div>
+      <div class="linha"><span>Servidor</span><b>Brasil · 1</b></div>
+      <div style="flex:1"></div>
+      <button class="bt pri" style="padding:14px;font-size:17px">Entrar na torre</button>
+      <div style="display:flex;gap:8px;margin-top:8px"><button class="bt" style="flex:1">Configurações</button><button class="bt" style="flex:1">Sair</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= ÍCONES / PALETA ======================= -->
+<section class="vista" id="v-icones">
+  <div class="cols" style="grid-template-columns:1fr 1fr;max-width:1280px">
+    <div class="cx">
+      <h3>Paleta oficial</h3>
+      <div class="pal" id="pal"></div>
+      <h3 style="margin-top:16px">Tipografia (Google Fonts)</h3>
+      <p style="font:700 30px Rajdhani">1245 / 1245 · ANDAR 01 · 6.0s</p><p class="nota">Rajdhani: números, andar e cronômetros</p>
+      <p style="font:600 22px 'Exo 2';margin-top:8px">Lâmina projetada · Lobo do Bosque</p><p class="nota">Exo 2: títulos e nomes</p>
+      <p style="font:400 16px 'Noto Sans';margin-top:8px">Forjada com o aço dos portões do Andar 1. Ação, coração, missão.</p><p class="nota">Noto Sans: chat, descrições e menus (acentos ok)</p>
+    </div>
+    <div class="cx">
+      <h3>Ícones (rascunhos para aprovar a silhueta)</h3>
+      <div class="icos" id="icos"></div>
+    </div>
+  </div>
+  <div class="cx" style="max-width:1280px;margin-top:16px">
+    <h3>Imagens que o ChatGPT vai gerar depois que você aprovar</h3>
+    <table class="ass">
+      <tr><th>Arquivo</th><th>Tamanho</th><th>Fundo</th><th>Prioridade</th><th>Uso</th></tr>
+      <tr><td>hud_frame_player.png</td><td>768×288</td><td>transparente</td><td class="p0">P0</td><td>moldura do painel do jogador (nine-slice)</td></tr>
+      <tr><td>hud_frame_target.png</td><td>840×176</td><td>transparente</td><td class="p0">P0</td><td>moldura do alvo travado</td></tr>
+      <tr><td>hud_frame_boss.png</td><td>1280×160</td><td>transparente</td><td class="p0">P0</td><td>barra de chefe</td></tr>
+      <tr><td>hud_slot_skill.png / _active.png</td><td>128×128</td><td>transparente</td><td class="p0">P0</td><td>fundo dos slots normal / pronto</td></tr>
+      <tr><td>hud_impulse_emblem.png</td><td>128×128</td><td>transparente</td><td class="p0">P0</td><td>emblema do Ímpeto</td></tr>
+      <tr><td>hud_posture_broken.png</td><td>128×128</td><td>transparente</td><td class="p0">P0</td><td>ícone de postura quebrada</td></tr>
+      <tr><td>hud_minimap_ring.png</td><td>512×512</td><td>transparente</td><td class="p0">P0</td><td>anel do minimapa</td></tr>
+      <tr><td>hud_floor_emblem.png</td><td>256×256</td><td>transparente</td><td class="p0">P0</td><td>emblema do andar</td></tr>
+      <tr><td>hud_target_marker.png</td><td>128×128</td><td>transparente</td><td class="p0">P0</td><td>marcador de alvo travado</td></tr>
+      <tr><td>skill_light / heavy / block / dodge / impulse.png</td><td>128×128 (+64)</td><td>transparente</td><td class="p1">P1</td><td>comandos de combate</td></tr>
+      <tr><td>element_fire / water / wind / earth.png</td><td>128×128</td><td>transparente</td><td class="p1">P1</td><td>elementos</td></tr>
+      <tr><td>skill_* das habilidades reais</td><td>128×128</td><td>transparente</td><td class="p1">P1</td><td>só as que existirem (sem inventar)</td></tr>
+      <tr><td>molduras de menu, separadores, botões, marcadores do mapa</td><td>vários</td><td>transparente</td><td class="p2">P2</td><td>menus (o máximo possível em StyleBox nativo)</td></tr>
+      <tr><td>fundo da seleção de personagem, emblemas de chefe</td><td>1920×1080 / 256</td><td>opaco / transp.</td><td class="p3">P3</td><td>polimento</td></tr>
+    </table>
+  </div>
+</section>
+
+<script>
+/* ---------- navegação por hash ---------- */
+const vistas=["hud","menus","personagem","icones"];
+function mostrar(){let v=(location.hash||"#hud").slice(1); if(!vistas.includes(v)) v="hud";
+  document.querySelectorAll(".vista").forEach(s=>s.classList.toggle("on",s.id==="v-"+v));
+  document.querySelectorAll("#abas a").forEach(a=>a.classList.toggle("on",a.dataset.v===v));
+  if(v==="hud") ajustar();}
+window.addEventListener("hashchange",mostrar);
+
+/* ---------- escala do palco ---------- */
+const palco=document.getElementById("palco"), wrap=document.getElementById("wrap");
+let res=1080;
+function ajustar(){const w=res===1080?1920:1280,h=res===1080?1080:720; const s=wrap.clientWidth/w; palco.style.transform=`scale(${s})`; wrap.style.height=(h*s)+"px";}
+window.addEventListener("resize",ajustar);
+
+/* ---------- estado do HUD ---------- */
+const E={vida:1245,vmax:1245,res:116,rmax:116,post:135,pmax:135,imp:34,alvo:468,amax:650,aPost:55};
+const $=id=>document.getElementById(id), hud=$("hud");
+function render(){
+  $("bVida").style.width=(E.vida/E.vmax*100)+"%"; $("aVida").style.width=(E.vida/E.vmax*100)+"%"; $("tVida").textContent=`${Math.round(E.vida)} / ${E.vmax}`;
+  $("bRes").style.width=(E.res/E.rmax*100)+"%"; $("tRes").textContent=`${Math.round(E.res)} / ${E.rmax}`;
+  $("bPost").style.width=(E.post/E.pmax*100)+"%"; $("tPost").textContent=`${Math.round(E.post)} / ${E.pmax}`;
+  $("bImp").style.width=E.imp+"%"; $("tImp").textContent=Math.round(E.imp);
+  $("imp").classList.toggle("cheio",E.imp>=50);
+  const si=$("sImp"); si.classList.toggle("indisp",E.imp<50); si.classList.toggle("pronto",E.imp>=50);
+  hud.classList.toggle("vida-baixa",E.vida/E.vmax<.3);
+  $("bAlvo").style.width=(E.alvo/E.amax*100)+"%"; $("tAlvo").textContent=`${Math.round(E.alvo)} / ${E.amax}`;
+  $("bAlvoP").style.width=E.aPost+"%";
+}
+function msg(t,cor){const m=$("msgCentro"); m.textContent=t; m.style.color=cor; m.classList.add("on"); clearTimeout(m._t); m._t=setTimeout(()=>m.classList.remove("on"),900);}
+function flash(cor){const f=$("flash"); f.style.background=`radial-gradient(circle,transparent 40%,${cor})`; f.classList.remove("on"); void f.offsetWidth; f.classList.add("on");}
+function bater(id){const s=$(id); s.classList.remove("flash"); void s.offsetWidth; s.classList.add("flash");}
+function notif(t,cls){const n=document.createElement("div"); n.className="nt "+(cls||""); n.innerHTML=t; const c=$("notif"); c.prepend(n); while(c.children.length>3) c.lastChild.remove();}
+function danoNum(v,cls){const d=document.createElement("div"); d.className="dano "+(cls||""); d.textContent=v; d.style.left=(60+Math.random()*8)+"%"; d.style.top=(42+Math.random()*6)+"%"; d.style.animationIterationCount=1; document.querySelector(".cena").appendChild(d); setTimeout(()=>d.remove(),1400);}
+let tqTimer=null, cdTimer=null;
+const acoes={
+  leve(){bater("sLeve"); E.alvo=Math.max(0,E.alvo-38); E.imp=Math.min(100,E.imp+4); E.aPost=Math.max(0,E.aPost-7); danoNum("38"); render();},
+  pesado(){bater("sPesado"); E.alvo=Math.max(0,E.alvo-89); E.imp=Math.min(100,E.imp+8); E.aPost=Math.max(0,E.aPost-18); danoNum("89","fl"); render();},
+  vida(){E.vida=E.vmax*.22; render(); msg("VIDA CRÍTICA","#ff6b7d");},
+  postura(){E.post=0; hud.classList.add("post-quebrada"); render(); msg("POSTURA QUEBRADA","#ff8ad8"); let t=2.0; clearInterval(tqTimer);
+    tqTimer=setInterval(()=>{t-=.1; $("tq").textContent=Math.max(0,t).toFixed(1); if(t<=0){clearInterval(tqTimer); hud.classList.remove("post-quebrada");}},100);},
+  semres(){E.res=8; render(); hud.classList.remove("sem-res"); void hud.offsetWidth; hud.classList.add("sem-res"); msg("Sem resistência para esquivar","#63d6b9");},
+  impeto(){E.imp=100; render(); bater("sImp"); notif("Ímpeto pronto: aperte <b>Q</b>","ouro");},
+  perfeita(){E.imp=Math.min(100,E.imp+20); render(); bater("sEsq"); flash("rgba(82,182,199,.55)"); msg("ESQUIVA PERFEITA  +20 Ímpeto","#9fefff");},
+  aparar(){E.imp=Math.min(100,E.imp+15); E.aPost=Math.max(0,E.aPost-30); render(); bater("sBloq"); flash("rgba(240,185,79,.5)"); msg("APARADO!","#ffd35a");},
+  recarga(){const s=$("s1"); let t=6.0; s.classList.add("recarga"); clearInterval(cdTimer);
+    cdTimer=setInterval(()=>{t-=.1; $("cd1").textContent=t.toFixed(1); s.style.setProperty("--p",(t/6*100)+"%"); if(t<=0){clearInterval(cdTimer); s.classList.remove("recarga"); bater("s1");}},100);},
+  reset(){Object.assign(E,{vida:1245,res:116,post:135,imp:34,alvo:468,aPost:55}); hud.classList.remove("post-quebrada","vida-baixa"); render();}
+};
+document.querySelectorAll("#ctrl button").forEach(b=>b.addEventListener("click",()=>{
+  if(b.dataset.res){res=+b.dataset.res; palco.className="palco r"+res+[...palco.classList].filter(c=>c==="modo-combate"||c==="alto-contraste").map(c=>" "+c).join("");
+    document.querySelectorAll("[data-res]").forEach(x=>x.classList.toggle("on",x===b)); ajustar(); return;}
+  if(b.dataset.tog){palco.classList.toggle(b.dataset.tog); b.classList.toggle("on"); return;}
+  acoes[b.dataset.acao]&&acoes[b.dataset.acao]();
+}));
+/* regeneração simples para dar vida */
+setInterval(()=>{E.res=Math.min(E.rmax,E.res+18*.25); if(!hud.classList.contains("post-quebrada")) E.post=Math.min(E.pmax,E.post+12*.25); render();},250);
+
+/* ---------- menus ---------- */
+document.querySelectorAll(".mt").forEach(b=>b.addEventListener("click",()=>{
+  document.querySelectorAll(".mt").forEach(x=>x.classList.toggle("on",x===b));
+  document.querySelectorAll(".mp").forEach(p=>p.classList.toggle("on",p.id==="m-"+b.dataset.m));}));
+const itens=[["i-leve","raro"],["i-katana","inc"],["i-machado","comum"],["i-cajado","epico"],["i-pocao","comum",5],["i-pocao","comum",2],["i-elmo","inc"],["i-peito","comum"],["i-bota","comum"],["i-luva","inc"],["i-anel","lend"],["i-pele","comum",12],["i-minerio","comum",7],["i-chave","epico"],["i-fogo","raro",3],["i-agua","raro",1],["i-cura","inc",4]];
+const g=$("grade"); for(let i=0;i<48;i++){const c=document.createElement("div"); const it=itens[i]; c.className="cel "+(it?it[1]:""); if(i===0)c.classList.add("sel");
+  if(it) c.innerHTML=`<svg><use href="#${it[0]}"/></svg>`+(it[2]?`<i>${it[2]}</i>`:""); g.appendChild(c);}
+document.querySelectorAll(".tog").forEach(t=>t.addEventListener("click",()=>t.classList.toggle("on")));
+$("cEscala").addEventListener("input",e=>{$("vEscala").textContent=e.target.value+"%"; hud.style.transformOrigin="0 0"; hud.style.transform=`scale(${e.target.value/100})`; hud.style.width=(100/(e.target.value/100))+"%"; hud.style.height=(100/(e.target.value/100))+"%";});
+$("cOp").addEventListener("input",e=>{$("vOp").textContent=e.target.value+"%"; palco.style.setProperty("--hudop",e.target.value/100);});
+
+/* ---------- status com as fórmulas reais ---------- */
+const A={FOR:20,DES:20,VIG:15,PER:10,CON:10,POT:0}; const base={...A}; let livres=5;
+const descA={FOR:"dano físico e impacto",DES:"precisão e dano leve",VIG:"vida, resistência, postura",PER:"janela de aparar",CON:"impacto causado",POT:"energia e magia"};
+const r=x=>x/(x+40);
+function rAttr(){const el=$("attrs"); el.innerHTML=""; for(const k in A){const d=document.createElement("div"); d.className="attr";
+  d.innerHTML=`<span class="sig">${k}</span><span class="desc">${descA[k]}</span><span class="v">${A[k]}</span><span class="pm"><button data-k="${k}" data-d="-1">−</button><button data-k="${k}" data-d="1">+</button></span>`; el.appendChild(d);}
+  el.querySelectorAll("button").forEach(b=>b.onclick=()=>{const k=b.dataset.k,dd=+b.dataset.d; if(dd>0&&livres<=0)return; if(dd<0&&A[k]<=base[k])return; A[k]+=dd; livres-=dd; rAttr();});
+  $("livres").textContent=livres;
+  const vida=1000*(1+.9*r(A.VIG)), res=100*(1+.6*r(A.VIG)), ene=100*(1+.6*r(A.POT)), post=100*(1+.8*r(A.VIG)+.4*r(A.FOR)), jan=Math.min(180,140+67*r(A.PER)), leve=57.5*.62*(1+.3*r(A.FOR)+.7*r(A.DES)), imp=10*(1+.6*r(A.FOR)+.4*r(A.CON));
+  const linhas=[["Vida",vida.toFixed(0)],["Resistência",res.toFixed(0)],["Energia",ene.toFixed(0)],["Postura",post.toFixed(0)],["Janela de aparar",jan.toFixed(0)+" ms"],["Dano do golpe leve (sem armadura)",leve.toFixed(1)],["Impacto do golpe leve",imp.toFixed(1)],["Custo da esquiva (peso 12)","26"]];
+  $("deriv").innerHTML=linhas.map(l=>`<div class="linha"><span>${l[0]}</span><b>${l[1]}</b></div>`).join("");}
+rAttr();
+
+/* ---------- paleta e ícones ---------- */
+const cores=[["Fundo principal","#101827"],["Painéis","#1B2A3B"],["Texto","#D9E7F0"],["Texto secundário","#8EA6B9"],["Dourado da torre","#D8B56A"],["Cristal","#52B6C7"],["Vida / perigo","#D94D62"],["Resistência","#49BFA3"],["Postura","#A38AE5"],["Ímpeto","#F0B94F"],["Aviso de ataque","#E97954"],["Informação","#65B9ED"]];
+$("pal").innerHTML=cores.map(c=>`<div class="sw"><div style="background:${c[1]}"></div><p><b>${c[1]}</b>${c[0]}</p></div>`).join("");
+const ics=[["i-leve","Ataque leve"],["i-pesado","Ataque pesado"],["i-bloq","Bloquear"],["i-esq","Esquiva"],["i-imp","Ímpeto"],["i-aparar","Aparar"],["i-quebra","Postura quebrada"],["i-fogo","Fogo"],["i-agua","Água"],["i-vento","Vento"],["i-terra","Terra"],["i-lamina","Lâmina projetada"],["i-danca","Dança de lâminas"],["i-katana","Katana"],["i-machado","Machado"],["i-cajado","Cajado"],["i-pocao","Poção"],["i-portal","Portal"]];
+$("icos").innerHTML=ics.map(i=>`<div class="icc"><div class="slot"><svg><use href="#${i[0]}"/></svg></div>${i[1]}</div>`).join("");
+
+render(); mostrar();
+</script>
+</body>
+</html>
