@@ -1,0 +1,41 @@
+nivel;perfil;arma;elementos;politica;habilidade;cenario;n;vitorias;wl;wh;tempo;ic;quedas;dps;ofensivo;sem_energia;basicos_forcados;recebido_min
+15;Força;espada_curta;fogo;sustentado;médio;constructo;100;1.000;0.963;1.000;7.17;0.12;0.00;166.9;0.860;0.000;0.000;852
+15;Força;espada_curta;fogo;explosao;médio;constructo;100;1.000;0.963;1.000;7.17;0.12;0.00;166.9;0.860;0.000;0.000;852
+15;Força;espada_curta;fogo;ruptura;médio;constructo;100;1.000;0.963;1.000;7.64;0.14;0.00;158.2;0.886;0.000;0.000;753
+15;Força;espada_curta;fogo;defensiva;médio;constructo;100;1.000;0.963;1.000;7.15;0.13;0.00;167.0;0.865;0.000;0.000;848
+15;Destreza;katana;fogo;sustentado;médio;constructo;100;1.000;0.963;1.000;5.94;0.17;0.00;210.0;0.883;0.000;0.000;869
+15;Destreza;katana;fogo;explosao;médio;constructo;100;1.000;0.963;1.000;5.94;0.17;0.00;210.0;0.883;0.000;0.000;869
+15;Destreza;katana;fogo;ruptura;médio;constructo;100;1.000;0.963;1.000;6.27;0.15;0.00;200.1;0.883;0.000;0.000;848
+15;Destreza;katana;fogo;defensiva;médio;constructo;100;1.000;0.963;1.000;6.05;0.16;0.00;205.0;0.881;0.000;0.000;844
+15;Força+Destreza;katana;fogo;sustentado;médio;constructo;100;1.000;0.963;1.000;5.28;0.10;0.00;214.9;0.895;0.000;0.000;581
+15;Força+Destreza;katana;fogo;explosao;médio;constructo;100;1.000;0.963;1.000;5.28;0.10;0.00;214.9;0.895;0.000;0.000;581
+15;Força+Destreza;katana;fogo;ruptura;médio;constructo;100;1.000;0.963;1.000;5.44;0.14;0.00;217.4;0.898;0.000;0.000;569
+15;Força+Destreza;katana;fogo;defensiva;médio;constructo;100;1.000;0.963;1.000;5.43;0.07;0.00;214.0;0.896;0.000;0.000;557
+15;Tanque;espada_curta;fogo;sustentado;médio;constructo;100;1.000;0.963;1.000;7.21;0.12;0.00;165.0;0.860;0.000;0.000;718
+15;Tanque;espada_curta;fogo;explosao;médio;constructo;100;1.000;0.963;1.000;7.21;0.12;0.00;165.0;0.860;0.000;0.000;718
+15;Tanque;espada_curta;fogo;ruptura;médio;constructo;100;1.000;0.963;1.000;7.78;0.13;0.00;155.6;0.884;0.000;0.000;632
+15;Tanque;espada_curta;fogo;defensiva;médio;constructo;100;1.000;0.963;1.000;7.22;0.12;0.00;165.2;0.864;0.000;0.000;722
+15;Leitor (PER);duas_katanas;fogo;sustentado;médio;constructo;100;1.000;0.963;1.000;6.92;0.12;0.00;167.3;0.854;0.000;0.000;804
+15;Leitor (PER);duas_katanas;fogo;explosao;médio;constructo;100;1.000;0.963;1.000;6.92;0.12;0.00;167.3;0.854;0.000;0.000;804
+15;Leitor (PER);duas_katanas;fogo;ruptura;médio;constructo;100;1.000;0.963;1.000;7.92;0.15;0.00;150.2;0.866;0.000;0.000;857
+15;Leitor (PER);duas_katanas;fogo;defensiva;médio;constructo;100;1.000;0.963;1.000;7.00;0.11;0.00;164.6;0.850;0.000;0.000;760
+15;Mago;katana;fogo;sustentado;médio;constructo;100;1.000;0.963;1.000;5.93;0.09;0.00;194.9;0.876;0.000;0.000;790
+15;Mago;katana;fogo;explosao;médio;constructo;100;1.000;0.963;1.000;5.93;0.09;0.00;194.9;0.876;0.000;0.000;790
+15;Mago;katana;fogo;ruptura;médio;constructo;100;1.000;0.963;1.000;7.61;0.20;0.00;152.9;0.861;0.000;0.000;1069
+15;Mago;katana;fogo;defensiva;médio;constructo;100;1.000;0.963;1.000;5.96;0.09;0.00;192.8;0.875;0.000;0.000;815
+15;Lâmina mágica;espada_curta;fogo;sustentado;médio;constructo;100;1.000;0.963;1.000;6.28;0.10;0.00;186.8;0.881;0.000;0.000;754
+15;Lâmina mágica;espada_curta;fogo;explosao;médio;constructo;100;1.000;0.963;1.000;6.28;0.10;0.00;186.8;0.881;0.000;0.000;754
+15;Lâmina mágica;espada_curta;fogo;ruptura;médio;constructo;100;1.000;0.963;1.000;7.15;0.14;0.00;168.3;0.890;0.000;0.000;810
+15;Lâmina mágica;espada_curta;fogo;defensiva;médio;constructo;100;1.000;0.963;1.000;6.29;0.10;0.00;186.1;0.882;0.000;0.000;757
+15;Generalista;katana;fogo;sustentado;médio;constructo;100;1.000;0.963;1.000;6.20;0.15;0.00;192.7;0.875;0.000;0.000;639
+15;Generalista;katana;fogo;explosao;médio;constructo;100;1.000;0.963;1.000;6.20;0.15;0.00;192.7;0.875;0.000;0.000;639
+15;Generalista;katana;fogo;ruptura;médio;constructo;100;1.000;0.963;1.000;6.18;0.13;0.00;198.4;0.888;0.000;0.000;674
+15;Generalista;katana;fogo;defensiva;médio;constructo;100;1.000;0.963;1.000;6.30;0.15;0.00;188.6;0.871;0.000;0.000;629
+100;Força;espada_curta;fogo;defensiva;médio;constructo;100;1.000;0.963;1.000;6.36;0.12;0.00;187.1;0.885;0.000;0.000;683
+100;Destreza;espada_curta;fogo;sustentado;médio;constructo;100;1.000;0.963;1.000;5.40;0.10;0.00;220.2;0.891;0.000;0.000;912
+100;Força+Destreza;espada_curta;fogo;sustentado;médio;constructo;100;1.000;0.963;1.000;5.07;0.08;0.00;235.5;0.894;0.000;0.000;741
+100;Tanque;espada_curta;fogo;sustentado;médio;constructo;100;1.000;0.963;1.000;6.57;0.14;0.00;179.9;0.876;0.000;0.000;708
+100;Leitor (PER);dois_machados;fogo;sustentado;médio;constructo;100;1.000;0.963;1.000;5.29;0.07;0.00;211.4;0.892;0.000;0.010;851
+100;Mago;espada_curta;fogo+agua;sustentado;médio;constructo;100;1.000;0.963;1.000;4.85;0.08;0.00;242.5;0.878;0.000;0.002;880
+100;Lâmina mágica;dois_machados;fogo;sustentado;médio;constructo;100;1.000;0.963;1.000;4.98;0.07;0.00;223.4;0.881;0.000;0.000;826
+100;Generalista;espada_curta;fogo+vento;ruptura;médio;constructo;100;1.000;0.963;1.000;6.23;0.10;0.00;193.4;0.910;0.000;0.000;515
