@@ -3,7 +3,8 @@ extends CharacterBody3D
 ## Build de teste: espada longa, armadura média.
 
 const Efeitos := preload("res://scripts/efeitos.gd")
-const CAMINHO_GLB := "res://privado/personagens_ithappy.glb"
+const CAMINHO_GLB := "res://privado/personagem_combate.glb"        # feito no Blender: animações de combate + espada
+const CAMINHO_GLB_RESERVA := "res://privado/personagens_ithappy.glb"
 
 # ---------------------------------------------------------------- ficha
 const FOR := 20.0
@@ -27,11 +28,13 @@ const ATAQUES := {
 }
 
 # Roupa do personagem ithappy (o resto das peças fica escondido).
-const ROUPA := ["Body_010", "Hairstyle_male_010", "Outerwear_029", "Pants_010", "Shoe_Sneakers_009", "Male_emotion_usual_001"]
+const ROUPA := ["Body_010", "Hairstyle_male_010", "Outerwear_029", "Pants_010", "Shoe_Sneakers_009", "Male_emotion_usual_001", "Espada"]
 const MAPA_ANIM := {
 	"idle": "Idle_Breathing", "correr": "Run_Forward", "andar": "Walk_Forward",
 	"golpe_leve": "Hit_Reaction_Light", "golpe_pesado": "Hit_Reaction_Heavy",
-	"morte": "Death_Backward", "esquiva": "Jump_Start",
+	"morte": "Death_Backward", "esquiva": "Esquiva",
+	"ataque_leve1": "Ataque_Leve_1", "ataque_leve2": "Ataque_Leve_2", "ataque_leve3": "Ataque_Leve_3",
+	"ataque_pesado": "Ataque_Pesado", "ataque_impeto": "Ataque_Impeto", "bloqueio": "Bloqueio",
 }
 
 # ---------------------------------------------------------------- recursos
@@ -157,10 +160,11 @@ func _unhandled_input(evento: InputEvent) -> void:
 func _montar_modelo() -> void:
 	visual = Node3D.new()
 	add_child(visual)
-	if ResourceLoader.exists(CAMINHO_GLB):
-		var cena = load(CAMINHO_GLB)
-		if cena is PackedScene:
-			modelo = cena.instantiate() as Node3D
+	for caminho in [CAMINHO_GLB, CAMINHO_GLB_RESERVA]:
+		if modelo == null and ResourceLoader.exists(caminho):
+			var cena = load(caminho)
+			if cena is PackedScene:
+				modelo = cena.instantiate() as Node3D
 	if modelo == null:
 		_modelo_reserva()
 		return
@@ -174,12 +178,17 @@ func _montar_modelo() -> void:
 	elif esqs.size() > 0:
 		esqueleto = esqs[0] as Skeleton3D
 	_vestir()
+	var tem_blender := modelo.find_child("Espada", true, false) != null
 	if anim != null:
 		_mapear_anims()
-		if esqueleto != null:
-			_criar_anims_combate()
+		if esqueleto != null and not nomes_anim.has("ataque_leve1"):
+			_criar_anims_combate()   # reserva: só se o GLB do Blender não estiver lá
+		if nomes_anim.has("bloqueio"):
+			var ab := anim.get_animation(nomes_anim["bloqueio"])
+			if ab != null:
+				ab.loop_mode = Animation.LOOP_LINEAR
 		_tocar("idle")
-	if esqueleto != null:
+	if esqueleto != null and not tem_blender:
 		_anexar_espada()
 
 
@@ -556,7 +565,7 @@ func _esquivar(dir: Vector3) -> void:
 	_mudar("esquiva")
 	if dir_esquiva.dot(visual.global_transform.basis.z) >= 0.0:
 		visual.rotation.y = atan2(dir_esquiva.x, dir_esquiva.z)
-	_tocar("esquiva", 0.05, 1.8)
+	_tocar("esquiva", 0.05, 1.0)
 	var tw := create_tween()
 	tw.tween_property(visual, "scale", Vector3(1.1, 0.75, 1.1), 0.1)
 	tw.tween_property(visual, "scale", Vector3.ONE, 0.25)

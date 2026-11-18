@@ -89,9 +89,13 @@ func _criar_ambiente() -> void:
 	var amb := Environment.new()
 	amb.background_mode = Environment.BG_SKY
 	amb.sky = ceu
-	amb.ambient_light_source = Environment.AMBIENT_SOURCE_SKY
-	amb.ambient_light_energy = 0.9
+	# Luz ambiente neutra (com a do céu o chão ficava estourado e azulado).
+	amb.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
+	amb.ambient_light_color = Color(0.85, 0.85, 0.9)
+	amb.ambient_light_energy = 0.45
+	amb.reflected_light_source = Environment.REFLECTION_SOURCE_DISABLED
 	amb.tonemap_mode = Environment.TONE_MAPPER_FILMIC
+	amb.tonemap_exposure = 0.95
 
 	var we := WorldEnvironment.new()
 	we.environment = amb
@@ -99,7 +103,7 @@ func _criar_ambiente() -> void:
 
 	var sol := DirectionalLight3D.new()
 	sol.rotation_degrees = Vector3(-52, -35, 0)
-	sol.light_energy = 1.15
+	sol.light_energy = 1.0
 	sol.shadow_enabled = true
 	sol.directional_shadow_max_distance = 45.0
 	add_child(sol)

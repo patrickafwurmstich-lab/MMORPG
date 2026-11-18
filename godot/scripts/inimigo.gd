@@ -83,9 +83,9 @@ func _ready() -> void:
 	placa = Label3D.new()
 	placa.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	placa.no_depth_test = true
-	placa.font_size = 40
-	placa.outline_size = 10
-	placa.pixel_size = 0.005
+	placa.font_size = 44
+	placa.outline_size = 12
+	placa.pixel_size = 0.009
 	placa.position = Vector3(0, 2.3 if tipo != "golem" else 3.5, 0)
 	add_child(placa)
 

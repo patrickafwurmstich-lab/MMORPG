@@ -71,7 +71,7 @@ static func material(cor: Color, rugosidade: float = 0.4) -> StandardMaterial3D:
 	var m := StandardMaterial3D.new()
 	m.albedo_color = cor
 	m.roughness = rugosidade
-	m.metallic_specular = 0.6
+	m.metallic_specular = 0.3
 	return m
 
 
