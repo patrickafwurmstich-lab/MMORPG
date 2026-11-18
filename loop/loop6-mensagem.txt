@@ -1,0 +1,36 @@
+Sejam criteriosos e rigorosos. Revisão do SIMULADOR DE EQUILÍBRIO v3 (loop 6), refeito a partir dos bloqueadores que vocês deram no loop 5. Respondam em português.
+
+Arquivos (fixados no commit; leiam estes):
+- Motor: https://raw.githubusercontent.com/patrickafwurmstich-lab/MMORPG/38eabc9cd3dd2728fd3117cadd43240720c84c71/sim/simulador3.js
+- Execução e relatório: https://raw.githubusercontent.com/patrickafwurmstich-lab/MMORPG/38eabc9cd3dd2728fd3117cadd43240720c84c71/sim/rodar3.js
+- Fichas: https://raw.githubusercontent.com/patrickafwurmstich-lab/MMORPG/38eabc9cd3dd2728fd3117cadd43240720c84c71/sim/fichas.js
+- Relatório: https://raw.githubusercontent.com/patrickafwurmstich-lab/MMORPG/38eabc9cd3dd2728fd3117cadd43240720c84c71/sim/resultado/relatorio3.md
+- CSV: https://raw.githubusercontent.com/patrickafwurmstich-lab/MMORPG/38eabc9cd3dd2728fd3117cadd43240720c84c71/sim/resultado/builds3.csv
+
+Correções feitas (bloqueadores do ChatGPT no loop 5):
+1) Fases J.1: preparo/execução/recuperação; defesa só cancela os últimos 40% da recuperação; golpes presos à ação e cancelados se ela for interrompida (golpe sofrido com impacto, atordoamento, queda, ida para tarefa); o aviso do inimigo entra na decisão de começar uma ação (jogador "ganancioso" com chance 25% médio / 8% bom ignora).
+2) Motor único: o boneco é um inimigo sem ataques no mesmo laço.
+3) Impacto = total da ação, dividido entre acertos, cada acerto no seu instante; básicos duplos = impacto por lâmina × 2; zonas lançadas persistem.
+4) Defesas D.1: esquiva comum sem Ímpeto; perfeita +20 e devolve; custo 20×(1+peso/40) com armadura L.2 (leve/média/pesada) + arma 3; escudo −25% uma vez; parry falho 15R + 0,35 s e toma o golpe; cada ataque declara esquiva/parry/bloqueio/mover-se; armadura do jogador aplicada depois dos 30% que atravessam.
+5) Reanimação: canal de 4 s, 1 ajudante por alvo, interrompida por dano, contador gasto só na conclusão.
+6) Chefe: vida registrada sem fator (120.000); AO.1 real (Golpe pesado 300/8, Varredura 220/12, Investida 320/20, Chuva 180/25, Grito, fases, fúria, 25% invulnerável, 3 âncoras × 4 intervenções com rotas e cota 2, colisão na investida, adds, Leitura quebra-guarda/atraso); chefes sintéticos em seção separada.
+7) Condições postura<30/<20; Juízo só inicia com a condição (perde dano se ela acabar no preparo); DoT em 4 tiques; Ritmo consumido; Fluxo exige mudar direção (chance por habilidade); reação com a forma preparada na montagem; contato elemental por alvo.
+Métodos: tempo ofensivo = tempo realmente dentro de ação ofensiva; IC t de Student; Wilson nas vitórias; s = 1,09^(camada−1); nível 100 (camada 10) com 2 elementos; busca igual para todos (11 armas × sem/6 elementos no nível 15; no 100, 3 melhores armas × elementos e pares); comparação contra o melhor E contra a mediana; Flanco +30% só para espada curta; técnicas classificadas por papel com o critério 1,20× para Execução.
+
+Resultados principais:
+- Calibração: boneco 154,6; abstrato 85,0; por eventos 110,6 (fera, 63% ofensivo) e 116,9 (constructo, 72%). Vidas do contrato: fera 4,0 s (contrato 8–12), constructo 7,4 s (14–18). Nenhum fator aplicado.
+- Armas (boneco): todas a ±14%, exceto Machado grande −22%. Ensaios: proposta do ChatGPT para a carga 3 (2,75 s) → −12%; Grok (pesado 1,45 s) → −17%.
+- Perfis nível 15 (constructo, 400 lutas): contra o melhor, 3 de 8 a ≤15%; Força +32%, Tanque +34%, Leitor +29%, Lâmina mágica +17%, Generalista +17%. A busca escolhe espada curta ou katana com Fogo para quase todos (Fogo −30 de armadura contra A=50 vale ≈ +16% de dano).
+- Nível 100: 5 de 8 a ≤15% do melhor.
+- AO.1, grupo misto: médio 26/40 vitórias (65%, IC 50–78), vitória em 3,6 min; bom 40/40 em 3,0 min. Contrato 6–10 min. O grupo faz ~92 de DPS médio por jogador, acima dos 70 do contrato → luta curta. Reanimações ≈ 0: as poções (5 × 250) esvaziam a reserva (≈ 700) antes que a reanimação seja possível (exige ≥ 5%).
+- Grupos de 6 cópias: Destreza e Tanque falham por "sem rota" (âncora 2 exige Precisão/Elemento; sem arco/PER e com 1 só elemento só sobram 2 manuais); Força morre ou fica sem rota; 6 Leitores vencem 30%.
+- Ensaios: reserva 900 → 98% de vitórias; bloqueio 15% → 73%; escudo 20% → 80%; dano −40% → 100% (3,0 min).
+- Técnicas: 36 de 66 de Execução sem condição abaixo de 1,20× (lista e coluna com 3 alvos para as de área no relatório).
+
+Perguntas:
+A) Os 7 bloqueadores do loop 5 estão resolvidos? Aponte erro de fórmula, implementação ou método restante (citem linha/trecho).
+B) O descompasso de DPS (eventos ~110–117 contra 70 do contrato) deve ser resolvido baixando o dano (P_arma ou K) ou subindo vidas? Números.
+C) AO.1: o problema é duração (3–3,6 min) com letalidade alta para o médio. Que mudança fecha 6–10 min e ~70–85% de vitória para o médio? A interação poções × reserva × reanimação precisa de regra nova?
+D) Machado grande, Fogo dominante, espada curta dominante e perfis Força/Tanque/Leitor: o que mudar (números)?
+E) As 36 técnicas de Execução: ajustar K, tempo ou reclassificar?
+Respondam APROVADO ou NÃO APROVADO para o simulador v3 como ferramenta de equilíbrio, separando bloqueadores de sugestões.
