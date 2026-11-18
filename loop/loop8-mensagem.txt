@@ -1,0 +1,28 @@
+Sejam criteriosos e rigorosos. Loop 8: simulador v3.2 e comparação das duas calibrações propostas no loop 7. Respondam em português.
+
+Arquivos fixados:
+- Motor: https://raw.githubusercontent.com/patrickafwurmstich-lab/MMORPG/f6fbd433602b9caa6ba672264d677926e8ce6eb1/sim/simulador3.js
+- Comparação de calibrações: https://raw.githubusercontent.com/patrickafwurmstich-lab/MMORPG/f6fbd433602b9caa6ba672264d677926e8ce6eb1/sim/candidatos.js e https://raw.githubusercontent.com/patrickafwurmstich-lab/MMORPG/f6fbd433602b9caa6ba672264d677926e8ce6eb1/sim/resultado/candidatos.md
+- Relatório geral: https://raw.githubusercontent.com/patrickafwurmstich-lab/MMORPG/f6fbd433602b9caa6ba672264d677926e8ce6eb1/sim/resultado/relatorio3.md
+
+Corrigido (bloqueadores do ChatGPT no loop 7):
+1) Frenesi: +1 por acerto original (leve duplo = 2), extra da técnica 1× por ação, derivados não geram, 2 s renovados por acerto.
+2) Bloqueio passa pela mesma resolução final do golpe: armadura, Grito ×1,2 e barreira de Terra (função sofrer()).
+3) Bainha explícita: ao ver o aviso, a katana guarda (0,4 s) e carrega até 1,2 s; acaba ao atacar ou ser atingido; sem bainha válida, parry comum sem saque de resposta.
+Também: continuação do Ímpeto ×1,08 ao gastar ≥70; Leitura adapta só o 4º, 8º… golpe elegível (cota acumulada); adds usam a ameaça do chefe (simplificação declarada); formas de mistura usadas só pela parte numérica (declarado).
+Sobre resistQ (Grok): resistQ=10 começa na quebra; 2 s atordoado + 8 s de resistência = 10 s, conforme D.2.
+
+Comparação (mesmo motor, mesmas sementes; comuns 400 lutas, perfis 200, AO.1 misto 100 médio / 40 bom):
+| Candidato | DPS eventos | Fera | Constructo | Perfis ≤15% do melhor | AO.1 médio | Tempo | Reanimações | AO.1 bom |
+| Atual (P110) | 119,0 | 3,9 s | 7,3 s | 4/8 | 51% [41–61] | 3,5 min | 0,8 | 100% em 3,0 min |
+| A ChatGPT (P57,5; vidas do contrato; chefe 52%) | 62,2 | 8,5 s | 14,9 s | 7/8 (Tanque +18%) | 78% [69–85] | 6,3 min | 0,2 | 100% em 5,3 min |
+| B Grok (P90; vidas ×1,30; chefe 160 mil e −30%; reserva 900; reanimação 50 fixos; bloqueio 15%; área 40%) | 97,4 | 6,8 s | 11,8 s | 6/8 | 100% [96–100] | 4,6 min | 3,1 | 100% em 4,4 min |
+Observação: P_arma e vida dos inimigos são equivalentes para o tempo de luta (escala única); P57,5 não muda nenhuma proporção entre técnicas, armas ou atributos, só a escala absoluta. O DPS de referência medido fica 62 (não 70).
+
+Dois machados (Frenesi por acerto): atual +20%; ChatGPT K −8% → +15%; Grok +2%/acerto e leve 0,34 → +13%; só +2% → +17%. Machado grande: atual −23%; pacote Grok −13%; carga 3 do ChatGPT −13%.
+
+Perguntas:
+A) Os 3 bloqueadores do loop 7 estão resolvidos? Algum erro novo (citem trecho)?
+B) O candidato A cumpre as metas que vocês mesmos definiram (fera 8–12, constructo 14–18, ≥7/8, AO.1 médio 70–85% em 6–10 min, reanimações >0). Aceitam A como calibração-base? Se não, o que falta, com números?
+C) Para Dois machados e Machado grande, qual ajuste adotar (o que deixa as duas a ±15%)?
+D) O simulador v3.2 está APROVADO como ferramenta de equilíbrio-base? Bloqueadores separados de sugestões.
