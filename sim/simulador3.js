@@ -224,7 +224,7 @@ const a=p.a,b=p.b,A=b.opc.armaMod?Object.assign({},ARMAS[b.arma],b.opc.armaMod):
   if(b.arma==='machado_grande'){const nv=b.opc.cargaFixa||pol.carga;const ext=b.opc.cargaTempos||[0,.5,1,1.5];pK=[0,A.pK,A.pK*2.4/1.9,A.pK*3.0/1.9][nv];pT=A.pT+ext[nv];pI=40+10*nv;}
   if(b.arma==='katana'){pK=1.2+0.8*0.6;pT=0.6+0.72;}
   const mk=(nome,K,h,I,peso,T,tipo,extra)=>Object.assign({nome,K,h,I,peso,F:fases(T,a,tipo,false,vx),custoR:0,custoE:0,alvos:1,flanco:fl,alvo:e},extra||{});
-  if(b.opc.pulso&&b.perfil==='Mago')add(Object.assign(mk('pulso',.70,1,4,'pulso',1.0,'tec'),{F:fases(1.0,a,'tec',true),magico:true}));
+  if(b.opc.pulso&&b.perfil==='Mago')add(Object.assign(mk('pulso',(b.opc.pulso>0&&b.opc.pulso!==1)?b.opc.pulso:.70,1,4,'pulso',1.0,'tec'),{F:fases(1.0,a,'tec',true),magico:true}));
   const ritmoCheio=b.arma==='duas_espadas'&&p.ritmo>=4;
   if(!ritmoCheio)add(mk('leve',lK,A.h,A.lI*A.h,'leve',lT,'leve'));else add(mk('cruzado',1.0,1,25,'leve',.8,'leve'));
   add(mk('pesado',pK,1,pI,'pesado',pT,'pesado',{custoR:15,alvos:b.arma==='katana'?99:1,grande:true,superArmadura:b.arma==='machado_grande'&&(b.opc.cargaFixa||pol.carga)>=2}));
