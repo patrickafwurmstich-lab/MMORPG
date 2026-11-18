@@ -1,0 +1,25 @@
+Sejam criteriosos e rigorosos. Loop 10: fechamento da calibração-base. Respondam em português.
+
+Arquivos: https://raw.githubusercontent.com/patrickafwurmstich-lab/MMORPG/87d2c7a9a742e567c3336eedb43727fe4e785188/sim/fechamento.js · https://raw.githubusercontent.com/patrickafwurmstich-lab/MMORPG/87d2c7a9a742e567c3336eedb43727fe4e785188/sim/resultado/fechamento.md
+Correções do loop 9 feitas: A3 rotulado com reserva 600; varredura.js usa caminho relativo; luta() agora registra o tempo até a primeira queda.
+
+Base: P_arma 57,5; vidas do contrato; reserva 600; bloqueio 30%; reanimação do contrato; armas ajustadas (Dois machados +2%/acerto e leve 0,34; Machado grande 0,92 / 2,05 / 1,40 s).
+
+1) Dano do chefe (AO.1 misto, médio, 400 tentativas, mesmas sementes):
+| Dano | Vitória [IC] | Tempo | Reanim. | Quedas Tanque | Quedas Força | Média do grupo | DPS Tanque/melhor | DPS Força/melhor |
+| 52% | 84,50% [80,6–87,7] | 6,20 min | 0,153 | 0,16 | 0,95 | 0,62 | 77% | 58% |
+| 53,5% | 80,00% [75,8–83,6] | 6,25 min | 0,160 | 0,20 | 0,95 | 0,65 | 78% | 57% |
+| 55% | 68,25% [63,5–72,6] | 6,32 min | 0,190 | 0,33 | 0,98 | 0,73 | 80% | 57% |
+(55% fica abaixo de 70%; 53,5% centra.)
+
+2) Perfis (constructo solo, 200 lutas, reotimizados): Força +18% e Tanque +20% (teto 25% para perfis de VIG) ✔; os outros 6 a ≤13% ✔.
+
+3) Ensaio defensivo controlado (400 lutas): tempo até cair no constructo de estresse (55.000 de vida, ataque 640): FOR23/DES23/VIG6 19,77 s; FOR25/VIG25 24,92 s (+26%); FOR23/VIG27 24,99 s (+26%). Constructo letal (dano ×1,5): os três vencem 100%.
+
+Leitura: passa a regra do ChatGPT (≥20% de sobrevivência) e o letal do Grok (vitória ≥ FOR/DES); não passa 1,3×. No AO.1, o Tanque cumpre os critérios do Grok (quedas abaixo da média, DPS 78% do melhor), mas a Força do grupo (machado grande, política ruptura) cai 0,95 (> média 0,65) e faz 57% do melhor (< 70%).
+
+Perguntas:
+A) Algum erro nesta conferência?
+B) Fechar com dano do chefe 53,5% e a regra de VIG (TTK ≤25% + sobrevivência ≥20% ou letal ≥ FOR/DES)?
+C) A Força no AO.1 (machado grande) é bloqueador da calibração ou item de conteúdo do machado grande/política, a tratar depois?
+D) APROVADO ou NÃO APROVADO para fechar a calibração-base e atualizar os documentos (contrato AI e K.2)? Bloqueadores separados de sugestões.
