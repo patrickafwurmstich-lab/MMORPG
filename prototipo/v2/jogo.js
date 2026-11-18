@@ -1,3 +1,5 @@
+// fichas revisadas (sim/fichas.js, loop 4–10): K por acerto, acertos, impacto total, tempo total
+const FICHAS={"desarmado:8":{"K":0.25,"h":8},"desarmado:9":{"K":0.3,"h":6},"espada_curta:8":{"K":0.4,"h":4},"espada_curta:9":{"K":0.5,"h":2},"espada_longa:15":{"T":0.9},"duas_espadas:1":{"K":0.3,"h":3},"duas_espadas:9":{"K":0.25,"h":12},"duas_espadas:15":{"K":0.35,"h":4},"duas_espadas:16":{"K":0.3,"h":10},"duas_espadas:17":{"K":0.6,"h":2},"katana:7":{"K":0.5,"h":5},"katana:9":{"T":2.4},"duas_katanas:2":{"K":0.4,"h":3},"duas_katanas:3":{"K":0.7,"h":2},"duas_katanas:17":{"K":0.6,"h":4},"duas_katanas:24":{"K":0.3,"h":8},"machado_pequeno:1":{"K":0.6,"h":1},"machado_pequeno:8":{"K":0.8,"h":2},"machado_pequeno:9":{"K":0.5,"h":1},"dois_machados:1":{"K":0.3,"h":5},"dois_machados:3":{"K":0.8,"h":2},"dois_machados:15":{"K":0.9,"h":2},"dois_machados:17":{"K":0.35,"h":8},"dois_machados:24":{"K":0.4,"h":6},"arco:8":{"K":0.6,"h":1},"arco:25":{"K":0.3,"h":8},"fogo:13":{"K":0.25,"h":1},"raio:3":{"T":0.8},"raio:14":{"K":0.3,"h":1},"vento:19":{"K":0.4,"h":1}};
 (function(){
 "use strict";
 const $=id=>document.getElementById(id);
@@ -26,12 +28,12 @@ const ARMAS={
  espada_curta:{alc:1.8,lK:.55,lT:.55,pK:1.25,pT:1.00,lI:9,pI:22,bloq:1,h:1,mec:'Flanco'},
  espada_longa:{alc:2.3,lK:.62,lT:.68,pK:1.45,pT:1.20,lI:10,pI:26,bloq:1,h:1,mec:'Guarda'},
  duas_espadas:{alc:2.0,lK:.40,lT:.70,pK:1.30,pT:1.10,lI:6,pI:22,bloq:0,h:2,mec:'Ritmo'},
- espada_e_escudo:{alc:2.0,lK:.58,lT:.65,pK:1.35,pT:1.15,lI:10,pI:24,bloq:1.33,h:1,mec:'Muralha',arc180:1},
+ espada_e_escudo:{alc:2.0,lK:.58,lT:.65,pK:1.35,pT:1.15,lI:10,pI:24,bloq:1,h:1,mec:'Muralha',arc180:1}, // Muralha: −25% no custo (aplicado no bloqueio)
  katana:{alc:2.4,lK:.65,lT:.62,pK:1.50,pT:1.10,lI:9,pI:24,bloq:0,h:1,mec:'Bainha'},
  duas_katanas:{alc:2.2,lK:.42,lT:.72,pK:1.35,pT:1.15,lI:6,pI:22,bloq:0,h:2,mec:'Fio duplo'},
- machado_grande:{alc:2.6,lK:.85,lT:1.00,pK:1.90,pT:1.70,lI:15,pI:40,bloq:1.3,h:1,mec:'Carga'},
+ machado_grande:{alc:2.6,lK:.92,lT:1.00,pK:2.05,pT:1.40,lI:15,pI:40,bloq:1.3,h:1,mec:'Carga'}, // calibração v1
  machado_pequeno:{alc:1.7,lK:.58,lT:.60,pK:1.25,pT:1.05,lI:10,pI:24,bloq:1,h:1,mec:'Marca'},
- dois_machados:{alc:1.8,lK:.38,lT:.66,pK:1.25,pT:1.05,lI:6,pI:24,bloq:0,h:2,mec:'Frenesi'},
+ dois_machados:{alc:1.8,lK:.34,lT:.66,pK:1.25,pT:1.05,lI:6,pI:24,bloq:0,h:2,mec:'Frenesi'}, // calibração v1
  arco:{alc:30,lK:.55,lT:.70,pK:1.50,pT:1.20,lI:6,pI:12,bloq:0,h:1,mec:'Tensão',dist:1}
 };
 const OPOSTO={fogo:'gelo',gelo:'fogo',raio:'terra',terra:'raio',vento:'agua',agua:'vento'};
@@ -74,8 +76,8 @@ function stats(){const s=S();
   return {vidaMax:1000*s*(1+0.9*r('VIG')),resMax:100*(1+0.6*r('VIG')),eneMax:100*(1+0.6*r('POT')),regenE:4*(1+r('CON')),
     posMax:100*(1+0.8*r('VIG')+0.4*r('FOR')),regenPos:10*(1+0.4*r('VIG')),reserva:600*(1+0.8*r('VIG'))*s,
     vel:5.5*(1+0.10*r('DES')+0.06*r('FOR')),H:1+0.35*r('DES'),Hc:1+0.25*r('CON'),crit:0.05,critD:1.30,
-    estab:Math.min(0.6,0.5*r('CON')+(espAtiva('mao_firme')?0.5:0)),ten:12*r('VIG'),parry:Math.min(0.24,0.14+0.06*r('PER')+(P.arma==='espada_longa'&&P.guarda==='baixa'?0.02:0)),
-    Parma:110*s,carga:12+0.3*Math.min(20,P.attrs.FOR),vazao:1+0.2*r('POT')};}
+    estab:Math.min(0.6,0.5*r('CON')+(espAtiva('mao_firme')?0.5:0)),ten:12*r('VIG'),parry:Math.min(0.24,Math.min(0.18,0.14+0.067*r('PER'))+(P.arma==='espada_longa'&&P.guarda==='baixa'?0.02:0)),
+    Parma:57.5*s,A:85*s,custoEsq:20*(1+(9+3)/40),carga:12+0.3*Math.min(20,P.attrs.FOR),vazao:1+0.2*r('POT')};}
 function espAtiva(id){return P.prep.pas.includes('esp:'+id);}
 function ligAtiva(id){return P.prep.pas.includes('lig:'+id);}
 function pasAtiva(key){return P.prep.pas.includes(key);}
@@ -170,9 +172,9 @@ montarArma();
 // =================== INIMIGOS ===================
 const inimigos=[];
 const TIPOS={
-  lobo:{nome:'Lobo cinzento',vida:450,pos:60,vel:4.4,raio:0.6,agro:11,arm:20,xp:0.08,familia:'feras',atq:[{tipo:'cone',r:2.4,arco:1.4,tel:.55,dano:80,I:25,cd:1.6}],cor:0x7d7f86,esc:1},
-  golem:{nome:'Golem de pedra',vida:1200,pos:170,vel:1.9,raio:1.0,agro:9,arm:120,xp:0.2,familia:'constructos',atq:[{tipo:'circ',r:3.6,tel:1.0,dano:160,I:50,cd:3.0,alc:3}],cor:0x8a6f4f,esc:1.3},
-  chefe:{nome:'Guardião do Andar 1',vida:9000,pos:420,vel:3.1,raio:1.6,agro:16,chefe:true,arm:80,xp:1.5,familia:'guardião',cor:0x4a2a5e,esc:2.2,
+  lobo:{nome:'Lobo cinzento',vida:650,pos:60,vel:4.4,raio:0.6,agro:11,arm:50,xp:0.08,familia:'feras',atq:[{tipo:'cone',r:2.4,arco:1.4,tel:.55,dano:80,I:25,cd:1.6}],cor:0x7d7f86,esc:1},
+  golem:{nome:'Golem de pedra',vida:1100,pos:170,vel:1.9,raio:1.0,agro:9,arm:50,xp:0.2,familia:'constructos',atq:[{tipo:'circ',r:3.6,tel:1.0,dano:160,I:50,cd:3.0,alc:3}],cor:0x8a6f4f,esc:1.3},
+  chefe:{nome:'Guardião do Andar 1',vida:4700,pos:420,vel:3.1,raio:1.6,agro:16,chefe:true,arm:80,xp:1.5,familia:'guardião',cor:0x4a2a5e,esc:2.2,
     atq:[{tipo:'combo',r:3.4,arco:1.8,tel:.6,dano:120,I:30,cd:2.6},{tipo:'investida',w:3,l:12,tel:.9,dano:190,I:55,cd:5},{tipo:'terremoto',r:7,tel:1.4,dano:240,I:70,cd:8}]},
   boneco:{nome:'Boneco de treino',vida:1e9,pos:300,vel:0,raio:0.7,agro:0,arm:60,xp:0,boneco:true,cor:0xc8a46a,esc:1,atq:[]}
 };
@@ -242,12 +244,12 @@ function danoInimigo(e,K,I,o){ // o:{peso,el,origem,pen,critBonus,derivada,flanc
   pen=Math.min(0.35,pen);
   let arm=Math.max(0,e.T.arm*s-e.armRed)*(1-pen);
   const Marm=200*s/(200*s+arm);
-  let f=1;if(e.atord>0)f*=1.5;if(o.flanco)f*=1.3;
+  let f=1;if(e.atord>0)f*=1.3;if(o.flanco)f*=1.3;
   if(o.el)f*=(e.T.familia==='constructos'&&o.el==='raio')?1.1:1;
   let crit=!o.derivada&&rr2()<ST.crit+(o.critBonus||0);if(crit)f*=ST.critD;
   const d=Math.round(ST.Parma*K*m*Marm*f*(0.95+rr2()*0.1));
   if(!e.T.boneco)e.vida-=d;e.golpeado=0.12;e.danoLog.push([perf(),d,I+Iadd]);
-  let Itot=(I+Iadd)*(o.impMult||1);
+  let Itot=(I+Iadd)*(o.impMult||1)*(o.derivada||o.semMultI?1:1+0.6*r('FOR')+0.4*r('CON'));if(perf()<(e.resistAte||0))Itot*=0.5;
   if(o.el==='raio')Itot*=1+0.25*potEl('raio');
   if(e.marcaMachado>0)Itot*=1.25;
   if(e.atord<=0&&Itot>0){e.pos-=Itot;e.semPos=0;if(e.pos<=0)quebrarPostura(e);}
@@ -259,8 +261,8 @@ function danoInimigo(e,K,I,o){ // o:{peso,el,origem,pen,critBonus,derivada,flanc
   if(e.vida<=0)matar(e);
   return d;}
 function perf(){return performance.now()/1000;}
-function quebrarPostura(e){e.pos=0;e.atord=e.T.chefe?4:(e.T.boneco?2:1.6);if(e.atq){if(e.atq.marca)remover(e.atq.marca);e.atq=null;}
-  texto(e.g.position,e.T.chefe?'POSTURA QUEBRADA!':'Quebrou!','#ffb347',e.T.chefe?23:17);if(e.T.chefe)aviso('Postura quebrada<br><small>+50% de dano por 4 s</small>',2);
+function quebrarPostura(e){e.pos=0;e.atord=2;e.resistAte=perf()+10;if(e.atq){if(e.atq.marca)remover(e.atq.marca);e.atq=null;}
+  texto(e.g.position,e.T.chefe?'POSTURA QUEBRADA!':'Quebrou!','#ffb347',e.T.chefe?23:17);if(e.T.chefe)aviso('Postura quebrada<br><small>+30% de dano por 2 s</small>',2);
   ganharImp(espAtiva('estilhacar')?25:15,'quebra');if(enc)opo('Controle',true);}
 function matar(e){e.morto=true;e.mortoT=0;if(e.atq){if(e.atq.marca)remover(e.atq.marca);e.atq=null;}e.bar.visible=false;P.abates++;
   const xp=Math.round(e.T.xp*XPnec(P.nivel)*P.teste.xp);if(xp>0){ganharXP(xp);texto(e.g.position,'+'+fmt(xp)+' XP','#e8c46a',15);}
@@ -313,6 +315,7 @@ const projeteis=[];const areas=[];const nevoas=[];
 
 // =================== TÉCNICAS (genérico a partir do documento) ===================
 function tecFinal(no){const t=Object.assign({},no.t);t.K=t.K||0;const arv=ARV[no.arv];
+  const fc=FICHAS[no.arv+':'+no.n];if(fc){const h=fc.h!=null?fc.h:(t.hits||1);if(fc.K!=null||fc.h!=null){const k1=fc.K!=null?fc.K:t.K/(t.hits||1);t.K=k1*h;t.hits=h;}if(fc.I!=null)t.I=fc.I;if(fc.T)t.tempo=fc.T;}
   const mods=[];for(const k of P.prep.transf)if(k){const tn=noDe(k);if(tn&&tn.arv===no.arv&&tn.refs[0]===no.n)mods.push(tn);}
   for(const k of P.prep.pas)if(k&&!k.includes('esp:')&&!k.includes('lig:')){const pn=noDe(k);if(pn&&pn.arv===no.arv&&pn.refs[0]===no.n&&pn.m)mods.push(pn);}
   for(const mn of mods){const m=mn.m||{};if(m.custo!=null)t.custo=m.custo;if(m.cd!=null)t.cd=m.cd;if(m.K!=null)t.K=m.K;if(m.I!=null)t.I=m.I;}
@@ -355,7 +358,7 @@ function usarTecnicaKey(key,slotIdx){
   const custo=custoEfetivo(t,cargas);
   const recurso=t.rec==='E'?'ene':'res';
   if(pl[recurso]<custo){aviso('Sem '+(recurso==='ene'?'energia':'resistência'),0.8);return;}
-  pl[recurso]-=custo;if(recurso==='res')pl.semRes=0.6;
+  pl[recurso]-=custo;if(recurso==='res')pl.semRes=0;
   if(cargas>0){pl.cargas-=cargas;if(espAtiva('descarga_total')&&cargas>=3)pl.semEneT=4;}
   let cd=t.cd;pl.cds[key]=cd;pl.cdMax=pl.cdMax||{};pl.cdMax[key]=cd;
   pl.ultimaTec={key,t,custo};pl.cargasUsadas=cargas;
@@ -415,11 +418,11 @@ function ganharCargaPorAcerto(a){const t=a.t;if(!t.magico||a.derivada)return;if(
 function ataqueBase(pesado,extra){const A=ARMAS[P.arma];extra=extra||{};
   let K=pesado?A.pK:A.lK*A.h,I=pesado?A.pI:A.lI*A.h,T=pesado?A.pT:A.lT;
   if(P.arma==='espada_longa'){if(P.guarda==='alta'){T*=1.1;if(pesado)K=1.60;}else T*=0.9;}
-  if(P.arma==='dois_machados')T/=1+Math.min(0.15,pl.frenesi*0.03);
+  if(P.arma==='dois_machados')T/=1+Math.min(0.10,pl.frenesi*0.02);
   if(!pesado&&pl.combo===2)K*=1.25;
   const alc=(A.dist?0:A.alc+0.5)+(P.arma==='espada_longa'&&P.guarda==='alta'?0.4:0);
   return {K,I,T,alc,arco:2.2,custo:pesado?15:0,peso:pesado?'pesado':'leve',...extra};}
-function iniciarBasico(b,nome){if(pl.res<b.custo){aviso('Sem resistência',0.7);return false;}pl.res-=b.custo;if(b.custo)pl.semRes=0.6;
+function iniciarBasico(b,nome){if(pl.res<b.custo){aviso('Sem resistência',0.7);return false;}pl.res-=b.custo;if(b.custo)pl.semRes=0;
   const H=ST.H*(1+buff('vel'));const prep=b.T*0.35/H,exec=b.T*0.2,rec=b.T*0.45/H;
   pl.estado='acao';pl.acao=Object.assign({nome,prep,exec,rec},b);pl.t=0;pl.acerto=false;pl.bloq=false;pl.reagiuNestaAcao=false;virarParaAlvo((b.alc||20)+3);
   pl.semAtk=0;if(enc)opo('Compromisso',true);return true;}
@@ -431,7 +434,7 @@ function ataqueLeve(){if(pl.estado==='acao'&&pl.acao&&(pl.acao.nome==='leve')&&p
   const i=pl.comboT>0?pl.combo:0;pl.combo=(i+1)%3;pl.comboT=0.9;iniciarBasico(ataqueBase(false),'leve');}
 function ataquePesado(seg){if(!podeAgir())return;pl.combo=0;const A=ARMAS[P.arma];
   if(P.arma==='machado_pequeno'&&pl.machadoFora<=0){virarParaAlvo(14);const m=malhaArma('machado_pequeno');m.position.set(pl.x,1.2,pl.z);scene.add(m);
-    projeteis.push({x:pl.x,z:pl.z,dx:Math.sin(pl.ang),dz:Math.cos(pl.ang),t:0,vida:12/16,m,K:A.pK,I:A.pI,o:{peso:'pesado'},machado:1,ja:new Set()});pl.machadoFora=1.5;pl.res-=10;pl.semRes=0.6;texto(plG.position,'Arremesso','#e8c46a',14);return;}
+    projeteis.push({x:pl.x,z:pl.z,dx:Math.sin(pl.ang),dz:Math.cos(pl.ang),t:0,vida:12/16,m,K:A.pK,I:A.pI,o:{peso:'pesado'},machado:1,ja:new Set()});pl.machadoFora=1.5;pl.res-=10;pl.semRes=0;texto(plG.position,'Arremesso','#e8c46a',14);return;}
   iniciarBasico(ataqueBase(true),'pesado');}
 function golpeImpeto(){if(!podeAgir())return;if(pl.imp<20){aviso('Ímpeto 20+',0.7);return;}
   const A=ARMAS[P.arma];const ig=pl.imp;pl.impGasto=ig;pl.imp=0;
@@ -450,8 +453,8 @@ function golpeImpeto(){if(!podeAgir())return;if(pl.imp<20){aviso('Ímpeto 20+',0
 function esquiva(){
   if(pl.firmar>0){ceder();return;}
   if(!(podeAgir()||(pl.estado==='acao'&&pl.acao&&pl.t>pl.acao.prep+pl.acao.exec)||(pl.estado==='acao'&&pl.acao&&pl.acao.nome==='cont'&&espAtiva('corrente_continua'))))return;
-  let custo=20;if(P.arma==='duas_katanas')custo=14;if(pl.res<custo){aviso('Sem resistência',0.7);return;}
-  pl.res-=custo;pl.semRes=0.6;let dx=joyV.x,dz=joyV.z;if(Math.hypot(dx,dz)<0.2){dx=-Math.sin(pl.ang);dz=-Math.cos(pl.ang);}const l=Math.hypot(dx,dz);
+  let custo=ST.custoEsq;if(P.arma==='duas_katanas')custo*=0.7;if(pl.res<custo){aviso('Sem resistência',0.7);return;}pl.esqInicio=perf();pl.esqCusto=custo;
+  pl.res-=custo;pl.semRes=0;let dx=joyV.x,dz=joyV.z;if(Math.hypot(dx,dz)<0.2){dx=-Math.sin(pl.ang);dz=-Math.cos(pl.ang);}const l=Math.hypot(dx,dz);
   const contAtiva=pl.estado==='acao'&&pl.acao&&pl.acao.nome==='cont';
   pl.estado='esquiva';pl.t=0;pl.edx=dx/l;pl.edz=dz/l;pl.ang=Math.atan2(pl.edx,pl.edz);pl.inv=P.arma==='duas_katanas'?0.24:0.30;pl.bloq=false;pl.esqDist=P.arma==='duas_katanas'?2:(P.arma==='arco'?3:3.5);
   pl.voltarCont=contAtiva&&espAtiva('corrente_continua')&&!pl.correnteUsada?pl.contFila:null;
@@ -461,12 +464,12 @@ function defesaDown(){
   if(!podeAgir())return;
   if(P.arma==='katana'){pl.saqueT=0.001;pl.estado='saque';return;}
   pl.parryT=ST.parry;pl.parryInicio=perf();
-  if(ARMAS[P.arma].bloq>0){pl.bloq=true;pl.estado='bloq';}else{pl.estado='parry';pl.t=0;}}
+  if(ARMAS[P.arma].bloq>0){pl.bloq=true;pl.estado='bloq';}else{pl.estado='parry';pl.t=0;pl.parryPend=true;}}
 function defesaUp(){if(P.arma==='katana'&&pl.estado==='saque'){soltarSaque();return;}
   pl.bloq=false;if(pl.estado==='bloq')pl.estado='livre';}
 let defToques=0;
 function firmarIniciar(){const cd=espAtiva('muro_de_carne')?15:12;if(pl.firmarCD>0||pl.parcelas.length)return;const custo=espAtiva('segundo_folego')?20:15;if(pl.res<custo)return;
-  pl.res-=custo;pl.semRes=0.6;pl.firmar=espAtiva('muro_de_carne')?1.6:1.2;pl.firmarCD=cd;texto(plG.position,'Firmar','#7fd88f',15);
+  pl.res-=custo;pl.semRes=0;pl.firmar=espAtiva('muro_de_carne')?1.6:1.2;pl.firmarCD=cd;texto(plG.position,'Firmar','#7fd88f',15);
   if(ligAtiva('nucleo_protegido')){pl.cargaT+=3;pl.ene=Math.min(ST.eneMax,pl.ene+10);}}
 function ceder(){if(pl.firmar<=0)return;pl.firmar=0;pl.divida*= (ligAtiva('retirada_disciplinada')?0.5:0.6);
   if(espAtiva('segundo_folego'))pl.res=Math.min(ST.resMax,pl.res+10);if(ligAtiva('retirada_disciplinada'))pl.res=Math.max(0,pl.res-5);
@@ -494,7 +497,7 @@ function respostaCerta(e,tipo){ // Abertura PER
 function golpearJogador(dano,I,fonte){
   if(pl.estado==='morto')return;
   if(enc){opo('Esquiva',pl.inv>0&&pl.estado==='esquiva');}
-  if(pl.inv>0){if(pl.estado==='esquiva'&&!pl.perfeitaDada){pl.perfeitaDada=true;ganharImp(20,'esquiva');texto(plG.position,'Esquiva perfeita','#c9a0ff',16);hitstop=0.08;respostaCerta(fonte,'esq');
+  if(pl.inv>0){if(pl.estado==='esquiva'&&!pl.perfeitaDada&&perf()-(pl.esqInicio||0)<=0.12){pl.perfeitaDada=true;ganharImp(20,'esquiva');pl.res=Math.min(ST.resMax,pl.res+(pl.esqCusto||0));texto(plG.position,'Esquiva perfeita','#c9a0ff',16);hitstop=0.08;respostaCerta(fonte,'esq');
       if(P.arteEq===1)pl.eco=2;if(ligAtiva('descarga_itinerante'))pl.descargaIt=perf();
       if(pl.voltarCont){pl.correnteUsada=true;const c=pl.voltarCont;pl.voltarCont=null;setTimeout(()=>{if(pl.estado==='livre'){pl.contFila=c;proximaCont();}},380);}}return;}
   pl.golpeChegando=perf();
@@ -503,13 +506,13 @@ function golpearJogador(dano,I,fonte){
   const frente=Math.abs(angDiff(pl.ang,angTo(pl,fonte)))<(A.arc180?1.6:1.15);
   // parry (com ou sem bloqueio)
   if((pl.bloq||pl.estado==='parry')&&frente&&pl.parryT>0){
-    ganharImp(20,'parry');const Ip=20*(1+0.5*r('FOR')+0.5*r('PER'));if(fonte.atord<=0){fonte.pos-=Ip;fonte.semPos=0;if(fonte.pos<=0)quebrarPostura(fonte);}
+    pl.parryPend=false;ganharImp(20,'parry');const Ip=25*(1+0.5*r('FOR')+0.5*r('PER'));if(fonte.atord<=0){fonte.pos-=Ip;fonte.semPos=0;if(fonte.pos<=0)quebrarPostura(fonte);}
     texto(plG.position,'PARRY!','#ffe066',22);flashAnel(pl.x,pl.z,1.3,0xffe066);hitstop=0.1;respostaCerta(fonte,'parry');if(enc)opo('Defesa ativa',true);
     if(P.arma==='duas_katanas'){setTimeout(()=>{if(!fonte.morto){danoInimigo(fonte,0.6,6,{peso:'leve'});danoInimigo(fonte,0.6,6,{peso:'leve'});}},120);}
     if(pl.reacParry){const rp=pl.reacParry;pl.reacParry=null;executarContra(rp,fonte);}
     return;}
   if(pl.bloq&&frente){
-    const efic=A.bloq||1;let custo=dano/S()*0.35/efic;if(A.arc180)custo*=0.75;pl.res-=custo;pl.semRes=0.8;
+    const efic=A.bloq||1;let custo=(0.08*dano/S()+0.25*I)/(1+0.6*r('FOR')+0.4*r('VIG'))/efic;if(A.arc180)custo*=0.75;pl.res-=custo;pl.semRes=0;
     let Ip=I*0.5;
     if(pl.firmar>0){const f=0.20+0.30*r('VIG');const lim=(15+25*r('VIG'))*(espAtiva('divida_parcelada')?0.8:1);const ad=Math.min(Ip*f,Math.max(0,lim-pl.divida));pl.divida+=ad;Ip-=ad;}
     pl.pos-=Ip;pl.semPos=0;texto(plG.position,'bloqueio','#cfe3ff',14);if(enc)opo('Defesa ativa',true);
@@ -517,9 +520,9 @@ function golpearJogador(dano,I,fonte){
     if(P.arteEq===12&&(pl.cds.arte||0)<=0){pl.revideJanela=0.6;pl.revideI=Math.min(40,I);pl.revideAlvo=fonte;}
     respostaCerta(fonte,'bloq');
     if(pl.res<=0){pl.res=0;pl.estado='atord';pl.atord=1.0;pl.bloq=false;pl.firmar=0;texto(plG.position,'Guarda quebrada','#ff8080',17);}
-    pl.vida-=Math.round(dano*0.15);checarPosturaJogador();checarMorte();return;}
+    pl.vida-=Math.round(dano*0.30*200*S()/(200*S()+ST.A));checarPosturaJogador();checarMorte();return;}
   if(enc)opo('Defesa ativa',false);
-  let d=dano*(1-buff('red'));
+  let d=dano*(1-buff('red'))*200*S()/(200*S()+ST.A);
   if(P.arma==='machado_grande'&&pl.estado==='acao'&&pl.acao&&pl.acao.nome==='pesadoC'&&pl.cargaNivel>=2){I=0;}
   pl.vida-=d;let Ii=I;if(pl.barreira>0){const ab=Math.min(pl.barreira,Ii);pl.barreira-=ab;Ii-=ab;}pl.pos-=Ii;pl.semPos=0;texto(plG.position,'-'+fmt(d),'#ff6a6a',18);
   pl.ritmo=0;pl.frenesi=0;pl.fluxo=0;if(pl.compromissoAberto&&enc){opo('Compromisso',false);}pl.compromissoAberto=false;
@@ -648,7 +651,7 @@ function usarReacao(k){const no=noDe(k);if(!no)return;if((pl.cds[k]||0)>0)return
   if(/parry|postura defensiva|janela|aparar|devolve/.test(tx)){if(pl.res<t.custo)return;pl.res-=t.custo;pl.cds[k]=t.cd;pl.cdMax=pl.cdMax||{};pl.cdMax[k]=t.cd;pl.parryT=Math.max(ST.parry,0.25);pl.reacParry=no;pl.estado='parry';pl.t=0;texto(plG.position,no.nome,'#9fd',14);return;}
   usarTecnicaKey(k);}
 function tiroTenso(seg){if(!podeAgir())return;const K=seg>2?1.0:1.0+0.5*Math.min(1,seg);const b=ataqueBase(true);b.K=K;b.I=12+6*Math.min(1,seg);b.flecha=1;b.alcF=30;b.trema=seg>2;iniciarBasico(b,'pesado');}
-function pesadoCarregado(seg){if(!podeAgir())return;const nv=seg>=1.5?3:seg>=1.0?2:seg>=0.5?1:0;const b=ataqueBase(true);if(nv>0){b.K=[0,1.9,2.4,3.0][nv];b.I=40+10*nv;}pl.cargaNivel=nv;iniciarBasico(b,'pesado');if(nv)texto(plG.position,'Carga '+nv,'#e8c46a',15);}
+function pesadoCarregado(seg){if(!podeAgir())return;const nv=seg>=1.5?3:seg>=1.0?2:seg>=0.5?1:0;const b=ataqueBase(true);if(nv>0){const pk=ARMAS.machado_grande.pK;b.K=[0,pk,pk*2.4/1.9,pk*3.0/1.9][nv];b.I=40+10*nv;}pl.cargaNivel=nv;iniciarBasico(b,'pesado');if(nv)texto(plG.position,'Carga '+nv,'#e8c46a',15);}
 const teclas={};
 addEventListener('keydown',ev=>{if(ev.repeat)return;if($('painel').style.display==='flex')return;const k=ev.key.toLowerCase();teclas[k]=true;
   if(k==='j'){atkSeg=0;}if(k==='k'||k===' ')esquiva();if(k==='l')defesaDown();if(k==='i')golpeImpeto();if(k==='r')ler();if(k==='c')pl.usarCargas=(pl.usarCargas+1)%4;
@@ -686,7 +689,8 @@ function passo(dt){
       const ex=espAtiva('golpe_assentado')?0.15:0.25;const parc=espAtiva('golpe_assentado')?0.15:0.20;pl.acao.firmado=true;pl.acao.prep+=ex;pl.acao.K*=1-parc;pl.acao.I+=20*(parc/0.20)*r('FOR');texto(plG.position,'Firmar o golpe','#e8a33d',14);}}
   ST=ST||stats();
   // recursos
-  pl.semRes+=dt;if(pl.semRes>0.6&&!pl.bloq)pl.res=Math.min(ST.resMax,pl.res+28*dt*(1+buff('regenR')));
+  pl.semRes+=dt;if(pl.semRes>0.8&&!pl.bloq)pl.res=Math.min(ST.resMax,pl.res+18*dt*(1+buff('regenR')));
+  if(pl.parryPend&&pl.parryT<=0){pl.parryPend=false;pl.res=Math.max(0,pl.res-15);pl.semRes=0;texto(plG.position,'parry falhou','#ff9f9f',13);}
   if(!(pl.semEneT>0)){let rg=ST.regenE*(espAtiva('coracao_de_fornalha')?(pl.cargas>=3?1.2:pl.cargas===0?0.9:1):1);pl.ene=Math.min(ST.eneMax,pl.ene+rg*dt);}else pl.semEneT-=dt;
   pl.semPos+=dt;if(pl.semPos>2&&!pl.parcelas.length)pl.pos=Math.min(ST.posMax*(1+buff('posMax')),pl.pos+ST.regenPos*dt);
   for(const k in pl.cds)pl.cds[k]=Math.max(0,pl.cds[k]-dt);
@@ -774,7 +778,7 @@ function resolverBasico(a){const A=ARMAS[P.arma];
   if(n>0){pl.semAtk=0;if(enc){enc.danoJ=true;opo('Precisão',true);}hitstop=Math.max(hitstop,a.nome==='pesado'||a.nome==='imp'?0.07:0.035);
     if(P.arma==='desarmado'){if(dir!==pl.ultDir){pl.fluxo=Math.min(5,pl.fluxo+1);}else pl.fluxo=0;pl.ultDir=dir;}
     if(P.arma==='duas_espadas'&&a.nome==='leve'&&!a.cruzado)pl.ritmo=Math.min(4,pl.ritmo+1);
-    if(P.arma==='dois_machados'){pl.frenesi=Math.min(5,pl.frenesi+1);pl.frenesiT=2;}}
+    if(P.arma==='dois_machados'){pl.frenesi=Math.min(5,pl.frenesi+(a.nome==='leve'?ARMAS[P.arma].h:1));pl.frenesiT=2;}}
   else{if(enc)opo('Precisão',false);if(P.arma==='duas_espadas')pl.ritmo=0;}}
 
 // =================== DESENHO ===================
@@ -853,7 +857,7 @@ function menuPersonagem(){const s=stats();const pts=PONTOS(P.nivel),g=pontosGast
     ['Postura',fmt(s.posMax),'100 × (1 + 0,8·r(VIG) + 0,4·r(FOR))'],['Recuperação de postura',fmt(s.regenPos,1)+'/s','10 × (1 + 0,4·r(VIG)), após 2 s'],['Reserva de cura',fmt(s.reserva),'600 × (1 + 0,8·r(VIG)) × s'],
     ['Velocidade de movimento',fmt(s.vel,2)+' m/s','5,5 × (1 + 0,10·r(DES) + 0,06·r(FOR))'],['Velocidade de ação (H)','×'+fmt(s.H,3),'1 + 0,35·r(DES), só preparo/recuperação'],['Preparo de conjuração (H_c)','×'+fmt(s.Hc,3),'1 + 0,25·r(CON)'],
     ['Janela de parry',fmt(s.parry*1000)+' ms','teto técnico 240 ms'],['Estabilidade de conjuração',fmt(s.estab*100)+'%','0,50·r(CON), teto 60%'],['Tenacidade',fmt(s.ten,1)+' p.p.','12·r(VIG), teto 30%'],
-    ['Chance crítica',fmt(s.crit*100)+'%','base 5% (sem equipamento)'],['Dano crítico','×'+fmt(s.critD,2),'base'],['P_arma (teste)',fmt(s.Parma),'110 × s'],['Carga',fmt(s.carga,1),'12 + 0,3·FOR'],['Vazão de cura','×'+fmt(s.vazao,2),'1 + 0,20·r(POT)'],
+    ['Chance crítica',fmt(s.crit*100)+'%','base 5% (sem equipamento)'],['Dano crítico','×'+fmt(s.critD,2),'base'],['P_arma (teste)',fmt(s.Parma),'57,5 × s (calibração v1)'],['Armadura',fmt(s.A),'média 85 × s'],['Custo da esquiva',fmt(s.custoEsq),'20 × (1 + peso 12 ÷ 40)'],['Carga',fmt(s.carga,1),'12 + 0,3·FOR'],['Vazão de cura','×'+fmt(s.vazao,2),'1 + 0,20·r(POT)'],
     ['Ímpeto → impacto (FOR)','×'+fmt(1+80*(0.5+r('FOR'))/100,2)+' com 80','1 + Ímpeto × (0,5 + r(FOR))/100'],['Continuações (DES)',fmt(0.5+1.5*r('DES'),2)+' m de deslocamento','dano total × (1 + 3·r(DES))'],
     ['Firmar (VIG)','adia '+fmt((0.2+0.3*r('VIG'))*100)+'% · dívida máx. '+fmt(15+25*r('VIG'),1),'f = 0,20 + 0,30·r(VIG)'],['Sobrecarga (POT)','+'+fmt((0.08+0.12*r('POT'))*100,1)+'% por carga','0,08 + 0,12·r(POT)'],
     ['Modelagem (CON)','Expandir ×'+fmt(1.1+0.4*r('CON'),2)+' · Comprimir ×'+fmt(1.05+0.2*r('CON'),2)+' · Conduzir '+fmt((0.35+0.4*r('CON'))*100)+'%',''],['Abertura (PER)','Punir '+fmt(10+20*r('PER'))+'% · Desmontar +'+fmt(5+10*r('PER'),1)+' · Retomar +'+fmt(5+10*r('PER'),1),'']];
