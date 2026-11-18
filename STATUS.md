@@ -88,3 +88,9 @@ Leitura de tabelas do ChatGPT: find "tabela com colunas ..." → read_page no re
 - Pendências de conteúdo: Força com machado grande no AO.1; Fogo/Flanco; reanimação rara; 16 técnicas de Execução; sistemas fora do simulador (ver §6 do doc 10).
 - [x] Protótipo corrigido (`prototipo/v2/jogo.js`, arquivo único por `montar.py` → `andar1-v2.html`, artefato republicado): P_arma 57,5; armadura média 85; esquiva 26 com perfeita só nos 0,12 s (devolve custo); parry mín(180; 140+67·rPER) ms e impacto 25×; parry falho −15R; bloqueio do núcleo (30% atravessa, Muralha −25%); resistência 18/s após 0,8 s; quebra 2 s ×1,3 + resistência; impacto ×(1+0,6rFOR+0,4rCON); Frenesi +2%/acerto; armas da calibração v1; fichas numéricas (K/acertos/impacto/tempo) aplicadas; lobo 650/A50, golem 1.100/A50, guardião 4.700 (protótipo solo).
 - Próximo: pendências de conteúdo do doc 10 §6 (Força/machado grande no AO.1, Fogo/Flanco, técnicas de Execução) — e o Lucas testar o protótipo no PC.
+
+## CONTEÚDO v1.1 (loops 11–13) — ✅ ChatGPT APROVADO · Grok aprovou o loop 12, loop 13 pendente (limite do plano gratuito)
+- Fogo −24; Lança ígnea 0,9 s; feitiços-base 1,60/1,80 (Vento 1,50/1,70); Lâmina projetada 0,85; Dança de lâminas 0,40×3.
+- Grupo de referência do AO.1 com Força em explosão; ataques do chefe a 60% do v8 (180/132/192/108) → 75,5% em 6,07 min.
+- Motor (`sim/simulador3.js`) e fichas já usam a v1.1 como padrão; protótipo atualizado e republicado.
+- Doc: `docs/10-calibracao-v1.md` §7–9. Pendências: revisão do Grok (loop 13), Tanque na margem de 25%, elemento para builds físicas, duração do AO.1 perto de 6 min.

@@ -91,3 +91,56 @@ Resultado medido:
    - passivas de texto, nós-chave, Artes e afixos.
 
    A aprovação **não** homologa esses sistemas.
+
+---
+
+# Conteúdo v1.1 (loops 11–13)
+
+> **Aprovação:**
+> - **ChatGPT:** aprovou no loop 13.
+> - **Grok:** aprovou o pacote do loop 12 (Fogo, técnicas, Força em explosão, chefe a 57%). Não chegou a revisar o loop 13 (feitiços-base e chefe a 60%) porque o plano gratuito atingiu o limite. Revisão pendente.
+>
+> **Precedência:** onde a v1.1 conflita com as seções 1 a 6 acima, vale a v1.1.
+>
+> **Conferências:**
+> - `sim/conteudo.js` e `sim/conteudo2.js`;
+> - `sim/mago.js` e `sim/ao1-v11.js`;
+> - resultados em `sim/resultado/conteudo*.md` e `sim/resultado/mago.md`.
+
+## 7. Mudanças
+
+| Item | v1 | v1.1 |
+|---|---|---|
+| Fogo: redução de armadura | −30 | **−24.** Contra A = 50, isso vale +10,6% de dano (antes +13,6%). |
+| Lança ígnea | 0,7 s | **0,9 s** (K 1,20, custo 18 e recarga 4 s iguais) |
+| Feitiços-base (Projétil / Área) | 1,40 / 1,60 (Vento 1,30 / 1,50) | **1,60 / 1,80 (Vento 1,50 / 1,70)**, em todos os elementos |
+| Lâmina projetada (katana) | K 0,80 | **K 0,85** |
+| Dança de lâminas (duas espadas) | K 0,30 × 3 | **K 0,40 × 3** |
+| Passo de sombra, Corte que segue, Lançamento curvo | — | **sem mudança.** Têm utilidade que o simulador não mede (reposicionar, perseguir, contornar guarda). |
+| Técnicas de área, Corte de avanço, Moedor, Brasa persistente | — | sem mudança |
+| Grupo de referência do AO.1 | Força com machado grande em "ruptura" | **Força com machado grande em "explosão"** (guarda o pesado para as janelas). Alternativa: "sustentado" com carga 1. |
+| Ataques do AO.1 | 53,5% do v8 (160 / 118 / 171 / 96) | **60% do v8: Golpe pesado 180, Varredura 132, Investida 192, Chuva 96 → 108** |
+| P_arma, vidas, reserva, bloqueio, reanimação | — | sem mudança |
+
+Por que o chefe subiu de 53,5% para 60%: o grupo de referência ficou mais forte. A Força passou a jogar melhor (explosão) e os feitiços foram reforçados. Isso ajusta só este encontro; a escala global do jogo continua a mesma.
+
+## 8. Resultado medido (benchmark novo)
+
+| Meta | Resultado |
+|---|---|
+| AO.1, jogador médio: 70–85% de vitória | **75,5%** [71,1–79,5] ✔ |
+| AO.1: 6–10 min | **6,07 min** ✔. Está perto do limite inferior; acompanhar no protótipo. |
+| Força no AO.1: quedas ≤ 1,1× a média do grupo e DPS ≥ 65% do melhor | **0,43×** e **73%** ✔ |
+| Perfis ofensivos a ≤ 15% do melhor | 6 de 6 ✔. Contra a referência atualizada (FOR/DES 11,302 s): Mago +13,7%, Lâmina mágica +10,0%. |
+| Perfis de VIG a ≤ 25% | FOR/VIG ≈ +25,0%; **VIG/FOR +25,65%.** Ficam na margem e em acompanhamento: não se declara cumprimento estrito de 8 de 8. |
+| Fogo à frente do 2º melhor elemento (tempo solo) | Mago desarmado −10,3%; Lâmina mágica −4,5%; Mago com espada curta −5,6%. Dentro da faixa combinada (até cerca de 10% em encontro neutro). |
+| Armas a ±15% no boneco | 11 de 11 ✔ (o reforço só mexe em técnicas elementais) |
+
+## 9. Pendências depois da v1.1
+
+1. **Revisão do Grok do loop 13** (feitiços-base e chefe a 60%), quando o plano dele liberar.
+2. **Tanque (VIG/FOR) na margem de 25%:** acompanhar.
+3. **Duração do AO.1 perto de 6 min:** acompanhar no protótipo.
+4. **Builds físicas quase não ganham com elementos no tempo solo.** Meta de conteúdo (Grok): pelo menos um elemento dar ≥ +5% para builds físicas em cenário com adds ou com quebra de postura.
+5. A **reanimação** continua rara (cerca de 0,15 por tentativa).
+6. As exclusões do simulador (§6.5) continuam valendo.

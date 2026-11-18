@@ -21,7 +21,7 @@ const VERSAO_DADOS=require('crypto').createHash('sha1').update(fs.readFileSync(p
 
 // ---------- utilidades ----------
 function mulberry(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
-let RND=Math.random;const GLOBAL={pArma:57.5,fogoArm:30,flanco:1.3,vidaComum:1,frenesiVel:.02,frenesiPorAcerto:true}; /* calibração v1 (docs/10-calibracao-v1.md) */const gauss=()=>{let u=0,v=0;while(!u)u=RND();while(!v)v=RND();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v);};
+let RND=Math.random;const GLOBAL={pArma:57.5,fogoArm:24,flanco:1.3,vidaComum:1,frenesiVel:.02,frenesiPorAcerto:true}; /* calibração v1 (docs/10-calibracao-v1.md) */const gauss=()=>{let u=0,v=0;while(!u)u=RND();while(!v)v=RND();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v);};
 const rr=x=>x/(x+40),Cc=x=>x+x*x/40;
 const media=a=>a.length?a.reduce((q,x)=>q+x,0)/a.length:NaN;
 function tq(df){const z=1.959964;if(df<1)return NaN;return z+(z**3+z)/(4*df)+(5*z**5+16*z**3+3*z)/(96*df*df)+(3*z**7+19*z**5+17*z**3-15*z)/(384*df**3);}
@@ -113,12 +113,12 @@ const TIPOS={
   fera:{vida:650,pos:60,A:50,atq:[{nome:'mordida',dano:80,aviso:.55,I:25,int:1.6,alvo:'aggro',resp:'epb'}]},
   constructo:{vida:1100,pos:170,A:50,grande:1,atq:[{nome:'pancada',dano:160,aviso:1.0,I:50,int:3.0,alvo:'aggro',resp:'epb'}]},
   elemental:{vida:800,pos:80,A:30,atq:[{nome:'disparo',dano:120,aviso:1.0,I:0,int:3.5,alvo:'um',resp:'e',dist:1}]},
-  // AO.1 com os ataques da calibração v1 (53,5% do v8)
+  // AO.1 benchmark v1.1 (60% do v8; grupo de referência com Força em explosão)
   ao1:{vida:120000,pos:1000,A:50,grande:1,chefe:1,atq:[
-    {nome:'Golpe pesado',dano:160,aviso:1.0,I:40,int:8,alvo:'aggro',resp:'epb'},
-    {nome:'Varredura',dano:118,aviso:.9,I:30,int:12,alvo:'todosPerto',resp:'m'},
-    {nome:'Investida',dano:171,aviso:1.3,I:60,int:20,alvo:'um',resp:'m',investida:1},
-    {nome:'Chuva de pedras',dano:96,aviso:1.5,I:0,int:25,alvo:'chuva',resp:'m'}]},
+    {nome:'Golpe pesado',dano:180,aviso:1.0,I:40,int:8,alvo:'aggro',resp:'epb'},
+    {nome:'Varredura',dano:132,aviso:.9,I:30,int:12,alvo:'todosPerto',resp:'m'},
+    {nome:'Investida',dano:192,aviso:1.3,I:60,int:20,alvo:'um',resp:'m',investida:1},
+    {nome:'Chuva de pedras',dano:108,aviso:1.5,I:0,int:25,alvo:'chuva',resp:'m'}]},
   sint:{vida:120000,pos:1000,A:50,grande:1,chefe:1,atq:[]} // padrão definido por cenário
 };
 TIPOS.ao1v8=Object.assign({},TIPOS.ao1,{atq:[{nome:'Golpe pesado',dano:300,aviso:1.0,I:40,int:8,alvo:'aggro',resp:'epb'},{nome:'Varredura',dano:220,aviso:.9,I:30,int:12,alvo:'todosPerto',resp:'m'},{nome:'Investida',dano:320,aviso:1.3,I:60,int:20,alvo:'um',resp:'m',investida:1},{nome:'Chuva de pedras',dano:180,aviso:1.5,I:0,int:25,alvo:'chuva',resp:'m'}]}); // valores do v8, para os scripts históricos

@@ -34,7 +34,7 @@ const F={
  'espada_longa:15':{T:.90},
  'espada_longa:24':{forma:'arco180',alc:2.8,alvos:4},
  // ---------- DUAS ESPADAS ----------
- 'duas_espadas:1':{K:.30,h:3,mov:4},
+ 'duas_espadas:1':{K:.40,h:3,mov:4},
  'duas_espadas:3':{peso:'imbuir'},
  'duas_espadas:8':{bonus:{quando:'ritmo',mult:1.0},nota:'+10% por nível de Ritmo consumido (até 4 sem a chave)'},
  'duas_espadas:9':{K:.25,h:12,cond:'ritmo>=3'},
@@ -51,7 +51,7 @@ const F={
  'katana:7':{K:.50,h:5},
  'katana:8':{forma:'linha',alc:8,alvos:99,carga:2},
  'katana:9':{forma:'volta',alc:3,alvos:99,carga:1,T:2.4,nota:'exige saque carregado ≥ 1 s: 1 s de carga somado aos 1,4 s'},
- 'katana:23':{forma:'proj',alc:10,peso:'disparo'},
+ 'katana:23':{forma:'proj',alc:10,peso:'disparo',K:.85},
  'katana:24':{mov:4,nota:'3 cargas; aqui conta só o ritmo sustentado (1 a cada 8 s)'},
  // ---------- DUAS KATANAS ----------
  'duas_katanas:2':{K:.40,h:3,forma:'volta',alc:2,alvos:99},
@@ -93,9 +93,9 @@ const F={
  'arco:23':{forma:'proj',alc:30,peso:'disparo'},
  'arco:25':{K:.30,h:8,forma:'area',alc:4,alvos:99,peso:'arco'},
  // ---------- ELEMENTOS ----------
- 'fogo:1':{forma:'proj',alc:15},'gelo:1':{forma:'proj',alc:15},'raio:1':{forma:'proj',alc:15},'terra:1':{forma:'proj',alc:15},'vento:1':{forma:'proj',alc:15},'agua:1':{forma:'proj',alc:15},
- 'fogo:2':{forma:'area',alc:3,alvos:99},'gelo:2':{forma:'area',alc:3,alvos:99},'raio:2':{forma:'area',alc:3,alvos:99},'terra:2':{forma:'area',alc:3,alvos:99},'vento:2':{forma:'area',alc:3,alvos:99},'agua:2':{forma:'area',alc:3,alvos:99},
- 'fogo:7':{forma:'proj',alc:20,dot:.10},
+ 'fogo:1':{forma:'proj',alc:15,K:1.60},'gelo:1':{forma:'proj',alc:15,K:1.60},'raio:1':{forma:'proj',alc:15,K:1.60},'terra:1':{forma:'proj',alc:15,K:1.60},'vento:1':{forma:'proj',alc:15,K:1.50},'agua:1':{forma:'proj',alc:15,K:1.60}, // v1.1: feitiços-base reforçados (loop 13)
+ 'fogo:2':{forma:'area',alc:3,alvos:99,K:1.80},'gelo:2':{forma:'area',alc:3,alvos:99,K:1.80},'raio:2':{forma:'area',alc:3,alvos:99,K:1.80},'terra:2':{forma:'area',alc:3,alvos:99,K:1.80},'vento:2':{forma:'area',alc:3,alvos:99,K:1.70},'agua:2':{forma:'area',alc:3,alvos:99,K:1.80}, // v1.1
+ 'fogo:7':{forma:'proj',alc:20,dot:.10,T:0.9}, // v1.1: Lança ígnea 0,7 → 0,9 s
  'fogo:8':{forma:'proj',alc:15,debuff:{fogoMais:.08,dur:8}},
  'fogo:13':{K:.25,h:1,tiq:6,forma:'zona',alc:3,alvos:99,dot:.20/6,nota:'6 tiques de K0,25 + Queimando de 20% do 1º tique'},
  'fogo:19':{forma:'area',alc:4,alvos:99,self:1},

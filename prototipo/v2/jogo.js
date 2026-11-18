@@ -1,5 +1,5 @@
-// fichas revisadas (sim/fichas.js, loop 4–10): K por acerto, acertos, impacto total, tempo total
-const FICHAS={"desarmado:8":{"K":0.25,"h":8},"desarmado:9":{"K":0.3,"h":6},"espada_curta:8":{"K":0.4,"h":4},"espada_curta:9":{"K":0.5,"h":2},"espada_longa:15":{"T":0.9},"duas_espadas:1":{"K":0.3,"h":3},"duas_espadas:9":{"K":0.25,"h":12},"duas_espadas:15":{"K":0.35,"h":4},"duas_espadas:16":{"K":0.3,"h":10},"duas_espadas:17":{"K":0.6,"h":2},"katana:7":{"K":0.5,"h":5},"katana:9":{"T":2.4},"duas_katanas:2":{"K":0.4,"h":3},"duas_katanas:3":{"K":0.7,"h":2},"duas_katanas:17":{"K":0.6,"h":4},"duas_katanas:24":{"K":0.3,"h":8},"machado_pequeno:1":{"K":0.6,"h":1},"machado_pequeno:8":{"K":0.8,"h":2},"machado_pequeno:9":{"K":0.5,"h":1},"dois_machados:1":{"K":0.3,"h":5},"dois_machados:3":{"K":0.8,"h":2},"dois_machados:15":{"K":0.9,"h":2},"dois_machados:17":{"K":0.35,"h":8},"dois_machados:24":{"K":0.4,"h":6},"arco:8":{"K":0.6,"h":1},"arco:25":{"K":0.3,"h":8},"fogo:13":{"K":0.25,"h":1},"raio:3":{"T":0.8},"raio:14":{"K":0.3,"h":1},"vento:19":{"K":0.4,"h":1}};
+// fichas revisadas (sim/fichas.js, loops 4–13, conteúdo v1.1): K por acerto, acertos, impacto total, tempo total
+const FICHAS={"desarmado:8":{"K":0.25,"h":8},"desarmado:9":{"K":0.3,"h":6},"espada_curta:8":{"K":0.4,"h":4},"espada_curta:9":{"K":0.5,"h":2},"espada_longa:15":{"T":0.9},"duas_espadas:1":{"K":0.4,"h":3},"duas_espadas:9":{"K":0.25,"h":12},"duas_espadas:15":{"K":0.35,"h":4},"duas_espadas:16":{"K":0.3,"h":10},"duas_espadas:17":{"K":0.6,"h":2},"katana:7":{"K":0.5,"h":5},"katana:9":{"T":2.4},"katana:23":{"K":0.85},"duas_katanas:2":{"K":0.4,"h":3},"duas_katanas:3":{"K":0.7,"h":2},"duas_katanas:17":{"K":0.6,"h":4},"duas_katanas:24":{"K":0.3,"h":8},"machado_pequeno:1":{"K":0.6,"h":1},"machado_pequeno:8":{"K":0.8,"h":2},"machado_pequeno:9":{"K":0.5,"h":1},"dois_machados:1":{"K":0.3,"h":5},"dois_machados:3":{"K":0.8,"h":2},"dois_machados:15":{"K":0.9,"h":2},"dois_machados:17":{"K":0.35,"h":8},"dois_machados:24":{"K":0.4,"h":6},"arco:8":{"K":0.6,"h":1},"arco:25":{"K":0.3,"h":8},"fogo:1":{"K":1.6},"gelo:1":{"K":1.6},"raio:1":{"K":1.6},"terra:1":{"K":1.6},"vento:1":{"K":1.5},"agua:1":{"K":1.6},"fogo:2":{"K":1.8},"gelo:2":{"K":1.8},"raio:2":{"K":1.8},"terra:2":{"K":1.8},"vento:2":{"K":1.7},"agua:2":{"K":1.8},"fogo:7":{"T":0.9},"fogo:13":{"K":0.25,"h":1},"raio:3":{"T":0.8},"raio:14":{"K":0.3,"h":1},"vento:19":{"K":0.4,"h":1}};
 (function(){
 "use strict";
 const $=id=>document.getElementById(id);
@@ -279,7 +279,7 @@ function aplicarElemento(e,el,origem){if(e.morto)return;
   if(e.cont&&e.cont!==el&&e.contT>0&&P.elems.includes(e.cont)&&P.elems.includes(el)&&temTronco(e.cont)&&temTronco(el)){
     if(!pl.reagiuNestaAcao){pl.reagiuNestaAcao=true;reacao(e,e.cont,el);e.cont=el;e.contT=4;}
   } else {e.cont=el;e.contT=4;}
-  if(el==='fogo'){e.armRed=Math.max(e.armRed,30*s*q);e.armRedT=6;}
+  if(el==='fogo'){e.armRed=Math.max(e.armRed,24*s*q);e.armRedT=6;}
   if(el==='gelo'){e.lentoGelo=Math.max(e.lentoGelo,4);e.lentoGeloF=0.15*q;}
   if(el==='terra'){pl.barreira=Math.min(40,pl.barreira+20*q);pl.barreiraT=4;}
   if(el==='vento'){const a=angTo(pl,e);if(!e.T.chefe&&!e.T.boneco){e.empX+=Math.sin(a)*1.5*q;e.empZ+=Math.cos(a)*1.5*q;}if(perf()-(pl.ventoT||0)>1){pl.ventoT=perf();ganharImp(10*q,'vento');}}
