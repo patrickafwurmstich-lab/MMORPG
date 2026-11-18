@@ -396,7 +396,7 @@ function luta(builds,cfgCena,hab,pol,seed){RND=mulberry(seed);const s=cfgCena.s;
   return {venceu,tempo:t,motivo:venceu?'vitória':C.motivo,quedas:players.reduce((q,p)=>q+p.quedas,0),reanim:players.reduce((q,p)=>q+p.reanim,0),pocoes:players.reduce((q,p)=>q+5-p.pocoes,0),
     dps:players.reduce((q,p)=>q+p.dano,0)/t/players.length/s,ofens:media(players.map(p=>p.ofens/t)),semEne:media(players.map(p=>p.semEne/t)),forc:media(players.map(p=>p.forc/Math.max(1,p.acoes))),
     recebido:media(players.map(p=>p.recebido/s/t*60)),quebras:alvos.reduce((q,e)=>q+e.quebras,0),tarefas:C.tarefasT/players.length/t,gritos:C.gritos,gritosCortados:C.gritosCortados,colisoes:C.colisoes,
-    reacoes:C.reacoes,flanco:C.flancoT/t,primeiraQueda:C.primeiraQueda==null?t:C.primeiraQueda,leituras:C.leituras,semReserva:C.quedasSemReserva,
+    reacoes:C.reacoes,flanco:C.flancoT/t,primeiraQueda:C.primeiraQueda,leituras:C.leituras,semReserva:C.quedasSemReserva,
     porJogador:players.map(p=>({perfil:p.b.perfil,dps:p.dano/t/s,recebido:p.recebido/s/t*60,quedas:p.quedas}))};}
 // papel do jogador = etiqueta majoritária das técnicas equipadas (D.4)
 function papel(b){const c={};for(const fc of b.tec)c[fc.tag]=(c[fc.tag]||0)+1;let m='?',v=0;for(const k in c)if(c[k]>v){v=c[k];m=k;}return m;}
@@ -432,7 +432,7 @@ function bateria(builds,cfgCena,n,hab,pol,base){const R=[];for(let i=0;i<n;i++)R
   const vit=R.filter(x=>x.venceu);const tv=vit.map(x=>x.tempo);const [wl,wh]=wilson(vit.length,n);const mot={};R.forEach(x=>mot[x.motivo]=(mot[x.motivo]||0)+1);
   const m=k=>media(R.map(x=>x[k]));
   return {n,vit:vit.length,vitorias:vit.length/n,wl,wh,tempo:vit.length?media(tv):Infinity,ic:icT(tv),motivos:mot,quedas:m('quedas'),reanim:m('reanim'),pocoes:m('pocoes'),dps:m('dps'),ofens:m('ofens'),semEne:m('semEne'),forc:m('forc'),
-    recebido:m('recebido'),quebras:m('quebras'),tarefas:m('tarefas'),gritos:m('gritos'),gritosCortados:m('gritosCortados'),colisoes:m('colisoes'),dur:m('tempo'),reacoes:m('reacoes'),primeiraQueda:m('primeiraQueda'),flanco:m('flanco'),leituras:m('leituras'),semReserva:m('semReserva'),
+    recebido:m('recebido'),quebras:m('quebras'),tarefas:m('tarefas'),gritos:m('gritos'),gritosCortados:m('gritosCortados'),colisoes:m('colisoes'),dur:m('tempo'),reacoes:m('reacoes'),primeiraQueda:media(R.filter(x=>x.primeiraQueda!=null).map(x=>x.primeiraQueda)),semQueda:R.filter(x=>x.primeiraQueda==null).length,flanco:m('flanco'),leituras:m('leituras'),semReserva:m('semReserva'),
     porJogador:R[0].porJogador.map((_,j)=>({perfil:R[0].porJogador[j].perfil,dps:media(R.map(x=>x.porJogador[j].dps)),recebido:media(R.map(x=>x.porJogador[j].recebido)),quedas:media(R.map(x=>x.porJogador[j].quedas))}))};}
 // boneco = mesmo motor, inimigo sem ataques, sem ameaça
 function dpsBoneco(b,pol,dur){const s=b.cfg.s;const r=luta([b],{s,inimigos:[{tipo:'boneco'}],dur:dur||60,ameaca:false},HAB['médio'],pol,42);return r.dps;}

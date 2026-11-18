@@ -79,3 +79,11 @@ Leitura de tabelas do ChatGPT: find "tabela com colunas ..." → read_page no re
 - Calibração: a árvore dá ~25% mais dano/s que o modelo de papel (AI.1: 87 vs 70) → combates mais curtos que os tempos-alvo.
 - 42 das 116 técnicas de dano dão menos dano que o ataque básico (até −5%); quase todas são de controle/impacto.
 - [ ] Decidir com o Lucas / mandar ao loop: Mago, PER e Força pura; calibrar vidas ou P_arma.
+
+## SIMULADOR DE EQUILÍBRIO E CALIBRAÇÃO (loops 4–10) — ✅ ChatGPT APROVADO + Grok APROVADO
+- Motor: `sim/simulador3.js` (v3.2) — fases J.1, motor único, impacto dividido, defesas D.1, reanimação canalizada, AO.1 completo (âncoras, rotas, adds, Grito, Leitura E.3), aggro D.5.
+- Execução geral: `node sim/simulador3.js` → `sim/resultado/relatorio3.md`. Comparações: `sim/candidatos.js`, `sim/final.js`, `sim/fechamento.js` (resultados em `sim/resultado/`).
+- Revisões: `loop/loop5-revisoes.md` … `loop/loop10-revisoes.md`.
+- **Calibração-base aprovada → `docs/10-calibracao-v1.md`** (substitui valores do v8): P_arma 57,5; chefe AO.1 com ataques a 53,5%; Dois machados (Frenesi +2%, leve 0,34); Machado grande (0,92 / 2,05 em 1,40 s); regra nova de perfis de VIG.
+- Pendências de conteúdo: Força com machado grande no AO.1; Fogo/Flanco; reanimação rara; 16 técnicas de Execução; sistemas fora do simulador (ver §6 do doc 10).
+- Próximo: corrigir o protótipo (`prototipo/v2/`) com as fichas, as fórmulas D.1/D.2 e a calibração v1.

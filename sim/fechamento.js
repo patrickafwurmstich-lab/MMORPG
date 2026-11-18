@@ -35,7 +35,7 @@ const estresse={s:1,inimigos:[{tipo:'constructo',mod:{vidaMult:50,atq:[{nome:'pa
 const letal={s:1,inimigos:[{tipo:'constructo',mod:{atq:[{nome:'pancada',dano:240,aviso:1.0,I:50,int:3.0,alvo:'aggro',resp:'epb'}]}}],dur:240,ameaca:true};
 out('| Distribuição | Tempo até cair (estresse) | Ganho sobre FOR/DES | Letal: vitória | Letal: tempo |');out('|---|---|---|---|---|');let ref=null;
 for(const [n,a] of dist){const b=Object.assign({},base,{a});const r=bateria([b],estresse,NP*2,HAB['médio'],POL.sustentado,30);const l=bateria([b],letal,NP*2,HAB['médio'],POL.sustentado,31);if(!ref)ref=r.primeiraQueda;
-  out(`| ${n} | ${f(r.primeiraQueda,2)} s | ${sg(r.primeiraQueda/ref-1)} | ${f(l.vitorias*100,1)}% [${f(l.wl*100)}–${f(l.wh*100)}] | ${f(l.tempo,1)} s |`);}
+  out(`| ${n} | ${f(r.primeiraQueda,2)} s${r.semQueda?' ('+r.semQueda+' sem queda)':''} | ${sg(r.primeiraQueda/ref-1)} | ${f(l.vitorias*100,1)}% [${f(l.wl*100)}–${f(l.wh*100)}] | ${f(l.tempo,1)} s |`);}
 out('');out('Regra proposta no loop 9: perfis de VIG podem ficar até +25% no constructo solo se sobreviverem ≥ 20% mais (ChatGPT) ou ≥ 1,3× (Grok) no ensaio controlado, ou tiverem vitória no letal ≥ à do FOR/DES (Grok); no AO.1, quedas do Tanque e da Força ≤ média do grupo, DPS do Tanque ≥ 50% e da Força ≥ 70% do melhor (Grok).');
 out('');out(`Gerado em ${((Date.now()-t0)/1000).toFixed(0)} s.`);
 fs.writeFileSync(path.join(__dirname,'resultado','fechamento.md'),L.join('\n'));console.log(L.join('\n'));
