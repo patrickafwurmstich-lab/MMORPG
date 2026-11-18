@@ -1,4 +1,6 @@
-# Simulador de equilíbrio v3.1 — relatório
+# Simulador de equilíbrio v3.2 — relatório
+
+**v3.2 (loop 7):** Frenesi +1 por acerto original (o extra da técnica, 1× por ação); bloqueio passa pela mesma resolução final do golpe (armadura, Grito ×1,2, barreira de Terra); bainha da katana como estado explícito (guarda 0,4 s ao ver o aviso, carga até 1,2 s, acaba ao atacar ou ser atingido; sem bainha não há saque de resposta); continuação do Ímpeto também recebe +8% ao gastar ≥ 70; Leitura adapta só o 4º, 8º… golpe elegível. Comparação das calibrações em `candidatos.md`.
 
 Dados `38a6a6f7f2` · 102 fichas revisadas · sementes fixas (mulberry32) · triagem 100 lutas, finalistas 400, chefe 40 tentativas (grupo misto) e 20 (grupos iguais) · IC de 95%: Wilson (vitórias) e t de Student (tempo) · escala s = 1,09^(camada−1) · **vidas do contrato, sem fator de correção** (decisão das duas IAs no loop 5).
 
@@ -41,11 +43,11 @@ Leitura: o tempo ofensivo real medido agora fica entre 65% e 73% (no v2 o indica
 | espada_longa | 166,9 | +1% | 3,5 ± 0,1 s | 100% [96–100] | 6,9 ± 0,1 s | 89% | 560 |
 | duas_espadas | 170,1 | +3% | 3,1 ± 0,0 s | 100% [96–100] | 7,2 ± 0,1 s | 85% | 818 |
 | espada_e_escudo | 151,2 | -9% | 3,0 ± 0,0 s | 100% [96–100] | 7,0 ± 0,1 s | 90% | 562 |
-| katana | 174,6 | +5% | 3,4 ± 0,1 s | 100% [96–100] | 6,0 ± 0,1 s | 89% | 724 |
+| katana | 174,6 | +5% | 3,5 ± 0,1 s | 100% [96–100] | 6,1 ± 0,1 s | 89% | 787 |
 | duas_katanas | 179,4 | +8% | 2,5 ± 0,0 s | 100% [96–100] | 6,0 ± 0,2 s | 87% | 881 |
 | machado_grande | 128,3 | -23% | 5,4 ± 0,1 s | 100% [96–100] | 8,6 ± 0,2 s | 91% | 653 |
 | machado_pequeno | 164,5 | -1% | 3,2 ± 0,0 s | 100% [96–100] | 6,6 ± 0,1 s | 91% | 523 |
-| dois_machados | 198,9 | +20% | 2,4 ± 0,0 s | 100% [96–100] | 5,4 ± 0,1 s | 90% | 618 |
+| dois_machados | 198,4 | +20% | 2,4 ± 0,0 s | 100% [96–100] | 5,4 ± 0,1 s | 89% | 638 |
 | arco | 158,3 | -5% | 4,8 ± 0,1 s | 100% [96–100] | 7,7 ± 0,1 s | 85% | 801 |
 
 Fora de ±15% da média no boneco: machado_grande, dois_machados.
@@ -67,34 +69,34 @@ Busca igual para todos: as 11 armas × (sem elemento + cada um dos 6); as 6 melh
 
 | Perfil | Arma · elemento (busca) | Boneco | Política | Constructo: vitória | Tempo | Quedas | Sem energia | Básicos forçados |
 |---|---|---|---|---|---|---|---|---|
-| Força | katana · fogo | 175,6 | sustentado | 100% | 6,6 s | 0,00 | 0% | 0% |
-| Força | katana · fogo | 175,6 | explosao | 100% | 6,6 s | 0,00 | 0% | 0% |
-| Força | katana · fogo | 175,6 | ruptura | 100% | 7,5 s | 0,00 | 0% | 0% |
-| Força | katana · fogo | 175,6 | defensiva | 100% | 6,7 s | 0,00 | 0% | 0% |
-| Destreza | dois_machados · — | 189,4 | sustentado | 100% | 5,5 s | 0,00 | 0% | 0% |
-| Destreza | dois_machados · — | 189,4 | explosao | 100% | 5,5 s | 0,00 | 0% | 0% |
-| Destreza | dois_machados · — | 189,4 | ruptura | 100% | 6,3 s | 0,00 | 0% | 5% |
-| Destreza | dois_machados · — | 189,4 | defensiva | 100% | 6,1 s | 0,00 | 0% | 1% |
-| Força+Destreza | dois_machados · — | 197,2 | sustentado | 100% | 5,4 s | 0,00 | 0% | 0% |
-| Força+Destreza | dois_machados · — | 197,2 | explosao | 100% | 5,4 s | 0,00 | 0% | 0% |
-| Força+Destreza | dois_machados · — | 197,2 | ruptura | 100% | 5,9 s | 0,00 | 0% | 5% |
-| Força+Destreza | dois_machados · — | 197,2 | defensiva | 100% | 5,9 s | 0,00 | 0% | 0% |
-| Tanque | espada_curta · fogo | 180,3 | sustentado | 100% | 7,2 s | 0,00 | 0% | 0% |
-| Tanque | espada_curta · fogo | 180,3 | explosao | 100% | 7,2 s | 0,00 | 0% | 0% |
-| Tanque | espada_curta · fogo | 180,3 | ruptura | 100% | 7,8 s | 0,00 | 0% | 0% |
-| Tanque | espada_curta · fogo | 180,3 | defensiva | 100% | 7,2 s | 0,00 | 0% | 0% |
-| Leitor (PER) | dois_machados · — | 183,8 | sustentado | 100% | 6,7 s | 0,00 | 0% | 9% |
-| Leitor (PER) | dois_machados · — | 183,8 | explosao | 100% | 6,7 s | 0,00 | 0% | 9% |
-| Leitor (PER) | dois_machados · — | 183,8 | ruptura | 100% | 6,9 s | 0,00 | 0% | 15% |
-| Leitor (PER) | dois_machados · — | 183,8 | defensiva | 100% | 6,8 s | 0,00 | 0% | 0% |
+| Força | katana · fogo | 175,6 | sustentado | 100% | 6,8 s | 0,00 | 0% | 0% |
+| Força | katana · fogo | 175,6 | explosao | 100% | 6,8 s | 0,00 | 0% | 0% |
+| Força | katana · fogo | 175,6 | ruptura | 100% | 7,8 s | 0,00 | 0% | 0% |
+| Força | katana · fogo | 175,6 | defensiva | 100% | 6,8 s | 0,00 | 0% | 0% |
+| Destreza | dois_machados · — | 193,0 | sustentado | 100% | 5,4 s | 0,00 | 0% | 0% |
+| Destreza | dois_machados · — | 193,0 | explosao | 100% | 5,4 s | 0,00 | 0% | 0% |
+| Destreza | dois_machados · — | 193,0 | ruptura | 100% | 6,3 s | 0,00 | 0% | 5% |
+| Destreza | dois_machados · — | 193,0 | defensiva | 100% | 6,5 s | 0,00 | 0% | 1% |
+| Força+Destreza | dois_machados · — | 198,8 | sustentado | 100% | 5,4 s | 0,00 | 0% | 1% |
+| Força+Destreza | dois_machados · — | 198,8 | explosao | 100% | 5,4 s | 0,00 | 0% | 1% |
+| Força+Destreza | dois_machados · — | 198,8 | ruptura | 100% | 5,9 s | 0,00 | 0% | 5% |
+| Força+Destreza | dois_machados · — | 198,8 | defensiva | 100% | 5,9 s | 0,00 | 0% | 0% |
+| Tanque | dois_machados · — | 169,3 | sustentado | 100% | 7,0 s | 0,00 | 0% | 0% |
+| Tanque | dois_machados · — | 169,3 | explosao | 100% | 7,0 s | 0,00 | 0% | 0% |
+| Tanque | dois_machados · — | 169,3 | ruptura | 100% | 7,3 s | 0,00 | 0% | 0% |
+| Tanque | dois_machados · — | 169,3 | defensiva | 100% | 7,3 s | 0,00 | 0% | 0% |
+| Leitor (PER) | dois_machados · — | 183,5 | sustentado | 100% | 6,5 s | 0,00 | 0% | 10% |
+| Leitor (PER) | dois_machados · — | 183,5 | explosao | 100% | 6,5 s | 0,00 | 0% | 10% |
+| Leitor (PER) | dois_machados · — | 183,5 | ruptura | 100% | 6,8 s | 0,00 | 0% | 15% |
+| Leitor (PER) | dois_machados · — | 183,5 | defensiva | 100% | 6,7 s | 0,00 | 0% | 0% |
 | Mago | espada_curta · fogo | 168,1 | sustentado | 100% | 5,8 s | 0,00 | 0% | 0% |
 | Mago | espada_curta · fogo | 168,1 | explosao | 100% | 5,8 s | 0,00 | 1% | 0% |
 | Mago | espada_curta · fogo | 168,1 | ruptura | 100% | 7,9 s | 0,00 | 0% | 0% |
 | Mago | espada_curta · fogo | 168,1 | defensiva | 100% | 5,8 s | 0,00 | 0% | 0% |
-| Lâmina mágica | dois_machados · — | 181,8 | sustentado | 100% | 5,8 s | 0,00 | 0% | 0% |
-| Lâmina mágica | dois_machados · — | 181,8 | explosao | 100% | 5,8 s | 0,00 | 0% | 0% |
-| Lâmina mágica | dois_machados · — | 181,8 | ruptura | 100% | 6,4 s | 0,00 | 0% | 4% |
-| Lâmina mágica | dois_machados · — | 181,8 | defensiva | 100% | 6,5 s | 0,00 | 0% | 1% |
+| Lâmina mágica | dois_machados · — | 181,5 | sustentado | 100% | 5,7 s | 0,00 | 0% | 0% |
+| Lâmina mágica | dois_machados · — | 181,5 | explosao | 100% | 5,7 s | 0,00 | 0% | 0% |
+| Lâmina mágica | dois_machados · — | 181,5 | ruptura | 100% | 6,4 s | 0,00 | 0% | 4% |
+| Lâmina mágica | dois_machados · — | 181,5 | defensiva | 100% | 6,4 s | 0,00 | 0% | 1% |
 | Generalista | espada_curta · fogo | 186,1 | sustentado | 100% | 6,2 s | 0,00 | 0% | 0% |
 | Generalista | espada_curta · fogo | 186,1 | explosao | 100% | 6,2 s | 0,00 | 0% | 0% |
 | Generalista | espada_curta · fogo | 186,1 | ruptura | 100% | 8,0 s | 0,00 | 0% | 0% |
@@ -104,16 +106,16 @@ Busca igual para todos: as 11 armas × (sem elemento + cada um dos 6); as 6 melh
 
 | Perfil | Política | Médio: vitória [IC] | Médio: tempo ± IC | Bom: tempo ± IC | Δ vs melhor | Δ vs mediana |
 |---|---|---|---|---|---|---|
-| Força | sustentado | 100% [99–100] | 6,7 ± 0,1 s | 6,6 ± 0,1 s | +23% | +8% |
-| Destreza | sustentado | 100% [99–100] | 5,5 ± 0,0 s | 5,4 ± 0,0 s | +1% | -11% |
-| Força+Destreza | sustentado | 100% [99–100] | 5,4 ± 0,0 s | 5,4 ± 0,0 s | +0% | -12% |
-| Tanque | defensiva | 100% [99–100] | 7,1 ± 0,1 s | 7,2 ± 0,1 s | +31% | +16% |
-| Leitor (PER) | sustentado | 100% [99–100] | 6,7 ± 0,1 s | 6,6 ± 0,1 s | +22% | +8% |
-| Mago | explosao | 100% [99–100] | 5,8 ± 0,1 s | 5,8 ± 0,1 s | +7% | -6% |
-| Lâmina mágica | sustentado | 100% [99–100] | 5,9 ± 0,0 s | 6,0 ± 0,0 s | +8% | -5% |
-| Generalista | defensiva | 100% [99–100] | 6,2 ± 0,0 s | 6,2 ± 0,1 s | +13% | +0% |
+| Força | sustentado | 100% [99–100] | 6,8 ± 0,1 s | 6,8 ± 0,1 s | +27% | +11% |
+| Destreza | sustentado | 100% [99–100] | 5,4 ± 0,0 s | 5,3 ± 0,0 s | +0% | -13% |
+| Força+Destreza | sustentado | 100% [99–100] | 5,4 ± 0,0 s | 5,3 ± 0,0 s | +0% | -13% |
+| Tanque | sustentado | 100% [99–100] | 7,0 ± 0,1 s | 6,9 ± 0,1 s | +30% | +13% |
+| Leitor (PER) | sustentado | 100% [99–100] | 6,5 ± 0,1 s | 6,5 ± 0,1 s | +22% | +6% |
+| Mago | explosao | 100% [99–100] | 5,8 ± 0,1 s | 5,8 ± 0,1 s | +8% | -6% |
+| Lâmina mágica | sustentado | 100% [99–100] | 5,8 ± 0,0 s | 5,8 ± 0,0 s | +7% | -6% |
+| Generalista | defensiva | 100% [99–100] | 6,2 ± 0,0 s | 6,2 ± 0,1 s | +15% | +0% |
 
-**Contra o melhor** (denominador do contrato): 5 de 8 perfis a ≤ 15%. Fora: Força (+23%), Tanque (+31%), Leitor (PER) (+22%).
+**Contra o melhor** (denominador do contrato): 5 de 8 perfis a ≤ 15%. Fora: Força (+27%), Tanque (+30%), Leitor (PER) (+22%).
 
 ## 4. Nível 100 (camada 10, s = 1,09^9, atributos até 60, até 2 elementos)
 
@@ -121,16 +123,16 @@ Busca: as 3 melhores armas do perfil no nível 15 × (cada elemento + cada par d
 
 | Perfil | Atributos | Arma · elementos | Boneco ÷ s | Vitória | Tempo ± IC | Δ vs melhor | Sem energia |
 |---|---|---|---|---|---|---|---|
-| Força | FOR60 VIG60 | dois_machados · fogo | 200,8 | 100% | 5,9 ± 0,1 s | +38% | 0% |
-| Destreza | FOR35 DES60 VIG35 | dois_machados · fogo | 229,9 | 100% | 4,4 ± 0,1 s | +1% | 0% |
-| Força+Destreza | FOR60 DES60 VIG15 | dois_machados · fogo | 242,8 | 100% | 4,3 ± 0,1 s | +0% | 0% |
-| Tanque | FOR50 VIG60 | dois_machados · fogo+vento | 194,9 | 100% | 6,5 ± 0,1 s | +51% | 0% |
-| Leitor (PER) | DES55 PER60 | dois_machados · fogo | 207,4 | 100% | 5,2 ± 0,1 s | +21% | 0% |
-| Mago | VIG15 POT60 CON60 | espada_curta · fogo | 187,5 | 100% | 4,5 ± 0,1 s | +6% | 0% |
-| Lâmina mágica | FOR50 DES20 POT50 | dois_machados · fogo | 241,5 | 100% | 4,9 ± 0,1 s | +14% | 0% |
-| Generalista | FOR30 DES30 VIG30 POT30 CON30 PER30 | dois_machados · fogo+agua | 245,7 | 100% | 5,0 ± 0,1 s | +17% | 0% |
+| Força | FOR60 VIG60 | dois_machados · fogo | 205,2 | 100% | 5,8 ± 0,1 s | +37% | 0% |
+| Destreza | FOR35 DES60 VIG35 | espada_curta · fogo | 229,7 | 100% | 5,4 ± 0,1 s | +28% | 0% |
+| Força+Destreza | FOR60 DES60 VIG15 | dois_machados · fogo | 238,1 | 100% | 4,2 ± 0,1 s | +0% | 0% |
+| Tanque | FOR50 VIG60 | dois_machados · fogo | 196,7 | 100% | 5,9 ± 0,1 s | +40% | 0% |
+| Leitor (PER) | DES55 PER60 | dois_machados · fogo | 208,0 | 100% | 5,5 ± 0,1 s | +29% | 0% |
+| Mago | VIG15 POT60 CON60 | espada_curta · fogo | 187,5 | 100% | 4,5 ± 0,1 s | +8% | 0% |
+| Lâmina mágica | FOR50 DES20 POT50 | dois_machados · fogo | 243,2 | 100% | 4,7 ± 0,1 s | +12% | 0% |
+| Generalista | FOR30 DES30 VIG30 POT30 CON30 PER30 | dois_machados · fogo+agua | 244,9 | 100% | 5,0 ± 0,1 s | +19% | 0% |
 
-Nível 100: 4 de 8 perfis a ≤ 15% do melhor.
+Nível 100: 3 de 8 perfis a ≤ 15% do melhor.
 
 ### Ensaio: Mago no nível 100 em luta longa (constructo com vida ×5, 60 s)
 
@@ -153,19 +155,19 @@ Nível 100: 4 de 8 perfis a ≤ 15% do melhor.
 | duas_katanas | 179,4 | 179,4 | +8% |
 | machado_grande | 128,3 | 145,0 | -13% |
 | machado_pequeno | 164,5 | 164,5 | -1% |
-| dois_machados | 198,9 | 198,9 | +19% |
+| dois_machados | 198,4 | 198,4 | +19% |
 | arco | 158,3 | 158,3 | -5% |
 
 | Perfil | Arma · elemento escolhidos | Constructo: tempo | Δ vs melhor |
 |---|---|---|---|
-| Força | dois_machados · — | 7,1 ± 0,1 s | +30% |
-| Destreza | dois_machados · — | 5,5 ± 0,1 s | +1% |
+| Força | dois_machados · — | 7,0 ± 0,1 s | +31% |
+| Destreza | dois_machados · — | 5,4 ± 0,1 s | +0% |
 | Força+Destreza | dois_machados · — | 5,4 ± 0,1 s | +0% |
-| Tanque | dois_machados · — | 7,4 ± 0,2 s | +36% |
+| Tanque | dois_machados · — | 7,0 ± 0,1 s | +31% |
 | Leitor (PER) | dois_machados · — | 6,6 ± 0,1 s | +22% |
-| Mago | katana · fogo | 6,5 ± 0,1 s | +19% |
-| Lâmina mágica | dois_machados · — | 5,9 ± 0,1 s | +9% |
-| Generalista | espada_curta · fogo | 6,7 ± 0,1 s | +23% |
+| Mago | duas_katanas · fogo | 6,4 ± 0,1 s | +18% |
+| Lâmina mágica | dois_machados · — | 5,8 ± 0,1 s | +8% |
+| Generalista | dois_machados · — | 6,8 ± 0,1 s | +27% |
 
 Com o pacote: 3 de 8 perfis a ≤ 15% do melhor; elementos escolhidos: nenhum, fogo.
 
@@ -177,50 +179,50 @@ Ataques do contrato: Golpe pesado 300/8 s (frontal, quem tem a ameaça; esquiva,
 
 | Grupo | Vitórias [IC] | Tempo da vitória ± IC | Duração média | Resultado | Quedas | Reanimações | Poções | Recebido/min por jogador ÷ s | Tempo em âncoras | Gritos cortados | Quedas sem reserva | Flanco disponível |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| Misto, médio | 21/40 = 53% [37–67] | 3,4 ± 0,2 min | 3,7 min | vitória 21, derrota 19 | 5,2 | 0,8 | 16,8 | 479 | 11% | 1,6/2,7 | 4,4 | 52% |
-| Misto, bom | 40/40 = 100% [91–100] | 3,0 ± 0,0 min | 3,0 min | vitória 40 | 1,1 | 0,3 | 7,5 | 336 | 13% | 1,5/2,0 | 0,9 | 53% |
+| Misto, médio | 23/40 = 57% [42–71] | 3,5 ± 0,2 min | 3,7 min | vitória 23, derrota 17 | 5,1 | 0,8 | 16,7 | 476 | 11% | 1,6/2,6 | 4,3 | 53% |
+| Misto, bom | 40/40 = 100% [91–100] | 3,0 ± 0,0 min | 3,0 min | vitória 40 | 1,1 | 0,3 | 7,6 | 338 | 13% | 1,5/2,0 | 0,9 | 53% |
 
 Dano por jogador no grupo misto médio:
 
 | Perfil | DPS ÷ s | Recebido/min ÷ s | Quedas |
 |---|---|---|---|
-| Tanque | 94,1 | 474 | 0,50 |
-| Força | 73,2 | 543 | 0,68 |
-| Destreza | 100,2 | 539 | 0,88 |
-| Leitor (PER) | 107,3 | 448 | 1,18 |
-| Mago | 124,1 | 407 | 0,68 |
-| Lâmina mágica | 70,2 | 463 | 1,28 |
+| Tanque | 95,2 | 464 | 0,45 |
+| Força | 73,1 | 542 | 0,68 |
+| Destreza | 99,9 | 536 | 0,88 |
+| Leitor (PER) | 106,4 | 445 | 1,18 |
+| Mago | 123,4 | 407 | 0,65 |
+| Lâmina mágica | 69,9 | 461 | 1,28 |
 
 ### 5.2 Grupos de 6 cópias (rotas das âncoras dependem da composição)
 
 | Grupo | Vitórias [IC] | Tempo da vitória ± IC | Duração média | Resultado | Quedas | Reanimações | Poções | Recebido/min por jogador ÷ s | Tempo em âncoras | Gritos cortados | Quedas sem reserva | Flanco disponível |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 6 × Força (machado_grande, fogo) | 0/20 = 0% [0–16] | — ± 0,0 min | 2,8 min | derrota 14, sem rota 6 | 5,4 | 0,3 | 21,8 | 762 | 12% | 0,0/3,0 | 5,0 | 51% |
-| 6 × Destreza (duas_espadas, vento) | 11/20 = 55% [34–74] | 3,2 ± 0,2 min | 3,3 min | derrota 9, vitória 11 | 5,0 | 0,7 | 16,3 | 583 | 12% | 0,0/2,4 | 4,3 | 52% |
+| 6 × Força (machado_grande, fogo) | 0/20 = 0% [0–16] | — ± 0,0 min | 2,8 min | derrota 14, sem rota 6 | 5,4 | 0,3 | 21,8 | 763 | 12% | 0,0/3,0 | 5,0 | 51% |
+| 6 × Destreza (duas_espadas, vento) | 9/20 = 45% [26–66] | 3,2 ± 0,2 min | 3,3 min | derrota 11, vitória 9 | 5,2 | 0,7 | 16,4 | 584 | 12% | 0,0/2,5 | 4,5 | 52% |
 | 6 × Leitor (PER) (arco, raio) | 19/20 = 95% [76–99] | 3,7 ± 0,4 min | 3,8 min | vitória 19, derrota 1 | 2,6 | 1,0 | 10,2 | 310 | 6% | 2,0/2,0 | 1,6 | 43% |
-| 6 × Tanque (espada_e_escudo, terra) | 19/20 = 95% [76–99] | 3,5 ± 0,2 min | 3,6 min | vitória 19, derrota 1 | 1,7 | 0,1 | 17,3 | 486 | 13% | 0,4/2,8 | 1,6 | 53% |
+| 6 × Tanque (espada_e_escudo, terra) | 19/20 = 95% [76–99] | 3,4 ± 0,1 min | 3,5 min | vitória 19, derrota 1 | 1,3 | 0,0 | 17,3 | 495 | 13% | 0,3/2,8 | 1,3 | 53% |
 
 ### 5.3 Ensaios (grupo misto, jogador médio, **mesmas sementes da linha base**)
 
 | Grupo | Vitórias [IC] | Tempo da vitória ± IC | Duração média | Resultado | Quedas | Reanimações | Poções | Recebido/min por jogador ÷ s | Tempo em âncoras | Gritos cortados | Quedas sem reserva | Flanco disponível |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| Linha base (repete 5.1) | 21/40 = 53% [37–67] | 3,4 ± 0,2 min | 3,7 min | vitória 21, derrota 19 | 5,2 | 0,8 | 16,8 | 479 | 11% | 1,6/2,7 | 4,4 | 52% |
+| Linha base (repete 5.1) | 23/40 = 57% [42–71] | 3,5 ± 0,2 min | 3,7 min | vitória 23, derrota 17 | 5,1 | 0,8 | 16,7 | 476 | 11% | 1,6/2,6 | 4,3 | 53% |
 | Poção sem guardar reserva | 23/40 = 57% [42–71] | 3,5 ± 0,2 min | 3,7 min | vitória 23, derrota 17 | 4,5 | 0,2 | 18,1 | 474 | 11% | 1,7/2,7 | 4,3 | 53% |
-| Grok: reserva 900 | 37/40 = 93% [80–97] | 3,3 ± 0,1 min | 3,4 min | vitória 37, derrota 3 | 3,2 | 0,6 | 19,0 | 505 | 12% | 1,7/2,3 | 2,6 | 53% |
-| Grok: bloqueio 15% + área 40% bloqueável | 24/40 = 60% [45–74] | 3,4 ± 0,2 min | 3,7 min | vitória 24, derrota 16 | 4,7 | 0,6 | 16,2 | 467 | 11% | 1,7/2,7 | 4,0 | 52% |
-| ChatGPT: escudo 20% | 23/40 = 57% [42–71] | 3,5 ± 0,2 min | 3,7 min | vitória 23, derrota 17 | 5,1 | 0,8 | 16,8 | 477 | 11% | 1,6/2,7 | 4,3 | 52% |
-| ChatGPT: P_arma 65, dano do chefe 100% | 0/40 = 0% [0–9] | — ± 0,0 min | 4,4 min | derrota 40 | 7,1 | 1,1 | 18,8 | 459 | 9% | 1,6/4,1 | 5,9 | 50% |
-| ChatGPT: P_arma 65, dano do chefe 75% | 3/40 = 8% [3–20] | 5,7 ± 1,2 min | 5,5 min | derrota 37, vitória 3 | 6,2 | 0,4 | 19,4 | 351 | 7% | 2,6/4,7 | 5,8 | 52% |
-| ChatGPT: P_arma 65, dano do chefe 60% | 31/40 = 78% [62–88] | 5,6 ± 0,2 min | 5,8 min | vitória 31, derrota 9 | 4,1 | 0,2 | 16,9 | 297 | 7% | 2,7/3,9 | 3,9 | 53% |
-| ChatGPT: P_arma 65, dano do chefe 50% | 40/40 = 100% [91–100] | 5,2 ± 0,1 min | 5,2 min | vitória 40 | 1,8 | 0,1 | 12,8 | 267 | 8% | 2,6/3,5 | 1,8 | 53% |
-| Grok: pacote (vida 175 mil, dano −33%, reserva 900, reanimação 50 fixos, bloqueio 15%, área 40%) | 40/40 = 100% [91–100] | 4,1 ± 0,0 min | 4,1 min | vitória 40 | 2,1 | 1,9 | 14,7 | 354 | 10% | 2,4/3,0 | 0,0 | 53% |
+| Grok: reserva 900 | 37/40 = 93% [80–97] | 3,3 ± 0,1 min | 3,4 min | vitória 37, derrota 3 | 3,2 | 0,6 | 19,0 | 504 | 12% | 1,7/2,3 | 2,6 | 53% |
+| Grok: bloqueio 15% + área 40% bloqueável | 25/40 = 63% [47–76] | 3,4 ± 0,2 min | 3,7 min | vitória 25, derrota 15 | 4,6 | 0,6 | 16,3 | 463 | 11% | 1,7/2,7 | 3,9 | 52% |
+| ChatGPT: escudo 20% | 23/40 = 57% [42–71] | 3,5 ± 0,2 min | 3,7 min | vitória 23, derrota 17 | 5,1 | 0,8 | 16,7 | 474 | 11% | 1,6/2,7 | 4,3 | 52% |
+| ChatGPT: P_arma 65, dano do chefe 100% | 0/40 = 0% [0–9] | — ± 0,0 min | 4,4 min | derrota 40 | 7,2 | 1,2 | 18,7 | 454 | 9% | 1,7/4,2 | 5,9 | 50% |
+| ChatGPT: P_arma 65, dano do chefe 75% | 1/40 = 3% [0–13] | 6,1 ± 0,0 min | 5,6 min | derrota 39, vitória 1 | 6,4 | 0,4 | 19,6 | 350 | 7% | 2,5/4,7 | 6,0 | 52% |
+| ChatGPT: P_arma 65, dano do chefe 60% | 29/40 = 73% [57–84] | 5,6 ± 0,2 min | 5,8 min | vitória 29, derrota 11 | 4,0 | 0,2 | 17,2 | 297 | 7% | 2,6/3,9 | 3,8 | 53% |
+| ChatGPT: P_arma 65, dano do chefe 50% | 40/40 = 100% [91–100] | 5,2 ± 0,1 min | 5,2 min | vitória 40 | 1,9 | 0,1 | 12,3 | 264 | 8% | 2,5/3,5 | 1,8 | 53% |
+| Grok: pacote (vida 175 mil, dano −33%, reserva 900, reanimação 50 fixos, bloqueio 15%, área 40%) | 40/40 = 100% [91–100] | 4,1 ± 0,0 min | 4,1 min | vitória 40 | 2,2 | 2,0 | 14,7 | 354 | 10% | 2,2/3,0 | 0,0 | 53% |
 
 ### 5.4 Chefes sintéticos (testes de pressão, não são o AO.1)
 
 | Grupo | Vitórias [IC] | Tempo da vitória ± IC | Duração média | Resultado | Quedas | Reanimações | Poções | Recebido/min por jogador ÷ s | Tempo em âncoras | Gritos cortados | Quedas sem reserva | Flanco disponível |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| Sintético v2: 300/2,6 s (um) + 200/10 s (todos) | 0/40 = 0% [0–9] | — ± 0,0 min | 2,4 min | derrota 40 | 6,4 | 0,4 | 19,6 | 844 | 0% | 0,0/0,0 | 6,0 | 73% |
-| Sintético do ChatGPT: 300/8 s + 120/20 s | 40/40 = 100% [91–100] | 2,4 ± 0,0 min | 2,4 min | vitória 40 | 0,9 | 0,0 | 4,4 | 290 | 0% | 0,0/0,0 | 0,9 | 37% |
+| Sintético v2: 300/2,6 s (um) + 200/10 s (todos) | 0/40 = 0% [0–9] | — ± 0,0 min | 2,4 min | derrota 40 | 6,4 | 0,4 | 19,5 | 845 | 0% | 0,0/0,0 | 5,9 | 73% |
+| Sintético do ChatGPT: 300/8 s + 120/20 s | 40/40 = 100% [91–100] | 2,4 ± 0,0 min | 2,4 min | vitória 40 | 0,9 | 0,0 | 4,0 | 277 | 0% | 0,0/0,0 | 0,9 | 37% |
 
 Tempo-alvo do contrato: 6–10 min (estimativa AI.6 ≈ 5,8 min sem erros).
 
@@ -255,7 +257,8 @@ Técnicas mágicas medidas no perfil Mago de referência (POT20/CON15/VIG10); f�
 
 - Leitura do grupo "contra distância" (puxão) e "contra interrupção" (conjuração dupla); só quebra-guarda e golpe atrasado entram.
 - Formas de mistura sem efeito numérico (apoio, ocultar, deslocamento, lentidão) ficam fora da busca; Água (redistribuir reserva) não está no motor.
-- Aggro: falta a parcela de dano interceptado e de cura (não há esses eventos no motor).
+- Aggro: falta a parcela de dano interceptado e de cura (não há esses eventos no motor). Adds usam a mesma ameaça do chefe (simplificação).
+- Formas de mistura usadas só pela parte numérica (dano, impacto, postura); controle e apoio de formas mistas ficam omitidos.
 - Fadiga 100 do chefe (o contrato não define o efeito em números).
 - Regressão das âncoras na fase 2 (a estratégia simulada faz uma âncora por vez, sem deixá-la parcial e sozinha).
 - Guardas elementais da âncora 3 atacando quem está lá (a rota de Controle só custa tempo).

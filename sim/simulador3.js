@@ -21,7 +21,7 @@ const VERSAO_DADOS=require('crypto').createHash('sha1').update(fs.readFileSync(p
 
 // ---------- utilidades ----------
 function mulberry(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
-let RND=Math.random;const GLOBAL={pArma:110,fogoArm:30,flanco:1.3};const gauss=()=>{let u=0,v=0;while(!u)u=RND();while(!v)v=RND();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v);};
+let RND=Math.random;const GLOBAL={pArma:110,fogoArm:30,flanco:1.3,vidaComum:1,frenesiVel:.03,frenesiPorAcerto:true};const gauss=()=>{let u=0,v=0;while(!u)u=RND();while(!v)v=RND();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v);};
 const rr=x=>x/(x+40),Cc=x=>x+x*x/40;
 const media=a=>a.length?a.reduce((q,x)=>q+x,0)/a.length:NaN;
 function tq(df){const z=1.959964;if(df<1)return NaN;return z+(z**3+z)/(4*df)+(5*z**5+16*z**3+3*z)/(96*df*df)+(3*z**7+19*z**5+17*z**3-15*z)/(384*df**3);}
@@ -120,7 +120,7 @@ const TIPOS={
     {nome:'Chuva de pedras',dano:180,aviso:1.5,I:0,int:25,alvo:'chuva',resp:'m'}]},
   sint:{vida:120000,pos:1000,A:50,grande:1,chefe:1,atq:[]} // padrão definido por cenário
 };
-function inimigo(tipo,s,mod){const T=TIPOS[tipo];mod=mod||{};const vm=tipo==='boneco'?1:(mod.vidaMult||1);
+function inimigo(tipo,s,mod){const T=TIPOS[tipo];mod=mod||{};const vm=tipo==='boneco'?1:(mod.vidaMult||1)*(T.chefe?1:GLOBAL.vidaComum);
   const atq=(mod.atq||T.atq).map(x=>Object.assign({},x,{prox:(x.int*(0.3+0.4*RND()))+1}));
   return {tipo,vida:T.vida*s*vm,vidaMax:T.vida*s*vm,pos:T.pos,posMax:T.pos,A:T.A*s,atq,grande:!!T.grande,chefe:!!T.chefe,s,
     atord:0,resistQ:0,semImp:9,armRed:0,armRedT:0,exposto:0,lento:0,brasa:0,quebras:0,fraco:0,proxFraco:6,anuncio:null,contato:null,exausto:0,invuln:false,furia:false,grito:0};}
@@ -178,11 +178,11 @@ function resolverAcerto(p,ac,hi,alvos,t,cena){if(ac.cancelada&&!hi.lancado)retur
     i++;}
   // ganhos de mecânica de arma só quando o acerto acontece (B2 do loop 6)
   if(hi.primeiro&&!hi.derivada)ganhosArma(p,ac,t);
+  if(!hi.derivada&&p.b.arma==='dois_machados'&&!ac.magico){p.frenesi=Math.min(5,p.frenesi+(GLOBAL.frenesiPorAcerto?1:0)+(hi.primeiro&&ac.frenesiExtra?ac.frenesiExtra:0));p.frenesiT=2;} // +1 por acerto original; extra da técnica 1× por ação
   if(hi.primeiro&&ac.el){const el=ac.el==='@'?p.b.elems[0]:ac.el;if(el)elemento(p,e0,el,alvos,t,cena);}
   if(hi.primeiro&&ac.magico&&ac.custoBase>=15&&t-p.ganhoCarga>=2&&p.cargas<3){p.cargas++;p.ganhoCarga=t;p.cargaT=8;}}
 function ganhosArma(p,ac,t){const b=p.b;
   if(ac.nome==='cruzado'||ac.ritmoConsome)p.ritmo=0;else if(ac.nome==='leve'&&b.arma==='duas_espadas')p.ritmo=Math.min(4,RND()<p.hab.dir?p.ritmo+1:0);
-  if(b.arma==='dois_machados'&&!ac.magico){p.frenesi=Math.min(5,p.frenesi+1+(ac.frenesiExtra||0));p.frenesiT=2;}
   if(b.arma==='desarmado'&&!ac.magico){if(RND()<p.hab.dir)p.fluxo=Math.min(5,p.fluxo+1);else p.fluxo=0;}
   if(ac.nome==='pesado'&&b.arma==='machado_pequeno')p.marca=6;}
 // efeitos elementais (D.3) e misturas (07)
@@ -203,10 +203,11 @@ function checarCond(c,p,e,cena){switch(c){case 'flanco':return !!(cena.flanco(p)
   case 'ritmo>=3':return p.ritmo>=3;case 'comum':return !e.grande;case 'postura<30':return e.pos<e.posMax*.3;case 'postura<20':return e.pos<e.posMax*.2;default:return false;}}
 
 // ---------- escolha da ação ofensiva (respeita o aviso dos ataques que vêm) ----------
-function escolher(p,alvos,t,pol,cena,hab){const a=p.a,b=p.b,A=b.opc.armaMod?Object.assign({},ARMAS[b.arma],b.opc.armaMod):ARMAS[b.arma];const vivos=alvos.filter(x=>x.vida>0&&!x.ancora&&!x.invulTotal);if(!vivos.length)return null;
+function escolher(p,alvos,t,pol,cena,hab){if(p.bainha&&p.prazo<Infinity)return null; // segurando a bainha até o golpe
+const a=p.a,b=p.b,A=b.opc.armaMod?Object.assign({},ARMAS[b.arma],b.opc.armaMod):ARMAS[b.arma];const vivos=alvos.filter(x=>x.vida>0&&!x.ancora&&!x.invulTotal);if(!vivos.length)return null;
   const e=cena.alvoDe(p,vivos);const nV=vivos.length;const fl=cena.flanco(p);const janela=e.atord>0||p.abertura>0||e.exausto>0;
   const prazo=p.prazo; // instante do próximo ataque que exige reação deste jogador (Infinity se nenhum)
-  const vx=b.arma==='dois_machados'&&!b.opc.semFrenesiVel?Math.min(.15,.03*p.frenesi):0;const conj=e.conjurando&&!e.conjurando.cortado&&t<e.conjurando.fim?e.conjurando:null;
+  const vx=b.arma==='dois_machados'&&!b.opc.semFrenesiVel?Math.min(.15,GLOBAL.frenesiVel*p.frenesi):0;const conj=e.conjurando&&!e.conjurando.cortado&&t<e.conjurando.fim?e.conjurando:null;
   let best=null,bv=-1;
   const add=ac=>{if(ac.custoR>p.res||ac.custoE>p.ene)return;const F=ac.F;const tot=F.prep+F.exec+F.rec;
     if(prazo<Infinity&&!p.ganancioso){const pronto=t+F.prep+F.exec+0.6*F.rec;if(pronto>prazo-0.12&&t+tot>prazo-0.12)return;}
@@ -226,7 +227,7 @@ function escolher(p,alvos,t,pol,cena,hab){const a=p.a,b=p.b,A=b.opc.armaMod?Obje
   add(mk('pesado',pK,1,pI,'pesado',pT,'pesado',{custoR:15,alvos:b.arma==='katana'?99:1,grande:true,superArmadura:b.arma==='machado_grande'&&(b.opc.cargaFixa||pol.carga)>=2}));
   if(e.fraco>0)add(mk('ponto',1.0,1,15,'ponto',.8,'leve',{fraco:true}));
   if(p.imp>=Math.max(20,pol.usaJanela?50:70)&&(!pol.usaJanela||janela||!e.chefe)){const ig=p.imp; // Golpe de Ímpeto (A.4): golpe principal + continuação como trecho próprio
-    const contK=A.lK*A.h*(ig/100)*(1+3*rA(a,'DES')),contT=0.45*ig/100,contI=0.35*A.lI*A.h*ig/100;const ac=mk('impeto',pK,1,pI,'pesado',pT,'pesado',{grande:true,ig,cont:{K:contK,T:contT,I:contI}});
+    const contK=A.lK*A.h*(ig/100)*(1+3*rA(a,'DES')),contT=0.45*ig/100,contI=0.35*A.lI*A.h*ig/100*(ig>=70?1.08:1);const ac=mk('impeto',pK,1,pI,'pesado',pT,'pesado',{grande:true,ig,cont:{K:contK,T:contT,I:contI}});
     ac.Kval=pK+contK*multP(a,'leve')/multP(a,'pesado');ac.F=Object.assign({},ac.F,{rec:ac.F.rec+contT});add(ac);}
   for(const fc of b.tec){if((p.cd[fc.key]||0)>0)continue;if(!fc.K&&!(fc.interrompe&&conj))continue;let K=fc.K,I=fc.I,condAcerto=null;
     if(fc.cond){const ok=checarCond(fc.cond,p,e,cena);if(!ok){if(fc.altInicio&&fc.alt){K=fc.alt.K;I=fc.alt.I!=null?fc.alt.I:I;}else continue;}else if(fc.alt&&!fc.altInicio)condAcerto=fc.cond;}
@@ -243,7 +244,7 @@ function escolher(p,alvos,t,pol,cena,hab){const a=p.a,b=p.b,A=b.opc.armaMod?Obje
       raioQ:fc.el==='raio'?(p.b.q.raio||0):0,ritmoConsome:fc.ritmoConsome,frenesiExtra:fc.frenesi});}
   return best;}
 // inicia a ação: agenda os acertos dentro da execução; custo e recarga no fim do preparo
-function iniciar(p,ac,t,cena){const F=ac.F;Object.assign(ac,{t0:t,tPrepFim:t+F.prep,tExecFim:t+F.prep+F.exec,fim:t+F.prep+F.exec+F.rec,rec:F.rec,ofensiva:true,pago:false,cancelada:false});
+function iniciar(p,ac,t,cena){p.bainha=null;const F=ac.F;Object.assign(ac,{t0:t,tPrepFim:t+F.prep,tExecFim:t+F.prep+F.exec,fim:t+F.prep+F.exec+F.rec,rec:F.rec,ofensiva:true,pago:false,cancelada:false});
   const Itot=impactoAcao(p,ac);const nh=Math.max(1,ac.h);ac.hits=[];
   if(ac.tiq>1){ // zona/canal lançado no fim da execução: tiques a cada 1 s, persistem
     ac.lanca=[];for(let k=0;k<ac.tiq;k++)ac.lanca.push({t:ac.tExecFim+k,K:ac.K,I:Itot/ac.tiq,primeiro:k===0,derivada:k>0});}
@@ -255,8 +256,8 @@ function pagar(p,ac,t){ac.pago=true;p.res-=ac.custoR;if(ac.custoR)p.semGastoR=0;
 function lancar(p,ac){ac.lancou=true;for(const x of ac.lanca)cena.efeitosAcao.push({t:x.t,dono:p,ac,hi:Object.assign({lancado:true},x)});}
 let cena=null;
 // ---------- respostas defensivas ----------
-function tomar(p,dano,I,t,fonte){const M=200*p.s/(200*p.s+p.A);const d=dano*M*(p.gritoMais>0?1.2:1);p.vida-=d;p.recebido+=d;
-  if(p.barreiraT>0&&p.barreira>0){const ab=Math.min(p.barreira,I);p.barreira-=ab;I-=ab;}p.pos-=I;p.semPos=0;p.fluxo=0;p.ritmo=0;p.frenesi=0;
+function sofrer(p,dano,I){const M=200*p.s/(200*p.s+p.A);const d=dano*M*(p.gritoMais>0?1.2:1);p.vida-=d;p.recebido+=d;if(p.barreiraT>0&&p.barreira>0){const ab=Math.min(p.barreira,I);p.barreira-=ab;I-=ab;}p.pos-=I;p.semPos=0;p.bainha=null;}
+function tomar(p,dano,I,t,fonte){sofrer(p,dano,I);p.semPos=0;p.fluxo=0;p.ritmo=0;p.frenesi=0;
   if(p.tarefa&&p.tarefa.tipo==='canal')p.tarefa.interrompida=true;if(p.ajudando){p.ajudando.ajudante=null;p.ajudando=null;}
   if(I>0&&!(p.acao&&p.acao.superArmadura&&!fonte.chefe)){cortarAcao(p);p.flinch=0.4;}
   if(p.pos<=0){p.pos=p.posMax*.4;p.atord=2;cortarAcao(p);}if(p.vida<=0)cair(p,t);return 'golpe';}
@@ -270,14 +271,15 @@ function responder(p,e,atq,t,pol,hab,leitura){const a=p.a,A=ARMAS[p.b.arma];cons
     if(p.b.opc.areaBloq&&ARMAS[p.b.arma].bloq!=null&&atq.nome!=='Investida'){const red=p.b.opc.areaBloq;return tomar(p,dano*(1-red),I*(1-red),t,e);} // ensaio: bloqueio frontal reduz área
     return tomar(p,dano,I,t,e);}
   const err=gauss()*hab.sigma+(leitura==='atraso'?0.12*(1-hab.precisao):0);const r=RND();const podeB=A.bloq!=null&&atq.resp.includes('b'),podeP=atq.resp.includes('p'),podeE=atq.resp.includes('e');
-  if(podeP&&r<pol.parry){let jan=Math.min(.18,.14+.067*rA(a,'PER'));if(p.b.arma==='espada_longa'&&pol.guarda==='baixa')jan+=.02;const saque=p.b.arma==='katana'&&t-(p.ultFimOf||-9)>=0.4;if(saque)jan+=.04;if(leitura==='atraso')jan+=.06;jan=Math.min(.24,jan);
+  const bainhaOk=p.b.arma==='katana'&&p.bainha&&t-p.bainha.t0>=0.4;
+  if(podeP&&(r<pol.parry||bainhaOk)){let jan=Math.min(.18,.14+.067*rA(a,'PER'));if(p.b.arma==='espada_longa'&&pol.guarda==='baixa')jan+=.02;const saque=p.b.arma==='katana'&&p.bainha&&t-p.bainha.t0>=0.4;if(saque)jan+=.04;if(leitura==='atraso')jan+=.06;jan=Math.min(.24,jan);
     p.flinch=0.25;if(Math.abs(err)<=jan/2){ganhaImp(p,20,t);golpe(p,e,0,25*(1+0.5*rA(a,'FOR')+0.5*rA(a,'PER')),'leve',{derivada:false},t);
-      if(marcado)abrir(p,e,pol);if(p.b.arma==='duas_katanas'){golpe(p,e,.6,6,'leve',{},t);golpe(p,e,.6,6,'leve',{},t);}if(saque){const carga=Math.max(0,Math.min(1,(t-p.ultFimOf-0.4)/1.2));golpe(p,e,1.2+0.8*carga,24*multI(a),'leve',{},t);}return 'parry';}
+      if(marcado)abrir(p,e,pol);if(p.b.arma==='duas_katanas'){golpe(p,e,.6,6,'leve',{},t);golpe(p,e,.6,6,'leve',{},t);}if(saque){const carga=Math.max(0,Math.min(1,(t-p.bainha.t0-0.4)/1.2));p.bainha=null;golpe(p,e,1.2+0.8*carga,24*multI(a),'leve',{},t);}return 'parry';}
     p.res=Math.max(0,p.res-15);p.semGastoR=0;p.flinch=0.35;return tomar(p,dano,I,t,e);}
   if(podeB&&(r<pol.parry+pol.bloq||!podeE)){if(leitura==='quebraGuarda'){p.flinch=1.0;e.flancoAberto=1.2;return tomar(p,dano,I,t,e);}
     const bloqMult=A.bloq*(p.b.opc.bloqEscudo&&p.b.arma==='espada_e_escudo'?p.b.opc.bloqEscudo:1);let custo=(0.08*dano/p.s+0.25*I)/(1+0.6*rA(a,'FOR')+0.4*rA(a,'VIG'))*A.bloq;
     p.flinch=0.3;if(p.res<custo){p.res=0;p.flinch=1.0;return tomar(p,dano,I,t,e);}
-    p.res-=custo;p.semGastoR=0;const passa=p.b.opc.atravessa!=null?p.b.opc.atravessa:0.30;const M=200*p.s/(200*p.s+p.A);const d=dano*passa*M;p.vida-=d;p.recebido+=d;p.pos-=I*0.5;p.semPos=0;
+    p.res-=custo;p.semGastoR=0;const passa=p.b.opc.atravessa!=null?p.b.opc.atravessa:0.30;sofrer(p,dano*passa,I*0.5);
     if(marcado)abrir(p,e,pol);if(p.pos<=0){p.pos=p.posMax*.4;p.atord=2;}if(p.vida<=0)cair(p,t);p.stats.bloq++;return 'bloqueio';}
   if(podeE){const custo=p.custoEsq*(p.b.arma==='duas_katanas'?0.7:1);if(p.res<custo)return tomar(p,dano,I,t,e);
     p.res-=custo;p.semGastoR=0;p.flinch=0.40;const iframe=p.b.arma==='duas_katanas'?0.24:0.30;const off=.10+err;p.stats.esq++;
@@ -344,7 +346,7 @@ function luta(builds,cfgCena,hab,pol,seed){RND=mulberry(seed);const s=cfgCena.s;
       if(e.atord>0||e.exausto>0){e.atq.forEach(x=>x.prox+=dt);if(e.anuncio)e.anuncio.imp+=dt;continue;}
       if(e.anuncio&&t>=e.anuncio.imp){const an=e.anuncio;e.anuncio=null;const atq=an.atq;e.ultImpacto=t;
         for(const p of an.alvos){if(p.caido)continue;p.prazo=Infinity;
-          let leit=null;if(atq.nome==='Golpe pesado'&&L.ativa&&t>=L.aviso){L.familia++;if(L.familia%4===1)leit=L.ativa;} // ≤ 25% dos golpes da família
+          let leit=null;if(atq.nome==='Golpe pesado'&&L.ativa&&t>=L.aviso){L.familia++;if(L.familia%4===0)leit=L.ativa;} // ≤ 25% dos golpes da família
           if(p.longe&&atq.alvo==='todosPerto')continue;
           const r=responder(p,e,atq,t,p.pol,p.hab,leit);
           if(atq.nome==='Golpe pesado'&&cfgCena.leitura){L.oport++;const w=(r==='bloqueio'&&p.papel==='Co')?0.5:1;L.cont[r]=(L.cont[r]||0)+w;}
@@ -358,7 +360,8 @@ function luta(builds,cfgCena,hab,pol,seed){RND=mulberry(seed);const s=cfgCena.s;
         else if(pr.alvo==='todosPerto')alv=vp.filter(p=>melee(p)&&!p.longe);
         else if(pr.alvo==='chuva')alv=vp.filter(()=>RND()<5/6);
         else alv=vp;
-        alv=alv.filter(Boolean);if(alv.length){e.anuncio={atq:pr,imp:t+pr.aviso,alvos:alv};for(const p of alv){p.prazo=Math.min(p.prazo||Infinity,t+pr.aviso);p.ganancioso=RND()<p.hab.ganancia;}}}}}
+        alv=alv.filter(Boolean);if(alv.length){e.anuncio={atq:pr,imp:t+pr.aviso,alvos:alv};for(const p of alv){p.prazo=Math.min(p.prazo||Infinity,t+pr.aviso);p.ganancioso=RND()<p.hab.ganancia;
+          if(p.b.arma==='katana'&&pr.resp.includes('p')&&pr.aviso>=0.4&&!p.bainha&&!p.ganancioso&&(!p.acao||t>=p.acao.fim))p.bainha={t0:t};} /* katana guarda (0,4 s) para o saque de resposta */}}}}
     if(C.ancoras&&!C.ancoras.fim)gerirAncoras(C,players,alvos,t,cfgCena);
     // --- reanimação: 1 ajudante por alvo, canal de 4 s, exige reserva do caído ≥ 5% (ou custo fixo do ajudante no ensaio)
     for(const p of players){if(!p.caido||p.perdido)continue;if(t-p.caidoT>=25){p.perdido=true;continue;}
