@@ -14,7 +14,7 @@ const CAND={
   'B · Grok (P_arma 90; vidas ×1,30; chefe 160 mil e −30%; reserva 900; reanimação 50 fixos; bloqueio 15%; área 40%)':{pArma:90,vidaComum:1.30,chefe:{vida:160000/120000,dano:.70},opc:{reservaBase:900,reanimFixa:50,atravessa:.15,areaBloq:.4}}};
 function aplica(c){S.GLOBAL.pArma=c.pArma;S.GLOBAL.vidaComum=c.vidaComum;}
 function limpa(){S.GLOBAL.pArma=110;S.GLOBAL.vidaComum=1;}
-const ao1=c=>({s:1,inimigos:[{tipo:'ao1',mod:{vidaMult:c.chefe.vida,atq:S.TIPOS.ao1.atq.map(x=>Object.assign({},x,{dano:x.dano*c.chefe.dano}))}}],dur:900,ameaca:true,ancoras:true,grito:true,leitura:true});
+const ao1=c=>({s:1,inimigos:[{tipo:'ao1',mod:{vidaMult:c.chefe.vida,atq:S.TIPOS.ao1v8.atq.map(x=>Object.assign({},x,{dano:x.dano*c.chefe.dano}))}}],dur:900,ameaca:true,ancoras:true,grito:true,leitura:true});
 function buscar(pf,opc){const C=[];for(const ar of Object.keys(ARMAS))for(const els of [[],...ELS.map(e=>[e])]){const b=montarBuild(c15,ar,pf,els,'boneco',opc);C.push({b,d:dpsBoneco(b,POL.sustentado,60),ar,els});}
   C.sort((x,y)=>y.d-x.d);let m=null;for(const c of C.slice(0,6)){c.tt=bateria([c.b],solo('constructo'),RAPIDO?6:20,HAB['médio'],POL.sustentado,77).tempo;if(!m||c.tt<m.tt)m=c;}return m;}
 const L=[];const out=x=>L.push(x);const t0=Date.now();

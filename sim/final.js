@@ -14,7 +14,7 @@ const CAND={
   'A (ChatGPT): P_arma 57,5 · chefe 52% · bloqueio 30% · reserva 600':{pArma:57.5,dano:.52,opc:{}},
   'A2 (Grok): P_arma 60 · chefe 55% · bloqueio 15% · área 40% · reserva 750':{pArma:60,dano:.55,opc:{atravessa:.15,areaBloq:.4,reservaBase:750}},
   'A3 (Grok, alternativa): P_arma 60 · chefe 55% · bloqueio 15% · área 40% · reserva 600 · reanimação 50 fixos':{pArma:60,dano:.55,opc:{atravessa:.15,areaBloq:.4,reanimFixa:50}}};
-const ao1=c=>({s:1,inimigos:[{tipo:'ao1',mod:{atq:S.TIPOS.ao1.atq.map(x=>Object.assign({},x,{dano:x.dano*c.dano}))}}],dur:900,ameaca:true,ancoras:true,grito:true,leitura:true});
+const ao1=c=>({s:1,inimigos:[{tipo:'ao1',mod:{atq:S.TIPOS.ao1v8.atq.map(x=>Object.assign({},x,{dano:x.dano*c.dano}))}}],dur:900,ameaca:true,ancoras:true,grito:true,leitura:true});
 function buscar(pf,opc){const C=[];for(const ar of Object.keys(ARMAS))for(const els of [[],...ELS.map(e=>[e])]){const b=montarBuild(c15,ar,pf,els,'boneco',opc);C.push({b,d:dpsBoneco(b,POL.sustentado,60),ar,els});}
   C.sort((x,y)=>y.d-x.d);let m=null;for(const c of C.slice(0,6)){c.tt=bateria([c.b],solo('constructo'),RAPIDO?6:20,HAB['médio'],POL.sustentado,77).tempo;if(!m||c.tt<m.tt)m=c;}return m;}
 const L=[];const out=x=>L.push(x);const t0=Date.now();

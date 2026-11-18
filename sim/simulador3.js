@@ -21,7 +21,7 @@ const VERSAO_DADOS=require('crypto').createHash('sha1').update(fs.readFileSync(p
 
 // ---------- utilidades ----------
 function mulberry(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
-let RND=Math.random;const GLOBAL={pArma:110,fogoArm:30,flanco:1.3,vidaComum:1,frenesiVel:.03,frenesiPorAcerto:true};const gauss=()=>{let u=0,v=0;while(!u)u=RND();while(!v)v=RND();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v);};
+let RND=Math.random;const GLOBAL={pArma:57.5,fogoArm:30,flanco:1.3,vidaComum:1,frenesiVel:.02,frenesiPorAcerto:true}; /* calibração v1 (docs/10-calibracao-v1.md) */const gauss=()=>{let u=0,v=0;while(!u)u=RND();while(!v)v=RND();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v);};
 const rr=x=>x/(x+40),Cc=x=>x+x*x/40;
 const media=a=>a.length?a.reduce((q,x)=>q+x,0)/a.length:NaN;
 function tq(df){const z=1.959964;if(df<1)return NaN;return z+(z**3+z)/(4*df)+(5*z**5+16*z**3+3*z)/(96*df*df)+(3*z**7+19*z**5+17*z**3-15*z)/(384*df**3);}
@@ -40,9 +40,9 @@ const ARMAS={ // bloq: multiplicador do custo de bloqueio (null = não bloqueia)
  espada_e_escudo:{lK:.58,lT:.65,pK:1.35,pT:1.15,lI:10,pI:24,bloq:.75,h:1,alc:2.0},
  katana:{lK:.65,lT:.62,pK:1.50,pT:1.10,lI:9,pI:24,bloq:null,h:1,alc:2.4},
  duas_katanas:{lK:.42,lT:.72,pK:1.35,pT:1.15,lI:6,pI:22,bloq:null,h:2,alc:2.2},
- machado_grande:{lK:.85,lT:1.00,pK:1.90,pT:1.70,lI:15,pI:40,bloq:1/1.3,h:1,alc:2.6},
+ machado_grande:{lK:.92,lT:1.00,pK:2.05,pT:1.40,lI:15,pI:40,bloq:1/1.3,h:1,alc:2.6},
  machado_pequeno:{lK:.58,lT:.60,pK:1.25,pT:1.05,lI:10,pI:24,bloq:1,h:1,alc:1.7},
- dois_machados:{lK:.38,lT:.66,pK:1.25,pT:1.05,lI:6,pI:24,bloq:null,h:2,alc:1.8},
+ dois_machados:{lK:.34,lT:.66,pK:1.25,pT:1.05,lI:6,pI:24,bloq:null,h:2,alc:1.8},
  arco:{lK:.55,lT:.70,pK:1.50,pT:1.20,lI:6,pI:12,bloq:null,h:1,alc:30}
 };
 const ARMADURAS={leve:{A:40,peso:4},media:{A:85,peso:9},pesada:{A:140,peso:16}};
@@ -113,13 +113,16 @@ const TIPOS={
   fera:{vida:650,pos:60,A:50,atq:[{nome:'mordida',dano:80,aviso:.55,I:25,int:1.6,alvo:'aggro',resp:'epb'}]},
   constructo:{vida:1100,pos:170,A:50,grande:1,atq:[{nome:'pancada',dano:160,aviso:1.0,I:50,int:3.0,alvo:'aggro',resp:'epb'}]},
   elemental:{vida:800,pos:80,A:30,atq:[{nome:'disparo',dano:120,aviso:1.0,I:0,int:3.5,alvo:'um',resp:'e',dist:1}]},
+  // AO.1 com os ataques da calibração v1 (53,5% do v8)
   ao1:{vida:120000,pos:1000,A:50,grande:1,chefe:1,atq:[
-    {nome:'Golpe pesado',dano:300,aviso:1.0,I:40,int:8,alvo:'aggro',resp:'epb'},
-    {nome:'Varredura',dano:220,aviso:.9,I:30,int:12,alvo:'todosPerto',resp:'m'},
-    {nome:'Investida',dano:320,aviso:1.3,I:60,int:20,alvo:'um',resp:'m',investida:1},
-    {nome:'Chuva de pedras',dano:180,aviso:1.5,I:0,int:25,alvo:'chuva',resp:'m'}]},
+    {nome:'Golpe pesado',dano:160,aviso:1.0,I:40,int:8,alvo:'aggro',resp:'epb'},
+    {nome:'Varredura',dano:118,aviso:.9,I:30,int:12,alvo:'todosPerto',resp:'m'},
+    {nome:'Investida',dano:171,aviso:1.3,I:60,int:20,alvo:'um',resp:'m',investida:1},
+    {nome:'Chuva de pedras',dano:96,aviso:1.5,I:0,int:25,alvo:'chuva',resp:'m'}]},
   sint:{vida:120000,pos:1000,A:50,grande:1,chefe:1,atq:[]} // padrão definido por cenário
 };
+TIPOS.ao1v8=Object.assign({},TIPOS.ao1,{atq:[{nome:'Golpe pesado',dano:300,aviso:1.0,I:40,int:8,alvo:'aggro',resp:'epb'},{nome:'Varredura',dano:220,aviso:.9,I:30,int:12,alvo:'todosPerto',resp:'m'},{nome:'Investida',dano:320,aviso:1.3,I:60,int:20,alvo:'um',resp:'m',investida:1},{nome:'Chuva de pedras',dano:180,aviso:1.5,I:0,int:25,alvo:'chuva',resp:'m'}]}); // valores do v8, para os scripts históricos
+
 function inimigo(tipo,s,mod){const T=TIPOS[tipo];mod=mod||{};const vm=tipo==='boneco'?1:(mod.vidaMult||1)*(T.chefe?1:GLOBAL.vidaComum);
   const atq=(mod.atq||T.atq).map(x=>Object.assign({},x,{prox:(x.int*(0.3+0.4*RND()))+1}));
   return {tipo,vida:T.vida*s*vm,vidaMax:T.vida*s*vm,pos:T.pos,posMax:T.pos,A:T.A*s,atq,grande:!!T.grande,chefe:!!T.chefe,s,
@@ -437,5 +440,5 @@ function bateria(builds,cfgCena,n,hab,pol,base){const R=[];for(let i=0;i<n;i++)R
 // boneco = mesmo motor, inimigo sem ataques, sem ameaça
 function dpsBoneco(b,pol,dur){const s=b.cfg.s;const r=luta([b],{s,inimigos:[{tipo:'boneco'}],dur:dur||60,ameaca:false},HAB['médio'],pol,42);return r.dps;}
 
-module.exports={GLOBAL,ficha,montarBuild,luta,bateria,dpsBoneco,PERFIS,ARMAS,ARMADURAS,POL,HAB,ARV,D,TIPOS,media,wilson,icT,escala,fases,multP,multI,rA,VERSAO_DADOS,FICHAS};
+module.exports={GLOBAL,limparFichas:()=>{for(const k in fichaCache)delete fichaCache[k];},ficha,montarBuild,luta,bateria,dpsBoneco,PERFIS,ARMAS,ARMADURAS,POL,HAB,ARV,D,TIPOS,media,wilson,icT,escala,fases,multP,multI,rA,VERSAO_DADOS,FICHAS};
 if(require.main===module)require('./rodar3.js');

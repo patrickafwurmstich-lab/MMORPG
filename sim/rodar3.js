@@ -32,7 +32,7 @@ out(`| Por eventos, constructo | 60 s, vida ×20, ataques reais | **${f(evC.dps,
 out('');out('| Inimigo | Vida do contrato: tempo ± IC | Vitória | Com vida ×1,30 (ensaio do Grok) | Faixa do contrato |');out('|---|---|---|---|---|');
 out(`| Fera (650) | ${f(ttF.tempo,1)} ± ${f(ttF.ic,1)} s | ${f(ttF.vitorias*100)}% | ${f(tt13F.tempo,1)} s | 8–12 s |`);
 out(`| Constructo (1.100) | ${f(ttC.tempo,1)} ± ${f(ttC.ic,1)} s | ${f(ttC.vitorias*100)}% | ${f(tt13C.tempo,1)} s | 14–18 s |`);
-S.GLOBAL.pArma=65;const p65F=bateria([bRef],solo('fera',1),N1,HAB['médio'],POL.sustentado,3),p65C=bateria([bRef],solo('constructo',1),N1,HAB['médio'],POL.sustentado,4),p65E=bateria([bRef],solo('constructo',1,{vidaMult:20},60),N1,HAB['médio'],POL.sustentado,2);S.GLOBAL.pArma=110;
+S.GLOBAL.pArma=65;const p65F=bateria([bRef],solo('fera',1),N1,HAB['médio'],POL.sustentado,3),p65C=bateria([bRef],solo('constructo',1),N1,HAB['médio'],POL.sustentado,4),p65E=bateria([bRef],solo('constructo',1,{vidaMult:20},60),N1,HAB['médio'],POL.sustentado,2);S.GLOBAL.pArma=57.5;
 const v145F=bateria([bRef],solo('fera',1,{vidaMult:1.45}),N1,HAB['médio'],POL.sustentado,3),v145C=bateria([bRef],solo('constructo',1,{vidaMult:1.45}),N1,HAB['médio'],POL.sustentado,4);
 out('');out('### Ensaios de calibração (as duas propostas do loop 6)');out('');out('| Proposta | DPS por eventos (constructo) | Fera | Constructo | Contrato |');out('|---|---|---|---|---|');
 out(`| Atual (P_arma 110, vidas do contrato) | ${f(evC.dps,1)} | ${f(ttF.tempo,1)} s | ${f(ttC.tempo,1)} s | 8–12 / 14–18 s |`);
@@ -121,13 +121,13 @@ out('');out('### 5.2 Grupos de 6 cópias (rotas das âncoras dependem da composi
 for(const g of [GRUPO[1],GRUPO[2],GRUPO[3],GRUPO[0]])out(linhaChefe(`6 × ${g[1]} (${g[0]}, ${g[2][0]})`,bateria(mkG([g,g,g,g,g,g]),AO1,NBi,HAB['médio'],POL.sustentado,22)));
 out('');out('### 5.3 Ensaios (grupo misto, jogador médio, **mesmas sementes da linha base**)');out('');out(cab);out(sep);
 const SB=20;const roda=(nome,bs,cena)=>out(linhaChefe(nome,bateria(bs,cena,NB,HAB['médio'],POL.sustentado,SB)));
-const ao1m=(dm,vm)=>({s:1,inimigos:[{tipo:'ao1',mod:{vidaMult:vm||1,atq:S.TIPOS.ao1.atq.map(x=>Object.assign({},x,{dano:x.dano*dm}))}}],dur:900,ameaca:true,ancoras:true,grito:true,leitura:true});
+const ao1m=(dm,vm)=>({s:1,inimigos:[{tipo:'ao1',mod:{vidaMult:vm||1,atq:S.TIPOS.ao1v8.atq.map(x=>Object.assign({},x,{dano:x.dano*dm}))}}],dur:900,ameaca:true,ancoras:true,grito:true,leitura:true});
 roda('Linha base (repete 5.1)',mkG(GRUPO),AO1);
 roda('Poção sem guardar reserva',mkG(GRUPO,{pocaoLivre:1}),AO1);
 roda('Grok: reserva 900',mkG(GRUPO,{reservaBase:900}),AO1);
 roda('Grok: bloqueio 15% + área 40% bloqueável',mkG(GRUPO,{atravessa:.15,areaBloq:.4}),AO1);
 roda('ChatGPT: escudo 20%',mkG(GRUPO).map(b=>b.arma==='espada_e_escudo'?Object.assign(b,{opc:Object.assign({},b.opc,{atravessa:.20})}):b),AO1);
-for(const dm of [1,.75,.6,.5]){S.GLOBAL.pArma=65;roda(`ChatGPT: P_arma 65, dano do chefe ${f(dm*100)}%`,mkG(GRUPO),ao1m(dm));S.GLOBAL.pArma=110;}
+for(const dm of [1,.75,.6,.5]){S.GLOBAL.pArma=65;roda(`ChatGPT: P_arma 65, dano do chefe ${f(dm*100)}%`,mkG(GRUPO),ao1m(dm));S.GLOBAL.pArma=57.5;}
 roda('Grok: pacote (vida 175 mil, dano −33%, reserva 900, reanimação 50 fixos, bloqueio 15%, área 40%)',mkG(GRUPO,{reservaBase:900,reanimFixa:50,atravessa:.15,areaBloq:.4}),ao1m(.67,175000/120000));
 out('');out('### 5.4 Chefes sintéticos (testes de pressão, não são o AO.1)');out('');out(cab);out(sep);
 const sint=atq=>({s:1,inimigos:[{tipo:'sint',mod:{atq}}],dur:900,ameaca:true});

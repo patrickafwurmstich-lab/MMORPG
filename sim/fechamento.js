@@ -9,7 +9,7 @@ const c15={nivel:15,s:1},cref={nivel:15,s:1,ref:true};const ELS=['fogo','gelo','
 const solo=(tipo,mod)=>({s:1,inimigos:[{tipo,mod}],dur:240,ameaca:true});
 const GRUPO=[['espada_e_escudo','Tanque',['terra'],'defensiva'],['machado_grande','Força',['fogo'],'ruptura'],['duas_espadas','Destreza',['vento'],'explosao'],['arco','Leitor (PER)',['raio'],'sustentado'],['desarmado','Mago',['gelo'],'sustentado'],['espada_longa','Lâmina mágica',['agua'],'sustentado']];
 Object.assign(ARMAS.machado_grande,{lK:.92,pK:2.05,pT:1.40});ARMAS.dois_machados.lK=.34;S.GLOBAL.frenesiVel=.02;S.GLOBAL.pArma=57.5;
-const ao1=d=>({s:1,inimigos:[{tipo:'ao1',mod:{atq:S.TIPOS.ao1.atq.map(x=>Object.assign({},x,{dano:x.dano*d}))}}],dur:900,ameaca:true,ancoras:true,grito:true,leitura:true});
+const ao1=d=>({s:1,inimigos:[{tipo:'ao1',mod:{atq:S.TIPOS.ao1v8.atq.map(x=>Object.assign({},x,{dano:x.dano*d}))}}],dur:900,ameaca:true,ancoras:true,grito:true,leitura:true});
 function buscar(pf){const C=[];for(const ar of Object.keys(ARMAS))for(const els of [[],...ELS.map(e=>[e])]){const b=montarBuild(c15,ar,pf,els,'boneco');C.push({b,d:dpsBoneco(b,POL.sustentado,60),ar,els});}
   C.sort((x,y)=>y.d-x.d);let m=null;for(const c of C.slice(0,6)){c.tt=bateria([c.b],solo('constructo'),RAPIDO?6:20,HAB['médio'],POL.sustentado,77).tempo;if(!m||c.tt<m.tt)m=c;}return m;}
 const L=[];const out=x=>L.push(x);const t0=Date.now();

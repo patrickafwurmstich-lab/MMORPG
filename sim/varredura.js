@@ -7,6 +7,6 @@ const V=JSON.parse(process.env.V);
 for(const v of V){S.GLOBAL.pArma=v.p;S.GLOBAL.fogoArm=v.fogo||30;S.GLOBAL.flanco=v.fl||1.3;
  let txt='';if(v.perfis){const pr=Object.keys(PERFIS).map(pf=>{const m=buscar(pf,v.opc);return {pf,m,r:bateria([m.b],solo('constructo'),60,HAB['médio'],POL.sustentado,8)}});const mel=Math.min(...pr.map(x=>x.r.tempo));txt=pr.map(x=>x.pf.slice(0,6)+' '+x.m.ar.slice(0,8)+'/'+(x.m.els[0]||'-')+' '+((x.r.tempo/mel-1)*100).toFixed(0)).join(' | ')+' => '+pr.filter(x=>x.r.tempo/mel-1<=.15).length+'/8';}
  const g=GRUPO.map(([ar,pf,el,pol])=>montarBuild(c15,ar,pf,el,'chefe',Object.assign({pol},v.opc)));
- const ao={s:1,inimigos:[{tipo:'ao1',mod:{atq:S.TIPOS.ao1.atq.map(x=>Object.assign({},x,{dano:x.dano*v.d}))}}],dur:900,ameaca:true,ancoras:true,grito:true,leitura:true};
+ const ao={s:1,inimigos:[{tipo:'ao1',mod:{atq:S.TIPOS.ao1v8.atq.map(x=>Object.assign({},x,{dano:x.dano*v.d}))}}],dur:900,ameaca:true,ancoras:true,grito:true,leitura:true};
  const bm=bateria(g,ao,120,HAB['médio'],POL.sustentado,20);
  console.log(JSON.stringify(v),'| AO1',(bm.vitorias*100).toFixed(0)+'%',(bm.tempo/60).toFixed(2)+'min reanim',bm.reanim.toFixed(2),'\n   ',txt);}
